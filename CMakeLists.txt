@@ -4,5 +4,5 @@ FIND_PACKAGE(OpenCV REQUIRED)
 
 PROJECT(Projet-Inf552)
 
-ADD_EXECUTABLE(projet projet.cpp)
+ADD_EXECUTABLE(projet projet.cpp parser_camera_info.cpp)
 TARGET_LINK_LIBRARIES(projet ${OpenCV_LIBS})

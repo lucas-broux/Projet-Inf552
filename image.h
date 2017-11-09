@@ -11,6 +11,8 @@ public:
 	Image(int m,int n,int type):Mat(m,n,type) {}
 	inline T operator()(int i,int j) const { return at<T>(i,j); }
 	inline T& operator()(int i,int j) { return at<T>(i,j); }
+	inline int width() const { return cols; }
+	inline int height() const { return rows; }
 };
 
 #endif

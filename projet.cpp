@@ -154,13 +154,14 @@ int main()
 
 	Point m1(1050, 490);
 	circle(left_image, m1, 1, Scalar(0, 255, 0), 1);
-	imshow("left_image", left_image);
+	//imshow("left_image", left_image);
 
 	circle(right_image, m1, 1, Scalar(0, 255, 0), 1);
 	Point m2(m1.x - float(disparity.at<uchar>(m1)) / 2.56, m1.y);
 	circle(right_image, m2, 1, Scalar(0, 0, 255), 1);
-	imshow("right_image", right_image); waitKey();
+	//imshow("right_image", right_image); waitKey();
 	
+	int counter = 0;
 	Mat Diff(right_image.rows, right_image.cols, CV_32F);
 	Mat isEqual(right_image.rows, right_image.cols, CV_32F);
 	for (int i = 0; i < right_image.rows; i++) {
@@ -170,7 +171,30 @@ int main()
 				if (float(norm(right_image.at<Vec3b>(i - float(disparity.at<uchar>(i, j)) / 2.56, j) - left_image.at<Vec3b>(i, j))) < 5) {
 					isEqual.at<float>(i, j) = 255;
 
-					// Creer point 3D ICI
+					if (float(disparity.at<uchar>(i, j) > 0)) {
+						// Creer point 3D ICI
+						float x = i;
+						float y = j;
+						Matx33d M;
+						M(0, 0) = (double)camera["intrinsic"]["fx"];
+						M(0, 1) = 0.0;
+						M(0, 2) = (double)camera["intrinsic"]["u0"] - x;
+						M(1, 0) = 0.0;
+						M(1, 1) = (double)camera["intrinsic"]["fy"];
+						M(1, 2) = (double)camera["intrinsic"]["v0"] - y;
+						M(2, 0) = (double)camera["intrinsic"]["fx"];
+						M(2, 1) = 0.0;
+						M(2, 2) = (double)camera["intrinsic"]["u0"] - x - float(disparity.at<uchar>(i, j)) / 2.56;
+
+						// Compute X, Y, Z.
+						/*Matx31d tfx;
+						tfx(0, 0) = 0.0;
+						tfx(1, 0) = 0.0;
+						tfx(2, 0) = -(double)camera["intrinsic"]["fx"] * (double)camera["extrinsic"]["baseline"];*/
+						Mat tfx = (Mat1d(3, 1) << 0.0, 0.0, -(double)camera["intrinsic"]["fx"] * (double)camera["extrinsic"]["baseline"]);
+						counter++;
+						// cout << M.inv() * tfx << endl;
+					}
 
 				}
 				else {
@@ -184,9 +208,9 @@ int main()
 			}
 		}
 	}
-
-	imshow("isEqual", float2byte(isEqual));
-	imshow("Diff", float2byte(Diff)); waitKey();
+	cout << "Counter : " << counter << endl;
+	//imshow("isEqual", float2byte(isEqual));
+	//imshow("Diff", float2byte(Diff)); waitKey();
 	
 
 	/*	

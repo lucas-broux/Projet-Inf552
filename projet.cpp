@@ -161,9 +161,25 @@ int main()
 	circle(right_image, m2, 1, Scalar(0, 0, 255), 1);
 	//imshow("right_image", right_image); waitKey();
 	
-	int counter = 0;
+	int counter = 0; // Count number of valid points.
+	ofstream plyFile;// 3D Cloud.
+	plyFile.open("../example.ply");
+	// Header.
+	plyFile << "ply\nformat ascii 1.0\ncomment author : Loiseau&Broux\ncomment object : 3d point Cloud\n";
+	// Definition of element vertex.
+	plyFile << "element vertex 8\nproperty float x\nproperty float y\nproperty float z\nproperty uchar red\nproperty uchar green\nproperty uchar blue\nend_header\n";
+	// Cube
+	plyFile << "0 0 0 255 0 0\n";
+	plyFile << "0 0 1 255 0 0\n";
+	plyFile << "0 1 1 255 0 0\n";
+	plyFile << "0 1 0 255 0 0\n";
+	plyFile << "1 0 0 0 0 255\n";
+	plyFile << "1 0 1 0 0 255\n";
+	plyFile << "1 1 1 0 0 255\n";
+	plyFile << "1 1 0 0 0 255\n";
+	plyFile.close();
 	Mat Diff(right_image.rows, right_image.cols, CV_32F);
-	Mat isEqual(right_image.rows, right_image.cols, CV_32F);
+	Mat isEqual(right_image.rows, right_image.cols, CV_32F);/*
 	for (int i = 0; i < right_image.rows; i++) {
 		for (int j = 0; j < right_image.cols; j++) {
 			//cout << float(norm(right_image.at<Vec3b>(i, j) - left_image.at<Vec3b>(i, j))) << endl;
@@ -187,11 +203,11 @@ int main()
 						M(2, 2) = (double)camera["intrinsic"]["u0"] - x - float(disparity.at<uchar>(i, j)) / 2.56;
 
 						// Compute X, Y, Z.
-						/*Matx31d tfx;
-						tfx(0, 0) = 0.0;
-						tfx(1, 0) = 0.0;
-						tfx(2, 0) = -(double)camera["intrinsic"]["fx"] * (double)camera["extrinsic"]["baseline"];*/
 						Mat tfx = (Mat1d(3, 1) << 0.0, 0.0, -(double)camera["intrinsic"]["fx"] * (double)camera["extrinsic"]["baseline"]);
+
+						// Add point to file.
+
+						// Increment counter.
 						counter++;
 						// cout << M.inv() * tfx << endl;
 					}
@@ -210,7 +226,7 @@ int main()
 	}
 	cout << "Counter : " << counter << endl;
 	//imshow("isEqual", float2byte(isEqual));
-	//imshow("Diff", float2byte(Diff)); waitKey();
+	//imshow("Diff", float2byte(Diff)); waitKey();*/
 	
 
 	/*	

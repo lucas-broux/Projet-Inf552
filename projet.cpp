@@ -19,6 +19,98 @@ Mat float2byte(const Mat& If) {
 	return Ib;
 }
 
+int computeQ(Mat disparity) {
+	// read a JSON file
+	std::ifstream stream_camera("../Files/aachen_000029_000019_test/aachen_000029_000019_camera.json");
+	json camera;
+	stream_camera >> camera;
+
+	Matx33d cameraMatrix;
+	cameraMatrix(0, 0) = (double)camera["intrinsic"]["fx"];
+	cameraMatrix(0, 1) = 0.0;
+	cameraMatrix(0, 2) = (double)camera["intrinsic"]["u0"];
+	cameraMatrix(1, 0) = 0.0;
+	cameraMatrix(1, 1) = (double)camera["intrinsic"]["fy"];
+	cameraMatrix(1, 2) = (double)camera["intrinsic"]["v0"];
+	cameraMatrix(2, 0) = 0.0;
+	cameraMatrix(2, 1) = 0.0;
+	cameraMatrix(2, 2) = 1.0;
+	//cout << cameraMatrix << endl;
+
+	// Rotation + translation.
+	Matx34d Rt;
+	Rt(0, 0) = 1.0;
+	Rt(0, 1) = 0.0;
+	Rt(0, 2) = 0.0;
+	Rt(0, 3) = (double)camera["extrinsic"]["baseline"];
+	Rt(1, 0) = 0.0;
+	Rt(1, 1) = 1.0;
+	Rt(1, 2) = 0.0;
+	Rt(1, 3) = 0.0;
+	Rt(2, 0) = 0.0;
+	Rt(2, 1) = 0.0;
+	Rt(2, 2) = 1.0;
+	Rt(2, 3) = 0.0;
+	//cout << Rt << endl;
+	//cout << cameraMatrix*Rt << endl;
+
+	// Rotation.
+	Matx33d R;
+	R(0, 0) = 1.0;
+	R(0, 1) = 0.0;
+	R(0, 2) = 0.0;
+	R(1, 0) = 0.0;
+	R(1, 1) = 1.0;
+	R(1, 2) = 0.0;
+	R(2, 0) = 0.0;
+	R(2, 1) = 0.0;
+	R(2, 2) = 1.0;
+
+	// Translation.
+	Matx31d T;
+	T(0, 0) = (double)camera["extrinsic"]["baseline"];
+	T(1, 0) = 0.0;
+	T(2, 0) = 0.0;
+
+	Mat distortionCoefficients1 = (Mat1d(1, 4) << 0.0, 0.0, 0.0, 0.0);
+	Mat distortionCoefficients2 = (Mat1d(1, 4) << 0.0, 0.0, 0.0, 0.0);
+
+	Mat R1, R2, P1, P2, Q_cv;
+
+	Size imageSize = disparity.size();
+
+	cout << "R = " << R << endl;
+	cout << "T = " << T << endl;
+	cout << "cameraMatrix = " << cameraMatrix << endl;
+	cout << "distortionCoefficients1 = " << distortionCoefficients1 << endl;
+	cout << "distortionCoefficients2 = " << distortionCoefficients2 << endl;
+
+	stereoRectify(cameraMatrix, distortionCoefficients1, cameraMatrix, distortionCoefficients2, imageSize, R, T, R1, R2, P1, P2, Q_cv);
+
+	cout << "Q_cv = " << Q_cv << endl;
+
+	//https://stackoverflow.com/questions/27374970/q-matrix-for-the-reprojectimageto3d-function-in-opencv
+	Mat_<float> Q(4, 4);
+	Q.at<float>(0, 0) = 1.0;
+	Q.at<float>(0, 1) = 0.0;
+	Q.at<float>(0, 2) = 0.0;
+	Q.at<float>(0, 3) = -(float)camera["intrinsic"]["u0"];
+	Q.at<float>(1, 0) = 0.0;
+	Q.at<float>(1, 1) = 1.0;
+	Q.at<float>(1, 2) = 0.0;
+	Q.at<float>(1, 3) = -(float)camera["intrinsic"]["v0"];
+	Q.at<float>(2, 0) = 0.0;
+	Q.at<float>(2, 1) = 0.0;
+	Q.at<float>(2, 2) = 0.0;
+	Q.at<float>(2, 3) = 2264.0;
+	Q.at<float>(3, 0) = 0.0;
+	Q.at<float>(3, 1) = 0.0;
+	Q.at<float>(3, 2) = -1.0 / ((float)camera["extrinsic"]["baseline"]);
+	Q.at<float>(3, 3) = 0.0;
+	cout << "Q = " << Q << endl;
+	return 0;
+}
+
 int main()
 {
 	cout << "Hello World" << endl;
@@ -59,7 +151,15 @@ int main()
 	Mat left_image = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_leftImg8bit.png");
 	Mat right_image = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_rightImg8bit.png");
 	Mat disparity = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_disparity.png");
-	
+
+	Point m1(1050, 490);
+	circle(left_image, m1, 1, Scalar(0, 255, 0), 1);
+	imshow("left_image", left_image);
+
+	circle(right_image, m1, 1, Scalar(0, 255, 0), 1);
+	Point m2(m1.x - float(disparity.at<uchar>(m1)) / 2.56, m1.y);
+	circle(right_image, m2, 1, Scalar(0, 0, 255), 1);
+	imshow("right_image", right_image); waitKey();
 	
 	Mat Diff(right_image.rows, right_image.cols, CV_32F);
 	Mat isEqual(right_image.rows, right_image.cols, CV_32F);
@@ -67,8 +167,11 @@ int main()
 		for (int j = 0; j < right_image.cols; j++) {
 			//cout << float(norm(right_image.at<Vec3b>(i, j) - left_image.at<Vec3b>(i, j))) << endl;
 			if (i - float(disparity.at<uchar>(i, j)) / 2.56 >= 0) {
-				if (float(norm(right_image.at<Vec3b>(i - float(disparity.at<uchar>(i, j)) / 2.56, j) - left_image.at<Vec3b>(i, j))) == 0) {
+				if (float(norm(right_image.at<Vec3b>(i - float(disparity.at<uchar>(i, j)) / 2.56, j) - left_image.at<Vec3b>(i, j))) < 5) {
 					isEqual.at<float>(i, j) = 255;
+
+					// Creer point 3D ICI
+
 				}
 				else {
 					isEqual.at<float>(i, j) = 0;
@@ -86,37 +189,7 @@ int main()
 	imshow("Diff", float2byte(Diff)); waitKey();
 	
 
-	Point m1(1050, 490);
-	circle(left_image, m1, 1, Scalar(0, 255, 0), 1);
-	imshow("left_image", left_image);
-
-	circle(right_image, m1, 1, Scalar(0, 255, 0), 1);
-	Point m2(m1.x - float(disparity.at<uchar>(m1))/2.56, m1.y);
-	circle(right_image, m2, 1, Scalar(0, 0, 255), 1);
-	imshow("right_image", right_image); waitKey();
-	
-	/*
-	//https://stackoverflow.com/questions/27374970/q-matrix-for-the-reprojectimageto3d-function-in-opencv
-	Matx44f Q;
-	Q(0, 0) = 1.0;
-	Q(0, 1) = 0.0;
-	Q(0, 2) = 0.0;
-	Q(0, 3) = (float) camera["intrinsic"]["u0"];
-	Q(1, 0) = 0.0;
-	Q(1, 1) = 1.0;
-	Q(1, 2) = 0.0;
-	Q(1, 3) = (float) camera["intrinsic"]["v0"];
-	Q(2, 0) = 0.0;
-	Q(2, 1) = 0.0;
-	Q(2, 2) = 0.0;
-	Q(2, 3) = 2264.0;
-	Q(3, 0) = 0.0;
-	Q(3, 1) = 0.0;
-	Q(3, 2) = 1.0 / ((float)camera["extrinsic"]["baseline"]);
-	Q(3, 3) = 0.0;
-	cout << Q << endl;
-
-	
+	/*	
 	Mat xyz(disparity.size(), CV_32FC1);
 	reprojectImageTo3D(disparity, xyz, Q, false);
 	

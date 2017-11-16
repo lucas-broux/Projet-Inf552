@@ -161,36 +161,29 @@ int main()
 	circle(right_image, m2, 1, Scalar(0, 0, 255), 1);
 	//imshow("right_image", right_image); waitKey();
 	
-	int counter = 0; // Count number of valid points.
+	int nb_vertex = 0; // Count number of valid points.
 	ofstream plyFile;// 3D Cloud.
-	plyFile.open("../example.ply");
+	plyFile.open("../3dcloud.ply");
 	// Header.
-	plyFile << "ply\nformat ascii 1.0\ncomment author : Loiseau&Broux\ncomment object : 3d point Cloud\n";
+	plyFile << "ply\nformat ascii 1.0\ncomment author : Loiseau & Broux\ncomment object : 3d point Cloud\n";
 	// Definition of element vertex.
-	plyFile << "element vertex 8\nproperty float x\nproperty float y\nproperty float z\nproperty uchar red\nproperty uchar green\nproperty uchar blue\nend_header\n";
-	// Cube
-	plyFile << "0 0 0 255 0 0\n";
-	plyFile << "0 0 1 255 0 0\n";
-	plyFile << "0 1 1 255 0 0\n";
-	plyFile << "0 1 0 255 0 0\n";
-	plyFile << "1 0 0 0 0 255\n";
-	plyFile << "1 0 1 0 0 255\n";
-	plyFile << "1 1 1 0 0 255\n";
-	plyFile << "1 1 0 0 0 255\n";
-	plyFile.close();
+	string plyElements = "\nproperty float x\nproperty float y\nproperty float z\nproperty uchar red\nproperty uchar green\nproperty uchar blue\nend_header\n";
+	string plyVertex;
 	Mat Diff(right_image.rows, right_image.cols, CV_32F);
-	Mat isEqual(right_image.rows, right_image.cols, CV_32F);/*
+	Mat isEqual(right_image.rows, right_image.cols, CV_32F);
+
 	for (int i = 0; i < right_image.rows; i++) {
+		cout << float(i) / float(right_image.rows) << endl;
 		for (int j = 0; j < right_image.cols; j++) {
 			//cout << float(norm(right_image.at<Vec3b>(i, j) - left_image.at<Vec3b>(i, j))) << endl;
 			if (i - float(disparity.at<uchar>(i, j)) / 2.56 >= 0) {
-				if (float(norm(right_image.at<Vec3b>(i - float(disparity.at<uchar>(i, j)) / 2.56, j) - left_image.at<Vec3b>(i, j))) < 5) {
+				if (float(norm(right_image.at<Vec3b>(i - float(disparity.at<uchar>(i, j)) / 2.56, j) - left_image.at<Vec3b>(i, j))) == 0) {
 					isEqual.at<float>(i, j) = 255;
 
 					if (float(disparity.at<uchar>(i, j) > 0)) {
 						// Creer point 3D ICI
 						float x = i;
-						float y = j;
+						float y = -j;
 						Matx33d M;
 						M(0, 0) = (double)camera["intrinsic"]["fx"];
 						M(0, 1) = 0.0;
@@ -204,12 +197,21 @@ int main()
 
 						// Compute X, Y, Z.
 						Mat tfx = (Mat1d(3, 1) << 0.0, 0.0, -(double)camera["intrinsic"]["fx"] * (double)camera["extrinsic"]["baseline"]);
-
+						Vec3d position = M.inv() * tfx;
+						float X = position[0];
+						float Y = position[1];
+						float Z = position[2];
+						Vec3b color = left_image.at<Vec3b>(i, j);
+						int blue = color[0];
+						int green = color[1];
+						int red = color[2];
 						// Add point to file.
-
+						stringstream currentString;
+						currentString << X << " " << Y << " " << Z << " " << red << " " << green << " " << blue << endl;
+						plyVertex.append(currentString.str());
 						// Increment counter.
-						counter++;
-						// cout << M.inv() * tfx << endl;
+						nb_vertex++;
+						// 
 					}
 
 				}
@@ -224,9 +226,17 @@ int main()
 			}
 		}
 	}
-	cout << "Counter : " << counter << endl;
+	// Fill file.
+	stringstream currentString;
+	currentString << "element vertex " << nb_vertex << plyElements;
+	plyElements = currentString.str();
+	plyFile << plyElements << plyVertex;
+
+	// Close file.
+	plyFile.close();
+	cout << "Done" << endl;
 	//imshow("isEqual", float2byte(isEqual));
-	//imshow("Diff", float2byte(Diff)); waitKey();*/
+	//imshow("Diff", float2byte(Diff)); waitKey();
 	
 
 	/*	

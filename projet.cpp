@@ -1,4 +1,7 @@
 #include <iostream>
+
+#include <windows.h>
+
 #include <fstream>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/features2d/features2d.hpp>
@@ -111,56 +114,39 @@ int computeQ(Mat disparity) {
 	return 0;
 }
 
+// Function for hiding/showing cursor : hiding with setcursror(0, 0); reinitialisation with setcursor(1, 10)
+void setcursor(bool visible, DWORD size) // set bool visible = 0 - invisible, bool visible = 1 - visible
+{
+	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+	if (size == 0)
+	{
+		size = 20;	// default cursor size Changing to numbers from 1 to 20, decreases cursor width
+	}
+	CONSOLE_CURSOR_INFO lpCursor;
+	lpCursor.bVisible = visible;
+	lpCursor.dwSize = size;
+	SetConsoleCursorInfo(console, &lpCursor);
+}
+
 int main()
 {
-	cout << "Hello World" << endl;
-
-	// read a JSON file
+	// Read JSON file containing camera info.
 	std::ifstream stream_camera("../Files/aachen_000029_000019_test/aachen_000029_000019_camera.json");
 	json camera;
 	stream_camera >> camera;
 
-	Matx33d cameraMatrix;
-	cameraMatrix(0, 0) = (double) camera["intrinsic"]["fx"];
-	cameraMatrix(0, 1) = 0.0;
-	cameraMatrix(0, 2) = (double) camera["intrinsic"]["u0"];
-	cameraMatrix(1, 0) = 0.0;
-	cameraMatrix(1, 1) = (double) camera["intrinsic"]["fy"];
-	cameraMatrix(1, 2) = (double) camera["intrinsic"]["v0"];
-	cameraMatrix(2, 0) = 0.0;
-	cameraMatrix(2, 1) = 0.0;
-	cameraMatrix(2, 2) = 1.0;
-	cout << cameraMatrix << endl;
-
-	Matx34d Rt;
-	Rt(0, 0) = 1.0;
-	Rt(0, 1) = 0.0;
-	Rt(0, 2) = 0.0;
-	Rt(0, 3) = (double) camera["extrinsic"]["baseline"];
-	Rt(1, 0) = 0.0;
-	Rt(1, 1) = 1.0;
-	Rt(1, 2) = 0.0;
-	Rt(1, 3) = 0.0;
-	Rt(2, 0) = 0.0;
-	Rt(2, 1) = 0.0;
-	Rt(2, 2) = 1.0;
-	Rt(2, 3) = 0.0;
-	cout << Rt << endl;
-	cout << cameraMatrix*Rt << endl;
-
+	// Read the images
 	Mat left_image = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_leftImg8bit.png");
-	Mat right_image = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_rightImg8bit.png");
-	Mat disparity = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_disparity.png");
+	//Mat disparity = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_disparity.png", 0);
 
-	Point m1(1050, 490);
-	circle(left_image, m1, 1, Scalar(0, 255, 0), 1);
-	//imshow("left_image", left_image);
 
-	circle(right_image, m1, 1, Scalar(0, 255, 0), 1);
-	Point m2(m1.x - float(disparity.at<uchar>(m1)) / 2.56, m1.y);
-	circle(right_image, m2, 1, Scalar(0, 0, 255), 1);
-	//imshow("right_image", right_image); waitKey();
-	
+	// Smoothen disparity to have float values.
+	Mat disparity_original = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_disparity.png", 0);
+	Mat disparity_float = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_disparity.png", 0);
+	Mat disparity;
+	disparity_original.convertTo(disparity_float, CV_32FC1);
+	GaussianBlur(disparity_float, disparity, Size(1, 9), 0.);
+
 	int nb_vertex = 0; // Count number of valid points.
 	ofstream plyFile;// 3D Cloud.
 	plyFile.open("../3dcloud.ply");
@@ -169,63 +155,68 @@ int main()
 	// Definition of element vertex.
 	string plyElements = "\nproperty float x\nproperty float y\nproperty float z\nproperty uchar red\nproperty uchar green\nproperty uchar blue\nend_header\n";
 	string plyVertex;
-	Mat Diff(right_image.rows, right_image.cols, CV_32F);
-	Mat isEqual(right_image.rows, right_image.cols, CV_32F);
 
-	for (int i = 0; i < right_image.rows; i++) {
-		cout << float(i) / float(right_image.rows) << endl;
-		for (int j = 0; j < right_image.cols; j++) {
-			//cout << float(norm(right_image.at<Vec3b>(i, j) - left_image.at<Vec3b>(i, j))) << endl;
-			if (i - float(disparity.at<uchar>(i, j)) / 2.56 >= 0) {
-				if (float(norm(right_image.at<Vec3b>(i - float(disparity.at<uchar>(i, j)) / 2.56, j) - left_image.at<Vec3b>(i, j))) == 0) {
-					isEqual.at<float>(i, j) = 255;
+	// Loop over the image.
+	cout << "Looping over image :" << endl;
+	for (int i = 0; i < left_image.rows; i++) {
 
-					if (float(disparity.at<uchar>(i, j) > 0)) {
-						// Creer point 3D ICI
-						float x = i;
-						float y = -j;
-						Matx33d M;
-						M(0, 0) = (double)camera["intrinsic"]["fx"];
-						M(0, 1) = 0.0;
-						M(0, 2) = (double)camera["intrinsic"]["u0"] - x;
-						M(1, 0) = 0.0;
-						M(1, 1) = (double)camera["intrinsic"]["fy"];
-						M(1, 2) = (double)camera["intrinsic"]["v0"] - y;
-						M(2, 0) = (double)camera["intrinsic"]["fx"];
-						M(2, 1) = 0.0;
-						M(2, 2) = (double)camera["intrinsic"]["u0"] - x - float(disparity.at<uchar>(i, j)) / 2.56;
-
-						// Compute X, Y, Z.
-						Mat tfx = (Mat1d(3, 1) << 0.0, 0.0, -(double)camera["intrinsic"]["fx"] * (double)camera["extrinsic"]["baseline"]);
-						Vec3d position = M.inv() * tfx;
-						float X = position[0];
-						float Y = position[1];
-						float Z = position[2];
-						Vec3b color = left_image.at<Vec3b>(i, j);
-						int blue = color[0];
-						int green = color[1];
-						int red = color[2];
-						// Add point to file.
-						stringstream currentString;
-						currentString << X << " " << Y << " " << Z << " " << red << " " << green << " " << blue << endl;
-						plyVertex.append(currentString.str());
-						// Increment counter.
-						nb_vertex++;
-						// 
-					}
-
-				}
-				else {
-					isEqual.at<float>(i, j) = 0;
-				}
-				Diff.at<float>(i, j) = float(norm(right_image.at<Vec3b>(i - float(disparity.at<uchar>(i, j)) / 2.56, j) - left_image.at<Vec3b>(i, j)));
+		// Display progress bar.
+		setcursor(0, 0); // Remove cursor in console.
+		int nbarmax = 40;
+		int nbar = (int)(i * nbarmax / left_image.rows) ;
+		int pcent = (int)(i * 100 / left_image.rows);
+		stringstream progressBar;
+		progressBar << "[";
+		for (int barCounter = 0; barCounter < nbarmax; barCounter++) {
+			if (barCounter < nbar){
+				progressBar << "|";
 			}
 			else {
-				Diff.at<float>(i, j) = 0;
-				isEqual.at<float>(i, j) = 0;
+				progressBar << " ";
 			}
 		}
+		progressBar << "] " << pcent << "%" << "\r";;
+		cout << progressBar.str();
+
+		for (int j = 0; j < left_image.cols; j++) {
+			double d = disparity.at<float>(i, j);
+			if (d > 20) { // Adapt threshold for more/less 3d points.						
+				// Compute coordinates of 3D point ( 1 matrix multiplication ).
+				float x = i;
+				float y = j;
+				
+				Matx33d N;
+				N(0, 0) = 1.0;
+				N(0, 1) = 0.0;
+				N(0, 2) = -(double)camera["intrinsic"]["u0"];
+				N(1, 0) = 0.0;
+				N(1, 1) = (double)camera["intrinsic"]["fx"] / (double)camera["intrinsic"]["fy"];
+				N(1, 2) = -(double)camera["intrinsic"]["fx"] * (double)camera["intrinsic"]["v0"] / (double)camera["intrinsic"]["fy"];
+				N(2, 0) = 0.0;
+				N(2, 1) = 0.0;
+				N(2, 2) = (double)camera["intrinsic"]["fx"];
+				N = -(double)camera["extrinsic"]["baseline"] / (d / 2.56) * N;
+				Mat pos_image = (Mat1d(3, 1) << i, j, 1.0);
+				Vec3d position = N * pos_image;
+
+				// Add point to file.
+				float X = position[0];
+				float Y = position[1];
+				float Z = position[2];
+				Vec3b color = left_image.at<Vec3b>(i, j);
+				int blue = color[0];
+				int green = color[1];
+				int red = color[2];
+				stringstream currentString;
+				currentString << X << " " << Y << " " << Z << " " << red << " " << green << " " << blue << endl;
+				plyVertex.append(currentString.str());
+				// Increment counter.
+				nb_vertex++;
+			}
+
+		}
 	}
+
 	// Fill file.
 	stringstream currentString;
 	currentString << "element vertex " << nb_vertex << plyElements;
@@ -234,41 +225,10 @@ int main()
 
 	// Close file.
 	plyFile.close();
-	cout << "Done" << endl;
-	//imshow("isEqual", float2byte(isEqual));
-	//imshow("Diff", float2byte(Diff)); waitKey();
-	
 
-	/*	
-	Mat xyz(disparity.size(), CV_32FC1);
-	reprojectImageTo3D(disparity, xyz, Q, false);
+	// Output result.
+	system("cls");
+	cout << "File exported : " << nb_vertex << " vertices extracted." << endl;
 	
-	//https://stackoverflow.com/questions/22418846/reprojectimageto3d-in-opencv
-	Mat_<Vec3f> XYZ(disparity.rows, disparity.cols);   // Output point cloud
-	//Mat_<float> vec_tmp(4, 1);
-	for (int y = 0; y<disparity.rows; ++y) {
-		for (int x = 0; x<disparity.cols; ++x) {
-			Vec4f vec_tmp(x, y, float(disparity.at<uchar>(y, x)),  1);
-			if (y == 0 && x == 0) {
-				cout << vec_tmp << endl;
-			}
-			vec_tmp = Q*vec_tmp;
-			if (y == 0 && x == 0) {
-				cout << vec_tmp << endl;
-			}
-			vec_tmp /= vec_tmp(3);
-			if (y == 0 && x == 0) {
-				cout << vec_tmp << endl;
-			}
-			Vec3f &point = XYZ.at<Vec3f>(y, x);
-			point[0] = vec_tmp(0);
-			point[1] = vec_tmp(1);
-			point[2] = vec_tmp(2);
-		}
-	}
-	
-	cout << "projection in 3D finished" << endl;
-	*/
-	while (true);
 	return 0;
 }

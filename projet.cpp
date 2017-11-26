@@ -1,7 +1,6 @@
 #include <iostream>
 
 #include <windows.h>
-
 #include <fstream>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/features2d/features2d.hpp>
@@ -128,6 +127,20 @@ void setcursor(bool visible, DWORD size) // set bool visible = 0 - invisible, bo
 	SetConsoleCursorInfo(console, &lpCursor);
 }
 
+bool hasToBeTreated(int i, int j, double d, Mat left_image) {
+	double xp = 1155.; double yp = 839.;
+	if ((i > 1024. + j*(yp - 1024.)/xp) && (i > 1024. + (2048. - j)*(yp - 1024.) / (2048. - xp))) {
+		Vec3b color;
+		color[0] = 0; color[1] = 255; color[2] = 0;
+		left_image.at<Vec3b>(i, j) = color;
+		return false;
+	}
+	if (d < 5) {
+		return false;
+	}
+	return true;
+}
+
 int main()
 {
 	// Read JSON file containing camera info.
@@ -138,14 +151,19 @@ int main()
 	// Read the images
 	Mat left_image = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_leftImg8bit.png");
 	//Mat disparity = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_disparity.png", 0);
-
+	
+	Point m1(100, 100);
+	Point m2(100, 200);
+	circle(left_image, m1, 2, Scalar(0, 255, 0), 2);
+	circle(left_image, m2, 2, Scalar(0, 255, 0), 2);
+	//imshow("left", left_image); waitKey();
 
 	// Smoothen disparity to have float values.
 	Mat disparity_original = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_disparity.png", 0);
 	Mat disparity_float = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_disparity.png", 0);
 	Mat disparity;
 	disparity_original.convertTo(disparity_float, CV_32FC1);
-	GaussianBlur(disparity_float, disparity, Size(1, 9), 0.);
+	GaussianBlur(disparity_float, disparity, Size(1, 5), 0.);
 
 	int nb_vertex = 0; // Count number of valid points.
 	ofstream plyFile;// 3D Cloud.
@@ -179,8 +197,10 @@ int main()
 		cout << progressBar.str();
 
 		for (int j = 0; j < left_image.cols; j++) {
+
 			double d = disparity.at<float>(i, j);
-			if (d > 20) { // Adapt threshold for more/less 3d points.						
+			if (hasToBeTreated(i, j, d, left_image)) { // Adapt threshold for more/less 3d points.
+				
 				// Compute coordinates of 3D point ( 1 matrix multiplication ).
 				float x = i;
 				float y = j;
@@ -230,5 +250,9 @@ int main()
 	system("cls");
 	cout << "File exported : " << nb_vertex << " vertices extracted." << endl;
 	
+	Mat left_resized_image(512, 1024, left_image.depth());
+	resize(left_image, left_resized_image, left_resized_image.size());
+	imshow("left", left_resized_image); waitKey();
+
 	return 0;
 }

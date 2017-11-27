@@ -13,6 +13,12 @@ using json = nlohmann::json;
 using namespace std;
 using namespace cv;
 
+/**
+	Converts matrix of float values to bytes (float matrix to image conversion).
+
+	@param If The float matrix.
+	@return Ib The bytes matrix.
+*/
 Mat float2byte(const Mat& If) {
 	double minVal, maxVal;
 	minMaxLoc(If, &minVal, &maxVal);
@@ -21,99 +27,13 @@ Mat float2byte(const Mat& If) {
 	return Ib;
 }
 
-int computeQ(Mat disparity) {
-	// read a JSON file
-	std::ifstream stream_camera("../Files/aachen_000029_000019_test/aachen_000029_000019_camera.json");
-	json camera;
-	stream_camera >> camera;
 
-	Matx33d cameraMatrix;
-	cameraMatrix(0, 0) = (double)camera["intrinsic"]["fx"];
-	cameraMatrix(0, 1) = 0.0;
-	cameraMatrix(0, 2) = (double)camera["intrinsic"]["u0"];
-	cameraMatrix(1, 0) = 0.0;
-	cameraMatrix(1, 1) = (double)camera["intrinsic"]["fy"];
-	cameraMatrix(1, 2) = (double)camera["intrinsic"]["v0"];
-	cameraMatrix(2, 0) = 0.0;
-	cameraMatrix(2, 1) = 0.0;
-	cameraMatrix(2, 2) = 1.0;
-	//cout << cameraMatrix << endl;
+/**
+	Function for hiding/showing cursor : hiding with setcursror(0, 0); reinitialisation with setcursor(1, 10).
 
-	// Rotation + translation.
-	Matx34d Rt;
-	Rt(0, 0) = 1.0;
-	Rt(0, 1) = 0.0;
-	Rt(0, 2) = 0.0;
-	Rt(0, 3) = (double)camera["extrinsic"]["baseline"];
-	Rt(1, 0) = 0.0;
-	Rt(1, 1) = 1.0;
-	Rt(1, 2) = 0.0;
-	Rt(1, 3) = 0.0;
-	Rt(2, 0) = 0.0;
-	Rt(2, 1) = 0.0;
-	Rt(2, 2) = 1.0;
-	Rt(2, 3) = 0.0;
-	//cout << Rt << endl;
-	//cout << cameraMatrix*Rt << endl;
-
-	// Rotation.
-	Matx33d R;
-	R(0, 0) = 1.0;
-	R(0, 1) = 0.0;
-	R(0, 2) = 0.0;
-	R(1, 0) = 0.0;
-	R(1, 1) = 1.0;
-	R(1, 2) = 0.0;
-	R(2, 0) = 0.0;
-	R(2, 1) = 0.0;
-	R(2, 2) = 1.0;
-
-	// Translation.
-	Matx31d T;
-	T(0, 0) = (double)camera["extrinsic"]["baseline"];
-	T(1, 0) = 0.0;
-	T(2, 0) = 0.0;
-
-	Mat distortionCoefficients1 = (Mat1d(1, 4) << 0.0, 0.0, 0.0, 0.0);
-	Mat distortionCoefficients2 = (Mat1d(1, 4) << 0.0, 0.0, 0.0, 0.0);
-
-	Mat R1, R2, P1, P2, Q_cv;
-
-	Size imageSize = disparity.size();
-
-	cout << "R = " << R << endl;
-	cout << "T = " << T << endl;
-	cout << "cameraMatrix = " << cameraMatrix << endl;
-	cout << "distortionCoefficients1 = " << distortionCoefficients1 << endl;
-	cout << "distortionCoefficients2 = " << distortionCoefficients2 << endl;
-
-	stereoRectify(cameraMatrix, distortionCoefficients1, cameraMatrix, distortionCoefficients2, imageSize, R, T, R1, R2, P1, P2, Q_cv);
-
-	cout << "Q_cv = " << Q_cv << endl;
-
-	//https://stackoverflow.com/questions/27374970/q-matrix-for-the-reprojectimageto3d-function-in-opencv
-	Mat_<float> Q(4, 4);
-	Q.at<float>(0, 0) = 1.0;
-	Q.at<float>(0, 1) = 0.0;
-	Q.at<float>(0, 2) = 0.0;
-	Q.at<float>(0, 3) = -(float)camera["intrinsic"]["u0"];
-	Q.at<float>(1, 0) = 0.0;
-	Q.at<float>(1, 1) = 1.0;
-	Q.at<float>(1, 2) = 0.0;
-	Q.at<float>(1, 3) = -(float)camera["intrinsic"]["v0"];
-	Q.at<float>(2, 0) = 0.0;
-	Q.at<float>(2, 1) = 0.0;
-	Q.at<float>(2, 2) = 0.0;
-	Q.at<float>(2, 3) = 2264.0;
-	Q.at<float>(3, 0) = 0.0;
-	Q.at<float>(3, 1) = 0.0;
-	Q.at<float>(3, 2) = -1.0 / ((float)camera["extrinsic"]["baseline"]);
-	Q.at<float>(3, 3) = 0.0;
-	cout << "Q = " << Q << endl;
-	return 0;
-}
-
-// Function for hiding/showing cursor : hiding with setcursror(0, 0); reinitialisation with setcursor(1, 10)
+	@param visible Whether the cursor should be visible.
+	@param size The size of the cursor.
+*/
 void setcursor(bool visible, DWORD size) // set bool visible = 0 - invisible, bool visible = 1 - visible
 {
 	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -127,12 +47,15 @@ void setcursor(bool visible, DWORD size) // set bool visible = 0 - invisible, bo
 	SetConsoleCursorInfo(console, &lpCursor);
 }
 
-bool hasToBeTreated(int i, int j, double d, Mat left_image) {
+/**
+	Determines if the pixel should be treated.
+
+	@param d The disparity between left/right images.
+	@return Whether the pixel should be considered.
+*/
+bool hasToBeTreated(int i, int j, double d, const Mat& left_image) {
 	double xp = 1155.; double yp = 839.;
 	if ((i > 1024. + j*(yp - 1024.)/xp) && (i > 1024. + (2048. - j)*(yp - 1024.) / (2048. - xp))) {
-		Vec3b color;
-		color[0] = 0; color[1] = 255; color[2] = 0;
-		left_image.at<Vec3b>(i, j) = color;
 		return false;
 	}
 	if (d < 5) {
@@ -141,34 +64,20 @@ bool hasToBeTreated(int i, int j, double d, Mat left_image) {
 	return true;
 }
 
-int main()
-{
-	// Read JSON file containing camera info.
-	std::ifstream stream_camera("../Files/aachen_000029_000019_test/aachen_000029_000019_camera.json");
-	json camera;
-	stream_camera >> camera;
+/**
+	Generates a 3d point cloud from left image + disparity + transformation matrix.
+	Exports the result as .ply file.
 
-	// Read the images
-	Mat left_image = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_leftImg8bit.png");
-	//Mat disparity = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_disparity.png", 0);
-	
-	Point m1(100, 100);
-	Point m2(100, 200);
-	circle(left_image, m1, 2, Scalar(0, 255, 0), 2);
-	circle(left_image, m2, 2, Scalar(0, 255, 0), 2);
-	//imshow("left", left_image); waitKey();
-
-	// Smoothen disparity to have float values.
-	Mat disparity_original = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_disparity.png", 0);
-	Mat disparity_float = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_disparity.png", 0);
-	Mat disparity;
-	disparity_original.convertTo(disparity_float, CV_32FC1);
-	GaussianBlur(disparity_float, disparity, Size(1, 5), 0.);
+	@param left_image The left image.
+	@param disparity The disparity.
+	@param N The matrix of correspondence : it can transform the disparity into 3d point.
+*/
+void pointCloudFromImages(const Mat& left_image, const Mat& disparity, Matx33d N) {
 
 	int nb_vertex = 0; // Count number of valid points.
 	ofstream plyFile;// 3D Cloud.
 	plyFile.open("../3dcloud.ply");
-	// Header.
+	// Write ply Header.
 	plyFile << "ply\nformat ascii 1.0\ncomment author : Loiseau & Broux\ncomment object : 3d point Cloud\n";
 	// Definition of element vertex.
 	string plyElements = "\nproperty float x\nproperty float y\nproperty float z\nproperty uchar red\nproperty uchar green\nproperty uchar blue\nend_header\n";
@@ -181,12 +90,12 @@ int main()
 		// Display progress bar.
 		setcursor(0, 0); // Remove cursor in console.
 		int nbarmax = 40;
-		int nbar = (int)(i * nbarmax / left_image.rows) ;
+		int nbar = (int)(i * nbarmax / left_image.rows);
 		int pcent = (int)(i * 100 / left_image.rows);
 		stringstream progressBar;
 		progressBar << "[";
 		for (int barCounter = 0; barCounter < nbarmax; barCounter++) {
-			if (barCounter < nbar){
+			if (barCounter < nbar) {
 				progressBar << "|";
 			}
 			else {
@@ -200,24 +109,12 @@ int main()
 
 			double d = disparity.at<float>(i, j);
 			if (hasToBeTreated(i, j, d, left_image)) { // Adapt threshold for more/less 3d points.
-				
 				// Compute coordinates of 3D point ( 1 matrix multiplication ).
 				float x = i;
 				float y = j;
-				
-				Matx33d N;
-				N(0, 0) = 1.0;
-				N(0, 1) = 0.0;
-				N(0, 2) = -(double)camera["intrinsic"]["u0"];
-				N(1, 0) = 0.0;
-				N(1, 1) = (double)camera["intrinsic"]["fx"] / (double)camera["intrinsic"]["fy"];
-				N(1, 2) = -(double)camera["intrinsic"]["fx"] * (double)camera["intrinsic"]["v0"] / (double)camera["intrinsic"]["fy"];
-				N(2, 0) = 0.0;
-				N(2, 1) = 0.0;
-				N(2, 2) = (double)camera["intrinsic"]["fx"];
-				N = -(double)camera["extrinsic"]["baseline"] / (d / 2.56) * N;
+
 				Mat pos_image = (Mat1d(3, 1) << i, j, 1.0);
-				Vec3d position = N * pos_image;
+				Vec3d position = (1 / d) * N * pos_image;
 
 				// Add point to file.
 				float X = position[0];
@@ -246,13 +143,47 @@ int main()
 	// Close file.
 	plyFile.close();
 
-	// Output result.
+	// Clear console and output result.
 	system("cls");
 	cout << "File exported : " << nb_vertex << " vertices extracted." << endl;
-	
-	Mat left_resized_image(512, 1024, left_image.depth());
-	resize(left_image, left_resized_image, left_resized_image.size());
-	imshow("left", left_resized_image); waitKey();
+}
+
+int main()
+{
+	// Read JSON file containing camera info and compute Matrix N of disparity correspondence.
+	std::ifstream stream_camera("../Files/aachen_000029_000019_test/aachen_000029_000019_camera.json");
+	json camera;
+	stream_camera >> camera;
+	Matx33d N;
+	N(0, 0) = 1.0;
+	N(0, 1) = 0.0;
+	N(0, 2) = -(double)camera["intrinsic"]["u0"];
+	N(1, 0) = 0.0;
+	N(1, 1) = (double)camera["intrinsic"]["fx"] / (double)camera["intrinsic"]["fy"];
+	N(1, 2) = -(double)camera["intrinsic"]["fx"] * (double)camera["intrinsic"]["v0"] / (double)camera["intrinsic"]["fy"];
+	N(2, 0) = 0.0;
+	N(2, 1) = 0.0;
+	N(2, 2) = (double)camera["intrinsic"]["fx"];
+	N = -(double)camera["extrinsic"]["baseline"] * 2.56 * N;
+
+	// Read the images
+	Mat left_image = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_leftImg8bit.png");
+
+	// Smoothen disparity to have float values.
+	Mat disparity_original = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_disparity.png", 0); // Do not forget the 0 at the end for correct reading of the image.
+	Mat disparity_float = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_disparity.png", 0);
+	Mat disparity;
+	disparity_original.convertTo(disparity_float, CV_32FC1);
+	GaussianBlur(disparity_float, disparity, Size(1, 5), 0.);
+
+	// Compute point cloud.
+	pointCloudFromImages(left_image, disparity, N);
+
+	/*
+	TODO: - Clean 3d point.
+		  - Apply RANSAC to extract planes.
+		  - Experiment with more efficient methods ?
+	*/
 
 	return 0;
 }

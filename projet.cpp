@@ -135,7 +135,10 @@ bool hasToBeTreated(int i, int j, double d, Mat left_image) {
 		left_image.at<Vec3b>(i, j) = color;
 		return false;
 	}
-	if (d < 5) {
+	if (d < 2) {
+		Vec3b color;
+		color[0] = 255; color[1] = 0; color[2] = 0;
+		left_image.at<Vec3b>(i, j) = color;
 		return false;
 	}
 	return true;
@@ -152,10 +155,10 @@ int main()
 	Mat left_image = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_leftImg8bit.png");
 	//Mat disparity = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_disparity.png", 0);
 	
-	Point m1(100, 100);
-	Point m2(100, 200);
-	circle(left_image, m1, 2, Scalar(0, 255, 0), 2);
-	circle(left_image, m2, 2, Scalar(0, 255, 0), 2);
+	//Point m1(100, 100);
+	//Point m2(100, 200);
+	//circle(left_image, m1, 2, Scalar(0, 255, 0), 2);
+	//circle(left_image, m2, 2, Scalar(0, 255, 0), 2);
 	//imshow("left", left_image); waitKey();
 
 	// Smoothen disparity to have float values.
@@ -163,7 +166,7 @@ int main()
 	Mat disparity_float = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_disparity.png", 0);
 	Mat disparity;
 	disparity_original.convertTo(disparity_float, CV_32FC1);
-	GaussianBlur(disparity_float, disparity, Size(1, 5), 0.);
+	GaussianBlur(disparity_float, disparity, Size(1, 3), 0.);
 
 	int nb_vertex = 0; // Count number of valid points.
 	ofstream plyFile;// 3D Cloud.

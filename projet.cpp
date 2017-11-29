@@ -72,7 +72,9 @@ bool hasToBeTreated(int i, int j, double d, const Mat& left_image) {
 	@param disparity The disparity.
 	@param N The matrix of correspondence : it can transform the disparity into 3d point.
 */
-void pointCloudFromImages(Mat& left_image, const Mat& disparity, Matx33d N) {
+vector<pair<Vec3d, Vec3b>> pointCloudFromImages(Mat& left_image, const Mat& disparity, Matx33d N) {
+
+	vector<pair<Vec3d, Vec3b>> pointcloud; // The returned vector.
 
 	int nb_vertex = 0; // Count number of valid points.
 	ofstream plyFile;// 3D Cloud.
@@ -129,6 +131,9 @@ void pointCloudFromImages(Mat& left_image, const Mat& disparity, Matx33d N) {
 				plyVertex.append(currentString.str());
 				// Increment counter.
 				nb_vertex++;
+
+				// Add point to point cloud.
+				pointcloud.push_back(make_pair(position, color));
 			}
 			else {
 				Vec3b color;
@@ -157,6 +162,10 @@ void pointCloudFromImages(Mat& left_image, const Mat& disparity, Matx33d N) {
 	Mat left_resized_image(512, 1024, left_image.depth());
 	resize(left_image, left_resized_image, left_resized_image.size());
 	imshow("left", left_resized_image); waitKey();
+
+	// Return point cloud.
+	return pointcloud;
+
 }
 
 int main()
@@ -188,7 +197,9 @@ int main()
 	GaussianBlur(disparity_float, disparity, Size(1, 5), 0.);
 
 	// Compute point cloud.
-	pointCloudFromImages(left_image, disparity, N);
+	vector<pair<Vec3d, Vec3b>> pointcloud = pointCloudFromImages(left_image, disparity, N);
+
+	cout << "Vector initialized " << pointcloud.size() << endl;
 
 	/*
 	TODO: - Clean 3d point.

@@ -32,8 +32,13 @@ vector<pair<Vec3d, Vec3b>> Ransac::fit(vector<pair<Vec3d, Vec3b>> pointCloud) {
 		Vec3d p3 = pointCloud[randomIndex3].first;
 
 		Plan P = Plan(p1, p2, p3);
-		
+		int count = 0;
 
+		for (int pointIndex = 0; pointIndex < pointCloud.size(); pointIndex++) {
+			if (P.distance(pointCloud[pointIndex].first) < epsilon) {
+				count++;
+			}
+		}
 	}
 
 	return pointCloud;

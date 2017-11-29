@@ -14,4 +14,6 @@ public:
 	Plan(double a, double b, double c, double d);
 
 	Plan(Vec3d p1, Vec3d p2, Vec3d p3);
+
+	int distance(Vec3d p);
 };

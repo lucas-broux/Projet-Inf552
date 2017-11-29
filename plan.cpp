@@ -28,3 +28,12 @@ Plan::Plan(Vec3d p1, Vec3d p2, Vec3d p3) {
 	this->c = 0;
 	this->d = 0;
 };
+
+/**
+Find the distance between the plan and a point.
+
+@param p The considered point.
+*/
+int Plan::distance(Vec3d p) {
+	return 0;
+}

@@ -18,8 +18,6 @@ Ransac::Ransac(int n_iterations, double epsilon) {
 	@return List of points that correlate the most (plane model) as vector<pair<Vec3d, Vec3b>>.
 */
 point3dCloud Ransac::fit(point3dCloud pointCloud) {
-	cout << "Hello world from Ransac::fit" << endl;
-
 	Vec3d p1_maxRansac = pointCloud[0].getPosition();
 	Vec3d p2_maxRansac = pointCloud[0].getPosition();
 	Vec3d p3_maxRansac = pointCloud[0].getPosition();
@@ -32,8 +30,6 @@ point3dCloud Ransac::fit(point3dCloud pointCloud) {
 		int randomIndex2 = (rand()*RAND_MAX + rand()) % pointCloud.size();
 		int randomIndex3 = (rand()*RAND_MAX + rand()) % pointCloud.size();
 
-		cout << randomIndex1 << " " << randomIndex2 << " " << randomIndex3 << endl;
-
 		Vec3d p1 = pointCloud[randomIndex1].getPosition();
 		Vec3d p2 = pointCloud[randomIndex2].getPosition();
 		Vec3d p3 = pointCloud[randomIndex3].getPosition();
@@ -45,6 +41,13 @@ point3dCloud Ransac::fit(point3dCloud pointCloud) {
 			if (P.distance(pointCloud[pointIndex].getPosition()) < epsilon) {
 				count++;
 			}
+		}
+
+		if (count != 0) {
+			for (int index = 0; index < 10; index++) {
+				cout << P.distance(pointCloud[(rand()*RAND_MAX + rand()) % pointCloud.size()].getPosition()) << " ";
+			}
+			cout << "/ count = " << count << endl;
 		}
 
 		if (count > count_maxRansac) {

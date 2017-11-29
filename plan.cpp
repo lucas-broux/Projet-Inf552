@@ -5,10 +5,10 @@ Constructor for the class.
 
 */
 Plan::Plan() {
-	this->a = 0;
-	this->b = 0;
-	this->c = 0;
-	this->d = 0;
+	this->a = 0.;
+	this->b = 0.;
+	this->c = 0.;
+	this->d = 0.;
 };
 
 /**
@@ -126,11 +126,11 @@ void Plan::regression(point3dCloud pointcloud) {
 
 	@param p The considered point.
 */
-int Plan::distance(Vec3d p) {
-	if (sqrt(a*a + b*b + c*c) != 0) {
+double Plan::distance(Vec3d p) {
+	if (!this->isDegenerated() && sqrt(a*a + b*b + c*c) != 0) {
 		return(abs(a*p[0] + b*p[1] + c*p[2] + d) / sqrt(a*a + b*b + c*c));
 	}
-	return 0;
+	return DBL_MAX;
 }
 
 /**
@@ -173,4 +173,8 @@ ostream& operator<<(ostream& os, const Plan& p) {
 		}
 	}
 	return os;
+};
+
+bool Plan::isDegenerated() {
+	return(a == 0 && b == 0 && c == 0 && d == 0);
 };

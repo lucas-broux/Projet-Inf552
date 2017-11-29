@@ -6,7 +6,6 @@
 #include <opencv2/features2d/features2d.hpp>
 #include <opencv2/calib3d/calib3d.hpp>
 #include <opencv2/imgproc.hpp>
-#include "image.h"
 
 using namespace std;
 using namespace cv;
@@ -23,4 +22,6 @@ public:
 	Vec3d getPosition();
 
 	Vec3b getColor();
+
+	double distance(point3d p);
 };

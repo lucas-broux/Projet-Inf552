@@ -210,7 +210,9 @@ int main()
 	Ransac r = Ransac(10, 0.2);
 	vector<pair<Vec3d, Vec3b>> pointcloudransac = r.fit(pointcloud);
 	cout << "Ransac successfully applied." << endl;
+	while (true) {
 
+	}
 	// Successfully exit file.
 	return 0;
 }

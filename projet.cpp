@@ -11,6 +11,7 @@
 
 #include "ransac.hpp"
 
+
 using json = nlohmann::json;
 
 using namespace std;
@@ -205,14 +206,23 @@ int main()
 	pointCloud2ply(pointcloud);
 	cout << "Exported." << endl;*/
 
+	// Compute plane.
+	Vec3d p1 = pointcloud[0].first;
+	Vec3d p2 = pointcloud[1].first;
+	Vec3d p3 = pointcloud[2].first;
+	cout << p1 << " " << p2 << " "<< p3 << endl;
+	cout << "Computing plane" << endl;
+	Plan p = Plan(p1, p2, p3);
+
 	// Apply Ransac.
+	/*
 	cout << "Applying ransac...";
 	Ransac r = Ransac(10, 0.2);
 	vector<pair<Vec3d, Vec3b>> pointcloudransac = r.fit(pointcloud);
 	cout << "Ransac successfully applied." << endl;
 	while (true) {
 
-	}
+	}*/
 	// Successfully exit file.
 	return 0;
 }

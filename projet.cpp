@@ -53,16 +53,60 @@ void setcursor(bool visible, DWORD size) // set bool visible = 0 - invisible, bo
 	@param d The disparity between left/right images.
 	@return Whether the pixel should be considered.
 */
-bool hasToBeTreated(int i, int j, double d, const Mat& left_image) {
+inline bool hasToBeTreated(int i, int j, double d, const Mat& left_image) {
 	double xp = 1155.; double yp = 839.;
+	// Remove car bonnet.
 	if ((i > 1024. + j*(yp - 1024.)/xp) && (i > 1024. + (2048. - j)*(yp - 1024.) / (2048. - xp))) {
 		return false;
 	}
+	// Disparity threshold.
 	if (d < 20) {
 		return false;
 	}
 	return true;
 }
+
+
+/**
+	Generates .ply file from point cloud values.
+
+	@param poincloud The corresponding point cloud.
+*/
+void pointCloud2ply(vector<pair<Vec3d, Vec3b>> pointcloud) {
+	// Define and open .ply file.
+	ofstream plyFile;
+	plyFile.open("../3dcloud.ply");
+	// Write ply Header.
+	plyFile << "ply\nformat ascii 1.0\ncomment author : Loiseau & Broux\ncomment object : 3d point Cloud\n";
+	// Definition of element vertex.
+	plyFile << "element vertex " << pointcloud.size() << "\nproperty float x\nproperty float y\nproperty float z\nproperty uchar red\nproperty uchar green\nproperty uchar blue\nend_header\n";
+
+	string plyVertex;
+
+	// Loop over 3d points.
+	int n = pointcloud.size();
+	cout << n << endl;
+	for (int point_counter = 0; point_counter < n; point_counter++) {
+
+		// Get point coordinates and color.
+		Vec3d position = pointcloud[point_counter].first;
+		Vec3b color = pointcloud[point_counter].second;
+		float X = position[0];
+		float Y = position[1];
+		float Z = position[2];
+		int blue = color[0];
+		int green = color[1];
+		int red = color[2];
+
+		// Add point to file.
+		plyFile << X << " " << Y << " " << Z << " " << red << " " << green << " " << blue << endl;
+	}
+	// Fill file.
+	plyFile << plyVertex;
+	// Close file.
+	plyFile.close();
+}
+
 
 /**
 	Generates a 3d point cloud from left image + disparity + transformation matrix.
@@ -71,19 +115,11 @@ bool hasToBeTreated(int i, int j, double d, const Mat& left_image) {
 	@param left_image The left image.
 	@param disparity The disparity.
 	@param N The matrix of correspondence : it can transform the disparity into 3d point.
+	@return The point cloud as vector<pair<Vec3d, Vec3b>>.
 */
 vector<pair<Vec3d, Vec3b>> pointCloudFromImages(Mat& left_image, const Mat& disparity, Matx33d N) {
 
 	vector<pair<Vec3d, Vec3b>> pointcloud; // The returned vector.
-
-	int nb_vertex = 0; // Count number of valid points.
-	ofstream plyFile;// 3D Cloud.
-	plyFile.open("../3dcloud.ply");
-	// Write ply Header.
-	plyFile << "ply\nformat ascii 1.0\ncomment author : Loiseau & Broux\ncomment object : 3d point Cloud\n";
-	// Definition of element vertex.
-	string plyElements = "\nproperty float x\nproperty float y\nproperty float z\nproperty uchar red\nproperty uchar green\nproperty uchar blue\nend_header\n";
-	string plyVertex;
 
 	// Loop over the image.
 	cout << "Looping over image :" << endl;
@@ -111,57 +147,35 @@ vector<pair<Vec3d, Vec3b>> pointCloudFromImages(Mat& left_image, const Mat& disp
 
 			double d = disparity.at<float>(i, j);
 			if (hasToBeTreated(i, j, d, left_image)) { // Adapt threshold for more/less 3d points.
-				// Compute coordinates of 3D point ( 1 matrix multiplication ).
+				// Compute coordinates + color of 3D point ( 1 matrix multiplication ).
 				float x = i;
 				float y = j;
-
 				Mat pos_image = (Mat1d(3, 1) << i, j, 1.0);
 				Vec3d position = (1 / d) * N * pos_image;
-
-				// Add point to file.
-				float X = position[0];
-				float Y = position[1];
-				float Z = position[2];
 				Vec3b color = left_image.at<Vec3b>(i, j);
-				int blue = color[0];
-				int green = color[1];
-				int red = color[2];
-				stringstream currentString;
-				currentString << X << " " << Y << " " << Z << " " << red << " " << green << " " << blue << endl;
-				plyVertex.append(currentString.str());
-				// Increment counter.
-				nb_vertex++;
 
 				// Add point to point cloud.
 				pointcloud.push_back(make_pair(position, color));
 			}
 			else {
+				// Color point on left image for vizualisation purposes.
 				Vec3b color;
 				color[0] = 0;
 				color[1] = 255;
 				color[2] = 0;
 				left_image.at<Vec3b>(i, j) = color;
 			}
-
 		}
 	}
 
-	// Fill file.
-	stringstream currentString;
-	currentString << "element vertex " << nb_vertex << plyElements;
-	plyElements = currentString.str();
-	plyFile << plyElements << plyVertex;
-
-	// Close file.
-	plyFile.close();
-
 	// Clear console and output result.
 	system("cls");
-	cout << "File exported : " << nb_vertex << " vertices extracted." << endl;
+	cout << "File exported : " << pointcloud.size() << " vertices extracted." << endl;
 
-	Mat left_resized_image(512, 1024, left_image.depth());
+	// Show image.
+	/*Mat left_resized_image(512, 1024, left_image.depth());
 	resize(left_image, left_resized_image, left_resized_image.size());
-	imshow("left", left_resized_image); waitKey();
+	imshow("left", left_resized_image); waitKey();*/
 
 	// Return point cloud.
 	return pointcloud;
@@ -198,8 +212,10 @@ int main()
 
 	// Compute point cloud.
 	vector<pair<Vec3d, Vec3b>> pointcloud = pointCloudFromImages(left_image, disparity, N);
-
-	cout << "Vector initialized " << pointcloud.size() << endl;
+	// Export result as .ply file.
+	cout << "Exporting as .ply file...";
+	pointCloud2ply(pointcloud);
+	cout << "Exported." << endl;
 
 	/*
 	TODO: - Clean 3d point.

@@ -25,4 +25,6 @@ public:
 	int distance(Vec3d p);
 
 	void regression(point3dCloud pointcloud);
+
+	friend ostream& operator<<(ostream& os, const Plan& p);
 };

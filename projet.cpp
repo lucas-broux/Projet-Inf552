@@ -212,6 +212,8 @@ int main()
 	cout << "Computing plane" << endl;
 	Plan p = Plan(p1, p2, p3);
 
+	cout << p << endl;
+
 	// Apply Ransac.
 	/*
 	cout << "Applying ransac...";

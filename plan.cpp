@@ -127,5 +127,50 @@ void Plan::regression(point3dCloud pointcloud) {
 	@param p The considered point.
 */
 int Plan::distance(Vec3d p) {
+	if (sqrt(a*a + b*b + c*c) != 0) {
+		return(abs(a*p[0] + b*p[1] + c*p[2] + d) / sqrt(a*a + b*b + c*c));
+	}
 	return 0;
 }
+
+/**
+Overloads ofstream.
+
+@param os Considered stream.
+@param p Considered plan.
+*/
+ostream& operator<<(ostream& os, const Plan& p) {
+	if (p.a < 0) {
+		os << "- " << -p.a << " * x ";
+	}
+	else {
+		if (p.a != 0) {
+			os << p.a << " * x ";
+		}
+	}
+	if (p.b < 0) {
+		os << "- " << -p.b << " * y ";
+	}
+	else {
+		if (p.b != 0) {
+			os << "+ " << p.b << " * y ";
+		}
+	}
+	if (p.c < 0) {
+		os << "- " << -p.c << " * z ";
+	}
+	else {
+		if (p.c != 0) {
+			os << "+ " << p.c << " * z ";
+		}
+	}
+	if (p.d < 0) {
+		os << "- " << -p.d << " = 0";
+	}
+	else {
+		if (p.d != 0) {
+			os << "+ " << p.d << " = 0";
+		}
+	}
+	return os;
+};

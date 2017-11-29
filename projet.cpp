@@ -215,14 +215,17 @@ int main()
 	cout << p << endl;
 
 	// Apply Ransac.
-	/*
+	
 	cout << "Applying ransac...";
 	Ransac r = Ransac(10, 0.2);
-	vector<pair<Vec3d, Vec3b>> pointcloudransac = r.fit(pointcloud);
-	cout << "Ransac successfully applied." << endl;
-	while (true) {
+	point3dCloud pointcloudransac = r.fit(pointcloud);
+	
+	Plan p_ransac;
+	p_ransac.regression(pointcloudransac);
 
-	}*/
+	cout << p_ransac << " Ransac successfully applied." << endl;
+
+
 	cout << endl;
 	cout << "Programme termine" << endl;
 	while (true) {

@@ -8,6 +8,9 @@
 #include <opencv2/imgproc.hpp>
 #include "image.h"
 #include "json.hpp"
+
+#include "ransac.hpp"
+
 using json = nlohmann::json;
 
 using namespace std;
@@ -223,5 +226,11 @@ int main()
 		  - Experiment with more efficient methods ?
 	*/
 
+
+	Ransac r = Ransac(10, 0.2);
+	vector<pair<Vec3d, Vec3b>> pointcloudransac = r.fit(pointcloud);
+	while (true) {
+
+	}
 	return 0;
 }

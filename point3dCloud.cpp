@@ -2,14 +2,19 @@
 
 /**
 Constructor for the class.
-
-@param position The position of the 3dPoint.
-@param color The color of the 3dPoint.
 */
 point3dCloud::point3dCloud() {
 	
 };
 
-void push_back(point3d point) {
-
+void point3dCloud::push_back(point3d point) {
+	cloud.push_back(point);
 };
+
+point3d point3dCloud::operator[](int i) {
+	return(cloud[i]);
+};
+
+int point3dCloud::size() {
+	return cloud.size();
+}

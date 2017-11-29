@@ -22,4 +22,8 @@ public:
 
 	void push_back(point3d point);
 
+	point3d operator[](int i);
+
+	int size();
+
 };

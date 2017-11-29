@@ -220,17 +220,14 @@ int main()
 	pointCloud2ply(pointcloud);
 	cout << "Exported." << endl;
 
-	/*
-	TODO: - Clean 3d point.
-		  - Apply RANSAC to extract planes.
-		  - Experiment with more efficient methods ?
-	*/
+	// Apply Ransac.
 
-
+	cout << "Applying ransac...";
 	Ransac r = Ransac(10, 0.2);
 	vector<pair<Vec3d, Vec3b>> pointcloudransac = r.fit(pointcloud);
-	while (true) {
 
-	}
+	cout << "Ransac successfully applied" << endl;
+
+	// Successfully exit file.
 	return 0;
 }

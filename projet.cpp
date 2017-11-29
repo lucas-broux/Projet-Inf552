@@ -8,6 +8,9 @@
 #include <opencv2/imgproc.hpp>
 #include "image.h"
 #include "json.hpp"
+
+#include "ransac.hpp"
+
 using json = nlohmann::json;
 
 using namespace std;

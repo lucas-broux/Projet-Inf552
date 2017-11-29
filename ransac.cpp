@@ -11,7 +11,6 @@ Ransac::Ransac(int n_iterations, double epsilon) {
 	this->epsilon = epsilon;
 };
 
-
 /**
 	Extract the most correlated points (plane model).
 
@@ -20,11 +19,19 @@ Ransac::Ransac(int n_iterations, double epsilon) {
 */
 vector<pair<Vec3d, Vec3b>> Ransac::fit(vector<pair<Vec3d, Vec3b>> pointCloud) {
 	cout << "Hello world from Ransac::fit" << endl;
+
+	Vec3d p1_maxRansac = pointCloud[0].first;
+	Vec3d p2_maxRansac = pointCloud[0].first;
+	Vec3d p3_maxRansac = pointCloud[0].first;
+
+	int count_maxRansac = 0;
+
 	for (int i = 0; i < n_iterations; i++) {
 
 		int randomIndex1 = (rand()*RAND_MAX + rand()) % pointCloud.size();
 		int randomIndex2 = (rand()*RAND_MAX + rand()) % pointCloud.size();
 		int randomIndex3 = (rand()*RAND_MAX + rand()) % pointCloud.size();
+
 		cout << randomIndex1 << " " << randomIndex2 << " " << randomIndex3 << endl;
 
 		Vec3d p1 = pointCloud[randomIndex1].first;
@@ -39,7 +46,22 @@ vector<pair<Vec3d, Vec3b>> Ransac::fit(vector<pair<Vec3d, Vec3b>> pointCloud) {
 				count++;
 			}
 		}
+
+		if (count > count_maxRansac) {
+			count_maxRansac = count;
+			p1_maxRansac = p1;
+			p2_maxRansac = p2;
+			p3_maxRansac = p3;
+		}
 	}
 
-	return pointCloud;
+	Plan P = Plan(p1_maxRansac, p2_maxRansac, p3_maxRansac);
+	vector<pair<Vec3d, Vec3b>> pointCloud_maxRansac;
+	for (int pointIndex = 0; pointIndex < pointCloud.size(); pointIndex++) {
+		if (P.distance(pointCloud[pointIndex].first) < epsilon) {
+			pointCloud_maxRansac.push_back(pointCloud[pointIndex]);
+		}
+	}
+
+	return pointCloud_maxRansac;
 };

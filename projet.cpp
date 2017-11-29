@@ -11,12 +11,10 @@
 
 #include "ransac.hpp"
 
-
 using json = nlohmann::json;
 
 using namespace std;
 using namespace cv;
-
 
 /**
 	Function for hiding/showing cursor : hiding with setcursror(0, 0); reinitialisation with setcursor(1, 10).
@@ -62,7 +60,7 @@ inline bool hasToBeTreated(int i, int j, double d, const Mat& left_image) {
 
 	@param poincloud The corresponding point cloud.
 */
-void pointCloud2ply(vector<pair<Vec3d, Vec3b>> pointcloud) {
+void pointCloud2ply(point3dCloud pointcloud) {
 	// Define and open .ply file.
 	ofstream plyFile;
 	plyFile.open("../3dcloud.ply");
@@ -76,8 +74,8 @@ void pointCloud2ply(vector<pair<Vec3d, Vec3b>> pointcloud) {
 	for (int point_counter = 0; point_counter < n; point_counter++) {
 
 		// Get point coordinates and color.
-		Vec3d position = pointcloud[point_counter].first;
-		Vec3b color = pointcloud[point_counter].second;
+		Vec3d position = pointcloud[point_counter].getPosition();
+		Vec3b color = pointcloud[point_counter].getColor();
 		float X = position[0];
 		float Y = position[1];
 		float Z = position[2];
@@ -103,9 +101,9 @@ void pointCloud2ply(vector<pair<Vec3d, Vec3b>> pointcloud) {
 	@param N The matrix of correspondence : it can transform the disparity into 3d point.
 	@return The point cloud as vector<pair<Vec3d, Vec3b>>.
 */
-vector<pair<Vec3d, Vec3b>> pointCloudFromImages(Mat& left_image, const Mat& disparity, Matx33d N) {
+point3dCloud pointCloudFromImages(Mat& left_image, const Mat& disparity, Matx33d N) {
 
-	vector<pair<Vec3d, Vec3b>> pointcloud; // The returned vector.
+	point3dCloud pointcloud; // The returned vector.
 
 	setcursor(0, 0); // Remove cursor in console.
 
@@ -142,7 +140,7 @@ vector<pair<Vec3d, Vec3b>> pointCloudFromImages(Mat& left_image, const Mat& disp
 				Vec3b color = left_image.at<Vec3b>(i, j);
 
 				// Add point to point cloud.
-				pointcloud.push_back(make_pair(position, color));
+				pointcloud.push_back(point3d(position, color));
 			}
 			else {
 				// Color point on left image for vizualisation purposes.
@@ -199,7 +197,7 @@ int main()
 	GaussianBlur(disparity_float, disparity, Size(1, 5), 0.);
 
 	// Compute point cloud.
-	vector<pair<Vec3d, Vec3b>> pointcloud = pointCloudFromImages(left_image, disparity, N);
+	point3dCloud pointcloud = pointCloudFromImages(left_image, disparity, N);
 	
 	// Export result as .ply file.
 	/*cout << "Exporting as .ply file...";
@@ -207,9 +205,9 @@ int main()
 	cout << "Exported." << endl;*/
 
 	// Compute plane.
-	Vec3d p1 = pointcloud[0].first;
-	Vec3d p2 = pointcloud[1].first;
-	Vec3d p3 = pointcloud[2].first;
+	Vec3d p1 = pointcloud[0].getPosition();
+	Vec3d p2 = pointcloud[1523].getPosition();
+	Vec3d p3 = pointcloud[28945].getPosition();
 	cout << p1 << " " << p2 << " "<< p3 << endl;
 	cout << "Computing plane" << endl;
 	Plan p = Plan(p1, p2, p3);
@@ -223,6 +221,11 @@ int main()
 	while (true) {
 
 	}*/
+	cout << endl;
+	cout << "Programme termine" << endl;
+	while (true) {
+
+	}
 	// Successfully exit file.
 	return 0;
 }

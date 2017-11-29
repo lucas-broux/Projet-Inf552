@@ -20,4 +20,7 @@ public:
 
 	point3d(Vec3d position, Vec3b color);
 
+	Vec3d getPosition();
+
+	Vec3b getColor();
 };

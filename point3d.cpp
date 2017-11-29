@@ -11,3 +11,11 @@ point3d::point3d(Vec3d position, Vec3b color) {
 	this->color = color;
 };
 
+Vec3d point3d::getPosition() {
+	return position;
+};
+
+Vec3b point3d::getColor() {
+	return color;
+};
+

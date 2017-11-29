@@ -7,6 +7,7 @@
 #include <opencv2/calib3d/calib3d.hpp>
 #include <opencv2/imgproc.hpp>
 #include "image.h"
+
 #include "point3d.hpp"
 
 using namespace std;

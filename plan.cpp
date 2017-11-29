@@ -1,6 +1,17 @@
 #include "plan.hpp"
 
 /**
+Constructor for the class.
+
+*/
+Plan::Plan() {
+	this->a = 0;
+	this->b = 0;
+	this->c = 0;
+	this->d = 0;
+};
+
+/**
 	Constructor for the class.
 	
 	@param a 1st parameter of a*x + b*y + c*z + d = 0
@@ -71,7 +82,7 @@ Plan::Plan(Vec3d p1, Vec3d p2, Vec3d p3) {
 	@param pointcloud The considered point cloud.
 	@return The Plan of linear regression.
 */
-Plan Plan::regression(vector<pair<Vec3d, Vec3b>> pointcloud) {
+void Plan::regression(point3dCloud pointcloud) {
 	/*
 	We define
 		X = [[1; x1; y1]
@@ -86,7 +97,7 @@ Plan Plan::regression(vector<pair<Vec3d, Vec3b>> pointcloud) {
 	Mat X(pointcloud.size(), 3, CV_64FC1);
 	Mat y(pointcloud.size(), 1, CV_64FC1);
 	for (int point_counter = 0; point_counter < pointcloud.size(); point_counter++) {
-		Vec3d point = pointcloud[point_counter].first;
+		Vec3d point = pointcloud[point_counter].getPosition();
 		X.at<double>(point_counter, 0) = 1.;
 		X.at<double>(point_counter, 1) = point[0];
 		X.at<double>(point_counter, 2) = point[1];
@@ -94,12 +105,18 @@ Plan Plan::regression(vector<pair<Vec3d, Vec3b>> pointcloud) {
 	}
 
 	// Compute coefficients.
-	if (determinant((X.t() * X)) < 0.001)
-		return Plan(0.0, 0.0, 0.0, 0.0); // Degenerate case.
-
+	if (determinant((X.t() * X)) < 0.001) {
+		a = 0.;
+		b = 0.;
+		c = 0.;
+		d = 0.;
+	}
 	else {
 		Mat alpha = (((X.t() * X).inv()) * (X.t())) * y;
-		return Plan(alpha.at<double>(1, 0), alpha.at<double>(2, 0), -1.0, alpha.at<double>(0, 0));
+		a = alpha.at<double>(1, 0);
+		b = alpha.at<double>(2, 0);
+		c = -1.0;
+		d = alpha.at<double>(0, 0);
 	}
 }
 

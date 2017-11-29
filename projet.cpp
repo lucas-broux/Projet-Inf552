@@ -58,7 +58,7 @@ bool hasToBeTreated(int i, int j, double d, const Mat& left_image) {
 	if ((i > 1024. + j*(yp - 1024.)/xp) && (i > 1024. + (2048. - j)*(yp - 1024.) / (2048. - xp))) {
 		return false;
 	}
-	if (d < 5) {
+	if (d < 20) {
 		return false;
 	}
 	return true;
@@ -72,7 +72,7 @@ bool hasToBeTreated(int i, int j, double d, const Mat& left_image) {
 	@param disparity The disparity.
 	@param N The matrix of correspondence : it can transform the disparity into 3d point.
 */
-void pointCloudFromImages(const Mat& left_image, const Mat& disparity, Matx33d N) {
+void pointCloudFromImages(Mat& left_image, const Mat& disparity, Matx33d N) {
 
 	int nb_vertex = 0; // Count number of valid points.
 	ofstream plyFile;// 3D Cloud.
@@ -130,6 +130,13 @@ void pointCloudFromImages(const Mat& left_image, const Mat& disparity, Matx33d N
 				// Increment counter.
 				nb_vertex++;
 			}
+			else {
+				Vec3b color;
+				color[0] = 0;
+				color[1] = 255;
+				color[2] = 0;
+				left_image.at<Vec3b>(i, j) = color;
+			}
 
 		}
 	}
@@ -146,6 +153,10 @@ void pointCloudFromImages(const Mat& left_image, const Mat& disparity, Matx33d N
 	// Clear console and output result.
 	system("cls");
 	cout << "File exported : " << nb_vertex << " vertices extracted." << endl;
+
+	Mat left_resized_image(512, 1024, left_image.depth());
+	resize(left_image, left_resized_image, left_resized_image.size());
+	imshow("left", left_resized_image); waitKey();
 }
 
 int main()

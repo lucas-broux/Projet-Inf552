@@ -16,20 +16,6 @@ using json = nlohmann::json;
 using namespace std;
 using namespace cv;
 
-/**
-	Converts matrix of float values to bytes (float matrix to image conversion).
-
-	@param If The float matrix.
-	@return Ib The bytes matrix.
-*/
-Mat float2byte(const Mat& If) {
-	double minVal, maxVal;
-	minMaxLoc(If, &minVal, &maxVal);
-	Mat Ib;
-	If.convertTo(Ib, CV_8U, 255.0 / (maxVal - minVal), -minVal * 255.0 / (maxVal - minVal));
-	return Ib;
-}
-
 
 /**
 	Function for hiding/showing cursor : hiding with setcursror(0, 0); reinitialisation with setcursor(1, 10).
@@ -84,11 +70,8 @@ void pointCloud2ply(vector<pair<Vec3d, Vec3b>> pointcloud) {
 	// Definition of element vertex.
 	plyFile << "element vertex " << pointcloud.size() << "\nproperty float x\nproperty float y\nproperty float z\nproperty uchar red\nproperty uchar green\nproperty uchar blue\nend_header\n";
 
-	string plyVertex;
-
 	// Loop over 3d points.
 	int n = pointcloud.size();
-	cout << n << endl;
 	for (int point_counter = 0; point_counter < n; point_counter++) {
 
 		// Get point coordinates and color.
@@ -104,8 +87,7 @@ void pointCloud2ply(vector<pair<Vec3d, Vec3b>> pointcloud) {
 		// Add point to file.
 		plyFile << X << " " << Y << " " << Z << " " << red << " " << green << " " << blue << endl;
 	}
-	// Fill file.
-	plyFile << plyVertex;
+
 	// Close file.
 	plyFile.close();
 }
@@ -124,12 +106,13 @@ vector<pair<Vec3d, Vec3b>> pointCloudFromImages(Mat& left_image, const Mat& disp
 
 	vector<pair<Vec3d, Vec3b>> pointcloud; // The returned vector.
 
+	setcursor(0, 0); // Remove cursor in console.
+
 	// Loop over the image.
 	cout << "Looping over image :" << endl;
 	for (int i = 0; i < left_image.rows; i++) {
 
 		// Display progress bar.
-		setcursor(0, 0); // Remove cursor in console.
 		int nbarmax = 40;
 		int nbar = (int)(i * nbarmax / left_image.rows);
 		int pcent = (int)(i * 100 / left_image.rows);
@@ -173,6 +156,7 @@ vector<pair<Vec3d, Vec3b>> pointCloudFromImages(Mat& left_image, const Mat& disp
 
 	// Clear console and output result.
 	system("cls");
+	setcursor(1, 10);
 	cout << "File exported : " << pointcloud.size() << " vertices extracted." << endl;
 
 	// Show image.
@@ -215,18 +199,17 @@ int main()
 
 	// Compute point cloud.
 	vector<pair<Vec3d, Vec3b>> pointcloud = pointCloudFromImages(left_image, disparity, N);
+	
 	// Export result as .ply file.
-	cout << "Exporting as .ply file...";
+	/*cout << "Exporting as .ply file...";
 	pointCloud2ply(pointcloud);
-	cout << "Exported." << endl;
+	cout << "Exported." << endl;*/
 
 	// Apply Ransac.
-
 	cout << "Applying ransac...";
 	Ransac r = Ransac(10, 0.2);
 	vector<pair<Vec3d, Vec3b>> pointcloudransac = r.fit(pointcloud);
-
-	cout << "Ransac successfully applied" << endl;
+	cout << "Ransac successfully applied." << endl;
 
 	// Successfully exit file.
 	return 0;

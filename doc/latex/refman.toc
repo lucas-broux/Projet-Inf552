@@ -1,0 +1,56 @@
+\contentsline {chapter}{\numberline {1}Projet-\/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Inf552}{1}
+\contentsline {chapter}{\numberline {2}Class Index}{3}
+\contentsline {section}{\numberline {2.1}Class List}{3}
+\contentsline {chapter}{\numberline {3}File Index}{5}
+\contentsline {section}{\numberline {3.1}File List}{5}
+\contentsline {chapter}{\numberline {4}Class Documentation}{7}
+\contentsline {section}{\numberline {4.1}Plan Class Reference}{7}
+\contentsline {subsection}{\numberline {4.1.1}Constructor \& Destructor Documentation}{7}
+\contentsline {subsubsection}{\numberline {4.1.1.1}Plan()\hspace {0.1cm}{\relax \fontsize {8}{9.5}\selectfont \abovedisplayskip 6\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 3\p@ plus\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 3\p@ plus\p@ minus\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \ttfamily [1/3]}}{7}
+\contentsline {subsubsection}{\numberline {4.1.1.2}Plan()\hspace {0.1cm}{\relax \fontsize {8}{9.5}\selectfont \abovedisplayskip 6\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 3\p@ plus\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 3\p@ plus\p@ minus\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \ttfamily [2/3]}}{7}
+\contentsline {subsubsection}{\numberline {4.1.1.3}Plan()\hspace {0.1cm}{\relax \fontsize {8}{9.5}\selectfont \abovedisplayskip 6\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 3\p@ plus\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 3\p@ plus\p@ minus\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \ttfamily [3/3]}}{8}
+\contentsline {subsection}{\numberline {4.1.2}Member Function Documentation}{8}
+\contentsline {subsubsection}{\numberline {4.1.2.1}distance()}{8}
+\contentsline {subsubsection}{\numberline {4.1.2.2}regression()}{8}
+\contentsline {subsection}{\numberline {4.1.3}Friends And Related Function Documentation}{9}
+\contentsline {subsubsection}{\numberline {4.1.3.1}operator$<$$<$}{9}
+\contentsline {section}{\numberline {4.2}point3d Class Reference}{9}
+\contentsline {subsection}{\numberline {4.2.1}Constructor \& Destructor Documentation}{9}
+\contentsline {subsubsection}{\numberline {4.2.1.1}point3d()}{10}
+\contentsline {subsection}{\numberline {4.2.2}Member Function Documentation}{10}
+\contentsline {subsubsection}{\numberline {4.2.2.1}get\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Color()}{10}
+\contentsline {subsubsection}{\numberline {4.2.2.2}get\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Position()}{10}
+\contentsline {section}{\numberline {4.3}point3d\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Cloud Class Reference}{10}
+\contentsline {subsection}{\numberline {4.3.1}Constructor \& Destructor Documentation}{11}
+\contentsline {subsubsection}{\numberline {4.3.1.1}point3d\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Cloud()}{11}
+\contentsline {subsection}{\numberline {4.3.2}Member Function Documentation}{11}
+\contentsline {subsubsection}{\numberline {4.3.2.1}operator[]()}{11}
+\contentsline {subsubsection}{\numberline {4.3.2.2}push\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}back()}{11}
+\contentsline {subsubsection}{\numberline {4.3.2.3}size()}{11}
+\contentsline {section}{\numberline {4.4}Ransac Class Reference}{11}
+\contentsline {subsection}{\numberline {4.4.1}Constructor \& Destructor Documentation}{12}
+\contentsline {subsubsection}{\numberline {4.4.1.1}Ransac()}{12}
+\contentsline {subsection}{\numberline {4.4.2}Member Function Documentation}{12}
+\contentsline {subsubsection}{\numberline {4.4.2.1}fit()}{12}
+\contentsline {chapter}{\numberline {5}File Documentation}{13}
+\contentsline {section}{\numberline {5.1}plan.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}cpp File Reference}{13}
+\contentsline {subsection}{\numberline {5.1.1}Function Documentation}{13}
+\contentsline {subsubsection}{\numberline {5.1.1.1}operator$<$$<$()}{13}
+\contentsline {section}{\numberline {5.2}plan.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}hpp File Reference}{13}
+\contentsline {section}{\numberline {5.3}point3d.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}cpp File Reference}{14}
+\contentsline {section}{\numberline {5.4}point3d.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}hpp File Reference}{14}
+\contentsline {section}{\numberline {5.5}point3d\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Cloud.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}cpp File Reference}{14}
+\contentsline {section}{\numberline {5.6}point3d\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Cloud.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}hpp File Reference}{14}
+\contentsline {section}{\numberline {5.7}projet.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}cpp File Reference}{15}
+\contentsline {subsection}{\numberline {5.7.1}Typedef Documentation}{15}
+\contentsline {subsubsection}{\numberline {5.7.1.1}json}{15}
+\contentsline {subsection}{\numberline {5.7.2}Function Documentation}{15}
+\contentsline {subsubsection}{\numberline {5.7.2.1}has\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}To\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Be\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Treated()}{16}
+\contentsline {subsubsection}{\numberline {5.7.2.2}main()}{17}
+\contentsline {subsubsection}{\numberline {5.7.2.3}point\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Cloud2ply()}{17}
+\contentsline {subsubsection}{\numberline {5.7.2.4}point\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Cloud\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}From\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Images()}{17}
+\contentsline {subsubsection}{\numberline {5.7.2.5}setcursor()}{18}
+\contentsline {section}{\numberline {5.8}ransac.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}cpp File Reference}{18}
+\contentsline {section}{\numberline {5.9}ransac.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}hpp File Reference}{18}
+\contentsline {section}{\numberline {5.10}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}M\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}E.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}md File Reference}{18}
+\contentsline {chapter}{Index}{19}

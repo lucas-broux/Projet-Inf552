@@ -49,3 +49,19 @@ double point3dCloud::meanNeighboursDistance() {
 		return(d / 1000);
 	}
 }
+
+void point3dCloud::showOnImage(Mat& image) {
+
+	int i_max = image.rows;
+	int j_max = image.cols;
+
+	for (int point_counter = 0; point_counter < this->size(); point_counter ++) {
+		pair<int, int> pixel = cloud[point_counter].getPixelCoordinates();
+		int i = pixel.first;
+		int j = pixel.second;
+		if ((0 <= i < i_max) && (0 <= j < j_max)) {
+			image.at<Vec3b>(i, j) = cloud[point_counter].getColor();
+		}
+	}
+	imshow("Point cloud projection", image); waitKey(0);
+}

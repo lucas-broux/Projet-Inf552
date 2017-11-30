@@ -63,7 +63,7 @@ point3dCloud ransac::fit3dPlane(point3dCloud pointCloud, bool uniformColor, Vec3
 	for (int pointIndex = 0; pointIndex < pointCloud.size(); pointIndex++) {
 		if (P.distance(pointCloud[pointIndex].getPosition()) < epsilon) {
 			if (uniformColor) {
-				pointCloud_maxRansac.push_back(point3d(pointCloud[pointIndex].getPosition(), color));
+				pointCloud_maxRansac.push_back(point3d(pointCloud[pointIndex].getPosition(), color, pointCloud[pointIndex].getPixelCoordinates()));
 			}
 			else {
 				pointCloud_maxRansac.push_back(pointCloud[pointIndex]);
@@ -121,7 +121,7 @@ point3dCloud ransac::fit3dLine(point3dCloud pointCloud, plane p, bool uniformCol
 	for (int pointIndex = 0; pointIndex < pointCloud.size(); pointIndex++) {
 		if (lineCloud.minDistance(pointCloud[pointIndex].getPosition()) < epsilon) {
 			if (uniformColor) {
-				pointCloud_maxRansac.push_back(point3d(pointCloud[pointIndex].getPosition(), color));
+				pointCloud_maxRansac.push_back(point3d(pointCloud[pointIndex].getPosition(), color, pointCloud[pointIndex].getPixelCoordinates()));
 			}
 			else {
 				pointCloud_maxRansac.push_back(pointCloud[pointIndex]);

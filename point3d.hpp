@@ -14,14 +14,18 @@ class point3d {
 private:
 	Vec3d position;
 	Vec3b color;
+	pair<int, int> pixel;
 
 public:
 
-	point3d(Vec3d position, Vec3b color);
+	point3d(Vec3d position, Vec3b color, pair<int, int> pixel);
 
 	Vec3d getPosition();
 
 	Vec3b getColor();
 
+	pair<int, int> getPixelCoordinates();
+
 	double distance(point3d p);
+
 };

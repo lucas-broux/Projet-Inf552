@@ -145,15 +145,15 @@ point3dCloud pointCloudFromImages(Mat& left_image, const Mat& disparity, Matx33d
 				Vec3b color = left_image.at<Vec3b>(i, j);
 
 				// Add point to point cloud.
-				pointcloud.push_back(point3d(position, color));
+				pointcloud.push_back(point3d(position, color, make_pair(i, j)));
 			}
 			else {
 				// Color point on left image for vizualisation purposes.
-				Vec3b color;
+				/*Vec3b color;
 				color[0] = 0;
 				color[1] = 255;
 				color[2] = 0;
-				left_image.at<Vec3b>(i, j) = color;
+				left_image.at<Vec3b>(i, j) = color;*/
 			}
 		}
 	}
@@ -242,6 +242,9 @@ int main(){
 	cout << "Exporting result as .ply file...";
 	pointCloud2ply(pointcloudRoad, "../3dcloud_road.ply");
 	cout << "Exported." << endl;
+
+	// Show found plane on image.
+	pointcloudRoad.showOnImage(left_image);
 
 	//////Vertical objects
 	// Apply ransac.

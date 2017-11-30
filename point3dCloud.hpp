@@ -28,4 +28,6 @@ public:
 
 	double meanNeighboursDistance();
 
+	void showOnImage(Mat& image);
+
 };

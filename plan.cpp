@@ -134,7 +134,7 @@ int Plan::distance(Vec3d p) {
 }
 
 /**
-Overloads ofstream.
+Overloads ofstream for printing purposes.
 
 @param os Considered stream.
 @param p Considered plan.

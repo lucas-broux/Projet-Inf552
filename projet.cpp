@@ -247,13 +247,11 @@ int main(){
 	// Apply ransac.
 	cout << "Applying ransac to find vertical objects...";
 	ransac rVo = ransac(1000, 10 * meanNeighboursDistance);
-	point3dCloud pointcloudVo = rVo.fit3dLine(pointcloud, planeRoad, true, Vec3b(0, 0, 255));
+	point3dCloud pointcloudVo = rVo.fit3dLine(pointcloud, planeRoad, true, Vec3b(0, 0, 255), 3, 50 * meanNeighboursDistance);
 
 	// Apply regression.
 	//line3d line3dVo;
 	//line3dVo.regression(pointcloudVo);
-
-	//cout << line3dVo << " ransac successfully applied." << endl;
 
 	// Export result as .ply file.
 	cout << "Exporting result as .ply file...";

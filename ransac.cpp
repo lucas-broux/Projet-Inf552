@@ -80,11 +80,17 @@ Extract the most correlated points (line model).
 @param pointCloud The considered point cloud.
 @return List of points that correlate the most (line model) as point3dCloud.
 */
-point3dCloud ransac::fit3dLine(point3dCloud pointCloud, plane p, bool uniformColor, Vec3b color) {
+point3dCloud ransac::fit3dLine(point3dCloud pointCloud, plane p, bool uniformColor, Vec3b color, int nlines, double minDistBetweenLines) {
+
+	line3dCloud lineCloud;
+	for (int n = 0; n < nlines; n++) {
+		lineCloud.push_back(line3d(pointCloud[0].getPosition(), pointCloud[0].getPosition(), false), 0);
+	}
+
 	Vec3d p1_maxRansac = pointCloud[0].getPosition();
 	Vec3d p2_maxRansac = pointCloud[0].getPosition();
 
-	int count_maxRansac = 0;
+	int count_minMaxRansac = 0;
 
 	for (int i = 0; i < n_iterations; i++) {
 
@@ -104,31 +110,16 @@ point3dCloud ransac::fit3dLine(point3dCloud pointCloud, plane p, bool uniformCol
 				}
 			}
 
-			/*if (count != 0) {
-			for (int index = 0; index < 10; index++) {
-			cout << P.distance(pointCloud[(rand()*RAND_MAX + rand()) % pointCloud.size()].getPosition()) << " ";
-			}
-			cout << "/ count = " << count << endl;
-			}*/
-
-			if (count > count_maxRansac) {
-				count_maxRansac = count;
-				p1_maxRansac = p1;
-				p2_maxRansac = p2;
+			if (count > lineCloud.getMinNpoints() && lineCloud.minDistance(l) > minDistBetweenLines) {
+				lineCloud.set(lineCloud.getMinNpointsIndex(), l, count);
 			}
 		}
 	}
 
-	line3d l = line3d(p1_maxRansac, p2_maxRansac, false);
 	point3dCloud pointCloud_maxRansac;
-	
-	cout << l << endl;
-	cout << p << endl;
-	cout << l.cosAngle(p.getDirection()) << endl;
-	cout << count_maxRansac << endl;
 
 	for (int pointIndex = 0; pointIndex < pointCloud.size(); pointIndex++) {
-		if (l.distance(pointCloud[pointIndex].getPosition()) < epsilon) {
+		if (lineCloud.minDistance(pointCloud[pointIndex].getPosition()) < epsilon) {
 			if (uniformColor) {
 				pointCloud_maxRansac.push_back(point3d(pointCloud[pointIndex].getPosition(), color));
 			}

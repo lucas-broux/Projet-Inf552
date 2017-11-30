@@ -48,6 +48,30 @@ double line3d::distance(Vec3d p) {
 };
 
 /**
+Find the distance between the line3d and another line3d.
+
+@param l The considered line3d.
+*/
+double line3d::distance(line3d l) {
+	if (!this->isDegenerated() && !l.isDegenerated()) {
+		Vec3d AB = l.point - point;
+		Mat X(3, 3, CV_64FC1);
+		X.at<double>(0, 0) = AB[0];
+		X.at<double>(0, 1) = AB[1];
+		X.at<double>(0, 2) = AB[2];
+		X.at<double>(1, 0) = l.vector[0];
+		X.at<double>(1, 1) = l.vector[1];
+		X.at<double>(1, 2) = l.vector[2];
+		X.at<double>(2, 0) = vector[0];
+		X.at<double>(2, 1) = vector[1];
+		X.at<double>(2, 2) = vector[2];
+		return(abs(determinant(X)) / norm(product(vector, l.vector).getVectorial()));
+	}
+	return DBL_MAX;
+};
+
+
+/**
 Overloads ofstream.
 
 @param os Considered stream.

@@ -24,6 +24,8 @@ public:
 
 	double distance(Vec3d p);
 
+	double distance(line3d l);
+
 	//void regression(point3dCloud pointcloud);
 
 	friend ostream& operator<<(ostream& os, const line3d& l);

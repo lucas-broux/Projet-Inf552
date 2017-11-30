@@ -47,23 +47,35 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A class to represent points in the 3d space.  
+ <a href="classpoint3d.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="point3d_8hpp_source.html">point3d.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a92ab5430456c0738bdc7d8f9f623629a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpoint3d.html#a92ab5430456c0738bdc7d8f9f623629a">point3d</a> (Vec3d position, Vec3b color)</td></tr>
-<tr class="memdesc:a92ab5430456c0738bdc7d8f9f623629a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the class.  <a href="#a92ab5430456c0738bdc7d8f9f623629a">More...</a><br /></td></tr>
-<tr class="separator:a92ab5430456c0738bdc7d8f9f623629a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59371ecc747470363f3e62dcd268821f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpoint3d.html#a59371ecc747470363f3e62dcd268821f">point3d</a> (Vec3d position, Vec3b color, pair&lt; int, int &gt; pixel)</td></tr>
+<tr class="memdesc:a59371ecc747470363f3e62dcd268821f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#a59371ecc747470363f3e62dcd268821f">More...</a><br /></td></tr>
+<tr class="separator:a59371ecc747470363f3e62dcd268821f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abde5a74021350422e880806284eb4b73"><td class="memItemLeft" align="right" valign="top">Vec3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpoint3d.html#abde5a74021350422e880806284eb4b73">getPosition</a> ()</td></tr>
+<tr class="memdesc:abde5a74021350422e880806284eb4b73"><td class="mdescLeft">&#160;</td><td class="mdescRight">A method to get the position of the point.  <a href="#abde5a74021350422e880806284eb4b73">More...</a><br /></td></tr>
 <tr class="separator:abde5a74021350422e880806284eb4b73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a133b9989d89645695b71c71a3f67e014"><td class="memItemLeft" align="right" valign="top">Vec3b&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpoint3d.html#a133b9989d89645695b71c71a3f67e014">getColor</a> ()</td></tr>
+<tr class="memdesc:a133b9989d89645695b71c71a3f67e014"><td class="mdescLeft">&#160;</td><td class="mdescRight">A method to get the color of the point.  <a href="#a133b9989d89645695b71c71a3f67e014">More...</a><br /></td></tr>
 <tr class="separator:a133b9989d89645695b71c71a3f67e014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14e378e470761867a8ad4cdcc4462ab4"><td class="memItemLeft" align="right" valign="top">pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpoint3d.html#a14e378e470761867a8ad4cdcc4462ab4">getPixelCoordinates</a> ()</td></tr>
+<tr class="memdesc:a14e378e470761867a8ad4cdcc4462ab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A method to get the pixel coordinates of the point.  <a href="#a14e378e470761867a8ad4cdcc4462ab4">More...</a><br /></td></tr>
+<tr class="separator:a14e378e470761867a8ad4cdcc4462ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7872f374cd41ad4a4f63786f605a10a5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpoint3d.html#a7872f374cd41ad4a4f63786f605a10a5">distance</a> (<a class="el" href="classpoint3d.html">point3d</a> p)</td></tr>
+<tr class="memdesc:a7872f374cd41ad4a4f63786f605a10a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the distance between the point and another point.  <a href="#a7872f374cd41ad4a4f63786f605a10a5">More...</a><br /></td></tr>
 <tr class="separator:a7872f374cd41ad4a4f63786f605a10a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a92ab5430456c0738bdc7d8f9f623629a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92ab5430456c0738bdc7d8f9f623629a">&#9670;&nbsp;</a></span>point3d()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class to represent points in the 3d space. </p>
+<p>We describe a <a class="el" href="classpoint3d.html" title="A class to represent points in the 3d space. ">point3d</a> by its position, its color and its correponding pixel in the origin image. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a59371ecc747470363f3e62dcd268821f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59371ecc747470363f3e62dcd268821f">&#9670;&nbsp;</a></span>point3d()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -78,7 +90,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">Vec3b&#160;</td>
-          <td class="paramname"><em>color</em>&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">pair&lt; int, int &gt;&#160;</td>
+          <td class="paramname"><em>pixel</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -88,11 +106,12 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor for the class. </p>
+<p>A constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">position</td><td>The position of the 3dPoint. </td></tr>
     <tr><td class="paramname">color</td><td>The color of the 3dPoint. </td></tr>
+    <tr><td class="paramname">pixel</td><td>The corresponding pixel in the image. </td></tr>
   </table>
   </dd>
 </dl>
@@ -116,6 +135,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Finds the distance between the point and another point. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>The considered point. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The distance between the two points. </dd></dl>
+
 </div>
 </div>
 <a id="a133b9989d89645695b71c71a3f67e014"></a>
@@ -133,6 +161,29 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>A method to get the color of the point. </p>
+<dl class="section return"><dt>Returns</dt><dd>The color of the point. </dd></dl>
+
+</div>
+</div>
+<a id="a14e378e470761867a8ad4cdcc4462ab4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14e378e470761867a8ad4cdcc4462ab4">&#9670;&nbsp;</a></span>getPixelCoordinates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pair&lt; int, int &gt; point3d::getPixelCoordinates </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A method to get the pixel coordinates of the point. </p>
+<dl class="section return"><dt>Returns</dt><dd>The pixel coordinates of the point. </dd></dl>
+
 </div>
 </div>
 <a id="abde5a74021350422e880806284eb4b73"></a>
@@ -149,6 +200,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A method to get the position of the point. </p>
+<dl class="section return"><dt>Returns</dt><dd>The position of the point. </dd></dl>
 
 </div>
 </div>

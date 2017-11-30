@@ -47,19 +47,26 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A class to encapsulate the calculation of scalar and vectorial product.  
+ <a href="classproduct.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="product_8hpp_source.html">product.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:afb6d2aba360c4daeacef569a7e884689"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classproduct.html#afb6d2aba360c4daeacef569a7e884689">product</a> (Vec3d v1, Vec3d v2)</td></tr>
-<tr class="memdesc:afb6d2aba360c4daeacef569a7e884689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the class.  <a href="#afb6d2aba360c4daeacef569a7e884689">More...</a><br /></td></tr>
+<tr class="memdesc:afb6d2aba360c4daeacef569a7e884689"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#afb6d2aba360c4daeacef569a7e884689">More...</a><br /></td></tr>
 <tr class="separator:afb6d2aba360c4daeacef569a7e884689"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74c606ec2a03f632c6f86a5feac41834"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classproduct.html#a74c606ec2a03f632c6f86a5feac41834">getScalar</a> ()</td></tr>
+<tr class="memdesc:a74c606ec2a03f632c6f86a5feac41834"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the scalar product between the two points.  <a href="#a74c606ec2a03f632c6f86a5feac41834">More...</a><br /></td></tr>
 <tr class="separator:a74c606ec2a03f632c6f86a5feac41834"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22749e150ec6baffd629cd037bbf72cd"><td class="memItemLeft" align="right" valign="top">Vec3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classproduct.html#a22749e150ec6baffd629cd037bbf72cd">getVectorial</a> ()</td></tr>
+<tr class="memdesc:a22749e150ec6baffd629cd037bbf72cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the vectorial product between the two points.  <a href="#a22749e150ec6baffd629cd037bbf72cd">More...</a><br /></td></tr>
 <tr class="separator:a22749e150ec6baffd629cd037bbf72cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class to encapsulate the calculation of scalar and vectorial product. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afb6d2aba360c4daeacef569a7e884689"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afb6d2aba360c4daeacef569a7e884689">&#9670;&nbsp;</a></span>product()</h2>
 
@@ -86,11 +93,11 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor for the class. </p>
+<p>A constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">position</td><td>The position of the 3dPoint. </td></tr>
-    <tr><td class="paramname">color</td><td>The color of the 3dPoint. </td></tr>
+    <tr><td class="paramname">v1</td><td>The first vector. </td></tr>
+    <tr><td class="paramname">v2</td><td>The second vector. </td></tr>
   </table>
   </dd>
 </dl>
@@ -113,6 +120,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Computes the scalar product between the two points. </p>
+<dl class="section return"><dt>Returns</dt><dd>The scalar product. </dd></dl>
+
 </div>
 </div>
 <a id="a22749e150ec6baffd629cd037bbf72cd"></a>
@@ -129,6 +139,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Computes the vectorial product between the two points. </p>
+<dl class="section return"><dt>Returns</dt><dd>The vectorial product. </dd></dl>
 
 </div>
 </div>

@@ -2,18 +2,26 @@
 \label{classproduct}\index{product@{product}}
 
 
+A class to encapsulate the calculation of scalar and vectorial product.  
+
+
+
+
 {\ttfamily \#include $<$product.\+hpp$>$}
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \textbf{ product} (Vec3d v1, Vec3d v2)
-\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A constructor. \end{DoxyCompactList}\item 
 double \textbf{ get\+Scalar} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Computes the scalar product between the two points. \end{DoxyCompactList}\item 
 Vec3d \textbf{ get\+Vectorial} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Computes the vectorial product between the two points. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+A class to encapsulate the calculation of scalar and vectorial product. 
 
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\label{classproduct_afb6d2aba360c4daeacef569a7e884689}} 
@@ -24,13 +32,13 @@ Vec3d \textbf{ get\+Vectorial} ()
 
 
 
-Constructor for the class. 
+A constructor. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em position} & The position of the 3d\+Point. \\
+{\em v1} & The first vector. \\
 \hline
-{\em color} & The color of the 3d\+Point. \\
+{\em v2} & The second vector. \\
 \hline
 \end{DoxyParams}
 
@@ -42,12 +50,26 @@ Constructor for the class.
 \subsubsection{get\+Scalar()}
 {\footnotesize\ttfamily double product\+::get\+Scalar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Computes the scalar product between the two points. 
+
+\begin{DoxyReturn}{Returns}
+The scalar product. 
+\end{DoxyReturn}
 \mbox{\label{classproduct_a22749e150ec6baffd629cd037bbf72cd}} 
 \index{product@{product}!get\+Vectorial@{get\+Vectorial}}
 \index{get\+Vectorial@{get\+Vectorial}!product@{product}}
 \subsubsection{get\+Vectorial()}
 {\footnotesize\ttfamily Vec3d product\+::get\+Vectorial (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Computes the vectorial product between the two points. 
+
+\begin{DoxyReturn}{Returns}
+The vectorial product. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

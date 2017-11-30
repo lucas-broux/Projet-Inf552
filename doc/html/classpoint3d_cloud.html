@@ -47,23 +47,36 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A class to represent clouds of points in the 3d space.  
+ <a href="classpoint3d_cloud.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="point3d_cloud_8hpp_source.html">point3dCloud.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9997a8eba3508097aed26dd3dc8c12a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpoint3d_cloud.html#a9997a8eba3508097aed26dd3dc8c12a0">point3dCloud</a> ()</td></tr>
-<tr class="memdesc:a9997a8eba3508097aed26dd3dc8c12a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the class.  <a href="#a9997a8eba3508097aed26dd3dc8c12a0">More...</a><br /></td></tr>
+<tr class="memdesc:a9997a8eba3508097aed26dd3dc8c12a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#a9997a8eba3508097aed26dd3dc8c12a0">More...</a><br /></td></tr>
 <tr class="separator:a9997a8eba3508097aed26dd3dc8c12a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84c558258478bc6728e6545d8f4b8d02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpoint3d_cloud.html#a84c558258478bc6728e6545d8f4b8d02">push_back</a> (<a class="el" href="classpoint3d.html">point3d</a> point)</td></tr>
+<tr class="memdesc:a84c558258478bc6728e6545d8f4b8d02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a point in the pointcloud.  <a href="#a84c558258478bc6728e6545d8f4b8d02">More...</a><br /></td></tr>
 <tr class="separator:a84c558258478bc6728e6545d8f4b8d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab39c301d72157f68789b2fda42636432"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpoint3d.html">point3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpoint3d_cloud.html#ab39c301d72157f68789b2fda42636432">operator[]</a> (int i)</td></tr>
+<tr class="memdesc:ab39c301d72157f68789b2fda42636432"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads [].  <a href="#ab39c301d72157f68789b2fda42636432">More...</a><br /></td></tr>
 <tr class="separator:ab39c301d72157f68789b2fda42636432"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4fe8d4a3f3f93691741e301f767ff7f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpoint3d_cloud.html#aa4fe8d4a3f3f93691741e301f767ff7f">size</a> ()</td></tr>
+<tr class="memdesc:aa4fe8d4a3f3f93691741e301f767ff7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the size of the pointcloud.  <a href="#aa4fe8d4a3f3f93691741e301f767ff7f">More...</a><br /></td></tr>
 <tr class="separator:aa4fe8d4a3f3f93691741e301f767ff7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abaeea1c0f6c4cacec59890e0535a41a9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpoint3d_cloud.html#abaeea1c0f6c4cacec59890e0535a41a9">meanNeighboursDistance</a> ()</td></tr>
+<tr class="memdesc:abaeea1c0f6c4cacec59890e0535a41a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the mean of the distances between neighbours.  <a href="#abaeea1c0f6c4cacec59890e0535a41a9">More...</a><br /></td></tr>
 <tr class="separator:abaeea1c0f6c4cacec59890e0535a41a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2e4d831f4260d405657dace382c8d00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpoint3d_cloud.html#ac2e4d831f4260d405657dace382c8d00">showOnImage</a> (Mat &amp;image)</td></tr>
+<tr class="memdesc:ac2e4d831f4260d405657dace382c8d00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows the result on an image.  <a href="#ac2e4d831f4260d405657dace382c8d00">More...</a><br /></td></tr>
+<tr class="separator:ac2e4d831f4260d405657dace382c8d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class to represent clouds of points in the 3d space. </p>
+<p>We describe a cloud by a vector of <a class="el" href="classpoint3d.html" title="A class to represent points in the 3d space. ">point3d</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9997a8eba3508097aed26dd3dc8c12a0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9997a8eba3508097aed26dd3dc8c12a0">&#9670;&nbsp;</a></span>point3dCloud()</h2>
 
@@ -79,7 +92,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor for the class. </p>
+<p>A constructor. </p>
+<p>This default constructor initializes this-&gt;cloud. </p>
 
 </div>
 </div>
@@ -99,6 +113,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Gives the mean of the distances between neighbours. </p>
+<dl class="section return"><dt>Returns</dt><dd>The mean. </dd></dl>
+
 </div>
 </div>
 <a id="ab39c301d72157f68789b2fda42636432"></a>
@@ -116,6 +133,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Overloads []. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>The index to get. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classpoint3d.html" title="A class to represent points in the 3d space. ">point3d</a>. </dd></dl>
 
 </div>
 </div>
@@ -135,6 +161,35 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adds a point in the pointcloud. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>The <a class="el" href="classpoint3d.html" title="A class to represent points in the 3d space. ">point3d</a> to add. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac2e4d831f4260d405657dace382c8d00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2e4d831f4260d405657dace382c8d00">&#9670;&nbsp;</a></span>showOnImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void point3dCloud::showOnImage </td>
+          <td>(</td>
+          <td class="paramtype">Mat &amp;&#160;</td>
+          <td class="paramname"><em>image</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shows the result on an image. </p>
+<p>This method allows us to see directly the result without visualizing a 3d pointcloud. </p>
+
 </div>
 </div>
 <a id="aa4fe8d4a3f3f93691741e301f767ff7f"></a>
@@ -151,6 +206,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Gives the size of the pointcloud. </p>
+<dl class="section return"><dt>Returns</dt><dd>The size of the pointcloud. </dd></dl>
 
 </div>
 </div>

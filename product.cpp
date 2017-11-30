@@ -1,11 +1,5 @@
 #include "product.hpp"
 
-/**
-Constructor for the class.
-
-@param position The position of the 3dPoint.
-@param color The color of the 3dPoint.
-*/
 product::product(Vec3d v1, Vec3d v2) {
 	this->v1 = v1;
 	this->v2 = v2;

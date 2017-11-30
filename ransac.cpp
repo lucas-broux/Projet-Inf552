@@ -1,22 +1,10 @@
 #include "ransac.hpp"
 
-/**
-	Constructor for the class.
-
-	@param n_iterations The number of iterations for the algorithm.
-	@param epsilon Threshold.
-*/
 ransac::ransac(int n_iterations, double epsilon) {
 	this->n_iterations = n_iterations;
 	this->epsilon = epsilon;
 };
 
-/**
-	Extract the most correlated points (plane model).
-
-	@param pointCloud The considered point cloud.
-	@return List of points that correlate the most (plane model) as point3dCloud.
-*/
 point3dCloud ransac::fit3dPlane(point3dCloud pointCloud, bool uniformColor, Vec3b color) {
 	Vec3d p1_maxRansac = pointCloud[0].getPosition();
 	Vec3d p2_maxRansac = pointCloud[0].getPosition();
@@ -43,13 +31,6 @@ point3dCloud ransac::fit3dPlane(point3dCloud pointCloud, bool uniformColor, Vec3
 			}
 		}
 
-		/*if (count != 0) {
-			for (int index = 0; index < 10; index++) {
-				cout << P.distance(pointCloud[(rand()*RAND_MAX + rand()) % pointCloud.size()].getPosition()) << " ";
-			}
-			cout << "/ count = " << count << endl;
-		}*/
-
 		if (count > count_maxRansac) {
 			count_maxRansac = count;
 			p1_maxRansac = p1;
@@ -74,12 +55,6 @@ point3dCloud ransac::fit3dPlane(point3dCloud pointCloud, bool uniformColor, Vec3
 	return pointCloud_maxRansac;
 };
 
-/**
-Extract the most correlated points (line model).
-
-@param pointCloud The considered point cloud.
-@return List of points that correlate the most (line model) as point3dCloud.
-*/
 point3dCloud ransac::fit3dLine(point3dCloud pointCloud, plane p, bool uniformColor, Vec3b color, int nlines, double minDistBetweenLines) {
 
 	line3dCloud lineCloud;

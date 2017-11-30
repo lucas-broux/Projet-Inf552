@@ -47,31 +47,45 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A class to represent clouds of lines in the 3d space.  
+ <a href="classline3d_cloud.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="line3d_cloud_8hpp_source.html">line3dCloud.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab03dcf5e617a3693cf7b362028dd61fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classline3d_cloud.html#ab03dcf5e617a3693cf7b362028dd61fb">line3dCloud</a> ()</td></tr>
-<tr class="memdesc:ab03dcf5e617a3693cf7b362028dd61fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the class.  <a href="#ab03dcf5e617a3693cf7b362028dd61fb">More...</a><br /></td></tr>
+<tr class="memdesc:ab03dcf5e617a3693cf7b362028dd61fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#ab03dcf5e617a3693cf7b362028dd61fb">More...</a><br /></td></tr>
 <tr class="separator:ab03dcf5e617a3693cf7b362028dd61fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79885e87f85b3b14cfd9168f826a6d04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classline3d_cloud.html#a79885e87f85b3b14cfd9168f826a6d04">push_back</a> (<a class="el" href="classline3d.html">line3d</a> line, int npoints)</td></tr>
-<tr class="separator:a79885e87f85b3b14cfd9168f826a6d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a001b5d3768675e3cd657bcaa5dbc036d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classline3d_cloud.html#a001b5d3768675e3cd657bcaa5dbc036d">push_back</a> (<a class="el" href="classline3d.html">line3d</a> line, int npoints=0)</td></tr>
+<tr class="memdesc:a001b5d3768675e3cd657bcaa5dbc036d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a line in the linecloud.  <a href="#a001b5d3768675e3cd657bcaa5dbc036d">More...</a><br /></td></tr>
+<tr class="separator:a001b5d3768675e3cd657bcaa5dbc036d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12a7f0d2111300e83e47f9cf9f7a1e12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classline3d.html">line3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classline3d_cloud.html#a12a7f0d2111300e83e47f9cf9f7a1e12">operator[]</a> (int i)</td></tr>
+<tr class="memdesc:a12a7f0d2111300e83e47f9cf9f7a1e12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads [].  <a href="#a12a7f0d2111300e83e47f9cf9f7a1e12">More...</a><br /></td></tr>
 <tr class="separator:a12a7f0d2111300e83e47f9cf9f7a1e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcfeacb27285def2412a526a4b1ebcfb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classline3d_cloud.html#abcfeacb27285def2412a526a4b1ebcfb">size</a> ()</td></tr>
+<tr class="memdesc:abcfeacb27285def2412a526a4b1ebcfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the size of the linecloud.  <a href="#abcfeacb27285def2412a526a4b1ebcfb">More...</a><br /></td></tr>
 <tr class="separator:abcfeacb27285def2412a526a4b1ebcfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99ff4321bff42c81a30e86296f22035b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classline3d_cloud.html#a99ff4321bff42c81a30e86296f22035b">getMinNpointsIndex</a> ()</td></tr>
+<tr class="memdesc:a99ff4321bff42c81a30e86296f22035b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the index of the line with the least neighbours of the linecloud.  <a href="#a99ff4321bff42c81a30e86296f22035b">More...</a><br /></td></tr>
 <tr class="separator:a99ff4321bff42c81a30e86296f22035b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6879344baded87a3d10858536534b7c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classline3d_cloud.html#aa6879344baded87a3d10858536534b7c">getMinNpoints</a> ()</td></tr>
+<tr class="memdesc:aa6879344baded87a3d10858536534b7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the number of neighbours of the line with the least neighbours of the linecloud.  <a href="#aa6879344baded87a3d10858536534b7c">More...</a><br /></td></tr>
 <tr class="separator:aa6879344baded87a3d10858536534b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42347960ceed6c1bf04b1a2bff7a0370"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classline3d_cloud.html#a42347960ceed6c1bf04b1a2bff7a0370">set</a> (int i, <a class="el" href="classline3d.html">line3d</a> line, int npoints)</td></tr>
+<tr class="memdesc:a42347960ceed6c1bf04b1a2bff7a0370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace a line for another in the linecloud.  <a href="#a42347960ceed6c1bf04b1a2bff7a0370">More...</a><br /></td></tr>
 <tr class="separator:a42347960ceed6c1bf04b1a2bff7a0370"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85d6b989211a90a63f13633cb7e4164e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classline3d_cloud.html#a85d6b989211a90a63f13633cb7e4164e">minDistance</a> (<a class="el" href="classline3d.html">line3d</a> line)</td></tr>
+<tr class="memdesc:a85d6b989211a90a63f13633cb7e4164e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds distance of a line from it's closest in the pointcloud.  <a href="#a85d6b989211a90a63f13633cb7e4164e">More...</a><br /></td></tr>
 <tr class="separator:a85d6b989211a90a63f13633cb7e4164e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefc75565b96d9580ea8d5d60266ac0f4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classline3d_cloud.html#aefc75565b96d9580ea8d5d60266ac0f4">minDistance</a> (Vec3d v)</td></tr>
+<tr class="memdesc:aefc75565b96d9580ea8d5d60266ac0f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds distance of a vector from it's closest line in the pointcloud.  <a href="#aefc75565b96d9580ea8d5d60266ac0f4">More...</a><br /></td></tr>
 <tr class="separator:aefc75565b96d9580ea8d5d60266ac0f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class to represent clouds of lines in the 3d space. </p>
+<p>We describe a cloud by a vector of <a class="el" href="classline3d.html" title="A class to represent lines in the 3d space. ">line3d</a> and a vector of int. The vector of int allows us to store the number of points next to the line from a pointcloud. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab03dcf5e617a3693cf7b362028dd61fb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab03dcf5e617a3693cf7b362028dd61fb">&#9670;&nbsp;</a></span>line3dCloud()</h2>
 
@@ -87,7 +101,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor for the class. </p>
+<p>A constructor. </p>
+<p>This default constructor initializes this-&gt;cloud and this-&gt;npoints. </p>
 
 </div>
 </div>
@@ -107,6 +122,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Finds the number of neighbours of the line with the least neighbours of the linecloud. </p>
+<dl class="section return"><dt>Returns</dt><dd>The desired number of neighbours. </dd></dl>
+
 </div>
 </div>
 <a id="a99ff4321bff42c81a30e86296f22035b"></a>
@@ -123,6 +141,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Finds the index of the line with the least neighbours of the linecloud. </p>
+<dl class="section return"><dt>Returns</dt><dd>The desired index. </dd></dl>
 
 </div>
 </div>
@@ -142,6 +163,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Finds distance of a line from it's closest in the pointcloud. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line</td><td>The considered line. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The distance. </dd></dl>
+
 </div>
 </div>
 <a id="aefc75565b96d9580ea8d5d60266ac0f4"></a>
@@ -159,6 +189,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Finds distance of a vector from it's closest line in the pointcloud. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>The considered vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The distance. </dd></dl>
 
 </div>
 </div>
@@ -178,10 +217,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Overloads []. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>The index to get. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classline3d.html" title="A class to represent lines in the 3d space. ">line3d</a>. </dd></dl>
+
 </div>
 </div>
-<a id="a79885e87f85b3b14cfd9168f826a6d04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79885e87f85b3b14cfd9168f826a6d04">&#9670;&nbsp;</a></span>push_back()</h2>
+<a id="a001b5d3768675e3cd657bcaa5dbc036d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a001b5d3768675e3cd657bcaa5dbc036d">&#9670;&nbsp;</a></span>push_back()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,7 +244,7 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>npoints</em>&#160;</td>
+          <td class="paramname"><em>npoints</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -205,6 +253,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Adds a line in the linecloud. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line</td><td>The <a class="el" href="classline3d.html" title="A class to represent lines in the 3d space. ">line3d</a> to add. </td></tr>
+    <tr><td class="paramname">npoints</td><td>The number of points next to the considered line. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -240,6 +297,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Replace a line for another in the linecloud. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>The index to change. </td></tr>
+    <tr><td class="paramname">line</td><td>The <a class="el" href="classline3d.html" title="A class to represent lines in the 3d space. ">line3d</a>. </td></tr>
+    <tr><td class="paramname">npoints</td><td>The number of neighbours of this <a class="el" href="classline3d.html" title="A class to represent lines in the 3d space. ">line3d</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="abcfeacb27285def2412a526a4b1ebcfb"></a>
@@ -256,6 +323,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Gives the size of the linecloud. </p>
+<dl class="section return"><dt>Returns</dt><dd>The size of the linecloud. </dd></dl>
 
 </div>
 </div>

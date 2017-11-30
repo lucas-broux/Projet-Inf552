@@ -2,37 +2,51 @@
 \label{classpoint3d}\index{point3d@{point3d}}
 
 
+A class to represent points in the 3d space.  
+
+
+
+
 {\ttfamily \#include $<$point3d.\+hpp$>$}
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\textbf{ point3d} (Vec3d position, Vec3b color)
-\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
+\textbf{ point3d} (Vec3d position, Vec3b color, pair$<$ int, int $>$ pixel)
+\begin{DoxyCompactList}\small\item\em A constructor. \end{DoxyCompactList}\item 
 Vec3d \textbf{ get\+Position} ()
-\item 
+\begin{DoxyCompactList}\small\item\em A method to get the position of the point. \end{DoxyCompactList}\item 
 Vec3b \textbf{ get\+Color} ()
-\item 
+\begin{DoxyCompactList}\small\item\em A method to get the color of the point. \end{DoxyCompactList}\item 
+pair$<$ int, int $>$ \textbf{ get\+Pixel\+Coordinates} ()
+\begin{DoxyCompactList}\small\item\em A method to get the pixel coordinates of the point. \end{DoxyCompactList}\item 
 double \textbf{ distance} (\textbf{ point3d} p)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Finds the distance between the point and another point. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+A class to represent points in the 3d space. 
+
+We describe a \doxyref{point3d}{p.}{classpoint3d} by its position, its color and its correponding pixel in the origin image. 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\label{classpoint3d_a92ab5430456c0738bdc7d8f9f623629a}} 
+\mbox{\label{classpoint3d_a59371ecc747470363f3e62dcd268821f}} 
 \index{point3d@{point3d}!point3d@{point3d}}
 \index{point3d@{point3d}!point3d@{point3d}}
 \subsubsection{point3d()}
-{\footnotesize\ttfamily point3d\+::point3d (\begin{DoxyParamCaption}\item[{Vec3d}]{position,  }\item[{Vec3b}]{color }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily point3d\+::point3d (\begin{DoxyParamCaption}\item[{Vec3d}]{position,  }\item[{Vec3b}]{color,  }\item[{pair$<$ int, int $>$}]{pixel }\end{DoxyParamCaption})}
 
 
 
-Constructor for the class. 
+A constructor. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em position} & The position of the 3d\+Point. \\
 \hline
 {\em color} & The color of the 3d\+Point. \\
+\hline
+{\em pixel} & The corresponding pixel in the image. \\
 \hline
 \end{DoxyParams}
 
@@ -44,18 +58,57 @@ Constructor for the class.
 \subsubsection{distance()}
 {\footnotesize\ttfamily double point3d\+::distance (\begin{DoxyParamCaption}\item[{\textbf{ point3d}}]{p }\end{DoxyParamCaption})}
 
+
+
+Finds the distance between the point and another point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The considered point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance between the two points. 
+\end{DoxyReturn}
 \mbox{\label{classpoint3d_a133b9989d89645695b71c71a3f67e014}} 
 \index{point3d@{point3d}!get\+Color@{get\+Color}}
 \index{get\+Color@{get\+Color}!point3d@{point3d}}
 \subsubsection{get\+Color()}
 {\footnotesize\ttfamily Vec3b point3d\+::get\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+A method to get the color of the point. 
+
+\begin{DoxyReturn}{Returns}
+The color of the point. 
+\end{DoxyReturn}
+\mbox{\label{classpoint3d_a14e378e470761867a8ad4cdcc4462ab4}} 
+\index{point3d@{point3d}!get\+Pixel\+Coordinates@{get\+Pixel\+Coordinates}}
+\index{get\+Pixel\+Coordinates@{get\+Pixel\+Coordinates}!point3d@{point3d}}
+\subsubsection{get\+Pixel\+Coordinates()}
+{\footnotesize\ttfamily pair$<$ int, int $>$ point3d\+::get\+Pixel\+Coordinates (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A method to get the pixel coordinates of the point. 
+
+\begin{DoxyReturn}{Returns}
+The pixel coordinates of the point. 
+\end{DoxyReturn}
 \mbox{\label{classpoint3d_abde5a74021350422e880806284eb4b73}} 
 \index{point3d@{point3d}!get\+Position@{get\+Position}}
 \index{get\+Position@{get\+Position}!point3d@{point3d}}
 \subsubsection{get\+Position()}
 {\footnotesize\ttfamily Vec3d point3d\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+A method to get the position of the point. 
+
+\begin{DoxyReturn}{Returns}
+The position of the point. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

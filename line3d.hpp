@@ -22,7 +22,7 @@ private:
 public:
 	/**
 	* A constructor.
-	* This constructor sets this->point and this->vector to zero.
+	* This default constructor sets this->point and this->vector to zero.
 	*/
 	line3d();
 
@@ -36,21 +36,21 @@ public:
 	line3d(Vec3d point, Vec3d v, bool second_Vec3d_isvector);
 
 	/**
-	* Find the distance between the line3d and a point.
+	* Finds the distance between the line3d and a point.
 	* @param p The considered point.
 	* @return The distance between the line3d and the considered point.
 	*/
 	double distance(Vec3d p);
 
 	/**
-	* Find the distance between the line3d and another line3d.
+	* Finds the distance between the line3d and another line3d.
 	* @param l The considered line3d.
 	* @return The distance between the two line3ds.
 	*/
 	double distance(line3d l);
 
 	/**
-	* Overloads ofstream.
+	* Overloads ofstream for printing purposes.
 	* @param os Considered stream.
 	* @param l Considered line.
 	* @return The ofstream to be printed.

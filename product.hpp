@@ -10,17 +10,32 @@
 using namespace std;
 using namespace cv;
 
+/**
+* A class to encapsulate the calculation of scalar and vectorial product.
+*/
 class product {
 private:
 	Vec3d v1;
 	Vec3d v2;
 
 public:
-
+	/**
+	* A constructor.
+	* @param v1 The first vector.
+	* @param v2 The second vector.
+	*/
 	product(Vec3d v1, Vec3d v2);
 
+	/**
+	* Computes the scalar product between the two points.
+	* @return The scalar product.
+	*/
 	double getScalar();
 
+	/**
+	* Computes the vectorial product between the two points.
+	* @return The vectorial product.
+	*/
 	Vec3d getVectorial();
 
 };

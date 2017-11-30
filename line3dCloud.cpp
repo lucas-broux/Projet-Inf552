@@ -1,8 +1,5 @@
 #include "line3dCloud.hpp"
 
-/**
-Constructor for the class.
-*/
 line3dCloud::line3dCloud() {
 	
 };

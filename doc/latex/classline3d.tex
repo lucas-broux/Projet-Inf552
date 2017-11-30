@@ -17,9 +17,9 @@ A class to represent lines in the 3d space.
 \textbf{ line3d} (Vec3d point, Vec3d v, bool second\+\_\+\+Vec3d\+\_\+isvector)
 \begin{DoxyCompactList}\small\item\em A constructor. \end{DoxyCompactList}\item 
 double \textbf{ distance} (Vec3d p)
-\begin{DoxyCompactList}\small\item\em Find the distance between the \doxyref{line3d}{p.}{classline3d} and a point. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Finds the distance between the \doxyref{line3d}{p.}{classline3d} and a point. \end{DoxyCompactList}\item 
 double \textbf{ distance} (\textbf{ line3d} l)
-\begin{DoxyCompactList}\small\item\em Find the distance between the \doxyref{line3d}{p.}{classline3d} and another \doxyref{line3d}{p.}{classline3d}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Finds the distance between the \doxyref{line3d}{p.}{classline3d} and another \doxyref{line3d}{p.}{classline3d}. \end{DoxyCompactList}\item 
 bool \textbf{ is\+Degenerated} ()
 \begin{DoxyCompactList}\small\item\em Tels if the line is a correct line. \end{DoxyCompactList}\item 
 double \textbf{ cos\+Angle} (Vec3d v)
@@ -28,7 +28,7 @@ double \textbf{ cos\+Angle} (Vec3d v)
 \begin{DoxyCompactItemize}
 \item 
 ostream \& \textbf{ operator$<$$<$} (ostream \&os, const \textbf{ line3d} \&l)
-\begin{DoxyCompactList}\small\item\em Overloads ofstream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Overloads ofstream for printing purposes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -47,7 +47,7 @@ We describe a \doxyref{line3d}{p.}{classline3d} by one of its point and a direct
 
 A constructor. 
 
-This constructor sets this-\/$>$point and this-\/$>$vector to zero. \mbox{\label{classline3d_a7b53acf9d0f86bea2186d4a9ba1b5c26}} 
+This default constructor sets this-\/$>$point and this-\/$>$vector to zero. \mbox{\label{classline3d_a7b53acf9d0f86bea2186d4a9ba1b5c26}} 
 \index{line3d@{line3d}!line3d@{line3d}}
 \index{line3d@{line3d}!line3d@{line3d}}
 \subsubsection{line3d()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
@@ -95,7 +95,7 @@ The cosine between the line and the vector.
 
 
 
-Find the distance between the \doxyref{line3d}{p.}{classline3d} and a point. 
+Finds the distance between the \doxyref{line3d}{p.}{classline3d} and a point. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -113,7 +113,7 @@ The distance between the \doxyref{line3d}{p.}{classline3d} and the considered po
 
 
 
-Find the distance between the \doxyref{line3d}{p.}{classline3d} and another \doxyref{line3d}{p.}{classline3d}. 
+Finds the distance between the \doxyref{line3d}{p.}{classline3d} and another \doxyref{line3d}{p.}{classline3d}. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -147,7 +147,7 @@ A boolean telling if the line is a correct line.
 
 
 
-Overloads ofstream. 
+Overloads ofstream for printing purposes. 
 
 
 \begin{DoxyParams}{Parameters}

@@ -1,9 +1,5 @@
 #include "plane.hpp"
 
-/**
-Constructor for the class.
-
-*/
 plane::plane() {
 	this->a = 0.;
 	this->b = 0.;
@@ -11,14 +7,6 @@ plane::plane() {
 	this->d = 0.;
 };
 
-/**
-	Constructor for the class.
-	
-	@param a 1st parameter of a*x + b*y + c*z + d = 0
-	@param b 2nd parameter of a*x + b*y + c*z + d = 0
-	@param c 3rd parameter of a*x + b*y + c*z + d = 0
-	@param d 4th parameter of a*x + b*y + c*z + d = 0
-*/
 plane::plane(double a, double b, double c, double d) {
 	this->a = a;
 	this->b = b;
@@ -26,13 +14,6 @@ plane::plane(double a, double b, double c, double d) {
 	this->d = d;
 };
 
-/**
-	Constructor for the class.
-	
-	@param p1 1st point of the plane
-	@param p2 2nd point of the plane
-	@param p3 3rd point of the plane
-*/
 plane::plane(Vec3d p1, Vec3d p2, Vec3d p3) {
 	/* 
 	We define
@@ -76,12 +57,13 @@ plane::plane(Vec3d p1, Vec3d p2, Vec3d p3) {
 	}
 };
 
-/**
-	Find the closest plane to the given point cloud.
+double plane::distance(Vec3d p) {
+	if (!this->isDegenerated() && sqrt(a*a + b*b + c*c) != 0) {
+		return(abs(a*p[0] + b*p[1] + c*p[2] + d) / sqrt(a*a + b*b + c*c));
+	}
+	return DBL_MAX;
+};
 
-	@param pointcloud The considered point cloud.
-	@return The plane of linear regression.
-*/
 void plane::regression(point3dCloud pointcloud) {
 	/*
 	We define
@@ -120,25 +102,6 @@ void plane::regression(point3dCloud pointcloud) {
 	}
 }
 
-
-/**
-	Find the distance between the plane and a point.
-
-	@param p The considered point.
-*/
-double plane::distance(Vec3d p) {
-	if (!this->isDegenerated() && sqrt(a*a + b*b + c*c) != 0) {
-		return(abs(a*p[0] + b*p[1] + c*p[2] + d) / sqrt(a*a + b*b + c*c));
-	}
-	return DBL_MAX;
-}
-
-/**
-Overloads ofstream for printing purposes.
-
-@param os Considered stream.
-@param p Considered plane.
-*/
 ostream& operator<<(ostream& os, const plane& p) {
 	if (p.a < 0) {
 		os << "- " << -p.a << " * x ";

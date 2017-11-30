@@ -18,6 +18,7 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classplane.html#ace51184307674051addc6211b04eb396"><param name="Name" value="getDirection"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classline3d_cloud.html#aa6879344baded87a3d10858536534b7c"><param name="Name" value="getMinNpoints"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classline3d_cloud.html#a99ff4321bff42c81a30e86296f22035b"><param name="Name" value="getMinNpointsIndex"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classpoint3d.html#a14e378e470761867a8ad4cdcc4462ab4"><param name="Name" value="getPixelCoordinates"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classpoint3d.html#abde5a74021350422e880806284eb4b73"><param name="Name" value="getPosition"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classproduct.html#a74c606ec2a03f632c6f86a5feac41834"><param name="Name" value="getScalar"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classproduct.html#a22749e150ec6baffd629cd037bbf72cd"><param name="Name" value="getVectorial"></OBJECT>
@@ -45,7 +46,7 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classline3d_cloud.html#ab03dcf5e617a3693cf7b362028dd61fb"><param name="Name" value="line3dCloud"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classline3d_cloud.html#a85d6b989211a90a63f13633cb7e4164e"><param name="Name" value="minDistance"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classline3d_cloud.html#a12a7f0d2111300e83e47f9cf9f7a1e12"><param name="Name" value="operator[]"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classline3d_cloud.html#a79885e87f85b3b14cfd9168f826a6d04"><param name="Name" value="push_back"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classline3d_cloud.html#a001b5d3768675e3cd657bcaa5dbc036d"><param name="Name" value="push_back"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classline3d_cloud.html#a42347960ceed6c1bf04b1a2bff7a0370"><param name="Name" value="set"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classline3d_cloud.html#abcfeacb27285def2412a526a4b1ebcfb"><param name="Name" value="size"></OBJECT>
   </UL>
@@ -79,8 +80,9 @@
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classpoint3d.html#a7872f374cd41ad4a4f63786f605a10a5"><param name="Name" value="distance"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classpoint3d.html#a133b9989d89645695b71c71a3f67e014"><param name="Name" value="getColor"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classpoint3d.html#a14e378e470761867a8ad4cdcc4462ab4"><param name="Name" value="getPixelCoordinates"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classpoint3d.html#abde5a74021350422e880806284eb4b73"><param name="Name" value="getPosition"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classpoint3d.html#a92ab5430456c0738bdc7d8f9f623629a"><param name="Name" value="point3d"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classpoint3d.html#a59371ecc747470363f3e62dcd268821f"><param name="Name" value="point3d"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classpoint3d_cloud.html"><param name="Name" value="point3dCloud"></OBJECT>
   <UL>
@@ -88,6 +90,7 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classpoint3d_cloud.html#ab39c301d72157f68789b2fda42636432"><param name="Name" value="operator[]"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classpoint3d_cloud.html#a9997a8eba3508097aed26dd3dc8c12a0"><param name="Name" value="point3dCloud"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classpoint3d_cloud.html#a84c558258478bc6728e6545d8f4b8d02"><param name="Name" value="push_back"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classpoint3d_cloud.html#ac2e4d831f4260d405657dace382c8d00"><param name="Name" value="showOnImage"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classpoint3d_cloud.html#aa4fe8d4a3f3f93691741e301f767ff7f"><param name="Name" value="size"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="projet_8cpp.html#af2772ce8bedcf080a3be6bfd3e05a766"><param name="Name" value="pointCloud2ply"></OBJECT>
@@ -109,9 +112,9 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="projet_8cpp.html#aa05e86cf0d9cdd306e12c13dda746c75"><param name="Name" value="pointCloudFromImages"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="projet_8cpp.html#ac1fcd50fb6cdd3f89bc66a56c9845637"><param name="Name" value="setcursor"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="classline3d_cloud.html#a79885e87f85b3b14cfd9168f826a6d04"><param name="Name" value="push_back"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classline3d_cloud.html#a001b5d3768675e3cd657bcaa5dbc036d"><param name="Name" value="push_back"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classline3d_cloud.html#a79885e87f85b3b14cfd9168f826a6d04"><param name="Name" value="line3dCloud"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classline3d_cloud.html#a001b5d3768675e3cd657bcaa5dbc036d"><param name="Name" value="line3dCloud"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classpoint3d_cloud.html#a84c558258478bc6728e6545d8f4b8d02"><param name="Name" value="point3dCloud"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classransac.html"><param name="Name" value="ransac"></OBJECT>
@@ -123,6 +126,7 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classplane.html#add743551ece037c4918698a46db02bf7"><param name="Name" value="regression"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classline3d_cloud.html#a42347960ceed6c1bf04b1a2bff7a0370"><param name="Name" value="set"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="projet_8cpp.html#ac1fcd50fb6cdd3f89bc66a56c9845637"><param name="Name" value="setcursor"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classpoint3d_cloud.html#ac2e4d831f4260d405657dace382c8d00"><param name="Name" value="showOnImage"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classline3d_cloud.html#abcfeacb27285def2412a526a4b1ebcfb"><param name="Name" value="size"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classline3d_cloud.html#abcfeacb27285def2412a526a4b1ebcfb"><param name="Name" value="line3dCloud"></OBJECT>

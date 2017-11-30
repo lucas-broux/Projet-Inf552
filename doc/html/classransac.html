@@ -47,12 +47,15 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A class to calculate the ransac from pointcloud to find correlated planes or lines.  
+ <a href="classransac.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ransac_8hpp_source.html">ransac.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:afd836fb6451d7405352a72e8b5e3df06"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classransac.html#afd836fb6451d7405352a72e8b5e3df06">ransac</a> (int n_iterations, double epsilon)</td></tr>
-<tr class="memdesc:afd836fb6451d7405352a72e8b5e3df06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the class.  <a href="#afd836fb6451d7405352a72e8b5e3df06">More...</a><br /></td></tr>
+<tr class="memdesc:afd836fb6451d7405352a72e8b5e3df06"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#afd836fb6451d7405352a72e8b5e3df06">More...</a><br /></td></tr>
 <tr class="separator:afd836fb6451d7405352a72e8b5e3df06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c01e69ac8bfcec2e86b7c608b627832"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpoint3d_cloud.html">point3dCloud</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classransac.html#a5c01e69ac8bfcec2e86b7c608b627832">fit3dPlane</a> (<a class="el" href="classpoint3d_cloud.html">point3dCloud</a> pointCloud, bool uniformColor=false, Vec3b color=Vec3b(0, 0, 0))</td></tr>
 <tr class="memdesc:a5c01e69ac8bfcec2e86b7c608b627832"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the most correlated points (plane model).  <a href="#a5c01e69ac8bfcec2e86b7c608b627832">More...</a><br /></td></tr>
@@ -61,7 +64,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ade2f47c8bb81446d887f6960cd4214d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the most correlated points (line model).  <a href="#ade2f47c8bb81446d887f6960cd4214d4">More...</a><br /></td></tr>
 <tr class="separator:ade2f47c8bb81446d887f6960cd4214d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class to calculate the ransac from pointcloud to find correlated planes or lines. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afd836fb6451d7405352a72e8b5e3df06"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afd836fb6451d7405352a72e8b5e3df06">&#9670;&nbsp;</a></span>ransac()</h2>
 
@@ -88,7 +93,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor for the class. </p>
+<p>A constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n_iterations</td><td>The number of iterations for the algorithm. </td></tr>
@@ -154,10 +159,15 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pointCloud</td><td>The considered point cloud. </td></tr>
+    <tr><td class="paramname">p</td><td>The plane to be ~ orthogonal of. </td></tr>
+    <tr><td class="paramname">uniformColor</td><td>A boolean to tell if we want to have a uniform color or not. </td></tr>
+    <tr><td class="paramname">color</td><td>The color. </td></tr>
+    <tr><td class="paramname">nlines</td><td>The number of lines desired. </td></tr>
+    <tr><td class="paramname">minDistBetweenLines</td><td>The minimum distance between two lines (to avoid getting all the lines in the same space). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>List of points that correlate the most (line model) as <a class="el" href="classpoint3d_cloud.html">point3dCloud</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>List of points that correlate the most (line model) as <a class="el" href="classpoint3d_cloud.html" title="A class to represent clouds of points in the 3d space. ">point3dCloud</a>. </dd></dl>
 
 </div>
 </div>
@@ -197,10 +207,12 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pointCloud</td><td>The considered point cloud. </td></tr>
+    <tr><td class="paramname">uniformColor</td><td>A boolean to tell if we want to have a uniform color or not. </td></tr>
+    <tr><td class="paramname">color</td><td>The color. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>List of points that correlate the most (plane model) as <a class="el" href="classpoint3d_cloud.html">point3dCloud</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>List of points that correlate the most (plane model) as <a class="el" href="classpoint3d_cloud.html" title="A class to represent clouds of points in the 3d space. ">point3dCloud</a>. </dd></dl>
 
 </div>
 </div>

@@ -2,18 +2,26 @@
 \label{classransac}\index{ransac@{ransac}}
 
 
+A class to calculate the ransac from pointcloud to find correlated planes or lines.  
+
+
+
+
 {\ttfamily \#include $<$ransac.\+hpp$>$}
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \textbf{ ransac} (int n\+\_\+iterations, double epsilon)
-\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A constructor. \end{DoxyCompactList}\item 
 \textbf{ point3d\+Cloud} \textbf{ fit3d\+Plane} (\textbf{ point3d\+Cloud} point\+Cloud, bool uniform\+Color=false, Vec3b color=Vec3b(0, 0, 0))
 \begin{DoxyCompactList}\small\item\em Extract the most correlated points (plane model). \end{DoxyCompactList}\item 
 \textbf{ point3d\+Cloud} \textbf{ fit3d\+Line} (\textbf{ point3d\+Cloud} point\+Cloud, \textbf{ plane} p, bool uniform\+Color=false, Vec3b color=Vec3b(0, 0, 0), int nlines=1, double min\+Dist\+Between\+Lines=0)
 \begin{DoxyCompactList}\small\item\em Extract the most correlated points (line model). \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+A class to calculate the ransac from pointcloud to find correlated planes or lines. 
 
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\label{classransac_afd836fb6451d7405352a72e8b5e3df06}} 
@@ -24,7 +32,7 @@
 
 
 
-Constructor for the class. 
+A constructor. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -50,6 +58,16 @@ Extract the most correlated points (line model).
 \begin{DoxyParams}{Parameters}
 {\em point\+Cloud} & The considered point cloud. \\
 \hline
+{\em p} & The plane to be $\sim$ orthogonal of. \\
+\hline
+{\em uniform\+Color} & A boolean to tell if we want to have a uniform color or not. \\
+\hline
+{\em color} & The color. \\
+\hline
+{\em nlines} & The number of lines desired. \\
+\hline
+{\em min\+Dist\+Between\+Lines} & The minimum distance between two lines (to avoid getting all the lines in the same space). \\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 List of points that correlate the most (line model) as \doxyref{point3d\+Cloud}{p.}{classpoint3d_cloud}. 
@@ -67,6 +85,10 @@ Extract the most correlated points (plane model).
 
 \begin{DoxyParams}{Parameters}
 {\em point\+Cloud} & The considered point cloud. \\
+\hline
+{\em uniform\+Color} & A boolean to tell if we want to have a uniform color or not. \\
+\hline
+{\em color} & The color. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

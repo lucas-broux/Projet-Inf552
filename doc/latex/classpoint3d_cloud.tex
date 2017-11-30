@@ -2,22 +2,34 @@
 \label{classpoint3d_cloud}\index{point3d\+Cloud@{point3d\+Cloud}}
 
 
+A class to represent clouds of points in the 3d space.  
+
+
+
+
 {\ttfamily \#include $<$point3d\+Cloud.\+hpp$>$}
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \textbf{ point3d\+Cloud} ()
-\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A constructor. \end{DoxyCompactList}\item 
 void \textbf{ push\+\_\+back} (\textbf{ point3d} point)
-\item 
+\begin{DoxyCompactList}\small\item\em Adds a point in the pointcloud. \end{DoxyCompactList}\item 
 \textbf{ point3d} \textbf{ operator[$\,$]} (int i)
-\item 
+\begin{DoxyCompactList}\small\item\em Overloads []. \end{DoxyCompactList}\item 
 int \textbf{ size} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gives the size of the pointcloud. \end{DoxyCompactList}\item 
 double \textbf{ mean\+Neighbours\+Distance} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gives the mean of the distances between neighbours. \end{DoxyCompactList}\item 
+void \textbf{ show\+On\+Image} (Mat \&image)
+\begin{DoxyCompactList}\small\item\em Shows the result on an image. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+A class to represent clouds of points in the 3d space. 
+
+We describe a cloud by a vector of \doxyref{point3d}{p.}{classpoint3d}. 
 
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\label{classpoint3d_cloud_a9997a8eba3508097aed26dd3dc8c12a0}} 
@@ -28,9 +40,9 @@ double \textbf{ mean\+Neighbours\+Distance} ()
 
 
 
-Constructor for the class. 
+A constructor. 
 
-
+This default constructor initializes this-\/$>$cloud. 
 
 \subsection{Member Function Documentation}
 \mbox{\label{classpoint3d_cloud_abaeea1c0f6c4cacec59890e0535a41a9}} 
@@ -39,24 +51,69 @@ Constructor for the class.
 \subsubsection{mean\+Neighbours\+Distance()}
 {\footnotesize\ttfamily double point3d\+Cloud\+::mean\+Neighbours\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Gives the mean of the distances between neighbours. 
+
+\begin{DoxyReturn}{Returns}
+The mean. 
+\end{DoxyReturn}
 \mbox{\label{classpoint3d_cloud_ab39c301d72157f68789b2fda42636432}} 
 \index{point3d\+Cloud@{point3d\+Cloud}!operator[]@{operator[]}}
 \index{operator[]@{operator[]}!point3d\+Cloud@{point3d\+Cloud}}
 \subsubsection{operator[]()}
 {\footnotesize\ttfamily \textbf{ point3d} point3d\+Cloud\+::operator[$\,$] (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
 
+
+
+Overloads []. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxyref{point3d}{p.}{classpoint3d}. 
+\end{DoxyReturn}
 \mbox{\label{classpoint3d_cloud_a84c558258478bc6728e6545d8f4b8d02}} 
 \index{point3d\+Cloud@{point3d\+Cloud}!push\+\_\+back@{push\+\_\+back}}
 \index{push\+\_\+back@{push\+\_\+back}!point3d\+Cloud@{point3d\+Cloud}}
 \subsubsection{push\+\_\+back()}
 {\footnotesize\ttfamily void point3d\+Cloud\+::push\+\_\+back (\begin{DoxyParamCaption}\item[{\textbf{ point3d}}]{point }\end{DoxyParamCaption})}
 
-\mbox{\label{classpoint3d_cloud_aa4fe8d4a3f3f93691741e301f767ff7f}} 
+
+
+Adds a point in the pointcloud. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The \doxyref{point3d}{p.}{classpoint3d} to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classpoint3d_cloud_ac2e4d831f4260d405657dace382c8d00}} 
+\index{point3d\+Cloud@{point3d\+Cloud}!show\+On\+Image@{show\+On\+Image}}
+\index{show\+On\+Image@{show\+On\+Image}!point3d\+Cloud@{point3d\+Cloud}}
+\subsubsection{show\+On\+Image()}
+{\footnotesize\ttfamily void point3d\+Cloud\+::show\+On\+Image (\begin{DoxyParamCaption}\item[{Mat \&}]{image }\end{DoxyParamCaption})}
+
+
+
+Shows the result on an image. 
+
+This method allows us to see directly the result without visualizing a 3d pointcloud. \mbox{\label{classpoint3d_cloud_aa4fe8d4a3f3f93691741e301f767ff7f}} 
 \index{point3d\+Cloud@{point3d\+Cloud}!size@{size}}
 \index{size@{size}!point3d\+Cloud@{point3d\+Cloud}}
 \subsubsection{size()}
 {\footnotesize\ttfamily int point3d\+Cloud\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Gives the size of the pointcloud. 
+
+\begin{DoxyReturn}{Returns}
+The size of the pointcloud. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

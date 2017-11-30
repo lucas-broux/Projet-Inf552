@@ -1,8 +1,5 @@
 #include "point3dCloud.hpp"
 
-/**
-Constructor for the class.
-*/
 point3dCloud::point3dCloud() {
 	
 };
@@ -59,7 +56,7 @@ void point3dCloud::showOnImage(Mat& image) {
 		pair<int, int> pixel = cloud[point_counter].getPixelCoordinates();
 		int i = pixel.first;
 		int j = pixel.second;
-		if ((0 <= i < i_max) && (0 <= j < j_max)) {
+		if ((0 <= i) && (i < i_max) && (0 <= j) && (j < j_max)) {
 			image.at<Vec3b>(i, j) = cloud[point_counter].getColor();
 		}
 	}

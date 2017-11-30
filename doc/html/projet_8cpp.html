@@ -59,18 +59,25 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:ab701e3ac61a85b337ec5c1abaad6742d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projet_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> = nlohmann::json</td></tr>
+<tr class="memdesc:ab701e3ac61a85b337ec5c1abaad6742d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This program intents to reconstruct a 3D scene from two images taken from a car in a street and to detect elements such as the road or the vertical objects.  <a href="#ab701e3ac61a85b337ec5c1abaad6742d">More...</a><br /></td></tr>
 <tr class="separator:ab701e3ac61a85b337ec5c1abaad6742d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ac1fcd50fb6cdd3f89bc66a56c9845637"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projet_8cpp.html#ac1fcd50fb6cdd3f89bc66a56c9845637">setcursor</a> (bool visible, DWORD size)</td></tr>
+<tr class="memdesc:ac1fcd50fb6cdd3f89bc66a56c9845637"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for hiding/showing cursor : hiding with setcursror(0, 0); reinitialisation with setcursor(1, 10).  <a href="#ac1fcd50fb6cdd3f89bc66a56c9845637">More...</a><br /></td></tr>
 <tr class="separator:ac1fcd50fb6cdd3f89bc66a56c9845637"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51661db0d98d3b889acb2cc3aab03837"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projet_8cpp.html#a51661db0d98d3b889acb2cc3aab03837">hasToBeTreated</a> (int i, int j, double d, const Mat &amp;left_image)</td></tr>
+<tr class="memdesc:a51661db0d98d3b889acb2cc3aab03837"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if the pixel should be treated.  <a href="#a51661db0d98d3b889acb2cc3aab03837">More...</a><br /></td></tr>
 <tr class="separator:a51661db0d98d3b889acb2cc3aab03837"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a951780f3e518dac7d051d1ef1ec32fea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projet_8cpp.html#a951780f3e518dac7d051d1ef1ec32fea">pointCloud2ply</a> (<a class="el" href="classpoint3d_cloud.html">point3dCloud</a> pointcloud)</td></tr>
-<tr class="separator:a951780f3e518dac7d051d1ef1ec32fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2772ce8bedcf080a3be6bfd3e05a766"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projet_8cpp.html#af2772ce8bedcf080a3be6bfd3e05a766">pointCloud2ply</a> (<a class="el" href="classpoint3d_cloud.html">point3dCloud</a> pointcloud, string target)</td></tr>
+<tr class="memdesc:af2772ce8bedcf080a3be6bfd3e05a766"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates .ply file from point cloud values.  <a href="#af2772ce8bedcf080a3be6bfd3e05a766">More...</a><br /></td></tr>
+<tr class="separator:af2772ce8bedcf080a3be6bfd3e05a766"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa05e86cf0d9cdd306e12c13dda746c75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpoint3d_cloud.html">point3dCloud</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projet_8cpp.html#aa05e86cf0d9cdd306e12c13dda746c75">pointCloudFromImages</a> (Mat &amp;left_image, const Mat &amp;disparity, Matx33d N)</td></tr>
+<tr class="memdesc:aa05e86cf0d9cdd306e12c13dda746c75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a 3d point cloud from left image + disparity + transformation matrix.  <a href="#aa05e86cf0d9cdd306e12c13dda746c75">More...</a><br /></td></tr>
 <tr class="separator:aa05e86cf0d9cdd306e12c13dda746c75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f8408470f1a60580531a6f03b8d37bb"><td class="memItemLeft" align="right" valign="top">Matx33d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projet_8cpp.html#a1f8408470f1a60580531a6f03b8d37bb">computeCameraMatrix</a> (string filename)</td></tr>
+<tr class="separator:a1f8408470f1a60580531a6f03b8d37bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projet_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -86,11 +93,31 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This program intents to reconstruct a 3D scene from two images taken from a car in a street and to detect elements such as the road or the vertical objects </p><dl class="section author"><dt>Author</dt><dd>Lucas Broux &amp; Romain Loiseau </dd></dl>
+
+<p>This program intents to reconstruct a 3D scene from two images taken from a car in a street and to detect elements such as the road or the vertical objects. </p>
+<dl class="section author"><dt>Author</dt><dd>Lucas Broux &amp; Romain Loiseau </dd></dl>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a1f8408470f1a60580531a6f03b8d37bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f8408470f1a60580531a6f03b8d37bb">&#9670;&nbsp;</a></span>computeCameraMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Matx33d computeCameraMatrix </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a51661db0d98d3b889acb2cc3aab03837"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a51661db0d98d3b889acb2cc3aab03837">&#9670;&nbsp;</a></span>hasToBeTreated()</h2>
 
@@ -136,7 +163,8 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Determines if the pixel should be treated.</p>
+
+<p>Determines if the pixel should be treated. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">d</td><td>The disparity between left/right images. </td></tr>
@@ -164,8 +192,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a951780f3e518dac7d051d1ef1ec32fea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a951780f3e518dac7d051d1ef1ec32fea">&#9670;&nbsp;</a></span>pointCloud2ply()</h2>
+<a id="af2772ce8bedcf080a3be6bfd3e05a766"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2772ce8bedcf080a3be6bfd3e05a766">&#9670;&nbsp;</a></span>pointCloud2ply()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -174,12 +202,23 @@ Functions</h2></td></tr>
           <td class="memname">void pointCloud2ply </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classpoint3d_cloud.html">point3dCloud</a>&#160;</td>
-          <td class="paramname"><em>pointcloud</em></td><td>)</td>
+          <td class="paramname"><em>pointcloud</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Generates .ply file from point cloud values.</p>
+
+<p>Generates .ply file from point cloud values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">poincloud</td><td>The corresponding point cloud. </td></tr>
@@ -220,7 +259,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Generates a 3d point cloud from left image + disparity + transformation matrix. Exports the result as .ply file.</p>
+
+<p>Generates a 3d point cloud from left image + disparity + transformation matrix. </p>
+<p>Exports the result as .ply file.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">left_image</td><td>The left image. </td></tr>
@@ -258,7 +299,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Function for hiding/showing cursor : hiding with setcursror(0, 0); reinitialisation with setcursor(1, 10).</p>
+
+<p>Function for hiding/showing cursor : hiding with setcursror(0, 0); reinitialisation with setcursor(1, 10). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">visible</td><td>Whether the cursor should be visible. </td></tr>

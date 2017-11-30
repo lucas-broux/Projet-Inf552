@@ -1,0 +1,155 @@
+\section{plane Class Reference}
+\label{classplane}\index{plane@{plane}}
+
+
+{\ttfamily \#include $<$plane.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ plane} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
+\textbf{ plane} (double a, double b, double c, double d)
+\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
+\textbf{ plane} (Vec3d p1, Vec3d p2, Vec3d p3)
+\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
+double \textbf{ distance} (Vec3d p)
+\begin{DoxyCompactList}\small\item\em Find the distance between the plane and a point. \end{DoxyCompactList}\item 
+void \textbf{ regression} (\textbf{ point3d\+Cloud} pointcloud)
+\begin{DoxyCompactList}\small\item\em Find the closest plane to the given point cloud. \end{DoxyCompactList}\item 
+bool \textbf{ is\+Degenerated} ()
+\item 
+Vec3d \textbf{ get\+Direction} ()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \textbf{ operator$<$$<$} (ostream \&os, const \textbf{ plane} \&p)
+\begin{DoxyCompactList}\small\item\em Overloads ofstream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{classplane_ab36174f444a88d3a53d9892828308b48}} 
+\index{plane@{plane}!plane@{plane}}
+\index{plane@{plane}!plane@{plane}}
+\subsubsection{plane()\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily plane\+::plane (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for the class. 
+
+\mbox{\label{classplane_a3c279ae2dfff0222a61640427f6ce4d7}} 
+\index{plane@{plane}!plane@{plane}}
+\index{plane@{plane}!plane@{plane}}
+\subsubsection{plane()\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily plane\+::plane (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b,  }\item[{double}]{c,  }\item[{double}]{d }\end{DoxyParamCaption})}
+
+
+
+Constructor for the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & 1st parameter of a$\ast$x + b$\ast$y + c$\ast$z + d = 0 \\
+\hline
+{\em b} & 2nd parameter of a$\ast$x + b$\ast$y + c$\ast$z + d = 0 \\
+\hline
+{\em c} & 3rd parameter of a$\ast$x + b$\ast$y + c$\ast$z + d = 0 \\
+\hline
+{\em d} & 4th parameter of a$\ast$x + b$\ast$y + c$\ast$z + d = 0 \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classplane_a33d25a3ec03559f9bff3e38056f0021a}} 
+\index{plane@{plane}!plane@{plane}}
+\index{plane@{plane}!plane@{plane}}
+\subsubsection{plane()\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily plane\+::plane (\begin{DoxyParamCaption}\item[{Vec3d}]{p1,  }\item[{Vec3d}]{p2,  }\item[{Vec3d}]{p3 }\end{DoxyParamCaption})}
+
+
+
+Constructor for the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & 1st point of the plane \\
+\hline
+{\em p2} & 2nd point of the plane \\
+\hline
+{\em p3} & 3rd point of the plane \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classplane_a17f6e25d4546c06feceefea8f372ec70}} 
+\index{plane@{plane}!distance@{distance}}
+\index{distance@{distance}!plane@{plane}}
+\subsubsection{distance()}
+{\footnotesize\ttfamily double plane\+::distance (\begin{DoxyParamCaption}\item[{Vec3d}]{p }\end{DoxyParamCaption})}
+
+
+
+Find the distance between the plane and a point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The considered point. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classplane_ace51184307674051addc6211b04eb396}} 
+\index{plane@{plane}!get\+Direction@{get\+Direction}}
+\index{get\+Direction@{get\+Direction}!plane@{plane}}
+\subsubsection{get\+Direction()}
+{\footnotesize\ttfamily Vec3d plane\+::get\+Direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\label{classplane_a09f0be78b9c809866bca9f9b744f046e}} 
+\index{plane@{plane}!is\+Degenerated@{is\+Degenerated}}
+\index{is\+Degenerated@{is\+Degenerated}!plane@{plane}}
+\subsubsection{is\+Degenerated()}
+{\footnotesize\ttfamily bool plane\+::is\+Degenerated (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\label{classplane_add743551ece037c4918698a46db02bf7}} 
+\index{plane@{plane}!regression@{regression}}
+\index{regression@{regression}!plane@{plane}}
+\subsubsection{regression()}
+{\footnotesize\ttfamily void plane\+::regression (\begin{DoxyParamCaption}\item[{\textbf{ point3d\+Cloud}}]{pointcloud }\end{DoxyParamCaption})}
+
+
+
+Find the closest plane to the given point cloud. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pointcloud} & The considered point cloud. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The plane of linear regression. 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\label{classplane_ad9726324e2752901973bf9cdc8ae8c39}} 
+\index{plane@{plane}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!plane@{plane}}
+\subsubsection{operator$<$$<$}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{os,  }\item[{const \textbf{ plane} \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Overloads ofstream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Considered stream. \\
+\hline
+{\em p} & Considered plane. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ plane.\+hpp}\item 
+\textbf{ plane.\+cpp}\end{DoxyCompactItemize}

@@ -13,17 +13,19 @@
 \begin{DoxyCompactItemize}
 \item 
 using \textbf{ json} = nlohmann\+::json
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This program intents to reconstruct a 3D scene from two images taken from a car in a street and to detect elements such as the road or the vertical objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \textbf{ setcursor} (bool visible, D\+W\+O\+RD size)
-\item 
+\begin{DoxyCompactList}\small\item\em Function for hiding/showing cursor \+: hiding with setcursror(0, 0); reinitialisation with setcursor(1, 10). \end{DoxyCompactList}\item 
 bool \textbf{ has\+To\+Be\+Treated} (int i, int j, double d, const Mat \&left\+\_\+image)
-\item 
-void \textbf{ point\+Cloud2ply} (\textbf{ point3d\+Cloud} pointcloud)
-\item 
+\begin{DoxyCompactList}\small\item\em Determines if the pixel should be treated. \end{DoxyCompactList}\item 
+void \textbf{ point\+Cloud2ply} (\textbf{ point3d\+Cloud} pointcloud, string target)
+\begin{DoxyCompactList}\small\item\em Generates .ply file from point cloud values. \end{DoxyCompactList}\item 
 \textbf{ point3d\+Cloud} \textbf{ point\+Cloud\+From\+Images} (Mat \&left\+\_\+image, const Mat \&disparity, Matx33d N)
+\begin{DoxyCompactList}\small\item\em Generates a 3d point cloud from left image + disparity + transformation matrix. \end{DoxyCompactList}\item 
+Matx33d \textbf{ compute\+Camera\+Matrix} (string filename)
 \item 
 int \textbf{ main} ()
 \end{DoxyCompactItemize}
@@ -36,19 +38,31 @@ int \textbf{ main} ()
 \subsubsection{json}
 {\footnotesize\ttfamily using \textbf{ json} =  nlohmann\+::json}
 
-This program intents to reconstruct a 3D scene from two images taken from a car in a street and to detect elements such as the road or the vertical objects \begin{DoxyAuthor}{Author}
+
+
+This program intents to reconstruct a 3D scene from two images taken from a car in a street and to detect elements such as the road or the vertical objects. 
+
+\begin{DoxyAuthor}{Author}
 Lucas Broux \& Romain Loiseau 
 \end{DoxyAuthor}
 
 
 \subsection{Function Documentation}
+\mbox{\label{projet_8cpp_a1f8408470f1a60580531a6f03b8d37bb}} 
+\index{projet.\+cpp@{projet.\+cpp}!compute\+Camera\+Matrix@{compute\+Camera\+Matrix}}
+\index{compute\+Camera\+Matrix@{compute\+Camera\+Matrix}!projet.\+cpp@{projet.\+cpp}}
+\subsubsection{compute\+Camera\+Matrix()}
+{\footnotesize\ttfamily Matx33d compute\+Camera\+Matrix (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
+
 \mbox{\label{projet_8cpp_a51661db0d98d3b889acb2cc3aab03837}} 
 \index{projet.\+cpp@{projet.\+cpp}!has\+To\+Be\+Treated@{has\+To\+Be\+Treated}}
 \index{has\+To\+Be\+Treated@{has\+To\+Be\+Treated}!projet.\+cpp@{projet.\+cpp}}
 \subsubsection{has\+To\+Be\+Treated()}
 {\footnotesize\ttfamily bool has\+To\+Be\+Treated (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{double}]{d,  }\item[{const Mat \&}]{left\+\_\+image }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Determines if the pixel should be treated.
+
+
+Determines if the pixel should be treated. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -64,13 +78,15 @@ Whether the pixel should be considered.
 \subsubsection{main()}
 {\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\label{projet_8cpp_a951780f3e518dac7d051d1ef1ec32fea}} 
+\mbox{\label{projet_8cpp_af2772ce8bedcf080a3be6bfd3e05a766}} 
 \index{projet.\+cpp@{projet.\+cpp}!point\+Cloud2ply@{point\+Cloud2ply}}
 \index{point\+Cloud2ply@{point\+Cloud2ply}!projet.\+cpp@{projet.\+cpp}}
 \subsubsection{point\+Cloud2ply()}
-{\footnotesize\ttfamily void point\+Cloud2ply (\begin{DoxyParamCaption}\item[{\textbf{ point3d\+Cloud}}]{pointcloud }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void point\+Cloud2ply (\begin{DoxyParamCaption}\item[{\textbf{ point3d\+Cloud}}]{pointcloud,  }\item[{string}]{target }\end{DoxyParamCaption})}
 
-Generates .ply file from point cloud values.
+
+
+Generates .ply file from point cloud values. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -83,7 +99,11 @@ Generates .ply file from point cloud values.
 \subsubsection{point\+Cloud\+From\+Images()}
 {\footnotesize\ttfamily \textbf{ point3d\+Cloud} point\+Cloud\+From\+Images (\begin{DoxyParamCaption}\item[{Mat \&}]{left\+\_\+image,  }\item[{const Mat \&}]{disparity,  }\item[{Matx33d}]{N }\end{DoxyParamCaption})}
 
-Generates a 3d point cloud from left image + disparity + transformation matrix. Exports the result as .ply file.
+
+
+Generates a 3d point cloud from left image + disparity + transformation matrix. 
+
+Exports the result as .ply file.
 
 
 \begin{DoxyParams}{Parameters}
@@ -103,7 +123,9 @@ The point cloud as vector$<$pair$<$\+Vec3d, Vec3b$>$$>$.
 \subsubsection{setcursor()}
 {\footnotesize\ttfamily void setcursor (\begin{DoxyParamCaption}\item[{bool}]{visible,  }\item[{D\+W\+O\+RD}]{size }\end{DoxyParamCaption})}
 
-Function for hiding/showing cursor \+: hiding with setcursror(0, 0); reinitialisation with setcursor(1, 10).
+
+
+Function for hiding/showing cursor \+: hiding with setcursror(0, 0); reinitialisation with setcursor(1, 10). 
 
 
 \begin{DoxyParams}{Parameters}

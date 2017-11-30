@@ -1,0 +1,56 @@
+\section{Ransac Class Reference}
+\label{class_ransac}\index{Ransac@{Ransac}}
+
+
+{\ttfamily \#include $<$ransac.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Ransac} (int n\+\_\+iterations, double epsilon)
+\item 
+\textbf{ point3d\+Cloud} \textbf{ fit} (\textbf{ point3d\+Cloud} point\+Cloud)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_ransac_a7a3ee124a126dec2a26481c49308d817}} 
+\index{Ransac@{Ransac}!Ransac@{Ransac}}
+\index{Ransac@{Ransac}!Ransac@{Ransac}}
+\subsubsection{Ransac()}
+{\footnotesize\ttfamily Ransac\+::\+Ransac (\begin{DoxyParamCaption}\item[{int}]{n\+\_\+iterations,  }\item[{double}]{epsilon }\end{DoxyParamCaption})}
+
+Constructor for the class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+iterations} & The number of iterations for the algorithm. \\
+\hline
+{\em epsilon} & Threshold. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{class_ransac_a11ec1f2b097aeb1f2293b080ee538ff2}} 
+\index{Ransac@{Ransac}!fit@{fit}}
+\index{fit@{fit}!Ransac@{Ransac}}
+\subsubsection{fit()}
+{\footnotesize\ttfamily \textbf{ point3d\+Cloud} Ransac\+::fit (\begin{DoxyParamCaption}\item[{\textbf{ point3d\+Cloud}}]{point\+Cloud }\end{DoxyParamCaption})}
+
+Extract the most correlated points (plane model).
+
+
+\begin{DoxyParams}{Parameters}
+{\em point\+Cloud} & The considered point cloud. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of points that correlate the most (plane model) as vector$<$pair$<$\+Vec3d, Vec3b$>$$>$. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ ransac.\+hpp}\item 
+\textbf{ ransac.\+cpp}\end{DoxyCompactItemize}

@@ -19,3 +19,9 @@ Vec3b point3d::getColor() {
 	return color;
 };
 
+double point3d::distance(point3d p) {
+	return(sqrt((position[0] - p.position[0])*(position[0] - p.position[0]) +
+				(position[1] - p.position[1])*(position[1] - p.position[1]) +
+				(position[2] - p.position[2])*(position[2] - p.position[2]) ));
+};
+

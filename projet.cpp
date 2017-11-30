@@ -1,3 +1,10 @@
+/**
+* This program intents to reconstruct a 3D scene
+* from two images taken from a car in a street
+* and to detect elements such as the road or the vertical objects
+* @author Lucas Broux & Romain Loiseau
+*/
+
 #include <iostream>
 
 #include <windows.h>
@@ -6,8 +13,8 @@
 #include <opencv2/features2d/features2d.hpp>
 #include <opencv2/calib3d/calib3d.hpp>
 #include <opencv2/imgproc.hpp>
-#include "image.h"
-#include "json.hpp"
+
+#include "include\json.hpp"
 
 #include "ransac.hpp"
 
@@ -60,10 +67,10 @@ inline bool hasToBeTreated(int i, int j, double d, const Mat& left_image) {
 
 	@param poincloud The corresponding point cloud.
 */
-void pointCloud2ply(point3dCloud pointcloud) {
+void pointCloud2ply(point3dCloud pointcloud, string target) {
 	// Define and open .ply file.
 	ofstream plyFile;
-	plyFile.open("../3dcloud.ply");
+	plyFile.open(target);
 	// Write ply Header.
 	plyFile << "ply\nformat ascii 1.0\ncomment author : Loiseau & Broux\ncomment object : 3d point Cloud\n";
 	// Definition of element vertex.
@@ -76,9 +83,9 @@ void pointCloud2ply(point3dCloud pointcloud) {
 		// Get point coordinates and color.
 		Vec3d position = pointcloud[point_counter].getPosition();
 		Vec3b color = pointcloud[point_counter].getColor();
-		float X = position[0];
-		float Y = position[1];
-		float Z = position[2];
+		double X = position[0];
+		double Y = position[1];
+		double Z = position[2];
 		int blue = color[0];
 		int green = color[1];
 		int red = color[2];
@@ -133,8 +140,6 @@ point3dCloud pointCloudFromImages(Mat& left_image, const Mat& disparity, Matx33d
 			double d = disparity.at<float>(i, j);
 			if (hasToBeTreated(i, j, d, left_image)) { // Adapt threshold for more/less 3d points.
 				// Compute coordinates + color of 3D point ( 1 matrix multiplication ).
-				float x = i;
-				float y = j;
 				Mat pos_image = (Mat1d(3, 1) << i, j, 1.0);
 				Vec3d position = (1 / d) * N * pos_image;
 				Vec3b color = left_image.at<Vec3b>(i, j);
@@ -168,13 +173,13 @@ point3dCloud pointCloudFromImages(Mat& left_image, const Mat& disparity, Matx33d
 
 }
 
-int main()
-{
+Matx33d computeCameraMatrix(string filename) {
 	// Read JSON file containing camera info and compute Matrix N of disparity correspondence.
-	std::ifstream stream_camera("../Files/aachen_000029_000019_test/aachen_000029_000019_camera.json");
+	Matx33d N;
+	std::ifstream stream_camera(filename);
 	json camera;
 	stream_camera >> camera;
-	Matx33d N;
+
 	N(0, 0) = 1.0;
 	N(0, 1) = 0.0;
 	N(0, 2) = -(double)camera["intrinsic"]["u0"];
@@ -185,7 +190,12 @@ int main()
 	N(2, 1) = 0.0;
 	N(2, 2) = (double)camera["intrinsic"]["fx"];
 	N = -(double)camera["extrinsic"]["baseline"] * 2.56 * N;
+	return N;
+}
 
+int main(){
+
+	Matx33d N = computeCameraMatrix("../Files/aachen_000029_000019_test/aachen_000029_000019_camera.json");
 	// Read the images
 	Mat left_image = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_leftImg8bit.png");
 
@@ -198,33 +208,55 @@ int main()
 
 	// Compute point cloud.
 	point3dCloud pointcloud = pointCloudFromImages(left_image, disparity, N);
-	
-	// Export result as .ply file.
-	/*cout << "Exporting as .ply file...";
-	pointCloud2ply(pointcloud);
-	cout << "Exported." << endl;*/
 
-	// Compute plane.
-	Vec3d p1 = pointcloud[0].getPosition();
+	cout << "Calculating mean distance in the point cloud" << endl;
+	double meanNeighboursDistance = pointcloud.meanNeighboursDistance();
+	cout << "Mean neighbours distance in the point cloud = " << meanNeighboursDistance << endl;
+
+	cout << "Exporting as .ply file...";
+	pointCloud2ply(pointcloud, "../3dcloud.ply");
+	cout << "Exported." << endl;
+
+	// Compute planee.
+	/*Vec3d p1 = pointcloud[0].getPosition();
 	Vec3d p2 = pointcloud[1523].getPosition();
 	Vec3d p3 = pointcloud[28945].getPosition();
 	cout << p1 << " " << p2 << " "<< p3 << endl;
-	cout << "Computing plane" << endl;
-	Plan p = Plan(p1, p2, p3);
+	cout << "Computing planee" << endl;
+	plane p = plane(p1, p2, p3);
+	cout << p << endl;*/
 
-	cout << p << endl;
-
-	// Apply Ransac.
+	//////ROAD
+	// Apply ransac.
+	cout << "Applying ransac to find the road...";
+	ransac rRoad = ransac(100, 2 * meanNeighboursDistance);
+	point3dCloud pointcloudRoad = rRoad.fit3dPlane(pointcloud, true, Vec3b(0, 255, 0));
 	
-	cout << "Applying ransac...";
-	Ransac r = Ransac(10, 0.2);
-	point3dCloud pointcloudransac = r.fit(pointcloud);
-	
-	Plan p_ransac;
-	p_ransac.regression(pointcloudransac);
+	// Apply regression.
+	plane planeRoad;
+	planeRoad.regression(pointcloudRoad);
 
-	cout << p_ransac << " Ransac successfully applied." << endl;
+	cout << planeRoad << " ransac successfully applied." << endl;
 
+	// Export result as .ply file.
+	cout << "Exporting result as .ply file...";
+	pointCloud2ply(pointcloudRoad, "../3dcloud_road.ply");
+	cout << "Exported." << endl;
+
+	//////Vertical objects
+	// Apply ransac.
+	cout << "Applying ransac to find vertical objects...";
+	ransac rVo = ransac(1000, 10 * meanNeighboursDistance);
+	point3dCloud pointcloudVo = rVo.fit3dLine(pointcloud, planeRoad, true, Vec3b(0, 0, 255), 3, 50 * meanNeighboursDistance);
+
+	// Apply regression.
+	//line3d line3dVo;
+	//line3dVo.regression(pointcloudVo);
+
+	// Export result as .ply file.
+	cout << "Exporting result as .ply file...";
+	pointCloud2ply(pointcloudVo, "../3dcloud_verticalObjects.ply");
+	cout << "Exported." << endl;
 
 	cout << endl;
 	cout << "Programme termine" << endl;

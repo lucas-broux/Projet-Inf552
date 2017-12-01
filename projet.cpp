@@ -14,11 +14,8 @@
 #include <opencv2/calib3d/calib3d.hpp>
 #include <opencv2/imgproc.hpp>
 
-#include "include\json.hpp"
-
+#include "projectData.hpp"
 #include "ransac.hpp"
-
-using json = nlohmann::json;
 
 using namespace std;
 using namespace cv;
@@ -93,7 +90,6 @@ void pointCloud2ply(point3dCloud pointcloud, string target) {
 		// Add point to file.
 		plyFile << X << " " << Y << " " << Z << " " << red << " " << green << " " << blue << endl;
 	}
-
 	// Close file.
 	plyFile.close();
 }
@@ -173,6 +169,7 @@ point3dCloud pointCloudFromImages(Mat& left_image, const Mat& disparity, Matx33d
 
 }
 
+
 Matx33d computeCameraMatrix(string filename) {
 	// Read JSON file containing camera info and compute Matrix N of disparity correspondence.
 	Matx33d N;
@@ -195,19 +192,29 @@ Matx33d computeCameraMatrix(string filename) {
 
 int main(){
 
-	Matx33d N = computeCameraMatrix("../Files/aachen_000029_000019_test/aachen_000029_000019_camera.json");
+	Matx33d N = computeCameraMatrix("../files/aachen_000029_000019_test/aachen_000029_000019_camera.json");
+	cout << N << endl;
+	/*
 	// Read the images
-	Mat left_image = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_leftImg8bit.png");
+	Mat left_image = imread("../files/aachen_000029_000019_test/aachen_000029_000019_leftImg8bit.png");
 
 	// Smoothen disparity to have float values.
-	Mat disparity_original = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_disparity.png", 0); // Do not forget the 0 at the end for correct reading of the image.
-	Mat disparity_float = imread("../Files/aachen_000029_000019_test/aachen_000029_000019_disparity.png", 0);
+	Mat disparity_original = imread("../files/aachen_000029_000019_test/aachen_000029_000019_disparity.png", 0); // Do not forget the 0 at the end for correct reading of the image.
+	Mat disparity_float = imread("../files/aachen_000029_000019_test/aachen_000029_000019_disparity.png", 0);
 	Mat disparity;
 	disparity_original.convertTo(disparity_float, CV_32FC1);
 	GaussianBlur(disparity_float, disparity, Size(1, 5), 0.);
+	*/
+
+	projectData data = projectData("../files/aachen_000029_000019_test/aachen_000029_000019", 5);
 
 	// Compute point cloud.
-	point3dCloud pointcloud = pointCloudFromImages(left_image, disparity, N);
+	Mat left_image = data.getLeftImage();
+	cout << left_image.rows << " " << left_image.cols << " " << left_image.at<float>(0, 0) << endl;
+	Mat disparity = data.getDisparity();
+	cout << disparity.rows << " " << disparity.cols << " " << disparity.at<float>(0, 0) << endl;
+
+	point3dCloud pointcloud = pointCloudFromImages(data.getLeftImage(), disparity, data.getCameraMatrix());
 
 	cout << "Calculating mean distance in the point cloud" << endl;
 	double meanNeighboursDistance = pointcloud.meanNeighboursDistance();
@@ -244,7 +251,7 @@ int main(){
 	cout << "Exported." << endl;
 
 	// Show found plane on image.
-	pointcloudRoad.showOnImage(left_image);
+	pointcloudRoad.showOnImage(data.getLeftImage());
 
 	//////Vertical objects
 	// Apply ransac.

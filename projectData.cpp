@@ -20,21 +20,20 @@ projectData::projectData(string filename, int gaussianBlur) {
 	cameraMatrix = -(double)camera["extrinsic"]["baseline"] * 2.56 * cameraMatrix;
 	this->cameraMatrix = cameraMatrix;
 
-	// Read the images
+	// Read left image.
 	Mat leftImage = imread(filename + "_leftImg8bit.png");
 	this->leftImage = leftImage;
-	Mat disparity = imread(filename + "_disparity.png", 0); // Do not forget the 0 at the end for correct reading of the image.
+
+	// Read and smoothen disparity.
+	// Smoothen disparity to have float values.
+	Mat disparity_original = imread(filename + "_disparity.png", 0); // Do not forget the 0 at the end for correct reading of the image.
+	Mat disparity_float = imread(filename + "_disparity.png", 0); // Do not forget the 0 at the end for correct reading of the image.
+	Mat disparity;
+	disparity_original.convertTo(disparity_float, CV_32FC1);
+	GaussianBlur(disparity_float, disparity, Size(1, gaussianBlur), 0.);
 	this->disparity = disparity;
 };
 
-void projectData::smoothenDisparity(int n) {
-	Mat disparity_float = imread(filename + "_disparity.png", 0);
-	Mat actual_disparity = this->disparity;
-	Mat disparity_smoothen;
-	actual_disparity.convertTo(disparity_float, CV_32FC1);
-	GaussianBlur(actual_disparity, disparity_smoothen, Size(1, n), 0.);
-	this->disparity = disparity_smoothen;
-};
 
 Matx33d projectData::getCameraMatrix() {
 	return cameraMatrix;

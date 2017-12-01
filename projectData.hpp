@@ -27,15 +27,9 @@ public:
 	/**
 	* A constructor.
 	* @param filename The path to the file. It should be like : "something/aachen_000029_000019" and the constructor will manage to open the files with the good name and extentions.
-	* @param n Range of the Gaussian Blur. Equals to 0 by default.
+	* @param n Range of the Gaussian Blur. Equals to 2 by default.
 	*/
-	projectData(string filename, int gaussianBlur = 0);
-
-	/**
-	* A class to smoothen the disparity.
-	* @param n Range of the Gaussian Blur.
-	*/
-	void smoothenDisparity(int n);
+	projectData(string filename, int gaussianBlur = 3);
 
 	Matx33d getCameraMatrix();
 

@@ -166,51 +166,16 @@ point3dCloud pointCloudFromImages(Mat& left_image, const Mat& disparity, Matx33d
 
 	// Return point cloud.
 	return pointcloud;
-
 }
 
-
-Matx33d computeCameraMatrix(string filename) {
-	// Read JSON file containing camera info and compute Matrix N of disparity correspondence.
-	Matx33d N;
-	std::ifstream stream_camera(filename);
-	json camera;
-	stream_camera >> camera;
-
-	N(0, 0) = 1.0;
-	N(0, 1) = 0.0;
-	N(0, 2) = -(double)camera["intrinsic"]["u0"];
-	N(1, 0) = 0.0;
-	N(1, 1) = (double)camera["intrinsic"]["fx"] / (double)camera["intrinsic"]["fy"];
-	N(1, 2) = -(double)camera["intrinsic"]["fx"] * (double)camera["intrinsic"]["v0"] / (double)camera["intrinsic"]["fy"];
-	N(2, 0) = 0.0;
-	N(2, 1) = 0.0;
-	N(2, 2) = (double)camera["intrinsic"]["fx"];
-	N = -(double)camera["extrinsic"]["baseline"] * 2.56 * N;
-	return N;
-}
 
 int main(){
-
-	Matx33d N = computeCameraMatrix("../files/aachen_000029_000019_test/aachen_000029_000019_camera.json");
-	cout << N << endl;
-	/*
-	// Read the images
-	Mat left_image = imread("../files/aachen_000029_000019_test/aachen_000029_000019_leftImg8bit.png");
-
-	// Smoothen disparity to have float values.
-	Mat disparity_original = imread("../files/aachen_000029_000019_test/aachen_000029_000019_disparity.png", 0); // Do not forget the 0 at the end for correct reading of the image.
-	Mat disparity_float = imread("../files/aachen_000029_000019_test/aachen_000029_000019_disparity.png", 0);
-	Mat disparity;
-	disparity_original.convertTo(disparity_float, CV_32FC1);
-	GaussianBlur(disparity_float, disparity, Size(1, 5), 0.);
-	*/
 
 	projectData data = projectData("../files/aachen_000029_000019_test/aachen_000029_000019", 5);
 
 	// Compute point cloud.
 	Mat left_image = data.getLeftImage();
-	cout << left_image.rows << " " << left_image.cols << " " << left_image.at<float>(0, 0) << endl;
+	cout << left_image.rows << " " << left_image.cols << " " << left_image.at<Vec3b>(0, 0) << endl;
 	Mat disparity = data.getDisparity();
 	cout << disparity.rows << " " << disparity.cols << " " << disparity.at<float>(0, 0) << endl;
 
@@ -223,15 +188,6 @@ int main(){
 	cout << "Exporting as .ply file...";
 	pointCloud2ply(pointcloud, "../3dcloud.ply");
 	cout << "Exported." << endl;
-
-	// Compute planee.
-	/*Vec3d p1 = pointcloud[0].getPosition();
-	Vec3d p2 = pointcloud[1523].getPosition();
-	Vec3d p3 = pointcloud[28945].getPosition();
-	cout << p1 << " " << p2 << " "<< p3 << endl;
-	cout << "Computing planee" << endl;
-	plane p = plane(p1, p2, p3);
-	cout << p << endl;*/
 
 	//////ROAD
 	// Apply ransac.

@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 
 #include <windows.h>
@@ -58,5 +60,12 @@ public:
 	* This method allows us to see directly the result without visualizing a 3d pointcloud.
 	*/
 	void showOnImage(Mat& image);
+
+	/**
+	Generates .ply file from point cloud values.
+
+	@param poincloud The corresponding point cloud.
+	*/
+	void pointCloud2ply(string target);
 
 };

@@ -20,178 +20,31 @@
 using namespace std;
 using namespace cv;
 
-/**
-	Function for hiding/showing cursor : hiding with setcursror(0, 0); reinitialisation with setcursor(1, 10).
-
-	@param visible Whether the cursor should be visible.
-	@param size The size of the cursor.
-*/
-void setcursor(bool visible, DWORD size) // set bool visible = 0 - invisible, bool visible = 1 - visible
-{
-	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
-	if (size == 0)
-	{
-		size = 20;	// default cursor size Changing to numbers from 1 to 20, decreases cursor width
-	}
-	CONSOLE_CURSOR_INFO lpCursor;
-	lpCursor.bVisible = visible;
-	lpCursor.dwSize = size;
-	SetConsoleCursorInfo(console, &lpCursor);
-}
-
-/**
-	Determines if the pixel should be treated.
-
-	@param d The disparity between left/right images.
-	@return Whether the pixel should be considered.
-*/
-inline bool hasToBeTreated(int i, int j, double d, const Mat& left_image) {
-	double xp = 1155.; double yp = 839.;
-	// Remove car bonnet.
-	if ((i > 1024. + j*(yp - 1024.)/xp) && (i > 1024. + (2048. - j)*(yp - 1024.) / (2048. - xp))) {
-		return false;
-	}
-	// Disparity threshold.
-	if (d < 20) {
-		return false;
-	}
-	return true;
-}
-
-
-/**
-	Generates .ply file from point cloud values.
-
-	@param poincloud The corresponding point cloud.
-*/
-void pointCloud2ply(point3dCloud pointcloud, string target) {
-	// Define and open .ply file.
-	ofstream plyFile;
-	plyFile.open(target);
-	// Write ply Header.
-	plyFile << "ply\nformat ascii 1.0\ncomment author : Loiseau & Broux\ncomment object : 3d point Cloud\n";
-	// Definition of element vertex.
-	plyFile << "element vertex " << pointcloud.size() << "\nproperty float x\nproperty float y\nproperty float z\nproperty uchar red\nproperty uchar green\nproperty uchar blue\nend_header\n";
-
-	// Loop over 3d points.
-	int n = pointcloud.size();
-	for (int point_counter = 0; point_counter < n; point_counter++) {
-
-		// Get point coordinates and color.
-		Vec3d position = pointcloud[point_counter].getPosition();
-		Vec3b color = pointcloud[point_counter].getColor();
-		double X = position[0];
-		double Y = position[1];
-		double Z = position[2];
-		int blue = color[0];
-		int green = color[1];
-		int red = color[2];
-
-		// Add point to file.
-		plyFile << X << " " << Y << " " << Z << " " << red << " " << green << " " << blue << endl;
-	}
-	// Close file.
-	plyFile.close();
-}
-
-
-/**
-	Generates a 3d point cloud from left image + disparity + transformation matrix.
-	Exports the result as .ply file.
-
-	@param left_image The left image.
-	@param disparity The disparity.
-	@param N The matrix of correspondence : it can transform the disparity into 3d point.
-	@return The point cloud as vector<pair<Vec3d, Vec3b>>.
-*/
-point3dCloud pointCloudFromImages(Mat& left_image, const Mat& disparity, Matx33d N) {
-
-	point3dCloud pointcloud; // The returned vector.
-
-	setcursor(0, 0); // Remove cursor in console.
-
-	// Loop over the image.
-	cout << "Looping over image :" << endl;
-	for (int i = 0; i < left_image.rows; i++) {
-
-		// Display progress bar.
-		int nbarmax = 40;
-		int nbar = (int)(i * nbarmax / left_image.rows);
-		int pcent = (int)(i * 100 / left_image.rows);
-		stringstream progressBar;
-		progressBar << "[";
-		for (int barCounter = 0; barCounter < nbarmax; barCounter++) {
-			if (barCounter < nbar) {
-				progressBar << "|";
-			}
-			else {
-				progressBar << " ";
-			}
-		}
-		progressBar << "] " << pcent << "%" << "\r";;
-		cout << progressBar.str();
-
-		for (int j = 0; j < left_image.cols; j++) {
-
-			double d = disparity.at<float>(i, j);
-			if (hasToBeTreated(i, j, d, left_image)) { // Adapt threshold for more/less 3d points.
-				// Compute coordinates + color of 3D point ( 1 matrix multiplication ).
-				Mat pos_image = (Mat1d(3, 1) << i, j, 1.0);
-				Vec3d position = (1 / d) * N * pos_image;
-				Vec3b color = left_image.at<Vec3b>(i, j);
-
-				// Add point to point cloud.
-				pointcloud.push_back(point3d(position, color, make_pair(i, j)));
-			}
-			else {
-				// Color point on left image for vizualisation purposes.
-				/*Vec3b color;
-				color[0] = 0;
-				color[1] = 255;
-				color[2] = 0;
-				left_image.at<Vec3b>(i, j) = color;*/
-			}
-		}
-	}
-
-	// Clear console and output result.
-	system("cls");
-	setcursor(1, 10);
-	cout << "File exported : " << pointcloud.size() << " vertices extracted." << endl;
-
-	// Show image.
-	/*Mat left_resized_image(512, 1024, left_image.depth());
-	resize(left_image, left_resized_image, left_resized_image.size());
-	imshow("left", left_resized_image); waitKey();*/
-
-	// Return point cloud.
-	return pointcloud;
-}
-
 
 int main(){
 
+	// Define data.
 	projectData data = projectData("../files/aachen_000029_000019_test/aachen_000029_000019", 5);
 
 	// Compute point cloud.
 	Mat left_image = data.getLeftImage();
-	cout << left_image.rows << " " << left_image.cols << " " << left_image.at<Vec3b>(0, 0) << endl;
 	Mat disparity = data.getDisparity();
-	cout << disparity.rows << " " << disparity.cols << " " << disparity.at<float>(0, 0) << endl;
+	point3dCloud pointcloud = data.pointCloudFromData();
 
-	point3dCloud pointcloud = pointCloudFromImages(data.getLeftImage(), disparity, data.getCameraMatrix());
+	// Export point cloud as .ply file.
+	cout << "Exporting point cloud as 3dcloud.ply ... ";
+	pointcloud.pointCloud2ply("../3dcloud.ply");
+	cout << "Exported." << endl;
 
-	cout << "Calculating mean distance in the point cloud" << endl;
+	//ROAD//
+	cout << endl << "1. Finding the road." << endl;
+	// Compute mean distance.
+	cout << "Calculating mean distance in the point cloud ... ";
 	double meanNeighboursDistance = pointcloud.meanNeighboursDistance();
 	cout << "Mean neighbours distance in the point cloud = " << meanNeighboursDistance << endl;
 
-	cout << "Exporting as .ply file...";
-	pointCloud2ply(pointcloud, "../3dcloud.ply");
-	cout << "Exported." << endl;
-
-	//////ROAD
 	// Apply ransac.
-	cout << "Applying ransac to find the road...";
+	cout << "Applying ransac to find the road ... ";
 	ransac rRoad = ransac(100, 2 * meanNeighboursDistance);
 	point3dCloud pointcloudRoad = rRoad.fit3dPlane(pointcloud, true, Vec3b(0, 255, 0));
 	
@@ -199,17 +52,18 @@ int main(){
 	plane planeRoad;
 	planeRoad.regression(pointcloudRoad);
 
-	cout << planeRoad << " ransac successfully applied." << endl;
+	cout << "Ransac successfully applied, road plane equation: " << planeRoad << endl;
 
 	// Export result as .ply file.
-	cout << "Exporting result as .ply file...";
-	pointCloud2ply(pointcloudRoad, "../3dcloud_road.ply");
+	cout << "Exporting road point cloud as 3dcloud_road.ply ... ";
+	pointcloudRoad.pointCloud2ply("../3dcloud_road.ply");
 	cout << "Exported." << endl;
 
 	// Show found plane on image.
 	pointcloudRoad.showOnImage(data.getLeftImage());
 
 	//////Vertical objects
+	cout << endl << "2. Finding vertical objects." << endl;
 	// Apply ransac.
 	cout << "Applying ransac to find vertical objects...";
 	ransac rVo = ransac(1000, 10 * meanNeighboursDistance);
@@ -221,11 +75,11 @@ int main(){
 
 	// Export result as .ply file.
 	cout << "Exporting result as .ply file...";
-	pointCloud2ply(pointcloudVo, "../3dcloud_verticalObjects.ply");
+	pointcloudVo.pointCloud2ply("../3dcloud_verticalObjects.ply");
 	cout << "Exported." << endl;
 
-	cout << endl;
-	cout << "Programme termine" << endl;
+	// End program.
+	cout << endl << "End of program." << endl;
 	while (true) {
 
 	}

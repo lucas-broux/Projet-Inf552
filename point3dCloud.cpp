@@ -60,7 +60,10 @@ void point3dCloud::showOnImage(Mat& image) {
 			image.at<Vec3b>(i, j) = cloud[point_counter].getColor();
 		}
 	}
-	imshow("Point cloud projection", image); waitKey(0);
+	Mat resized_image(512, 1024, image.depth());
+	resize(image, resized_image, resized_image.size());
+	//imwrite("../reports/images/Result_image.jpg", resized_image);
+	imshow("Point cloud projection", resized_image); waitKey(0);
 }
 
 void point3dCloud::pointCloud2ply(string target) {

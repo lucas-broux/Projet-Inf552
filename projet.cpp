@@ -27,8 +27,6 @@ int main(){
 	projectData data = projectData("../files/aachen_000029_000019_test/aachen_000029_000019", 5);
 
 	// Compute point cloud.
-	Mat left_image = data.getLeftImage();
-	Mat disparity = data.getDisparity();
 	point3dCloud pointcloud = data.pointCloudFromData();
 
 	// Export point cloud as .ply file.
@@ -62,7 +60,7 @@ int main(){
 	// Show found plane on image.
 	pointcloudRoad.showOnImage(data.getLeftImage());
 
-	//////Vertical objects
+	//Vertical objects//
 	cout << endl << "2. Finding vertical objects." << endl;
 	// Apply ransac.
 	cout << "Applying ransac to find vertical objects...";
@@ -77,6 +75,9 @@ int main(){
 	cout << "Exporting result as .ply file...";
 	pointcloudVo.pointCloud2ply("../3dcloud_verticalObjects.ply");
 	cout << "Exported." << endl;
+
+	// Show found plane on image.
+	pointcloudVo.showOnImage(data.getLeftImage());
 
 	// End program.
 	cout << endl << "End of program." << endl;

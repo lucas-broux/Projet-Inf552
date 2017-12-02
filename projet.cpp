@@ -24,7 +24,7 @@ using namespace cv;
 int main(){
 
 	// Define data.
-	projectData data = projectData("../files/aachen_000029_000019_test/aachen_000029_000019", 5);
+	projectData data = projectData("../files/aachen_000029_000019_test/aachen_000029_000019", 3);
 
 	// Compute point cloud.
 	point3dCloud pointcloud = data.pointCloudFromData();

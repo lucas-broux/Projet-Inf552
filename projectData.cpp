@@ -92,7 +92,7 @@ point3dCloud projectData::pointCloudFromData() {
 	point3dCloud pointcloud; // The returned vector.
 
 	// Loop over the image.
-	cout << "Looping over image "  << filename  << " ... ";
+	cout << "Looping over image " << filename << " ... " << endl;
 	for (int i = 0; i < leftImage.rows; i++) {
 
 		for (int j = 0; j < leftImage.cols; j++) {

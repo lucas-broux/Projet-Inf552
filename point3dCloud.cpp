@@ -1,7 +1,7 @@
 #include "point3dCloud.hpp"
 
 point3dCloud::point3dCloud() {
-	
+
 };
 
 void point3dCloud::push_back(point3d point) {

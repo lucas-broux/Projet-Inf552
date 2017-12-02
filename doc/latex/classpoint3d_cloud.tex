@@ -23,7 +23,9 @@ int \textbf{ size} ()
 double \textbf{ mean\+Neighbours\+Distance} ()
 \begin{DoxyCompactList}\small\item\em Gives the mean of the distances between neighbours. \end{DoxyCompactList}\item 
 void \textbf{ show\+On\+Image} (Mat \&image)
-\begin{DoxyCompactList}\small\item\em Shows the result on an image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Shows the result on an image. \end{DoxyCompactList}\item 
+void \textbf{ point\+Cloud2ply} (string target)
+\begin{DoxyCompactList}\small\item\em Generates .ply file from point cloud values. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -76,6 +78,21 @@ Overloads [].
 \begin{DoxyReturn}{Returns}
 The \doxyref{point3d}{p.}{classpoint3d}. 
 \end{DoxyReturn}
+\mbox{\label{classpoint3d_cloud_a31d405b3846e362552a8cfe12c21a467}} 
+\index{point3d\+Cloud@{point3d\+Cloud}!point\+Cloud2ply@{point\+Cloud2ply}}
+\index{point\+Cloud2ply@{point\+Cloud2ply}!point3d\+Cloud@{point3d\+Cloud}}
+\subsubsection{point\+Cloud2ply()}
+{\footnotesize\ttfamily void point3d\+Cloud\+::point\+Cloud2ply (\begin{DoxyParamCaption}\item[{string}]{target }\end{DoxyParamCaption})}
+
+
+
+Generates .ply file from point cloud values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em poincloud} & The corresponding point cloud. \\
+\hline
+\end{DoxyParams}
 \mbox{\label{classpoint3d_cloud_a84c558258478bc6728e6545d8f4b8d02}} 
 \index{point3d\+Cloud@{point3d\+Cloud}!push\+\_\+back@{push\+\_\+back}}
 \index{push\+\_\+back@{push\+\_\+back}!point3d\+Cloud@{point3d\+Cloud}}

@@ -13,7 +13,6 @@
 
 #include "point3dCloud.hpp"
 
-
 using json = nlohmann::json;
 
 using namespace std;

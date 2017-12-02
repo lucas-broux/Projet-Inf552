@@ -7,130 +7,19 @@
 {\ttfamily \#include $<$opencv2/features2d/features2d.\+hpp$>$}\newline
 {\ttfamily \#include $<$opencv2/calib3d/calib3d.\+hpp$>$}\newline
 {\ttfamily \#include $<$opencv2/imgproc.\+hpp$>$}\newline
-{\ttfamily \#include \char`\"{}include\textbackslash{}json.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}project\+Data.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}ransac.\+hpp\char`\"{}}\newline
-\subsection*{Typedefs}
-\begin{DoxyCompactItemize}
-\item 
-using \textbf{ json} = nlohmann\+::json
-\begin{DoxyCompactList}\small\item\em This program intents to reconstruct a 3D scene from two images taken from a car in a street and to detect elements such as the road or the vertical objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
-\item 
-void \textbf{ setcursor} (bool visible, D\+W\+O\+RD size)
-\begin{DoxyCompactList}\small\item\em Function for hiding/showing cursor \+: hiding with setcursror(0, 0); reinitialisation with setcursor(1, 10). \end{DoxyCompactList}\item 
-bool \textbf{ has\+To\+Be\+Treated} (int i, int j, double d, const Mat \&left\+\_\+image)
-\begin{DoxyCompactList}\small\item\em Determines if the pixel should be treated. \end{DoxyCompactList}\item 
-void \textbf{ point\+Cloud2ply} (\textbf{ point3d\+Cloud} pointcloud, string target)
-\begin{DoxyCompactList}\small\item\em Generates .ply file from point cloud values. \end{DoxyCompactList}\item 
-\textbf{ point3d\+Cloud} \textbf{ point\+Cloud\+From\+Images} (Mat \&left\+\_\+image, const Mat \&disparity, Matx33d N)
-\begin{DoxyCompactList}\small\item\em Generates a 3d point cloud from left image + disparity + transformation matrix. \end{DoxyCompactList}\item 
-Matx33d \textbf{ compute\+Camera\+Matrix} (string filename)
 \item 
 int \textbf{ main} ()
 \end{DoxyCompactItemize}
 
 
-\subsection{Typedef Documentation}
-\mbox{\label{projet_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}} 
-\index{projet.\+cpp@{projet.\+cpp}!json@{json}}
-\index{json@{json}!projet.\+cpp@{projet.\+cpp}}
-\subsubsection{json}
-{\footnotesize\ttfamily using \textbf{ json} =  nlohmann\+::json}
-
-
-
-This program intents to reconstruct a 3D scene from two images taken from a car in a street and to detect elements such as the road or the vertical objects. 
-
-\begin{DoxyAuthor}{Author}
-Lucas Broux \& Romain Loiseau 
-\end{DoxyAuthor}
-
-
 \subsection{Function Documentation}
-\mbox{\label{projet_8cpp_a1f8408470f1a60580531a6f03b8d37bb}} 
-\index{projet.\+cpp@{projet.\+cpp}!compute\+Camera\+Matrix@{compute\+Camera\+Matrix}}
-\index{compute\+Camera\+Matrix@{compute\+Camera\+Matrix}!projet.\+cpp@{projet.\+cpp}}
-\subsubsection{compute\+Camera\+Matrix()}
-{\footnotesize\ttfamily Matx33d compute\+Camera\+Matrix (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
-
-\mbox{\label{projet_8cpp_a51661db0d98d3b889acb2cc3aab03837}} 
-\index{projet.\+cpp@{projet.\+cpp}!has\+To\+Be\+Treated@{has\+To\+Be\+Treated}}
-\index{has\+To\+Be\+Treated@{has\+To\+Be\+Treated}!projet.\+cpp@{projet.\+cpp}}
-\subsubsection{has\+To\+Be\+Treated()}
-{\footnotesize\ttfamily bool has\+To\+Be\+Treated (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{double}]{d,  }\item[{const Mat \&}]{left\+\_\+image }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Determines if the pixel should be treated. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em d} & The disparity between left/right images. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Whether the pixel should be considered. 
-\end{DoxyReturn}
 \mbox{\label{projet_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
 \index{projet.\+cpp@{projet.\+cpp}!main@{main}}
 \index{main@{main}!projet.\+cpp@{projet.\+cpp}}
 \subsubsection{main()}
 {\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\label{projet_8cpp_af2772ce8bedcf080a3be6bfd3e05a766}} 
-\index{projet.\+cpp@{projet.\+cpp}!point\+Cloud2ply@{point\+Cloud2ply}}
-\index{point\+Cloud2ply@{point\+Cloud2ply}!projet.\+cpp@{projet.\+cpp}}
-\subsubsection{point\+Cloud2ply()}
-{\footnotesize\ttfamily void point\+Cloud2ply (\begin{DoxyParamCaption}\item[{\textbf{ point3d\+Cloud}}]{pointcloud,  }\item[{string}]{target }\end{DoxyParamCaption})}
-
-
-
-Generates .ply file from point cloud values. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em poincloud} & The corresponding point cloud. \\
-\hline
-\end{DoxyParams}
-\mbox{\label{projet_8cpp_aa05e86cf0d9cdd306e12c13dda746c75}} 
-\index{projet.\+cpp@{projet.\+cpp}!point\+Cloud\+From\+Images@{point\+Cloud\+From\+Images}}
-\index{point\+Cloud\+From\+Images@{point\+Cloud\+From\+Images}!projet.\+cpp@{projet.\+cpp}}
-\subsubsection{point\+Cloud\+From\+Images()}
-{\footnotesize\ttfamily \textbf{ point3d\+Cloud} point\+Cloud\+From\+Images (\begin{DoxyParamCaption}\item[{Mat \&}]{left\+\_\+image,  }\item[{const Mat \&}]{disparity,  }\item[{Matx33d}]{N }\end{DoxyParamCaption})}
-
-
-
-Generates a 3d point cloud from left image + disparity + transformation matrix. 
-
-Exports the result as .ply file.
-
-
-\begin{DoxyParams}{Parameters}
-{\em left\+\_\+image} & The left image. \\
-\hline
-{\em disparity} & The disparity. \\
-\hline
-{\em N} & The matrix of correspondence \+: it can transform the disparity into 3d point. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The point cloud as vector$<$pair$<$\+Vec3d, Vec3b$>$$>$. 
-\end{DoxyReturn}
-\mbox{\label{projet_8cpp_ac1fcd50fb6cdd3f89bc66a56c9845637}} 
-\index{projet.\+cpp@{projet.\+cpp}!setcursor@{setcursor}}
-\index{setcursor@{setcursor}!projet.\+cpp@{projet.\+cpp}}
-\subsubsection{setcursor()}
-{\footnotesize\ttfamily void setcursor (\begin{DoxyParamCaption}\item[{bool}]{visible,  }\item[{D\+W\+O\+RD}]{size }\end{DoxyParamCaption})}
-
-
-
-Function for hiding/showing cursor \+: hiding with setcursror(0, 0); reinitialisation with setcursor(1, 10). 
-
-
-\begin{DoxyParams}{Parameters}
-{\em visible} & Whether the cursor should be visible. \\
-\hline
-{\em size} & The size of the cursor. \\
-\hline
-\end{DoxyParams}

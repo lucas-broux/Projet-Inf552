@@ -75,12 +75,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a42347960ceed6c1bf04b1a2bff7a0370"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classline3d_cloud.html#a42347960ceed6c1bf04b1a2bff7a0370">set</a> (int i, <a class="el" href="classline3d.html">line3d</a> line, int npoints)</td></tr>
 <tr class="memdesc:a42347960ceed6c1bf04b1a2bff7a0370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace a line for another in the linecloud.  <a href="#a42347960ceed6c1bf04b1a2bff7a0370">More...</a><br /></td></tr>
 <tr class="separator:a42347960ceed6c1bf04b1a2bff7a0370"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85d6b989211a90a63f13633cb7e4164e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classline3d_cloud.html#a85d6b989211a90a63f13633cb7e4164e">minDistance</a> (<a class="el" href="classline3d.html">line3d</a> line)</td></tr>
-<tr class="memdesc:a85d6b989211a90a63f13633cb7e4164e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds distance of a line from it's closest in the pointcloud.  <a href="#a85d6b989211a90a63f13633cb7e4164e">More...</a><br /></td></tr>
-<tr class="separator:a85d6b989211a90a63f13633cb7e4164e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefc75565b96d9580ea8d5d60266ac0f4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classline3d_cloud.html#aefc75565b96d9580ea8d5d60266ac0f4">minDistance</a> (Vec3d v)</td></tr>
-<tr class="memdesc:aefc75565b96d9580ea8d5d60266ac0f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds distance of a vector from it's closest line in the pointcloud.  <a href="#aefc75565b96d9580ea8d5d60266ac0f4">More...</a><br /></td></tr>
-<tr class="separator:aefc75565b96d9580ea8d5d60266ac0f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2483077c8fc34881022c0b942ff5cf9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classline3d_cloud.html#af2483077c8fc34881022c0b942ff5cf9">minDistance</a> (<a class="el" href="classline3d.html">line3d</a> line, <a class="el" href="classplane.html">plane</a> p)</td></tr>
+<tr class="memdesc:af2483077c8fc34881022c0b942ff5cf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds distance of a line from it's closest in the pointcloud.  <a href="#af2483077c8fc34881022c0b942ff5cf9">More...</a><br /></td></tr>
+<tr class="separator:af2483077c8fc34881022c0b942ff5cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a5f6ec75c34befa611cd085e572b77c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classline3d_cloud.html#a6a5f6ec75c34befa611cd085e572b77c">minDistance</a> (Vec3d p)</td></tr>
+<tr class="memdesc:a6a5f6ec75c34befa611cd085e572b77c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds distance of a point from it's closest line in the pointcloud.  <a href="#a6a5f6ec75c34befa611cd085e572b77c">More...</a><br /></td></tr>
+<tr class="separator:a6a5f6ec75c34befa611cd085e572b77c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class to represent clouds of lines in the 3d space. </p>
@@ -147,8 +147,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a85d6b989211a90a63f13633cb7e4164e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85d6b989211a90a63f13633cb7e4164e">&#9670;&nbsp;</a></span>minDistance() <span class="overload">[1/2]</span></h2>
+<a id="af2483077c8fc34881022c0b942ff5cf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2483077c8fc34881022c0b942ff5cf9">&#9670;&nbsp;</a></span>minDistance() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,16 +157,27 @@ Public Member Functions</h2></td></tr>
           <td class="memname">double line3dCloud::minDistance </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classline3d.html">line3d</a>&#160;</td>
-          <td class="paramname"><em>line</em></td><td>)</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classplane.html">plane</a>&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Finds distance of a line from it's closest in the pointcloud. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>The distances are calculated at the intersection with a plane. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">line</td><td>The considered line. </td></tr>
+    <tr><td class="paramname">p</td><td>The considered plane. </td></tr>
   </table>
   </dd>
 </dl>
@@ -174,8 +185,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aefc75565b96d9580ea8d5d60266ac0f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefc75565b96d9580ea8d5d60266ac0f4">&#9670;&nbsp;</a></span>minDistance() <span class="overload">[2/2]</span></h2>
+<a id="a6a5f6ec75c34befa611cd085e572b77c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a5f6ec75c34befa611cd085e572b77c">&#9670;&nbsp;</a></span>minDistance() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,16 +195,16 @@ Public Member Functions</h2></td></tr>
           <td class="memname">double line3dCloud::minDistance </td>
           <td>(</td>
           <td class="paramtype">Vec3d&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Finds distance of a vector from it's closest line in the pointcloud. </p>
+<p>Finds distance of a point from it's closest line in the pointcloud. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">v</td><td>The considered vector. </td></tr>
+    <tr><td class="paramname">p</td><td>The considered point. </td></tr>
   </table>
   </dd>
 </dl>
@@ -330,8 +341,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="line3d_cloud_8hpp_source.html">line3dCloud.hpp</a></li>
-<li><a class="el" href="line3d_cloud_8cpp.html">line3dCloud.cpp</a></li>
+<li>C:/Users/romai/Documents/Mes_documents/X/3A/INF552/Projet-Inf552/project/include/<a class="el" href="line3d_cloud_8hpp_source.html">line3dCloud.hpp</a></li>
+<li>C:/Users/romai/Documents/Mes_documents/X/3A/INF552/Projet-Inf552/project/src/<a class="el" href="line3d_cloud_8cpp.html">line3dCloud.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

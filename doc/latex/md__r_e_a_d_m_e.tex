@@ -1,3 +1,21 @@
-But du projet I\+N\+P\+UT =$>$ image de gauche + disparité =$>$ à partir de deux images, créer le nuage de point 3D =$>$ pour chaque pixel, extraire les coordonnées x, y, z correspondantes =$>$ en déduire l\textquotesingle{}altitude des pixels (détecter le sol, objets verticaux, ...)
+Academic project as part of the {\tt I\+N\+F552 course at École Polytechnique}.
 
-K deux images matrices rotation, translation Considérer origine Cam1 
+The goal of the project is to apply computer vision tools to the {\tt cityscapes dataset}, which consists in stereo images from cameras mounted on a car.
+
+We start with the left image, disparity and camera matrix.
+
+
+
+
+
+From the left image, disparity, and the camera matrix, we reconstruct a 3d point cloud of the street.
+
+
+
+Using the R\+A\+N\+S\+AC algorithm, we detect the main plane of the 3d point cloud i.\+e. the road.
+
+
+
+We then use a modified version of the R\+A\+N\+S\+AC algorithm to detect vertical objects.
+
+ 

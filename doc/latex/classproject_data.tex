@@ -15,11 +15,11 @@ A class to represent the \doxyref{project\+Data}{p.}{classproject_data} for a si
 \textbf{ project\+Data} (string filename, int gaussian\+Blur=3)
 \begin{DoxyCompactList}\small\item\em A constructor. \end{DoxyCompactList}\item 
 Matx33d \textbf{ get\+Camera\+Matrix} ()
-\item 
+\begin{DoxyCompactList}\small\item\em A method to get the camera matrix. \end{DoxyCompactList}\item 
 Mat \textbf{ get\+Left\+Image} ()
-\item 
+\begin{DoxyCompactList}\small\item\em A method to get the left image. \end{DoxyCompactList}\item 
 Mat \textbf{ get\+Disparity} ()
-\item 
+\begin{DoxyCompactList}\small\item\em A method to get the disparity. \end{DoxyCompactList}\item 
 \textbf{ point3d\+Cloud} \textbf{ point\+Cloud\+From\+Data} ()
 \begin{DoxyCompactList}\small\item\em Generates a 3d point cloud from left image + disparity + transformation matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -54,18 +54,39 @@ A constructor.
 \subsubsection{get\+Camera\+Matrix()}
 {\footnotesize\ttfamily Matx33d project\+Data\+::get\+Camera\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+A method to get the camera matrix. 
+
+\begin{DoxyReturn}{Returns}
+The camera matrix. 
+\end{DoxyReturn}
 \mbox{\label{classproject_data_acd8c6911c3f66965788a5e62573aca90}} 
 \index{project\+Data@{project\+Data}!get\+Disparity@{get\+Disparity}}
 \index{get\+Disparity@{get\+Disparity}!project\+Data@{project\+Data}}
 \subsubsection{get\+Disparity()}
 {\footnotesize\ttfamily Mat project\+Data\+::get\+Disparity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+A method to get the disparity. 
+
+\begin{DoxyReturn}{Returns}
+The disparity. 
+\end{DoxyReturn}
 \mbox{\label{classproject_data_a70faac428a3d67c56b7d2dfdafee5ef7}} 
 \index{project\+Data@{project\+Data}!get\+Left\+Image@{get\+Left\+Image}}
 \index{get\+Left\+Image@{get\+Left\+Image}!project\+Data@{project\+Data}}
 \subsubsection{get\+Left\+Image()}
 {\footnotesize\ttfamily Mat project\+Data\+::get\+Left\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+A method to get the left image. 
+
+\begin{DoxyReturn}{Returns}
+The left image. 
+\end{DoxyReturn}
 \mbox{\label{classproject_data_a8a1cca9c40bf728914f7ab1458a4f886}} 
 \index{project\+Data@{project\+Data}!point\+Cloud\+From\+Data@{point\+Cloud\+From\+Data}}
 \index{point\+Cloud\+From\+Data@{point\+Cloud\+From\+Data}!project\+Data@{project\+Data}}
@@ -94,5 +115,5 @@ The point cloud as vector$<$pair$<$\+Vec3d, Vec3b$>$$>$.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\textbf{ project\+Data.\+hpp}\item 
-\textbf{ project\+Data.\+cpp}\end{DoxyCompactItemize}
+C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/include/\textbf{ project\+Data.\+hpp}\item 
+C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/src/\textbf{ project\+Data.\+cpp}\end{DoxyCompactItemize}

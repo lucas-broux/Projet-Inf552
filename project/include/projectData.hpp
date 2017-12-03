@@ -9,7 +9,7 @@
 #include <opencv2/calib3d/calib3d.hpp>
 #include <opencv2/imgproc.hpp>
 
-#include "include\json.hpp"
+#include "lib\json.hpp"
 
 #include "point3dCloud.hpp"
 #include "parameters.hpp"

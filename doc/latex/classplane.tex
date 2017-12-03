@@ -25,7 +25,9 @@ void \textbf{ regression} (\textbf{ point3d\+Cloud} pointcloud)
 bool \textbf{ is\+Degenerated} ()
 \begin{DoxyCompactList}\small\item\em Tels if the plane is a correct plane. \end{DoxyCompactList}\item 
 Vec3d \textbf{ get\+Direction} ()
-\begin{DoxyCompactList}\small\item\em Gives a direction vector of the plane. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gives a direction vector of the plane. \end{DoxyCompactList}\item 
+Vec3d \textbf{ intersection} (\textbf{ line3d} l)
+\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -123,6 +125,12 @@ Gives a direction vector of the plane.
 \begin{DoxyReturn}{Returns}
 A direction vector of the plane. 
 \end{DoxyReturn}
+\mbox{\label{classplane_ac6d9ffbd756292a7b9378794eed93936}} 
+\index{plane@{plane}!intersection@{intersection}}
+\index{intersection@{intersection}!plane@{plane}}
+\subsubsection{intersection()}
+{\footnotesize\ttfamily Vec3d plane\+::intersection (\begin{DoxyParamCaption}\item[{\textbf{ line3d}}]{l }\end{DoxyParamCaption})}
+
 \mbox{\label{classplane_a09f0be78b9c809866bca9f9b744f046e}} 
 \index{plane@{plane}!is\+Degenerated@{is\+Degenerated}}
 \index{is\+Degenerated@{is\+Degenerated}!plane@{plane}}
@@ -178,5 +186,5 @@ The ofstream to be printed.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\textbf{ plane.\+hpp}\item 
-\textbf{ plane.\+cpp}\end{DoxyCompactItemize}
+C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/include/\textbf{ plane.\+hpp}\item 
+C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/src/\textbf{ plane.\+cpp}\end{DoxyCompactItemize}

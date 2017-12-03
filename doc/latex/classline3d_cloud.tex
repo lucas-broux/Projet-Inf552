@@ -26,10 +26,10 @@ int \textbf{ get\+Min\+Npoints} ()
 \begin{DoxyCompactList}\small\item\em Finds the number of neighbours of the line with the least neighbours of the linecloud. \end{DoxyCompactList}\item 
 void \textbf{ set} (int i, \textbf{ line3d} line, int npoints)
 \begin{DoxyCompactList}\small\item\em Replace a line for another in the linecloud. \end{DoxyCompactList}\item 
-double \textbf{ min\+Distance} (\textbf{ line3d} line)
+double \textbf{ min\+Distance} (\textbf{ line3d} line, \textbf{ plane} p)
 \begin{DoxyCompactList}\small\item\em Finds distance of a line from it\textquotesingle{}s closest in the pointcloud. \end{DoxyCompactList}\item 
-double \textbf{ min\+Distance} (Vec3d v)
-\begin{DoxyCompactList}\small\item\em Finds distance of a vector from it\textquotesingle{}s closest line in the pointcloud. \end{DoxyCompactList}\end{DoxyCompactItemize}
+double \textbf{ min\+Distance} (Vec3d p)
+\begin{DoxyCompactList}\small\item\em Finds distance of a point from it\textquotesingle{}s closest line in the pointcloud. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -77,37 +77,39 @@ Finds the index of the line with the least neighbours of the linecloud.
 \begin{DoxyReturn}{Returns}
 The desired index. 
 \end{DoxyReturn}
-\mbox{\label{classline3d_cloud_a85d6b989211a90a63f13633cb7e4164e}} 
+\mbox{\label{classline3d_cloud_af2483077c8fc34881022c0b942ff5cf9}} 
 \index{line3d\+Cloud@{line3d\+Cloud}!min\+Distance@{min\+Distance}}
 \index{min\+Distance@{min\+Distance}!line3d\+Cloud@{line3d\+Cloud}}
 \subsubsection{min\+Distance()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily double line3d\+Cloud\+::min\+Distance (\begin{DoxyParamCaption}\item[{\textbf{ line3d}}]{line }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double line3d\+Cloud\+::min\+Distance (\begin{DoxyParamCaption}\item[{\textbf{ line3d}}]{line,  }\item[{\textbf{ plane}}]{p }\end{DoxyParamCaption})}
 
 
 
 Finds distance of a line from it\textquotesingle{}s closest in the pointcloud. 
 
-
+The distances are calculated at the intersection with a plane. 
 \begin{DoxyParams}{Parameters}
 {\em line} & The considered line. \\
+\hline
+{\em p} & The considered plane. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 The distance. 
 \end{DoxyReturn}
-\mbox{\label{classline3d_cloud_aefc75565b96d9580ea8d5d60266ac0f4}} 
+\mbox{\label{classline3d_cloud_a6a5f6ec75c34befa611cd085e572b77c}} 
 \index{line3d\+Cloud@{line3d\+Cloud}!min\+Distance@{min\+Distance}}
 \index{min\+Distance@{min\+Distance}!line3d\+Cloud@{line3d\+Cloud}}
 \subsubsection{min\+Distance()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily double line3d\+Cloud\+::min\+Distance (\begin{DoxyParamCaption}\item[{Vec3d}]{v }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double line3d\+Cloud\+::min\+Distance (\begin{DoxyParamCaption}\item[{Vec3d}]{p }\end{DoxyParamCaption})}
 
 
 
-Finds distance of a vector from it\textquotesingle{}s closest line in the pointcloud. 
+Finds distance of a point from it\textquotesingle{}s closest line in the pointcloud. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em v} & The considered vector. \\
+{\em p} & The considered point. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -184,5 +186,5 @@ The size of the linecloud.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\textbf{ line3d\+Cloud.\+hpp}\item 
-\textbf{ line3d\+Cloud.\+cpp}\end{DoxyCompactItemize}
+C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/include/\textbf{ line3d\+Cloud.\+hpp}\item 
+C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/src/\textbf{ line3d\+Cloud.\+cpp}\end{DoxyCompactItemize}

@@ -12,6 +12,7 @@
 #include "include\json.hpp"
 
 #include "point3dCloud.hpp"
+#include "parameters.hpp"
 
 using json = nlohmann::json;
 
@@ -36,10 +37,22 @@ public:
 	*/
 	projectData(string filename, int gaussianBlur = 3);
 
+	/**
+	* A method to get the camera matrix.
+	* @return The camera matrix.
+	*/
 	Matx33d getCameraMatrix();
 
+	/**
+	* A method to get the left image.
+	* @return The left image.
+	*/
 	Mat getLeftImage();
 
+	/**
+	* A method to get the disparity.
+	* @return The disparity.
+	*/
 	Mat getDisparity();
 
 	/**

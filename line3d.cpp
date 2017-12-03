@@ -15,6 +15,14 @@ line3d::line3d(Vec3d point, Vec3d v, bool second_Vec3d_isvector) {
 	}
 };
 
+Vec3d line3d::getVector() {
+	return vector;
+}
+
+Vec3d line3d::getPoint() {
+	return point;
+}
+
 double line3d::distance(Vec3d p) {
 	if (!this->isDegenerated()) {
 		line3d AB = line3d(p, point, false);

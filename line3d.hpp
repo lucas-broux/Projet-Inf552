@@ -38,6 +38,18 @@ public:
 	line3d(Vec3d point, Vec3d v, bool second_Vec3d_isvector);
 
 	/**
+	* A method to get the vector.
+	* @return The vector.
+	*/
+	Vec3d getVector();
+
+	/**
+	* A method to get the point.
+	* @return The point.
+	*/
+	Vec3d getPoint();
+
+	/**
 	* Finds the distance between the line3d and a point.
 	* @param p The considered point.
 	* @return The distance between the line3d and the considered point.

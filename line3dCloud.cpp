@@ -42,21 +42,21 @@ void line3dCloud::set(int i, line3d line, int npoints) {
 	this->npoints[i] = npoints;
 }
 
-double line3dCloud::minDistance(line3d line) {
+double line3dCloud::minDistance(line3d line, plane p) {
 	double minDistance = DBL_MAX;
 	for (int i = 0; i < this->size(); i++) {
-		if (cloud[i].distance(line) < minDistance) {
-			minDistance = cloud[i].distance(line);
+		if (norm(p.intersection(cloud[i]) - p.intersection(line)) < minDistance) {
+			minDistance = norm(p.intersection(cloud[i]) - p.intersection(line));
 		}
 	}
 	return minDistance;
 };
 
-double line3dCloud::minDistance(Vec3d v) {
+double line3dCloud::minDistance(Vec3d p) {
 	double minDistance = DBL_MAX;
 	for (int i = 0; i < this->size(); i++) {
-		if (cloud[i].distance(v) < minDistance) {
-			minDistance = cloud[i].distance(v);
+		if (cloud[i].distance(p) < minDistance) {
+			minDistance = cloud[i].distance(p);
 		}
 	}
 	return minDistance;

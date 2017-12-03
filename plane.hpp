@@ -8,6 +8,7 @@
 #include <opencv2/imgproc.hpp>
 
 #include "point3dCloud.hpp"
+#include "line3d.hpp"
 
 using namespace std;
 using namespace cv;
@@ -77,5 +78,7 @@ public:
 	* @return A direction vector of the plane.
 	*/
 	Vec3d getDirection();
+
+	Vec3d intersection(line3d l);
 
 };

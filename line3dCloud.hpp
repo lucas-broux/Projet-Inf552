@@ -10,6 +10,7 @@
 #include <opencv2/imgproc.hpp>
 
 #include "line3d.hpp"
+#include "plane.hpp"
 
 using namespace std;
 using namespace cv;
@@ -73,15 +74,17 @@ public:
 
 	/**
 	* Finds distance of a line from it's closest in the pointcloud.
+	* The distances are calculated at the intersection with a plane.
 	* @param line The considered line.
+	* @param p The considered plane.
 	* @return The distance.
 	*/
-	double minDistance(line3d line);
+	double minDistance(line3d line, plane p);
 
 	/**
-	* Finds distance of a vector from it's closest line in the pointcloud.
-	* @param v The considered vector.
+	* Finds distance of a point from it's closest line in the pointcloud.
+	* @param p The considered point.
 	* @return The distance.
 	*/
-	double minDistance(Vec3d v);
+	double minDistance(Vec3d p);
 };

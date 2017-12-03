@@ -81,7 +81,7 @@ inline bool hasToBeTreated(int i, int j, double d, const Mat& left_image) {
 		return false;
 	}
 	// Disparity threshold.
-	if (d < 20) {
+	if (d < MIN_DISPARITY) {
 		return false;
 	}
 	return true;
@@ -89,14 +89,12 @@ inline bool hasToBeTreated(int i, int j, double d, const Mat& left_image) {
 
 
 point3dCloud projectData::pointCloudFromData() {
-	point3dCloud pointcloud; // The returned vector.
+	point3dCloud pointcloud; // The returned point3dCloud.
 
 	// Loop over the image.
 	cout << "Looping over image " << filename << " ... " << endl;
 	for (int i = 0; i < leftImage.rows; i++) {
-
 		for (int j = 0; j < leftImage.cols; j++) {
-
 			double d = disparity.at<float>(i, j);
 			if (hasToBeTreated(i, j, d, leftImage)) { // Adapt threshold for more/less 3d points.
 													  // Compute coordinates + color of 3D point ( 1 matrix multiplication ).
@@ -107,25 +105,22 @@ point3dCloud projectData::pointCloudFromData() {
 				// Add point to point cloud.
 				pointcloud.push_back(point3d(position, color, make_pair(i, j)));
 			}
+			/*
 			else {
 				// Color point on left image for vizualisation purposes.
-				/*Vec3b color;
+				Vec3b color;
 				color[0] = 0;
 				color[1] = 255;
 				color[2] = 0;
-				left_image.at<Vec3b>(i, j) = color;*/
+				left_image.at<Vec3b>(i, j) = color;
 			}
+			*/
 		}
 	}
 
 	// Output result.
 	cout << "Point cloud generated: " << pointcloud.size() << " vertices extracted." << endl;
 
-	// Show image.
-	/*Mat left_resized_image(512, 1024, left_image.depth());
-	resize(left_image, left_resized_image, left_resized_image.size());
-	imshow("left", left_resized_image); waitKey();*/
-
-	// Return point cloud.
+	// Return point3dCloud.
 	return pointcloud;
 };

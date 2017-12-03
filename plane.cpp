@@ -145,3 +145,13 @@ bool plane::isDegenerated() {
 Vec3d plane::getDirection() {
 	return(Vec3d(a, b, c));
 };
+
+Vec3d plane::intersection(line3d l) {
+	if (product(this->getDirection(), l.getVector()).getScalar() != 0) {
+		double t = -(d + product(this->getDirection(), l.getPoint()).getScalar()) / product(this->getDirection(), l.getVector()).getScalar();
+		return t*l.getVector() + l.getPoint();
+	}
+	else {
+		return Vec3d(0, 0, 0);
+	}
+};

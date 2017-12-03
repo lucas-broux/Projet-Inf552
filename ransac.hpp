@@ -11,6 +11,7 @@
 
 #include "plane.hpp"
 #include "line3dCloud.hpp"
+#include "parameters.hpp"
 
 using namespace std;
 using namespace cv;

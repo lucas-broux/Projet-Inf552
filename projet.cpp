@@ -16,13 +16,12 @@
 
 #include "projectData.hpp"
 #include "ransac.hpp"
+#include "parameters.hpp"
 
 using namespace std;
 using namespace cv;
 
-
 int main(){
-
 	// Define data.
 	projectData data = projectData("../files/aachen_000029_000019_test/aachen_000029_000019", 3);
 
@@ -43,7 +42,7 @@ int main(){
 
 	// Apply ransac.
 	cout << "Applying ransac to find the road ... ";
-	ransac rRoad = ransac(100, 2 * meanNeighboursDistance);
+	ransac rRoad = ransac(500, 2 * meanNeighboursDistance);
 	point3dCloud pointcloudRoad = rRoad.fit3dPlane(pointcloud, true, Vec3b(0, 255, 0));
 	
 	// Apply regression.
@@ -64,8 +63,8 @@ int main(){
 	cout << endl << "2. Finding vertical objects." << endl;
 	// Apply ransac.
 	cout << "Applying ransac to find vertical objects...";
-	ransac rVo = ransac(1000, 5 * meanNeighboursDistance);
-	point3dCloud pointcloudVo = rVo.fit3dLine(pointcloud, planeRoad, true, Vec3b(0, 0, 255), 3, 20 * meanNeighboursDistance);
+	ransac rVo = ransac(10000, 4 * meanNeighboursDistance);
+	point3dCloud pointcloudVo = rVo.fit3dLine(pointcloud, planeRoad, true, Vec3b(0, 0, 255), 5, 9 * meanNeighboursDistance);
 
 	// Apply regression.
 	//line3d line3dVo;
@@ -76,7 +75,7 @@ int main(){
 	pointcloudVo.pointCloud2ply("../3dcloud_verticalObjects.ply");
 	cout << "Exported." << endl;
 
-	// Show found plane on image.
+	// Show found vertical object on image.
 	pointcloudVo.showOnImage(data.getLeftImage());
 
 	// End program.
@@ -84,6 +83,5 @@ int main(){
 	while (true) {
 
 	}
-	// Successfully exit file.
 	return 0;
 }

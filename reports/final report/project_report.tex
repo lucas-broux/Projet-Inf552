@@ -21,6 +21,51 @@
 
 \newpage \tableofcontents
 
+\newpage \section{Introduction}
+% Contexte du projet.
+\par Ce projet, réalisé dans le cadre du cours \emph{INF552 - Analyse d'Images et Vision par Ordinateur} consiste en l'analyse des images de la base de données \emph{Cityscapes} (https://www.cityscapes-dataset.com/) par les méthodes et algorithmes vus en cours. Cette base de données consiste en des images stéréo d'environnements urbains, prises par deux caméras installées sur le capot d'une voiture, dont on connait à tout instant les matrices. Les auteurs de la base de données fournissent les images prises par la caméra de gauche, la disparité calculée avec l'image de droite, ainsi que les informations géométriques des deux caméras.
+% Objectifs du projet.
+\par Notre objectif est le suivant : étant donnés une image de gauche, la disparité correspondante, ainsi que les données géométriques des deux caméras, reconnaitre des objets importants du paysages en n'utilisant que des algorithmes et méthodes étudiés en cours.
+% Approche.
+\par Notre approche est la suivante : dans un premier temps, nous utilisons ces informations pour reconstituer un nuage de point 3D correspondant à la prise de vue; puis nous appliquons l'algorithme RANSAC pour détecter le plan principal de ce nuage de points, le sol; enfin, nous appliquons une version adaptée de l'algorithme RANSAC pour détecter les objets verticaux i.e. orthogonaux à ce plan.
+% Plan du rapport.
+\par Dans ce rapport, nous présentons tout d'abord notre approche et précisons les algorithmes employés. Nous présentons ensuite les résultats obtenus et analysons la performance de nos algorithmes. Enfin, nous concluons en présentant les enseignements acquis au cours de ce projet.
+
+
+\newpage \section{Algorithmes utilisés et raisonnements}
+\subsection{Reconstitution de nuage 3D}
+% Reconstitution de nuage 3d à partir de l'image de gauche, la disparité, la matrice de la caméra.
+\subsection{Détection du sol}
+% Application de l'algorithme RANSAC pour détecter le sol.
+\subsection{Détection d'objets verticaux}
+% Application d'une variante de l'algorithme RANSAC pour détecter les objets verticaux.
+
+
+\newpage \section{Résultats et performance}
+\subsection{Exemples de résultats}
+% Donner des exemples de résultats :
+%	- Point cloud.
+%	- Détection du sol.
+%	- Détection des objets verticaux.
+\subsection{Analyse de la performance}
+% Évaluer la performance temporelle mais aussi en termes de précision de l'algorithme en fonction du threshold.
+
+
+
+\newpage \section{Enseignements du projet}
+% Mise en application des outils étudiés en cours.
+\par Ce projet nous a permis de mettre en application différents outils étudiés durant le cours : reconstitution 3D, algorithme RANSAC, bibliothèque OpenCv ...
+% Utilisation de l'outil GIT.
+\par Cela a également été l'occasion pour nous de nous familiariser avec l'outil de gestion de versions \emph{git}, qui nous a permis une grande souplesse dans la répartition du travail.
+% Organisation et documentation d'un projet C++.
+\par Enfin, nous avons pu appréhender la nécessité de bien organiser et documenter un projet, en particulier en C++.
+
+
+\newpage \section{Conclusion}
+% Conclusion quant aux résultats obtenus et performance.
+% Conclusions quant aux enseignements acquis durant ce projet.
+% Analyse critique et perspectives d'avenir pour de telles méthodes.
+
 
 
 

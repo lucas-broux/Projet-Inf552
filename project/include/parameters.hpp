@@ -20,7 +20,7 @@ const double APPROX_PROPORTION_OF_POINTS_IN_THE_PLANE = 0.2;
 | RANSAC LINES PARAMETERS |
 -------------------------*/
 const double APPROX_PROPORTION_OF_POINTS_IN_A_LINE = 0.02;
-const double MIN_ANGLE = 10.; //The minimun cosine between the lines and the plane direction in ransac::fit3dLine.
+const double MAX_ANGLE = 10.; //The maximum angle between the lines and the plane direction in ransac::fit3dLine.
 const double PI = 3.14159265359;
 
 

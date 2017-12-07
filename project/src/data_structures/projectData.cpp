@@ -92,16 +92,6 @@ point3dCloud projectData::pointCloudFromData() {
 				// Add point to point cloud.
 				pointcloud.push_back(point3d(position, color, make_pair(i, j)));
 			}
-			/*
-			else {
-				// Color point on left image for vizualisation purposes.
-				Vec3b color;
-				color[0] = 0;
-				color[1] = 255;
-				color[2] = 0;
-				left_image.at<Vec3b>(i, j) = color;
-			}
-			*/
 		}
 	}
 

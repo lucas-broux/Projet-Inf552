@@ -29,7 +29,7 @@ const double PI = 3.14159265359;
 -------------------*/
 //The range in which will variate the number of clusters in our tests.
 const double MIN_K_CLUSTERS = 2;
-const double MAX_K_CLUSTERS = 15;
+const double MAX_K_CLUSTERS = 10;
 
 const double BARYCENTER_VARIATION_TRESHOLD = 0.01; //The treshold for mean barycenter variation in kMeans.
 const double KMEAN_COLOR_IMPORTANCE = 0.75; //The importance of the color in the kMean algorithm.

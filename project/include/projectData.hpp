@@ -32,7 +32,7 @@ private:
 public:
 	/**
 	* A constructor.
-	* @param filename The path to the file. It should be like : "something/aachen_000029_000019" and the constructor will manage to open the files with the good name and extentions.
+	* @param filename The path to the file. It should be of the form : "something/aachen_000029_000019" and the constructor will manage to open the files with the good name and extensions.
 	* @param disparityGaussianBlur Range of the Gaussian Blur. Equals to 3 by default.
 	* @param left_imageGaussianBlur Range of the Gaussian Blur. Equals to 0 by default.
 	*/

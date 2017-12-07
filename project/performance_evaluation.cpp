@@ -18,14 +18,17 @@
 
 #include "projectData.hpp"
 #include "ransac.hpp"
+#include "kMeans.hpp"
 #include "parameters.hpp"
 #include "logger.hpp"
 
 using namespace std;
 using namespace cv;
 
+
 // The number of inputs to process.
-const int NUMBER_INPUTS = 57;
+const int NUMBER_INPUTS = 58;
+
 
 /**
 	Converts clock value to time in seconds.
@@ -35,17 +38,6 @@ const int NUMBER_INPUTS = 57;
 */
 inline float clock2sec(clock_t t) {
 	return ((float)(t)) / CLOCKS_PER_SEC;
-}
-
-
-/**
-	Compute the average value of a float vector.
-
-	@param vector The considered vector.
-	@return The average value over the vector.
-*/
-inline float average(vector<float> vector) {
-	return accumulate(vector.begin(), vector.end(), 0.0) / vector.size();
 }
 
 
@@ -59,15 +51,6 @@ int main() {
 	struct tm * curtime = localtime(&_tm);
 	logger.log_comment("Evaluation of performance.");
 	logger.log_comment("Date of computation: " + (string)asctime(curtime));
-	logger.log_comment("Global parameters used for computation:");
-	logger.log_comment("\tDisparity Threshold: MIN_DISPARITY = " + to_string(MIN_DISPARITY));
-	logger.log_comment("\tAngle Threshold: MIN_ANGLE = " + to_string(MIN_ANGLE) + "\n");
-
-	// Initialize vector of times.
-	vector<float> computation_time;
-	vector<float> computation_time_3dcloud;
-	vector<float> computation_time_road;
-	vector<float> computation_time_verticalobjects;
 
 	// Initialize clock.
 	clock_t t, t_loc;
@@ -88,7 +71,7 @@ int main() {
 			num = to_string(i);
 			for (int num0 = 0; num0 < log10(100000 / i); num0++) num = "0" + num;
 		}
-		projectData data = projectData("../project/input/input_" + to_string(i) + "/leverkusen_" + num + "_000019", 3);
+		projectData data = projectData("../project/input/input_" + to_string(i) + "/leverkusen_" + num + "_000019", DISPARITY_GAUSSIAN_BLUR);
 
 		// Get current time.
 		t = clock();
@@ -106,14 +89,13 @@ int main() {
 		string log_tag = "[INPUT " + to_string(i) + "]";
 		logger.log_message(message(log_tag, i, "3D Point cloud", clock2sec(clock() - t_loc), "seconds"));
 		logger.log_message(message(log_tag, i, "Vertices", pointcloud.size(), "vertices"));
-		computation_time_3dcloud.push_back(clock2sec(clock() - t_loc));
 		t_loc = clock();
 		
 
 
-		/*----------------------------
-		|  3. DETECTION OF THE ROAD  |
-		----------------------------*/
+		/*--------------------------------------
+		|  3. DETECTION OF THE ROAD  (RANSAC)  |
+		--------------------------------------*/
 		// Compute mean distance.
 		double meanNeighboursDistance = pointcloud.meanNeighboursDistance();
 
@@ -123,56 +105,96 @@ int main() {
 		t_loc = clock();
 
 		// Apply RANSAC.
-		ransac rRoad = ransac(500, 2 * meanNeighboursDistance);
-		point3dCloud pointcloudRoad = rRoad.fit3dPlane(pointcloud, true, Vec3b(0, 255, 0)).first;
+		ransac rRoad = ransac(0.999, meanNeighboursDistance);
+		pair<point3dCloud, point3dCloud> rRoadResult = rRoad.fit3dPlane(pointcloud, true, COLORS[RED]);
+
 
 		// Apply regression.
 		plane planeRoad;
-		planeRoad.regression(pointcloudRoad);
+		planeRoad.regression(rRoadResult.first);
 
 		// Output result.
 		logger.log_message(message(log_tag, i, "Road detection (RANSAC)", clock2sec(clock() - t_loc), "seconds"));
-		computation_time_road.push_back(clock2sec(clock() - t_loc));
 		t_loc = clock();
 
 		// Show found plane on image.
-		pointcloudRoad.showOnImage(data.getLeftImage(), false);
+		(rRoadResult.first).showOnImage(data.getLeftImage(), false);
 
 
 
-		/*------------------------------------
-		|  4. DETECTION OF VERTICAL OBJECTS  |
-		------------------------------------*/
+		/*---------------------------------------------
+		|  4. DETECTION OF VERTICAL OBJECTS (RANSAC)  |
+		---------------------------------------------*/
 		// Apply RANSAC.
-		ransac rVo = ransac(10000, 4 * meanNeighboursDistance);
-		point3dCloud pointcloudVo = rVo.fit3dLine(pointcloud, planeRoad, true, Vec3b(0, 0, 255), 5, 9 * meanNeighboursDistance);
+		ransac rVo = ransac(0.999, 2 * meanNeighboursDistance);
+		point3dCloud pointcloudVO_ransac = rVo.fit3dLine(rRoadResult.second, planeRoad, true, COLORS[GREEN], 5, 4 * meanNeighboursDistance);
 
 		// Output result.
 		logger.log_message(message(log_tag, i, "Vertical object detection (RANSAC)", clock2sec(clock() - t_loc), "seconds"));
-		computation_time_verticalobjects.push_back(clock2sec(clock() - t_loc));
 		t_loc = clock();
 
 		// Show found vertical object on image.
-		pointcloudVo.showOnImage(data.getLeftImage(), false, true, "../project/output/performance_evaluation/leverkusen_" + num + "_000019.jpg");
+		pointcloudVO_ransac.showOnImage(data.getLeftImage(), false, true, "../project/output/performance_evaluation/images/ransac/leverkusen_" + num + "_000019.jpg");
 		
+
+
+		/*-------------------------------------------------
+		|  5. DETECTION OF VERTICAL OBJECTS (CLUSTERING)  |
+		-------------------------------------------------*/
+		
+		// Access data to get a clean version of the left image.
+		data = projectData("../project/input/input_" + to_string(i) + "/leverkusen_" + num + "_000019", DISPARITY_GAUSSIAN_BLUR);
+
+		// Changing the base of coordinates to set the x axis as the altitude. It allows us to contract the altitude in the computation of kMeans.
+		(rRoadResult.second).changeBase(planeRoad.getABase());
+
+		// Computing the standard deviations to analyse the data and reduce the color importance in the kMean computation.
+		pair<Vec3d, Vec3d> sigmas = (rRoadResult.second).getSigmas();
+		double sigmaRatio = 0;
+		if (norm(sigmas.second) != 0) {
+			sigmaRatio = norm(sigmas.first) / norm(sigmas.second);
+		}
+
+		// Computing the best number of cluster for the data using the silhouette score.
+		int bestNumberOfClusters = 0;
+		double bestScore = -1;
+		for (int i = MIN_K_CLUSTERS; i < MAX_K_CLUSTERS; i++) {
+			kMeans c = kMeans(i, sigmaRatio * KMEAN_COLOR_IMPORTANCE);
+			int n_iterations = c.fit(rRoadResult.second);
+			double score_i = c.computeScore();
+			if (score_i > bestScore) {
+				bestScore = score_i;
+				bestNumberOfClusters = i;
+			}
+		}
+
+		// Computing the kMeans.
+		kMeans c = kMeans(bestNumberOfClusters);
+		c.fit(rRoadResult.second);
+
+		// Output result.
+		logger.log_message(message(log_tag, i, "Vertical object detection (Clustering)", clock2sec(clock() - t_loc), "seconds"));
+		logger.log_message(message(log_tag, i, "Number of clusters", bestNumberOfClusters, ""));
+
+		// Show found vertical object on image.
+		vector<point3dCloud> clusters = c.getClusters();
+		for (int i = 0; i < clusters.size(); i++) {
+			clusters[i].setColor(COLORS[(i + 1) % COLORS.size()]);
+			clusters[i].showOnImage(data.getLeftImage(), false, true, "../project/output/performance_evaluation/images/clustering/leverkusen_" + num + "_000019.jpg");
+		}
+		
+
+
+		/*------------------------------
+		|  6. CONCLUSION OF ITERATION  |
+		------------------------------*/
+
 		// Output global results for the iteration.
 		t = clock() - t;
 		logger.log_message(message(log_tag, i, "All data processing", clock2sec(t), "seconds"));
-		computation_time.push_back(clock2sec(t));
+
 	}
 	
-	// Compute and log average results.
-	float average_computation_time = average(computation_time);
-	float average_computation_time_3dcloud = average(computation_time_3dcloud);
-	float average_computation_time_road = average(computation_time_road);
-	float average_computation_time_verticalobjects = average(computation_time_verticalobjects);
-
-	string log_tag = "[RESULTS]: ";
-	logger.log_comment("[RESULTS]: Average computation time for 3d point cloud computation: " + to_string(average_computation_time_3dcloud) + " seconds.");
-	logger.log_comment("[RESULTS]: Average computation time for road detection (RANSAC): " + to_string(average_computation_time_road) + " seconds.");
-	logger.log_comment("[RESULTS]: Average computation time for vertical objects detection (RANSAC) : " + to_string(average_computation_time_verticalobjects) + " seconds.");
-	logger.log_comment("[RESULTS]: Average computation time for data processing: " + to_string(average_computation_time) + " seconds.");
-
 	// Close logger.
 	logger.close();
 

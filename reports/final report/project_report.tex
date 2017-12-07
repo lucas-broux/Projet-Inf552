@@ -1,0 +1,199 @@
+\documentclass[titlepage,11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{polytechnique}
+
+\title[Projet INF552]{Reconstitution 3D et détection d’objets en milieu urbain}
+\subtitle{Projet INF552 \\ Rapport Final}
+\author{ Romain \textsc{LOISEAU}\\ Lucas \textsc{BROUX}}
+\date{Pour le 8 Décembre 2017}
+%\logo[headers]{Chemin relatif vers le logo}
+
+\begin{document}
+\maketitle
+
+\newpage 
+
+\newpage \tableofcontents
+
+\newpage \section{Introduction}
+% Contexte du projet.
+\par Ce projet, réalisé dans le cadre du cours \emph{INF552 - Analyse d'Images et Vision par Ordinateur} consiste en l'analyse des images de la base de données \emph{Cityscapes} (https://www.cityscapes-dataset.com/) par les méthodes et algorithmes vus en cours. Cette base de données consiste en des images stéréo d'environnements urbains, prises par deux caméras installées sur le capot d'une voiture, dont on connait à tout instant les matrices. Les auteurs de la base de données fournissent les images prises par la caméra de gauche, la disparité calculée avec l'image de droite, ainsi que les informations géométriques des deux caméras.
+% Objectifs du projet.
+\par Notre objectif est le suivant : étant donnés une image de gauche, la disparité correspondante, ainsi que les données géométriques des deux caméras, reconnaitre des objets importants du paysages en n'utilisant que des algorithmes et méthodes étudiés en cours.
+% Approche.
+\par Notre approche est la suivante : dans un premier temps, nous utilisons ces informations pour reconstituer un nuage de point 3D correspondant à la prise de vue; puis nous appliquons l'algorithme RANSAC pour détecter le plan principal de ce nuage de points, le sol; enfin, nous avons développé plusieurs approches (RANSAC, clustering) pour détecter les objets verticaux i.e. orthogonaux à ce plan.
+% Plan du rapport.
+\par Dans ce rapport, nous présentons tout d'abord notre approche et précisons les algorithmes employés. Nous présentons ensuite les résultats obtenus et analysons la performance de nos algorithmes. Enfin, nous concluons en présentant les enseignements acquis au cours de ce projet.
+\par Le code source du projet est disponible sur \href{https://github.com/lucas-broux/Projet-Inf552}{ce repository github}
+
+
+
+\newpage \section{Algorithmes utilisés et raisonnements}
+\subsection{Reconstitution de nuage 3D}
+% Reconstitution de nuage 3d à partir de l'image de gauche, la disparité, la matrice de la caméra.
+\par Nous nous donnons l'image prise par l'appareil de gauche, marquée par les coordonnées $x$ et $y$, ainsi que l'image correspondant à la disparité $d \left( x, y \right)$, et les données géométriques des deux caméras i.e. leur paramètres intrinsèques et extrinsèques. 
+\par Soit $X, Y$, et $Z$ les coordonnées 3D correspondant au point $x$, $y$ sur l'image de gauche, et $ d:=d\left(x, y\right)$. On note aussi $t$ la valeur de translation horizontale entre les deux caméras. Les équations de projection s'écrivent alors :
+\begin{displaymath}
+	\begin{split}
+	\left\lbrace
+	\begin{array}{cc}
+	s * 
+		\begin{bmatrix}
+			x \\
+			y \\
+			1
+		\end{bmatrix}
+		 &=
+		\begin{bmatrix}
+			f_{x} & 0 & c_{x} \\
+			0 & f_{y} & c_{y} \\
+			0 & 0 & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+			1 & 0 & 0 & 0 \\
+			0 & 1 & 0 & 0 \\
+			0 & 0 & 1 & 0
+		\end{bmatrix}
+		\begin{bmatrix}
+			X \\
+			Y \\
+			Z \\
+			1
+		\end{bmatrix}
+		\\
+	s * 
+		\begin{bmatrix}
+			x - d \\
+			y \\
+			1
+		\end{bmatrix}
+		 &=
+		\begin{bmatrix}
+			f_{x} & 0 & c_{x} \\
+			0 & f_{y} & c_{y} \\
+			0 & 0 & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+			1 & 0 & 0 & t \\
+			0 & 1 & 0 & 0 \\
+			0 & 0 & 1 & 0
+		\end{bmatrix}
+		\begin{bmatrix}
+			X \\
+			Y \\
+			Z \\
+			1
+		\end{bmatrix}
+	\end{array}\right.
+	\end{split}
+\end{displaymath}
+
+à résoudre en $s, X, Y$, et $Z$. L'inversion du système donne : 
+ \begin{displaymath}
+	\begin{split}
+		\begin{bmatrix}
+			X \\
+			Y \\
+			Z
+		\end{bmatrix}
+		 &= - \dfrac{t}{d}
+		\underbrace{
+		\begin{bmatrix}
+			1 & 0 & -c_{x} \\
+			0 & \dfrac{f_{x}}{f_{y}} & \dfrac{-f_{x} c_{y}}{f_{y}} \\
+			0 & 0 & f_{x}
+		\end{bmatrix}}_{:=N}
+		\begin{bmatrix}
+			x \\
+			y \\
+			1
+		\end{bmatrix}
+	\end{split}
+\end{displaymath}
+
+Ainsi, le calcul des points 3D revient à une simple multiplication matricielle.
+
+
+\subsection{Détection du sol}
+% Application de l'algorithme RANSAC pour détecter le sol.
+\par Pour détecter le sol, nous cherchons le plan principal du nuage de points 3D, à l'aide de l'algorithme RANSAC.
+
+\par Cet algorithme consiste à tirer aléatoirement un grand nombre de fois trois points dans le nuage de points, puis de regarder combien de points sont dans le plan défini par ces trois points. A l'issue du processus, on retient le plan contenant le plus de points.
+
+\par Nous avons besoin de deux paramètres : l'épaisseur d'un plan et le nombre d'itérations de l'algorithme.
+
+\par L'épaisseur d'un plan est défini à partir d'une longueur caractéristique du nuage de point. En effet, nous pouvons essayer de calculer la distance moyenne entre deux points voisins afin d'obtenir une longueur caractéristique. Or calculer pour chaque point la distance à son plus proche voisin à une complexité en $n^2$ avec la structure de donnée que nous utilisons (Rappel : nous utilisons un vecteur de \emph{Vec3d} pour stocker notre nuage de point). Comme notre nuage de point à de l'ordre du million de point, le calcul exact de cette grandeur serait trop gourmand pour être exécuté en un temps raisonnable. Pour faire face à ce problème, nous tirons aléatoirement $1000$ points pour lesquels nous cherchons la plus petite distance avec $10000$ autres points tirés aléatoirement. Nous faisons donc de l'ordre de $1000 * 10 000 = 10 000 000$ d'opérations, ce qui est soutenable par la machine. En contrepartie, nous n'obtenons pas la grandeur désirée mais une approximation supérieur à cette grandeur qui suffira pour les besoins du projet. Dans l'algorithme, tout point qui sera à une distance inférieure à cette grandeur caractéristique du nuage de point du plan sera considéré comme appartenant au plan.
+
+\par Le second paramètre à calculer est le nombre d'itérations suffisant. La \href{https://en.wikipedia.org/wiki/Random_sample_consensus}{page wikipédia suivante} explique comment calibrer ce paramètre à notre problème.
+
+\par Désignons par $w$ la probabilité qu'un point appartienne au plan. Cette grandeur n'est en général pas connue, mais nous pouvons en donner une approximation. Dans notre cas, nous avons estimés que $w = 0.2$. Comme il faut $3$ points pour définir le plan, $1-w^3$ est la probabilité qu'au moins un point parmi ceux tirés n'appartienne pas au plan. En désignant par $p$ la probabilité de réussite de l'algorithme attendue et par $k$ le nombre d'itérations du modèle, nous en déduisons que $1-p = (1-w^3)^k$. Cela implique donc que :
+
+$$k = \frac{\log{1-p}}{\log{(1-w^3)}}$$
+
+\par Le paramètre entré par l'utilisateur est donc une probabilité de réussite de l'algorithme $p$. A cela nous ajoutons deux fois l'écart type de $k$ afin de s'assurer de la réussite de l'algorithme. Cet écart type vaut $\frac{\sqrt{1-w^3}}{w^3}$.
+
+\subsection{Détection d'objets verticaux}
+\par Nous proposons deux approches pour réaliser la détection des objets verticaux sur la route.
+
+% Application d'une variante de l'algorithme RANSAC pour détecter les objets verticaux.
+\subsubsection{Variante de l'algorithme RANSAC}
+\par Notre première idée est d'appliquer l'algorithme RANSAC dans le but de rechercher des lignes dans l'espace; en ajoutant une contrainte sur leur verticalité. Pour cela, nous utilisons le même algorithme que précédemment en l'adaptant aux lignes. De plus, nous recherchons plusieurs lignes. De plus, nous ajoutons une contrainte sur la verticalité des lignes détectées en s'assurant que l'angle entre la normale au plan de la route et la direction de la ligne trouvée soit inférieur à une constante fixée au préalable.
+
+\par Cette méthode est assez mauvaise dans la détection des objets verticaux. En effet, dans le nuage de points on ne distingue pas vraiment de lignes, et il semble donc compliqué pour notre algorithme de fonctionner efficacement sur ce type de données.
+
+% Application d'un algorithme de clustering.
+\subsubsection{Algorithme des k-moyennes}
+\par Notre seconde approche est fondée sur l'algorithme des k-moyennes. L'algorithme utilisé est donc un algorithme classique de k-moyennes. Nous commençons par choisir $k$ centres de clusters aléatoirement dans le nuage de point. Ensuite nous calculons les clusters en assignant chaque point au barycentre dont il est le plus proche. Nous itérons ensuite jusqu'à ce que le modèle converge. Voici les quelques spécificités de notre algorithme :
+
+\begin{itemize}
+\item{Le nombre d'itération est calculé de telle sorte à ce que l'algorithme s'arrête lorsque les barycentres se stabilisent. Dans notre cas, lorsque la variation de la variation de barycentre moyenne est inférieure à $1\%$  de la variation de barycentre moyenne du pas précédent.}
+\item{Nous changeons également la topologie de l'espace des position. En effet, les objets que nous souhaitons détecter sont des objets verticaux. Ils sont donc par nature étirés selon l'altitude. Pour que l'algorithme les détecte plus facilement, nous comprimons l'axe vertical afin de rapprocher les points selon cet axe. Ainsi, cela revient à avoir un algorithme qui regarde le nuage de point du ciel. Cela se fait en deux étapes. Tout d'abord, nous faisons un changement de base en fixant l'axe vertical du monde réel comme égal au vecteur normal au plan trouvé précédemment. Ensuite, nous utilisons trois variables constantes spécifiant le degré de compression selon chacun des axes.
+\begin{itemize}
+\item{const double $SCALER_X = 0.5$;}
+\item{const double $SCALER_Y =1$;}
+\item{const double $SCALER_Z = 1$;}
+\end{itemize}
+Ainsi, à chaque calcul de distance, nous multiplierons chacune des dimensions par le coefficient adéquat}
+\item{Enfin, nous avons la possibilité d'utiliser l'algorithme en prenant en entrée la couleur de chacun des points. Cela nous permet de prendre en compte le fait que lorsqu'on veut détecter un objet vertical, on a de bonnes raisons de penser que sa couleur va être homogène. Ainsi, nous pouvons réaliser l'algorithme en utilisant non plus trois dimensions, mais six. Nous commençons donc par définir un paramètre permettant de définir l'importance de la couleur dans l'algorithme. A l'image des trois paramètres utilisés précédemment, cela permet de changer la topologie de l'espace pour donner plus ou moins d'importance à la couleur. Nous utilisons ensuite ce paramètre en le définissant comme le produit de deux termes
+\begin{itemize}
+\item{Le rapport de l'écart-type en position et de l'écart-type en couleur. Cela permet de procéder à une normalisation des couleurs par rapport aux positions. En effet, il n'y a pas de raison que les valeurs de position et de couleurs évoluent dans le mêmes ordres de grandeur.}
+\item{Un paramètre ressemblant aux paramètres nommés précédemment qui permet de donner arbitrairement plus ou moins d'importance à la couleur dans le calcul des k-moyennes.}
+\end{itemize}}
+\item{Le score que nous utilisons pour évaluer la performance est un score nommé "silhouette score". Il permet de s'assurer que l'algorithme cherche le bon nombre de clusters. Il s'intéresse à la différence entre la distance d'un point à son cluster et la distance du même point au cluster le plus proche dont il ne fait pas partie.}
+\end{itemize}
+
+\newpage \section{Résultats et performance}
+\subsection{Exemples de résultats}
+% Donner des exemples de résultats :
+%	- Point cloud.
+%	- Détection du sol.
+%	- Détection des objets verticaux.
+\subsection{Analyse de la performance}
+% Évaluer la performance temporelle mais aussi en termes de précision de l'algorithme en fonction du threshold.
+
+
+
+\newpage \section{Enseignements du projet}
+% Mise en application des outils étudiés en cours.
+\par Ce projet nous a permis de mettre en application différents outils étudiés durant le cours : reconstitution 3D, algorithme RANSAC, bibliothèque OpenCv ...
+% Utilisation de l'outil GIT.
+\par Cela a également été l'occasion pour nous de nous familiariser avec l'outil de gestion de versions \emph{git}, qui nous a permis une grande souplesse dans la répartition du travail.
+% Organisation et documentation d'un projet C++.
+\par Enfin, nous avons pu appréhender la nécessité de bien organiser et documenter un projet, en particulier en C++.
+
+
+\newpage \section{Conclusion}
+% Conclusion quant aux résultats obtenus et performance.
+% Conclusions quant aux enseignements acquis durant ce projet.
+% Analyse critique et perspectives d'avenir pour de telles méthodes.
+
+
+
+
+\end{document}

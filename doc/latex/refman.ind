@@ -1,0 +1,218 @@
+\begin{theindex}
+
+  \item {C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/include/line3d.\+hpp}, 
+		27
+  \item {C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/include/line3d\+Cloud.\+hpp}, 
+		27
+  \item {C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/include/parameters.\+hpp}, 
+		28
+  \item {C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/include/plane.\+hpp}, 
+		28
+  \item {C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/include/point3d.\+hpp}, 
+		29
+  \item {C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/include/point3d\+Cloud.\+hpp}, 
+		29
+  \item {C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/include/product.\+hpp}, 
+		29
+  \item {C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/include/project\+Data.\+hpp}, 
+		30
+  \item {C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/include/ransac.\+hpp}, 
+		30
+  \item {C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/src/line3d.\+cpp}, 
+		31
+  \item {C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/src/line3d\+Cloud.\+cpp}, 
+		31
+  \item {C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/src/plane.\+cpp}, 
+		31
+  \item {C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/src/point3d.\+cpp}, 
+		32
+  \item {C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/src/point3d\+Cloud.\+cpp}, 
+		32
+  \item {C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/src/product.\+cpp}, 
+		32
+  \item {C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/src/project\+Data.\+cpp}, 
+		33
+  \item {C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/src/ransac.\+cpp}, 
+		34
+  \item {cos\+Angle}
+    \subitem {line3d}, 6
+
+  \indexspace
+
+  \item {distance}
+    \subitem {line3d}, 7
+    \subitem {plane}, 14
+    \subitem {point3d}, 17
+
+  \indexspace
+
+  \item {fit3d\+Line}
+    \subitem {ransac}, 25
+  \item {fit3d\+Plane}
+    \subitem {ransac}, 26
+
+  \indexspace
+
+  \item {get\+Camera\+Matrix}
+    \subitem {project\+Data}, 23
+  \item {get\+Color}
+    \subitem {point3d}, 17
+  \item {get\+Direction}
+    \subitem {plane}, 14
+  \item {get\+Disparity}
+    \subitem {project\+Data}, 23
+  \item {get\+Left\+Image}
+    \subitem {project\+Data}, 23
+  \item {get\+Min\+Npoints}
+    \subitem {line3d\+Cloud}, 10
+  \item {get\+Min\+Npoints\+Index}
+    \subitem {line3d\+Cloud}, 10
+  \item {get\+Pixel\+Coordinates}
+    \subitem {point3d}, 17
+  \item {get\+Point}
+    \subitem {line3d}, 7
+  \item {get\+Position}
+    \subitem {point3d}, 18
+  \item {get\+Scalar}
+    \subitem {product}, 22
+  \item {get\+Vector}
+    \subitem {line3d}, 8
+  \item {get\+Vectorial}
+    \subitem {product}, 22
+
+  \indexspace
+
+  \item {has\+To\+Be\+Treated}
+    \subitem {project\+Data.\+cpp}, 33
+
+  \indexspace
+
+  \item {intersection}
+    \subitem {plane}, 15
+  \item {is\+Degenerated}
+    \subitem {line3d}, 8
+    \subitem {plane}, 15
+
+  \indexspace
+
+  \item {json}
+    \subitem {project\+Data.\+hpp}, 30
+
+  \indexspace
+
+  \item {line3d}, 5
+    \subitem {cos\+Angle}, 6
+    \subitem {distance}, 7
+    \subitem {get\+Point}, 7
+    \subitem {get\+Vector}, 8
+    \subitem {is\+Degenerated}, 8
+    \subitem {line3d}, 6
+    \subitem {operator$<$$<$}, 8
+  \item {line3d.\+cpp}
+    \subitem {operator$<$$<$}, 31
+  \item {line3d\+Cloud}, 9
+    \subitem {get\+Min\+Npoints}, 10
+    \subitem {get\+Min\+Npoints\+Index}, 10
+    \subitem {line3d\+Cloud}, 9
+    \subitem {min\+Distance}, 10, 11
+    \subitem {operator[]}, 11
+    \subitem {push\+\_\+back}, 11
+    \subitem {set}, 12
+    \subitem {size}, 12
+
+  \indexspace
+
+  \item {M\+I\+N\+\_\+\+C\+O\+S\+I\+NE}
+    \subitem {parameters.\+hpp}, 28
+  \item {M\+I\+N\+\_\+\+D\+I\+S\+P\+A\+R\+I\+TY}
+    \subitem {parameters.\+hpp}, 28
+  \item {mean\+Neighbours\+Distance}
+    \subitem {point3d\+Cloud}, 19
+  \item {min\+Distance}
+    \subitem {line3d\+Cloud}, 10, 11
+
+  \indexspace
+
+  \item {operator$<$$<$}
+    \subitem {line3d}, 8
+    \subitem {line3d.\+cpp}, 31
+    \subitem {plane}, 15
+    \subitem {plane.\+cpp}, 32
+  \item {operator[]}
+    \subitem {line3d\+Cloud}, 11
+    \subitem {point3d\+Cloud}, 19
+
+  \indexspace
+
+  \item {parameters.\+hpp}
+    \subitem {M\+I\+N\+\_\+\+C\+O\+S\+I\+NE}, 28
+    \subitem {M\+I\+N\+\_\+\+D\+I\+S\+P\+A\+R\+I\+TY}, 28
+  \item {plane}, 13
+    \subitem {distance}, 14
+    \subitem {get\+Direction}, 14
+    \subitem {intersection}, 15
+    \subitem {is\+Degenerated}, 15
+    \subitem {operator$<$$<$}, 15
+    \subitem {plane}, 13, 14
+    \subitem {regression}, 15
+  \item {plane.\+cpp}
+    \subitem {operator$<$$<$}, 32
+  \item {point3d}, 16
+    \subitem {distance}, 17
+    \subitem {get\+Color}, 17
+    \subitem {get\+Pixel\+Coordinates}, 17
+    \subitem {get\+Position}, 18
+    \subitem {point3d}, 17
+  \item {point3d\+Cloud}, 18
+    \subitem {mean\+Neighbours\+Distance}, 19
+    \subitem {operator[]}, 19
+    \subitem {point3d\+Cloud}, 19
+    \subitem {point\+Cloud2ply}, 20
+    \subitem {push\+\_\+back}, 20
+    \subitem {show\+On\+Image}, 20
+    \subitem {size}, 20
+  \item {point\+Cloud2ply}
+    \subitem {point3d\+Cloud}, 20
+  \item {point\+Cloud\+From\+Data}
+    \subitem {project\+Data}, 24
+  \item {product}, 21
+    \subitem {get\+Scalar}, 22
+    \subitem {get\+Vectorial}, 22
+    \subitem {product}, 21
+  \item {project\+Data}, 22
+    \subitem {get\+Camera\+Matrix}, 23
+    \subitem {get\+Disparity}, 23
+    \subitem {get\+Left\+Image}, 23
+    \subitem {point\+Cloud\+From\+Data}, 24
+    \subitem {project\+Data}, 23
+  \item {project\+Data.\+cpp}
+    \subitem {has\+To\+Be\+Treated}, 33
+    \subitem {setcursor}, 33
+  \item {project\+Data.\+hpp}
+    \subitem {json}, 30
+  \item {push\+\_\+back}
+    \subitem {line3d\+Cloud}, 11
+    \subitem {point3d\+Cloud}, 20
+
+  \indexspace
+
+  \item {ransac}, 24
+    \subitem {fit3d\+Line}, 25
+    \subitem {fit3d\+Plane}, 26
+    \subitem {ransac}, 25
+  \item {regression}
+    \subitem {plane}, 15
+
+  \indexspace
+
+  \item {set}
+    \subitem {line3d\+Cloud}, 12
+  \item {setcursor}
+    \subitem {project\+Data.\+cpp}, 33
+  \item {show\+On\+Image}
+    \subitem {point3d\+Cloud}, 20
+  \item {size}
+    \subitem {line3d\+Cloud}, 12
+    \subitem {point3d\+Cloud}, 20
+
+\end{theindex}

@@ -1,0 +1,48 @@
+\section{C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/src/project\+Data.cpp File Reference}
+\label{project_data_8cpp}\index{C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/src/project\+Data.\+cpp@{C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/src/project\+Data.\+cpp}}
+{\ttfamily \#include \char`\"{}project\+Data.\+hpp\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ setcursor} (bool visible, D\+W\+O\+RD size)
+\begin{DoxyCompactList}\small\item\em Function for hiding/showing cursor \+: hiding with setcursror(0, 0); reinitialisation with setcursor(1, 10). \end{DoxyCompactList}\item 
+bool \textbf{ has\+To\+Be\+Treated} (int i, int j, double d, const Mat \&left\+\_\+image)
+\begin{DoxyCompactList}\small\item\em Determines if the pixel should be treated. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\label{project_data_8cpp_a51661db0d98d3b889acb2cc3aab03837}} 
+\index{project\+Data.\+cpp@{project\+Data.\+cpp}!has\+To\+Be\+Treated@{has\+To\+Be\+Treated}}
+\index{has\+To\+Be\+Treated@{has\+To\+Be\+Treated}!project\+Data.\+cpp@{project\+Data.\+cpp}}
+\subsubsection{has\+To\+Be\+Treated()}
+{\footnotesize\ttfamily bool has\+To\+Be\+Treated (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{double}]{d,  }\item[{const Mat \&}]{left\+\_\+image }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Determines if the pixel should be treated. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & The disparity between left/right images. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the pixel should be considered. 
+\end{DoxyReturn}
+\mbox{\label{project_data_8cpp_ac1fcd50fb6cdd3f89bc66a56c9845637}} 
+\index{project\+Data.\+cpp@{project\+Data.\+cpp}!setcursor@{setcursor}}
+\index{setcursor@{setcursor}!project\+Data.\+cpp@{project\+Data.\+cpp}}
+\subsubsection{setcursor()}
+{\footnotesize\ttfamily void setcursor (\begin{DoxyParamCaption}\item[{bool}]{visible,  }\item[{D\+W\+O\+RD}]{size }\end{DoxyParamCaption})}
+
+
+
+Function for hiding/showing cursor \+: hiding with setcursror(0, 0); reinitialisation with setcursor(1, 10). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em visible} & Whether the cursor should be visible. \\
+\hline
+{\em size} & The size of the cursor. \\
+\hline
+\end{DoxyParams}

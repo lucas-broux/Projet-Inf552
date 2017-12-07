@@ -1,0 +1,190 @@
+\section{line3d\+Cloud Class Reference}
+\label{classline3d_cloud}\index{line3d\+Cloud@{line3d\+Cloud}}
+
+
+A class to represent clouds of lines in the 3d space.  
+
+
+
+
+{\ttfamily \#include $<$line3d\+Cloud.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ line3d\+Cloud} ()
+\begin{DoxyCompactList}\small\item\em A constructor. \end{DoxyCompactList}\item 
+void \textbf{ push\+\_\+back} (\textbf{ line3d} line, int npoints=0)
+\begin{DoxyCompactList}\small\item\em Adds a line in the linecloud. \end{DoxyCompactList}\item 
+\textbf{ line3d} \textbf{ operator[$\,$]} (int i)
+\begin{DoxyCompactList}\small\item\em Overloads []. \end{DoxyCompactList}\item 
+int \textbf{ size} ()
+\begin{DoxyCompactList}\small\item\em Gives the size of the linecloud. \end{DoxyCompactList}\item 
+int \textbf{ get\+Min\+Npoints\+Index} ()
+\begin{DoxyCompactList}\small\item\em Finds the index of the line with the least neighbours of the linecloud. \end{DoxyCompactList}\item 
+int \textbf{ get\+Min\+Npoints} ()
+\begin{DoxyCompactList}\small\item\em Finds the number of neighbours of the line with the least neighbours of the linecloud. \end{DoxyCompactList}\item 
+void \textbf{ set} (int i, \textbf{ line3d} line, int npoints)
+\begin{DoxyCompactList}\small\item\em Replace a line for another in the linecloud. \end{DoxyCompactList}\item 
+double \textbf{ min\+Distance} (\textbf{ line3d} line, \textbf{ plane} p)
+\begin{DoxyCompactList}\small\item\em Finds distance of a line from it\textquotesingle{}s closest in the pointcloud. \end{DoxyCompactList}\item 
+double \textbf{ min\+Distance} (Vec3d p)
+\begin{DoxyCompactList}\small\item\em Finds distance of a point from it\textquotesingle{}s closest line in the pointcloud. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class to represent clouds of lines in the 3d space. 
+
+We describe a cloud by a vector of \doxyref{line3d}{p.}{classline3d} and a vector of int. The vector of int allows us to store the number of points next to the line from a pointcloud. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{classline3d_cloud_ab03dcf5e617a3693cf7b362028dd61fb}} 
+\index{line3d\+Cloud@{line3d\+Cloud}!line3d\+Cloud@{line3d\+Cloud}}
+\index{line3d\+Cloud@{line3d\+Cloud}!line3d\+Cloud@{line3d\+Cloud}}
+\subsubsection{line3d\+Cloud()}
+{\footnotesize\ttfamily line3d\+Cloud\+::line3d\+Cloud (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A constructor. 
+
+This default constructor initializes this-\/$>$cloud and this-\/$>$npoints. 
+
+\subsection{Member Function Documentation}
+\mbox{\label{classline3d_cloud_aa6879344baded87a3d10858536534b7c}} 
+\index{line3d\+Cloud@{line3d\+Cloud}!get\+Min\+Npoints@{get\+Min\+Npoints}}
+\index{get\+Min\+Npoints@{get\+Min\+Npoints}!line3d\+Cloud@{line3d\+Cloud}}
+\subsubsection{get\+Min\+Npoints()}
+{\footnotesize\ttfamily int line3d\+Cloud\+::get\+Min\+Npoints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Finds the number of neighbours of the line with the least neighbours of the linecloud. 
+
+\begin{DoxyReturn}{Returns}
+The desired number of neighbours. 
+\end{DoxyReturn}
+\mbox{\label{classline3d_cloud_a99ff4321bff42c81a30e86296f22035b}} 
+\index{line3d\+Cloud@{line3d\+Cloud}!get\+Min\+Npoints\+Index@{get\+Min\+Npoints\+Index}}
+\index{get\+Min\+Npoints\+Index@{get\+Min\+Npoints\+Index}!line3d\+Cloud@{line3d\+Cloud}}
+\subsubsection{get\+Min\+Npoints\+Index()}
+{\footnotesize\ttfamily int line3d\+Cloud\+::get\+Min\+Npoints\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Finds the index of the line with the least neighbours of the linecloud. 
+
+\begin{DoxyReturn}{Returns}
+The desired index. 
+\end{DoxyReturn}
+\mbox{\label{classline3d_cloud_af2483077c8fc34881022c0b942ff5cf9}} 
+\index{line3d\+Cloud@{line3d\+Cloud}!min\+Distance@{min\+Distance}}
+\index{min\+Distance@{min\+Distance}!line3d\+Cloud@{line3d\+Cloud}}
+\subsubsection{min\+Distance()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double line3d\+Cloud\+::min\+Distance (\begin{DoxyParamCaption}\item[{\textbf{ line3d}}]{line,  }\item[{\textbf{ plane}}]{p }\end{DoxyParamCaption})}
+
+
+
+Finds distance of a line from it\textquotesingle{}s closest in the pointcloud. 
+
+The distances are calculated at the intersection with a plane. 
+\begin{DoxyParams}{Parameters}
+{\em line} & The considered line. \\
+\hline
+{\em p} & The considered plane. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance. 
+\end{DoxyReturn}
+\mbox{\label{classline3d_cloud_a6a5f6ec75c34befa611cd085e572b77c}} 
+\index{line3d\+Cloud@{line3d\+Cloud}!min\+Distance@{min\+Distance}}
+\index{min\+Distance@{min\+Distance}!line3d\+Cloud@{line3d\+Cloud}}
+\subsubsection{min\+Distance()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double line3d\+Cloud\+::min\+Distance (\begin{DoxyParamCaption}\item[{Vec3d}]{p }\end{DoxyParamCaption})}
+
+
+
+Finds distance of a point from it\textquotesingle{}s closest line in the pointcloud. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The considered point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance. 
+\end{DoxyReturn}
+\mbox{\label{classline3d_cloud_a12a7f0d2111300e83e47f9cf9f7a1e12}} 
+\index{line3d\+Cloud@{line3d\+Cloud}!operator[]@{operator[]}}
+\index{operator[]@{operator[]}!line3d\+Cloud@{line3d\+Cloud}}
+\subsubsection{operator[]()}
+{\footnotesize\ttfamily \textbf{ line3d} line3d\+Cloud\+::operator[$\,$] (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Overloads []. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxyref{line3d}{p.}{classline3d}. 
+\end{DoxyReturn}
+\mbox{\label{classline3d_cloud_a001b5d3768675e3cd657bcaa5dbc036d}} 
+\index{line3d\+Cloud@{line3d\+Cloud}!push\+\_\+back@{push\+\_\+back}}
+\index{push\+\_\+back@{push\+\_\+back}!line3d\+Cloud@{line3d\+Cloud}}
+\subsubsection{push\+\_\+back()}
+{\footnotesize\ttfamily void line3d\+Cloud\+::push\+\_\+back (\begin{DoxyParamCaption}\item[{\textbf{ line3d}}]{line,  }\item[{int}]{npoints = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Adds a line in the linecloud. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & The \doxyref{line3d}{p.}{classline3d} to add. \\
+\hline
+{\em npoints} & The number of points next to the considered line. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classline3d_cloud_a42347960ceed6c1bf04b1a2bff7a0370}} 
+\index{line3d\+Cloud@{line3d\+Cloud}!set@{set}}
+\index{set@{set}!line3d\+Cloud@{line3d\+Cloud}}
+\subsubsection{set()}
+{\footnotesize\ttfamily void line3d\+Cloud\+::set (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{\textbf{ line3d}}]{line,  }\item[{int}]{npoints }\end{DoxyParamCaption})}
+
+
+
+Replace a line for another in the linecloud. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index to change. \\
+\hline
+{\em line} & The \doxyref{line3d}{p.}{classline3d}. \\
+\hline
+{\em npoints} & The number of neighbours of this \doxyref{line3d}{p.}{classline3d}. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classline3d_cloud_abcfeacb27285def2412a526a4b1ebcfb}} 
+\index{line3d\+Cloud@{line3d\+Cloud}!size@{size}}
+\index{size@{size}!line3d\+Cloud@{line3d\+Cloud}}
+\subsubsection{size()}
+{\footnotesize\ttfamily int line3d\+Cloud\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gives the size of the linecloud. 
+
+\begin{DoxyReturn}{Returns}
+The size of the linecloud. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/include/\textbf{ line3d\+Cloud.\+hpp}\item 
+C\+:/\+Users/romai/\+Documents/\+Mes\+\_\+documents/\+X/3\+A/\+I\+N\+F552/\+Projet-\/\+Inf552/project/src/\textbf{ line3d\+Cloud.\+cpp}\end{DoxyCompactItemize}

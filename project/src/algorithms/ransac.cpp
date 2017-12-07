@@ -99,7 +99,7 @@ point3dCloud ransac::fit3dLine(point3dCloud pointCloud, plane p, bool uniformCol
 		int count = 0;
 
 		//Checking if the line is nearly orthogonal to the plane.
-		if (abs(l.cosAngle(p.getDirection())) > cos(MIN_ANGLE*PI/180.)) {
+		if (abs(l.cosAngle(p.getDirection())) > cos(MAX_ANGLE*PI/180.)) {
 			//Calculating the number of vertices in the line.
 			for (int pointIndex = 0; pointIndex < pointCloud.size(); pointIndex++) {
 				if (l.distance(pointCloud[pointIndex].getPosition()) < epsilon) {

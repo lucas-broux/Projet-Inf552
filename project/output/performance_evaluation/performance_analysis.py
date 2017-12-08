@@ -11,6 +11,8 @@
 import matplotlib.pyplot as plt
 # Library for litteral evaluation of strings.
 import ast
+# Library for paths management.
+import os.path
 
 # Open file.
 file = open('performance_report_python.txt', 'r')
@@ -18,7 +20,6 @@ file = open('performance_report_python.txt', 'r')
 # Open dict of performance data.
 performance_data = dict()
 performance_data_units = dict()
-
 
 # Loop over lines.
 for line in file:
@@ -50,8 +51,10 @@ for key, value in performance_data.items():
     if (unit == "seconds"):
         plt.xlabel("Time (seconds)")
     elif (unit == ""):
-        plt.xlabel(key)
+        plt.xlabel(key + " (units)")
     else:
-        plt.xlabel(key + "(" + unit + ")")
+        plt.xlabel(key + " (" + unit + ")")
     plt.ylabel("Frequency")
+    # Save and show plot.
+    plt.savefig(os.path.join('performance_plots', key + '.png'), bbox_inches='tight')
     plt.show()

@@ -30,7 +30,7 @@ projectData::projectData(string filename, int disparityGaussianBlur, int left_im
 		this->leftImage_blurred = leftImageBlured;
 	}
 	else {
-		this->leftImage_blurred = leftImage;
+		this->leftImage_blurred = leftImage_unblurred;
 	}
 
 	// Read and smoothen disparity.

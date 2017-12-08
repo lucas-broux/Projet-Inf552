@@ -32,7 +32,7 @@ public:
 	* A constructor.
 	* This constructor allows us to define a line3d with either two points or a point and a vector.
 	* @param point A point in the line3d.
-	* @param vector A direction vector or a second point of the line3d.
+	* @param v A direction vector or a second point of the line3d.
 	* @param second_Vec3d_isvector A boolean allowing us to call the constructor properly.
 	*/
 	line3d(Vec3d point, Vec3d v, bool second_Vec3d_isvector);

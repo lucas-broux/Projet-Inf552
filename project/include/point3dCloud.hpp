@@ -74,7 +74,7 @@ public:
 	/**
 	* Gives the pointCloud without the points in the other.
 	* As this method has a compexity in O(n^2), we will try to avoid using it.
-	* @param poincloud The corresponding point cloud.
+	* @param inputCloud The corresponding point cloud.
 	*/
 	point3dCloud deprivedOf(point3dCloud inputCloud);
 

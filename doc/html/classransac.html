@@ -17,7 +17,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo-3d.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">INF552
    </div>
@@ -54,21 +53,23 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afd836fb6451d7405352a72e8b5e3df06"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classransac.html#afd836fb6451d7405352a72e8b5e3df06">ransac</a> (int n_iterations, double epsilon)</td></tr>
-<tr class="memdesc:afd836fb6451d7405352a72e8b5e3df06"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#afd836fb6451d7405352a72e8b5e3df06">More...</a><br /></td></tr>
-<tr class="separator:afd836fb6451d7405352a72e8b5e3df06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c01e69ac8bfcec2e86b7c608b627832"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpoint3d_cloud.html">point3dCloud</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classransac.html#a5c01e69ac8bfcec2e86b7c608b627832">fit3dPlane</a> (<a class="el" href="classpoint3d_cloud.html">point3dCloud</a> pointCloud, bool uniformColor=false, Vec3b color=Vec3b(0, 0, 0))</td></tr>
-<tr class="memdesc:a5c01e69ac8bfcec2e86b7c608b627832"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the most correlated points (plane model).  <a href="#a5c01e69ac8bfcec2e86b7c608b627832">More...</a><br /></td></tr>
-<tr class="separator:a5c01e69ac8bfcec2e86b7c608b627832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88aefbf22b68cdad339523057ee3ced8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classransac.html#a88aefbf22b68cdad339523057ee3ced8">ransac</a> (double probaSuccess, double epsilon)</td></tr>
+<tr class="memdesc:a88aefbf22b68cdad339523057ee3ced8"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#a88aefbf22b68cdad339523057ee3ced8">More...</a><br /></td></tr>
+<tr class="separator:a88aefbf22b68cdad339523057ee3ced8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae289bd8968e4f014302a701c8d212877"><td class="memItemLeft" align="right" valign="top">pair&lt; <a class="el" href="classpoint3d_cloud.html">point3dCloud</a>, <a class="el" href="classpoint3d_cloud.html">point3dCloud</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classransac.html#ae289bd8968e4f014302a701c8d212877">fit3dPlane</a> (<a class="el" href="classpoint3d_cloud.html">point3dCloud</a> pointCloud, bool uniformColor=false, Vec3b color=Vec3b(0, 0, 0))</td></tr>
+<tr class="memdesc:ae289bd8968e4f014302a701c8d212877"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the most correlated points (plane model).  <a href="#ae289bd8968e4f014302a701c8d212877">More...</a><br /></td></tr>
+<tr class="separator:ae289bd8968e4f014302a701c8d212877"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade2f47c8bb81446d887f6960cd4214d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpoint3d_cloud.html">point3dCloud</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classransac.html#ade2f47c8bb81446d887f6960cd4214d4">fit3dLine</a> (<a class="el" href="classpoint3d_cloud.html">point3dCloud</a> pointCloud, <a class="el" href="classplane.html">plane</a> p, bool uniformColor=false, Vec3b color=Vec3b(0, 0, 0), int nlines=1, double minDistBetweenLines=0)</td></tr>
 <tr class="memdesc:ade2f47c8bb81446d887f6960cd4214d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the most correlated points (line model).  <a href="#ade2f47c8bb81446d887f6960cd4214d4">More...</a><br /></td></tr>
 <tr class="separator:ade2f47c8bb81446d887f6960cd4214d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class to calculate the ransac from pointcloud to find correlated planes or lines. </p>
+
+<p class="definition">Definition at line <a class="el" href="ransac_8hpp_source.html#l00023">23</a> of file <a class="el" href="ransac_8hpp_source.html">ransac.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="afd836fb6451d7405352a72e8b5e3df06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd836fb6451d7405352a72e8b5e3df06">&#9670;&nbsp;</a></span>ransac()</h2>
+<a id="a88aefbf22b68cdad339523057ee3ced8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88aefbf22b68cdad339523057ee3ced8">&#9670;&nbsp;</a></span>ransac()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -76,8 +77,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">ransac::ransac </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n_iterations</em>, </td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>probaSuccess</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -96,7 +97,7 @@ Public Member Functions</h2></td></tr>
 <p>A constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">n_iterations</td><td>The number of iterations for the algorithm. </td></tr>
+    <tr><td class="paramname">probaSuccess</td><td>The probability of success we want for our algorithm. The number of iterations will be computed with this probability. </td></tr>
     <tr><td class="paramname">epsilon</td><td>Threshold. </td></tr>
   </table>
   </dd>
@@ -161,9 +162,9 @@ Public Member Functions</h2></td></tr>
     <tr><td class="paramname">pointCloud</td><td>The considered point cloud. </td></tr>
     <tr><td class="paramname">p</td><td>The plane to be ~ orthogonal of. </td></tr>
     <tr><td class="paramname">uniformColor</td><td>A boolean to tell if we want to have a uniform color or not. </td></tr>
-    <tr><td class="paramname">color</td><td>The color. </td></tr>
+    <tr><td class="paramname">color</td><td>The uniform color. </td></tr>
     <tr><td class="paramname">nlines</td><td>The number of lines desired. </td></tr>
-    <tr><td class="paramname">minDistBetweenLines</td><td>The minimum distance between two lines (to avoid getting all the lines in the same space). </td></tr>
+    <tr><td class="paramname">minDistBetweenLines</td><td>The minimum distance between two lines (to avoid getting all the same lines). </td></tr>
   </table>
   </dd>
 </dl>
@@ -171,14 +172,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a5c01e69ac8bfcec2e86b7c608b627832"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c01e69ac8bfcec2e86b7c608b627832">&#9670;&nbsp;</a></span>fit3dPlane()</h2>
+<a id="ae289bd8968e4f014302a701c8d212877"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae289bd8968e4f014302a701c8d212877">&#9670;&nbsp;</a></span>fit3dPlane()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classpoint3d_cloud.html">point3dCloud</a> ransac::fit3dPlane </td>
+          <td class="memname">pair&lt;<a class="el" href="classpoint3d_cloud.html">point3dCloud</a>, <a class="el" href="classpoint3d_cloud.html">point3dCloud</a>&gt; ransac::fit3dPlane </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classpoint3d_cloud.html">point3dCloud</a>&#160;</td>
           <td class="paramname"><em>pointCloud</em>, </td>
@@ -208,7 +209,7 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">pointCloud</td><td>The considered point cloud. </td></tr>
     <tr><td class="paramname">uniformColor</td><td>A boolean to tell if we want to have a uniform color or not. </td></tr>
-    <tr><td class="paramname">color</td><td>The color. </td></tr>
+    <tr><td class="paramname">color</td><td>The uniform color. </td></tr>
   </table>
   </dd>
 </dl>
@@ -216,9 +217,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/romai/Documents/Mes_documents/X/3A/INF552/Projet-Inf552/project/include/<a class="el" href="ransac_8hpp_source.html">ransac.hpp</a></li>
-<li>C:/Users/romai/Documents/Mes_documents/X/3A/INF552/Projet-Inf552/project/src/<a class="el" href="ransac_8cpp.html">ransac.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>C:/Users/romai/Documents/Mes_documents/X/3A/INF552/Final_project/Projet-Inf552/project/include/<a class="el" href="ransac_8hpp_source.html">ransac.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

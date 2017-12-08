@@ -17,7 +17,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo-3d.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">INF552
    </div>
@@ -42,6 +41,21 @@ $(function() {
 <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_c"></a>- c -</h3><ul>
+<li>changeBase()
+: <a class="el" href="classpoint3d_cloud.html#a22a1279f21729b2025cf9c0e49e13dad">point3dCloud</a>
+</li>
+<li>close()
+: <a class="el" href="classlogger.html#ad0973f5782961630972e85adbed14b07">logger</a>
+</li>
+<li>computeBarycenters()
+: <a class="el" href="classk_means.html#a104dab5476dd301bf295b7e2d2dd4b19">kMeans</a>
+</li>
+<li>computeClusters()
+: <a class="el" href="classk_means.html#af04b92054ae26adfe3414cceb86f77eb">kMeans</a>
+</li>
+<li>computeScore()
+: <a class="el" href="classk_means.html#adae2b0d683e465cbee30608071a0cc92">kMeans</a>
+</li>
 <li>cosAngle()
 : <a class="el" href="classline3d.html#a590f2d9b1c94a8254d79bfbce432fa63">line3d</a>
 </li>
@@ -49,30 +63,48 @@ $(function() {
 
 
 <h3><a id="index_d"></a>- d -</h3><ul>
+<li>deprivedOf()
+: <a class="el" href="classpoint3d_cloud.html#ad5f5f02127eae824a6930223112f3a5e">point3dCloud</a>
+</li>
 <li>distance()
 : <a class="el" href="classline3d.html#a72dfeb3f1350577639570691b2470277">line3d</a>
 , <a class="el" href="classplane.html#a17f6e25d4546c06feceefea8f372ec70">plane</a>
 , <a class="el" href="classpoint3d.html#a7872f374cd41ad4a4f63786f605a10a5">point3d</a>
 </li>
+<li>distanceKMeans()
+: <a class="el" href="classk_means.html#ae1ba0c34c844423a800fbfe4ecd589e4">kMeans</a>
+</li>
 </ul>
 
 
 <h3><a id="index_f"></a>- f -</h3><ul>
+<li>fit()
+: <a class="el" href="classk_means.html#aa5910de5b0ebebda75ff96162e7c800f">kMeans</a>
+</li>
 <li>fit3dLine()
 : <a class="el" href="classransac.html#ade2f47c8bb81446d887f6960cd4214d4">ransac</a>
 </li>
 <li>fit3dPlane()
-: <a class="el" href="classransac.html#a5c01e69ac8bfcec2e86b7c608b627832">ransac</a>
+: <a class="el" href="classransac.html#ae289bd8968e4f014302a701c8d212877">ransac</a>
 </li>
 </ul>
 
 
 <h3><a id="index_g"></a>- g -</h3><ul>
+<li>getABase()
+: <a class="el" href="classplane.html#a8acef35b8e5b7e9ab301bb2a61af6386">plane</a>
+</li>
 <li>getCameraMatrix()
 : <a class="el" href="classproject_data.html#a01fe3fd047274f4968dd06929224c6e4">projectData</a>
 </li>
+<li>getClusters()
+: <a class="el" href="classk_means.html#a961dbb5461b30d138692167fc202d07e">kMeans</a>
+</li>
 <li>getColor()
 : <a class="el" href="classpoint3d.html#a133b9989d89645695b71c71a3f67e014">point3d</a>
+</li>
+<li>getColorBarycenter()
+: <a class="el" href="classpoint3d_cloud.html#a5f2c0077b591ce80440eb34707755383">point3dCloud</a>
 </li>
 <li>getDirection()
 : <a class="el" href="classplane.html#ace51184307674051addc6211b04eb396">plane</a>
@@ -80,8 +112,14 @@ $(function() {
 <li>getDisparity()
 : <a class="el" href="classproject_data.html#acd8c6911c3f66965788a5e62573aca90">projectData</a>
 </li>
-<li>getLeftImage()
-: <a class="el" href="classproject_data.html#a70faac428a3d67c56b7d2dfdafee5ef7">projectData</a>
+<li>getK()
+: <a class="el" href="classk_means.html#af139b321b190c9be882f168d6781e09b">kMeans</a>
+</li>
+<li>getLeftImageBlurred()
+: <a class="el" href="classproject_data.html#ae275781a1b5b8a8bf291d3a4834388e9">projectData</a>
+</li>
+<li>getLeftImageUnblurred()
+: <a class="el" href="classproject_data.html#a0708279b073ed60ff6e69bf59c9f1c1b">projectData</a>
 </li>
 <li>getMinNpoints()
 : <a class="el" href="classline3d_cloud.html#aa6879344baded87a3d10858536534b7c">line3dCloud</a>
@@ -90,7 +128,7 @@ $(function() {
 : <a class="el" href="classline3d_cloud.html#a99ff4321bff42c81a30e86296f22035b">line3dCloud</a>
 </li>
 <li>getPixelCoordinates()
-: <a class="el" href="classpoint3d.html#a14e378e470761867a8ad4cdcc4462ab4">point3d</a>
+: <a class="el" href="classpoint3d.html#acabcc30e35814ca8c4f9f1864f6114c3">point3d</a>
 </li>
 <li>getPoint()
 : <a class="el" href="classline3d.html#a09c8cfe540858f9a4c307b380564c90b">line3d</a>
@@ -98,8 +136,20 @@ $(function() {
 <li>getPosition()
 : <a class="el" href="classpoint3d.html#abde5a74021350422e880806284eb4b73">point3d</a>
 </li>
+<li>getPositionBarycenter()
+: <a class="el" href="classpoint3d_cloud.html#ac8370921bc751d0871967d37e92fb6e4">point3dCloud</a>
+</li>
+<li>getRanges()
+: <a class="el" href="classpoint3d_cloud.html#a1d1cf062c590058b9aaa460d6ec96bcd">point3dCloud</a>
+</li>
 <li>getScalar()
 : <a class="el" href="classproduct.html#a74c606ec2a03f632c6f86a5feac41834">product</a>
+</li>
+<li>getSigmas()
+: <a class="el" href="classpoint3d_cloud.html#a9c72b3fd3cd1cff3ba61e498448b3f16">point3dCloud</a>
+</li>
+<li>getTermToTerm()
+: <a class="el" href="classproduct.html#a95186174e25cdb53bc7b2d3994dc2ab9">product</a>
 </li>
 <li>getVector()
 : <a class="el" href="classline3d.html#aa0e232736cd5ac6dfa0b9c7d3586d2af">line3d</a>
@@ -111,12 +161,22 @@ $(function() {
 
 
 <h3><a id="index_i"></a>- i -</h3><ul>
+<li>initializeBarycenters()
+: <a class="el" href="classk_means.html#aef7506c9d1bade06427eb9567d9de5f0">kMeans</a>
+</li>
 <li>intersection()
 : <a class="el" href="classplane.html#ac6d9ffbd756292a7b9378794eed93936">plane</a>
 </li>
 <li>isDegenerated()
 : <a class="el" href="classline3d.html#a700f5501ce7f04b53ed836340e334501">line3d</a>
 , <a class="el" href="classplane.html#a09f0be78b9c809866bca9f9b744f046e">plane</a>
+</li>
+</ul>
+
+
+<h3><a id="index_k"></a>- k -</h3><ul>
+<li>kMeans()
+: <a class="el" href="classk_means.html#a7c34afc24f492565445d9ffc9e5925fc">kMeans</a>
 </li>
 </ul>
 
@@ -128,6 +188,15 @@ $(function() {
 <li>line3dCloud()
 : <a class="el" href="classline3d_cloud.html#ab03dcf5e617a3693cf7b362028dd61fb">line3dCloud</a>
 </li>
+<li>log_comment()
+: <a class="el" href="classlogger.html#a55f48eb8a4e4b19836abe6f77e0aeb42">logger</a>
+</li>
+<li>log_message()
+: <a class="el" href="classlogger.html#ac575ff13ee76635712bb18ecba35404a">logger</a>
+</li>
+<li>logger()
+: <a class="el" href="classlogger.html#acc4eee2a2608a07943180589eaf2aa49">logger</a>
+</li>
 </ul>
 
 
@@ -135,8 +204,11 @@ $(function() {
 <li>meanNeighboursDistance()
 : <a class="el" href="classpoint3d_cloud.html#abaeea1c0f6c4cacec59890e0535a41a9">point3dCloud</a>
 </li>
+<li>message()
+: <a class="el" href="classmessage.html#aeca0cd4cdc342d7d5340517f886e2107">message</a>
+</li>
 <li>minDistance()
-: <a class="el" href="classline3d_cloud.html#a6a5f6ec75c34befa611cd085e572b77c">line3dCloud</a>
+: <a class="el" href="classline3d_cloud.html#af2483077c8fc34881022c0b942ff5cf9">line3dCloud</a>
 </li>
 </ul>
 
@@ -145,6 +217,9 @@ $(function() {
 <li>operator&lt;&lt;
 : <a class="el" href="classline3d.html#aa9bf6fbe3751bb3e1bbb768fab7e1309">line3d</a>
 , <a class="el" href="classplane.html#ad9726324e2752901973bf9cdc8ae8c39">plane</a>
+</li>
+<li>operator==()
+: <a class="el" href="classpoint3d.html#af391ccaa1bff1210472baad602b4ad89">point3d</a>
 </li>
 <li>operator[]()
 : <a class="el" href="classline3d_cloud.html#a12a7f0d2111300e83e47f9cf9f7a1e12">line3dCloud</a>
@@ -173,7 +248,7 @@ $(function() {
 : <a class="el" href="classproduct.html#afb6d2aba360c4daeacef569a7e884689">product</a>
 </li>
 <li>projectData()
-: <a class="el" href="classproject_data.html#a8acaaa81fddde22250986e2e11468f0a">projectData</a>
+: <a class="el" href="classproject_data.html#a1febaee17a57059c48d5bad754aee368">projectData</a>
 </li>
 <li>push_back()
 : <a class="el" href="classline3d_cloud.html#a001b5d3768675e3cd657bcaa5dbc036d">line3dCloud</a>
@@ -184,10 +259,13 @@ $(function() {
 
 <h3><a id="index_r"></a>- r -</h3><ul>
 <li>ransac()
-: <a class="el" href="classransac.html#afd836fb6451d7405352a72e8b5e3df06">ransac</a>
+: <a class="el" href="classransac.html#a88aefbf22b68cdad339523057ee3ced8">ransac</a>
 </li>
 <li>regression()
 : <a class="el" href="classplane.html#add743551ece037c4918698a46db02bf7">plane</a>
+</li>
+<li>rescale()
+: <a class="el" href="classk_means.html#a9b2849b85a370a2f44a74d334160e76c">kMeans</a>
 </li>
 </ul>
 
@@ -196,12 +274,29 @@ $(function() {
 <li>set()
 : <a class="el" href="classline3d_cloud.html#a42347960ceed6c1bf04b1a2bff7a0370">line3dCloud</a>
 </li>
+<li>setColor()
+: <a class="el" href="classpoint3d.html#a12b75d0561ae599b3c47fdb025833aad">point3d</a>
+, <a class="el" href="classpoint3d_cloud.html#ac7b5c4b7428097618d9828b84cdaea56">point3dCloud</a>
+</li>
+<li>setPosition()
+: <a class="el" href="classpoint3d.html#ac49d39cae8977efa755d347f271bd0b4">point3d</a>
+</li>
 <li>showOnImage()
-: <a class="el" href="classpoint3d_cloud.html#ac2e4d831f4260d405657dace382c8d00">point3dCloud</a>
+: <a class="el" href="classpoint3d_cloud.html#abc60e8b8f61b8ff391df82d2295e5ae8">point3dCloud</a>
 </li>
 <li>size()
 : <a class="el" href="classline3d_cloud.html#abcfeacb27285def2412a526a4b1ebcfb">line3dCloud</a>
 , <a class="el" href="classpoint3d_cloud.html#aa4fe8d4a3f3f93691741e301f767ff7f">point3dCloud</a>
+</li>
+</ul>
+
+
+<h3><a id="index_t"></a>- t -</h3><ul>
+<li>to_python_dict()
+: <a class="el" href="classmessage.html#aa60bfd0db702da5430ac7776df1d2161">message</a>
+</li>
+<li>to_string()
+: <a class="el" href="classmessage.html#a041acfb29e6a9b9e8b3cd89094f061f9">message</a>
 </li>
 </ul>
 </div><!-- contents -->

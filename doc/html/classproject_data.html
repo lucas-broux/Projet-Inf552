@@ -17,7 +17,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo-3d.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">INF552
    </div>
@@ -54,15 +53,18 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8acaaa81fddde22250986e2e11468f0a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classproject_data.html#a8acaaa81fddde22250986e2e11468f0a">projectData</a> (string filename, int gaussianBlur=3)</td></tr>
-<tr class="memdesc:a8acaaa81fddde22250986e2e11468f0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#a8acaaa81fddde22250986e2e11468f0a">More...</a><br /></td></tr>
-<tr class="separator:a8acaaa81fddde22250986e2e11468f0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1febaee17a57059c48d5bad754aee368"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classproject_data.html#a1febaee17a57059c48d5bad754aee368">projectData</a> (string filename, int disparityGaussianBlur=3, int left_imageGaussianBlur=0)</td></tr>
+<tr class="memdesc:a1febaee17a57059c48d5bad754aee368"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#a1febaee17a57059c48d5bad754aee368">More...</a><br /></td></tr>
+<tr class="separator:a1febaee17a57059c48d5bad754aee368"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01fe3fd047274f4968dd06929224c6e4"><td class="memItemLeft" align="right" valign="top">Matx33d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classproject_data.html#a01fe3fd047274f4968dd06929224c6e4">getCameraMatrix</a> ()</td></tr>
 <tr class="memdesc:a01fe3fd047274f4968dd06929224c6e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A method to get the camera matrix.  <a href="#a01fe3fd047274f4968dd06929224c6e4">More...</a><br /></td></tr>
 <tr class="separator:a01fe3fd047274f4968dd06929224c6e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70faac428a3d67c56b7d2dfdafee5ef7"><td class="memItemLeft" align="right" valign="top">Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classproject_data.html#a70faac428a3d67c56b7d2dfdafee5ef7">getLeftImage</a> ()</td></tr>
-<tr class="memdesc:a70faac428a3d67c56b7d2dfdafee5ef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">A method to get the left image.  <a href="#a70faac428a3d67c56b7d2dfdafee5ef7">More...</a><br /></td></tr>
-<tr class="separator:a70faac428a3d67c56b7d2dfdafee5ef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae275781a1b5b8a8bf291d3a4834388e9"><td class="memItemLeft" align="right" valign="top">Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classproject_data.html#ae275781a1b5b8a8bf291d3a4834388e9">getLeftImageBlurred</a> ()</td></tr>
+<tr class="memdesc:ae275781a1b5b8a8bf291d3a4834388e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A method to get the blurred left image.  <a href="#ae275781a1b5b8a8bf291d3a4834388e9">More...</a><br /></td></tr>
+<tr class="separator:ae275781a1b5b8a8bf291d3a4834388e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0708279b073ed60ff6e69bf59c9f1c1b"><td class="memItemLeft" align="right" valign="top">Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classproject_data.html#a0708279b073ed60ff6e69bf59c9f1c1b">getLeftImageUnblurred</a> ()</td></tr>
+<tr class="memdesc:a0708279b073ed60ff6e69bf59c9f1c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A method to get the unblurred left image.  <a href="#a0708279b073ed60ff6e69bf59c9f1c1b">More...</a><br /></td></tr>
+<tr class="separator:a0708279b073ed60ff6e69bf59c9f1c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd8c6911c3f66965788a5e62573aca90"><td class="memItemLeft" align="right" valign="top">Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classproject_data.html#acd8c6911c3f66965788a5e62573aca90">getDisparity</a> ()</td></tr>
 <tr class="memdesc:acd8c6911c3f66965788a5e62573aca90"><td class="mdescLeft">&#160;</td><td class="mdescRight">A method to get the disparity.  <a href="#acd8c6911c3f66965788a5e62573aca90">More...</a><br /></td></tr>
 <tr class="separator:acd8c6911c3f66965788a5e62573aca90"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -72,9 +74,11 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class to represent the <a class="el" href="classproject_data.html" title="A class to represent the projectData for a situation. ">projectData</a> for a situation. </p>
+
+<p class="definition">Definition at line <a class="el" href="project_data_8hpp_source.html#l00025">25</a> of file <a class="el" href="project_data_8hpp_source.html">projectData.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8acaaa81fddde22250986e2e11468f0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8acaaa81fddde22250986e2e11468f0a">&#9670;&nbsp;</a></span>projectData()</h2>
+<a id="a1febaee17a57059c48d5bad754aee368"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1febaee17a57059c48d5bad754aee368">&#9670;&nbsp;</a></span>projectData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -89,7 +93,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>gaussianBlur</em> = <code>3</code>&#160;</td>
+          <td class="paramname"><em>disparityGaussianBlur</em> = <code>3</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>left_imageGaussianBlur</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -102,8 +112,9 @@ Public Member Functions</h2></td></tr>
 <p>A constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filename</td><td>The path to the file. It should be like : "something/aachen_000029_000019" and the constructor will manage to open the files with the good name and extentions. </td></tr>
-    <tr><td class="paramname">n</td><td>Range of the Gaussian Blur. Equals to 2 by default. </td></tr>
+    <tr><td class="paramname">filename</td><td>The path to the file. It should be of the form : "something/aachen_000029_000019" and the constructor will manage to open the files with the good name and extensions. </td></tr>
+    <tr><td class="paramname">disparityGaussianBlur</td><td>Range of the Gaussian Blur. Equals to 3 by default. </td></tr>
+    <tr><td class="paramname">left_imageGaussianBlur</td><td>Range of the Gaussian Blur. Equals to 0 by default. </td></tr>
   </table>
   </dd>
 </dl>
@@ -151,14 +162,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a70faac428a3d67c56b7d2dfdafee5ef7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70faac428a3d67c56b7d2dfdafee5ef7">&#9670;&nbsp;</a></span>getLeftImage()</h2>
+<a id="ae275781a1b5b8a8bf291d3a4834388e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae275781a1b5b8a8bf291d3a4834388e9">&#9670;&nbsp;</a></span>getLeftImageBlurred()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Mat projectData::getLeftImage </td>
+          <td class="memname">Mat projectData::getLeftImageBlurred </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -166,8 +177,28 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A method to get the left image. </p>
-<dl class="section return"><dt>Returns</dt><dd>The left image. </dd></dl>
+<p>A method to get the blurred left image. </p>
+<dl class="section return"><dt>Returns</dt><dd>The blurred left image. </dd></dl>
+
+</div>
+</div>
+<a id="a0708279b073ed60ff6e69bf59c9f1c1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0708279b073ed60ff6e69bf59c9f1c1b">&#9670;&nbsp;</a></span>getLeftImageUnblurred()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Mat projectData::getLeftImageUnblurred </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A method to get the unblurred left image. </p>
+<dl class="section return"><dt>Returns</dt><dd>The unblurred left image. </dd></dl>
 
 </div>
 </div>
@@ -187,22 +218,12 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Generates a 3d point cloud from left image + disparity + transformation matrix. </p>
-<p>Exports the result as .ply file.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">left_image</td><td>The left image. </td></tr>
-    <tr><td class="paramname">disparity</td><td>The disparity. </td></tr>
-    <tr><td class="paramname">N</td><td>The matrix of correspondence : it can transform the disparity into 3d point. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The point cloud as vector&lt;pair&lt;Vec3d, Vec3b&gt;&gt;. </dd></dl>
+<p>Exports the result as .ply file. </p><dl class="section return"><dt>Returns</dt><dd>The point cloud as vector&lt;pair&lt;Vec3d, Vec3b&gt;&gt;. </dd></dl>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/romai/Documents/Mes_documents/X/3A/INF552/Projet-Inf552/project/include/<a class="el" href="project_data_8hpp_source.html">projectData.hpp</a></li>
-<li>C:/Users/romai/Documents/Mes_documents/X/3A/INF552/Projet-Inf552/project/src/<a class="el" href="project_data_8cpp.html">projectData.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>C:/Users/romai/Documents/Mes_documents/X/3A/INF552/Final_project/Projet-Inf552/project/include/<a class="el" href="project_data_8hpp_source.html">projectData.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

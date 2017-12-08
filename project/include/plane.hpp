@@ -81,7 +81,7 @@ public:
 
 	/**
 	* Gives the intersection between the plane and a line.
-	* @params l The considered line.
+	* @param l The considered line.
 	* @return The intersection as a Vec3d.
 	*/
 	Vec3d intersection(line3d l);

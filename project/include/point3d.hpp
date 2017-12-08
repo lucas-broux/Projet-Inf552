@@ -59,7 +59,7 @@ public:
 
 	/**
 	* Finds the distance between the point and a Vec3d.
-	* @param p The considered Vec3d.
+	* @param v The considered Vec3d.
 	* @return The distance between the two points.
 	*/
 	double distance(Vec3d v);

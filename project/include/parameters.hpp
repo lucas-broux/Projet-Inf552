@@ -27,6 +27,8 @@ const double PI = 3.14159265359;
 /*-------------------
 | KMEANS PARAMETERS |
 -------------------*/
+// The maximal number of iterations in the algorithm.
+const int N_ITERATIONS_MAX = 200;
 //The range in which will variate the number of clusters in our tests.
 const double MIN_K_CLUSTERS = 2;
 const double MAX_K_CLUSTERS = 10;

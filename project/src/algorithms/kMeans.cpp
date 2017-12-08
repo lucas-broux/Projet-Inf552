@@ -23,9 +23,9 @@ int kMeans::fit(point3dCloud pointCloud) {
 	double deltaBarycenter_n = DBL_MAX;
 	int n_iterations = 0;
 	//Iterations while deltaBarycenter variates less than BARYCENTER_VARIATION_TRESHOLD % in a step.
-	while (n_iterations < 2 ||
+	while ((n_iterations < N_ITERATIONS_MAX) && (n_iterations < 2 ||
 		   deltaBarycenter_nMinus1 - deltaBarycenter_n > BARYCENTER_VARIATION_TRESHOLD * deltaBarycenter_nMinus1 ||
-		   deltaBarycenter_nMinus1 < deltaBarycenter_n) {
+		   deltaBarycenter_nMinus1 < deltaBarycenter_n)) {
 		//Computing Barycenters
 		deltaBarycenter_nMinus1 = deltaBarycenter_n;
 		deltaBarycenter_n = this->computeBarycenters();

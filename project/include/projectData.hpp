@@ -26,7 +26,8 @@ class projectData {
 private:
 	string filename;
 	Matx33d cameraMatrix;
-	Mat leftImage;
+	Mat leftImage_blurred;
+	Mat leftImage_unblurred;
 	Mat disparity;
 
 public:
@@ -45,10 +46,16 @@ public:
 	Matx33d getCameraMatrix();
 
 	/**
-	* A method to get the left image.
-	* @return The left image.
+	* A method to get the blurred left image.
+	* @return The blurred  left image.
 	*/
-	Mat getLeftImage();
+	Mat getLeftImageBlurred();
+
+	/**
+	* A method to get the unblurred left image.
+	* @return The unblurred left image.
+	*/
+	Mat getLeftImageUnblurred();
 
 	/**
 	* A method to get the disparity.

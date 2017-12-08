@@ -118,7 +118,7 @@ int main() {
 		t_loc = clock();
 
 		// Show found plane on image.
-		(rRoadResult.first).showOnImage(data.getLeftImage(), false);
+		(rRoadResult.first).showOnImage(data.getLeftImageUnblurred(), false);
 
 
 
@@ -134,7 +134,7 @@ int main() {
 		t_loc = clock();
 
 		// Show found vertical object on image.
-		pointcloudVO_ransac.showOnImage(data.getLeftImage(), false, true, "../project/output/performance_evaluation/images/ransac/leverkusen_" + num + "_000019.jpg");
+		pointcloudVO_ransac.showOnImage(data.getLeftImageUnblurred(), false, true, "../project/output/performance_evaluation/images/ransac/leverkusen_" + num + "_000019.jpg");
 		
 
 
@@ -180,7 +180,7 @@ int main() {
 		vector<point3dCloud> clusters = c.getClusters();
 		for (int i = 0; i < clusters.size(); i++) {
 			clusters[i].setColor(COLORS[(i + 1) % COLORS.size()]);
-			clusters[i].showOnImage(data.getLeftImage(), false, i == clusters.size() - 1, "../project/output/performance_evaluation/images/clustering/leverkusen_" + num + "_000019.jpg");
+			clusters[i].showOnImage(data.getLeftImageUnblurred(), false, i == clusters.size() - 1, "../project/output/performance_evaluation/images/clustering/leverkusen_" + num + "_000019.jpg");
 		}
 		
 

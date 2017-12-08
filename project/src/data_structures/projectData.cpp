@@ -21,14 +21,16 @@ projectData::projectData(string filename, int disparityGaussianBlur, int left_im
 	this->cameraMatrix = cameraMatrix;
 
 	// Read left image.
+	Mat leftImage_unblurred = imread(filename + "_leftImg8bit.png");
+	this->leftImage_unblurred = leftImage_unblurred;
 	Mat leftImage = imread(filename + "_leftImg8bit.png");
 	if (left_imageGaussianBlur != 0) {
 		Mat leftImageBlured;
 		GaussianBlur(leftImage, leftImageBlured, Size(left_imageGaussianBlur, left_imageGaussianBlur), 10);
-		this->leftImage = leftImageBlured;
+		this->leftImage_blurred = leftImageBlured;
 	}
 	else {
-		this->leftImage = leftImage;
+		this->leftImage_blurred = leftImage;
 	}
 
 	// Read and smoothen disparity.
@@ -46,8 +48,12 @@ Matx33d projectData::getCameraMatrix() {
 	return cameraMatrix;
 };
 
-Mat projectData::getLeftImage() {
-	return leftImage;
+Mat projectData::getLeftImageBlurred() {
+	return leftImage_blurred;
+};
+
+Mat projectData::getLeftImageUnblurred() {
+	return leftImage_unblurred;
 };
 
 Mat projectData::getDisparity() {
@@ -80,14 +86,14 @@ point3dCloud projectData::pointCloudFromData() {
 	point3dCloud pointcloud; // The returned point3dCloud.
 
 	// Loop over the image.
-	for (int i = 0; i < leftImage.rows; i++) {
-		for (int j = 0; j < leftImage.cols; j++) {
+	for (int i = 0; i < leftImage_blurred.rows; i++) {
+		for (int j = 0; j < leftImage_blurred.cols; j++) {
 			double d = disparity.at<float>(i, j);
-			if (hasToBeTreated(i, j, d, leftImage)) { // Adapt threshold for more/less 3d points.
+			if (hasToBeTreated(i, j, d, leftImage_blurred)) { // Adapt threshold for more/less 3d points.
 													  // Compute coordinates + color of 3D point ( 1 matrix multiplication ).
 				Mat pos_image = (Mat1d(3, 1) << i, j, 1.0);
 				Vec3d position = (1 / d) * cameraMatrix * pos_image;
-				Vec3b color = leftImage.at<Vec3b>(i, j);
+				Vec3b color = leftImage_blurred.at<Vec3b>(i, j);
 
 				// Add point to point cloud.
 				pointcloud.push_back(point3d(position, color, make_pair(i, j)));

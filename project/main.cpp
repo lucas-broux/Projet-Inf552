@@ -68,7 +68,7 @@ int main(){
 	
 	// Show found plane on image.
 	point3dCloud pointcloudRoad = rRoadResult.first;
-	pointcloudRoad.showOnImage(data.getLeftImage(), true, true, "../reports/images/Result_image_road.jpg");
+	pointcloudRoad.showOnImage(data.getLeftImageUnblurred(), true, true, "../reports/images/Result_image_road.jpg");
 
 	// Export result as .ply file.
 	cout << "Exporting road point cloud as 3dcloud_road.ply ... ";
@@ -92,7 +92,7 @@ int main(){
 	cout << "Exported." << endl;
 
 	// Show found vertical object on image.
-	pointcloudVO_ransac.showOnImage(data.getLeftImage(), true, true, "../reports/images/Result_image_vertical.jpg");
+	pointcloudVO_ransac.showOnImage(data.getLeftImageUnblurred(), true, true, "../reports/images/Result_image_vertical.jpg");
 
 
 	/*----------------------------------------------
@@ -101,7 +101,7 @@ int main(){
 	cout << endl << "4. DETECTION OF VERTICAL OBJECTS USING CLUSTERING." << endl;
 	// Access data to get a clean version of the left image.
 	data = projectData("../project/input/example_input/aachen_000029_000019", DISPARITY_GAUSSIAN_BLUR, LEFT_IMAGE_GAUSSIAN_BLUR);
-	pointcloudRoad.showOnImage(data.getLeftImage(), false);
+	pointcloudRoad.showOnImage(data.getLeftImageUnblurred(), false);
 
 	// Changing the base of coordinates to set the x axis as the altitude. It allows us to contract the altitude in the computation of kMeans.
 	rRoadResult.second.changeBase(planeRoad.getABase());
@@ -143,7 +143,7 @@ int main(){
 	vector<point3dCloud> clusters = c.getClusters();
 	for (int i = 0; i < clusters.size(); i++) {
 		clusters[i].setColor(COLORS[(i+1)%COLORS.size()]);
-		clusters[i].showOnImage(data.getLeftImage(), i == clusters.size() - 1, i == clusters.size() - 1, "../reports/images/Result_image_vertical_clustering.jpg");
+		clusters[i].showOnImage(data.getLeftImageUnblurred(), i == clusters.size() - 1, i == clusters.size() - 1, "../reports/images/Result_image_vertical_clustering.jpg");
 	}
 	
 	// End program.

@@ -161,9 +161,9 @@ $$k = \frac{\log{1-p}}{\log{(1-w^3)}}$$
 \item{Le nombre d'itérations est calculé de telle sorte que l'algorithme s'arrête lorsque les barycentres se stabilisent. Dans notre cas, lorsque la variation de la variation de barycentre moyenne est inférieure à $1\%$  de la variation de barycentre moyenne du pas précédent. Pour éviter toutefois de boucler indéfiniment, nous avons ajouté un seuil à ne pas dépasser pour le nombre d'itérations.}
 \item{Nous changeons également la topologie de l'espace des positions. En effet, les objets que nous souhaitons détecter sont des objets verticaux. Ils sont donc par nature étirés selon l'altitude. Pour que l'algorithme les détecte plus facilement, nous comprimons l'axe vertical afin de rapprocher les points selon cet axe. Ainsi, cela revient à avoir un algorithme qui regarde le nuage de points du ciel. Cela se fait en deux étapes. Tout d'abord, nous faisons un changement de base en fixant l'axe vertical du monde réel comme égal au vecteur normal au plan trouvé précédemment. Ensuite, nous utilisons trois variables constantes spécifiant le degré de compression selon chacun des axes.
 \begin{itemize}
-\item{const double $SCALER_X = 0.5$;}
-\item{const double $SCALER_Y =1$;}
-\item{const double $SCALER_Z = 1$;}
+\item{const double $SCALER\_X = 0.5$;}
+\item{const double $SCALER\_Y =1$;}
+\item{const double $SCALER\_Z = 1$;}
 \end{itemize}
 Ainsi, à chaque calcul de distance, nous multiplierons chacune des dimensions par le coefficient adéquat}
 \item{Enfin, nous avons la possibilité d'utiliser l'algorithme en prenant en entrée la couleur de chacun des points. Cela nous permet de prendre en compte le fait que lorsqu'on veut détecter un objet vertical, on a de bonnes raisons de penser que sa couleur va être homogène. Ainsi, nous pouvons réaliser l'algorithme en utilisant non plus trois dimensions, mais six. Nous commençons donc par définir un paramètre permettant de définir l'importance de la couleur dans l'algorithme. A l'image des trois paramètres utilisés précédemment, cela permet de changer la topologie de l'espace pour donner plus ou moins d'importance à la couleur. Nous utilisons ensuite ce paramètre en le définissant comme le produit de deux termes

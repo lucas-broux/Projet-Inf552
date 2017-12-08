@@ -6,7 +6,7 @@
 |  COMPUTATION OF 3D POINT CLOUD PARAMETERS |
 -------------------------------------------*/
 const double MIN_DISPARITY = 10.; //The minimum disparity to be treated in projectData::pointCloudFromData().
-const double DISPARITY_GAUSSIAN_BLUR = 3; //The gaussian blur range for the disparity.
+const double DISPARITY_GAUSSIAN_BLUR = 5; //The gaussian blur range for the disparity.
 const double LEFT_IMAGE_GAUSSIAN_BLUR = 25;//The gaussian blur range for the left image.
 
 
@@ -30,14 +30,14 @@ const double PI = 3.14159265359;
 // The maximal number of iterations in the algorithm.
 const int N_ITERATIONS_MAX = 200;
 //The range in which will variate the number of clusters in our tests.
-const double MIN_K_CLUSTERS = 2;
-const double MAX_K_CLUSTERS = 10;
+const double MIN_K_CLUSTERS = 7;
+const double MAX_K_CLUSTERS = 11;
 
 const double BARYCENTER_VARIATION_TRESHOLD = 0.01; //The treshold for mean barycenter variation in kMeans.
-const double KMEAN_COLOR_IMPORTANCE = 0.75; //The importance of the color in the kMean algorithm.
+const double KMEAN_COLOR_IMPORTANCE = 1; //The importance of the color in the kMean algorithm.
 
 //The factors we will use to rescale the pointclouds in kMeans.
-const double SCALER_X = 0.5;
+const double SCALER_X = 0.25;
 const double SCALER_Y = 1;
 const double SCALER_Z = 1;
 

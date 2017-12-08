@@ -146,10 +146,11 @@ int main() {
 		data = projectData("../project/input/input_" + to_string(i) + "/leverkusen_" + num + "_000019", DISPARITY_GAUSSIAN_BLUR, LEFT_IMAGE_GAUSSIAN_BLUR);
 
 		// Changing the base of coordinates to set the x axis as the altitude. It allows us to contract the altitude in the computation of kMeans.
-		(rRoadResult.second).changeBase(planeRoad.getABase());
+		point3dCloud pointcloudToCluster = rRoadResult.second;
+		pointcloudToCluster.changeBase(planeRoad.getABase());
 
 		// Computing the standard deviations to analyse the data and reduce the color importance in the kMean computation.
-		pair<Vec3d, Vec3d> sigmas = (rRoadResult.second).getSigmas();
+		pair<Vec3d, Vec3d> sigmas = pointcloudToCluster.getSigmas();
 		double sigmaRatio = 0;
 		if (norm(sigmas.second) != 0) {
 			sigmaRatio = norm(sigmas.first) / norm(sigmas.second);
@@ -160,7 +161,7 @@ int main() {
 		double bestScore = -1;
 		for (int i = MIN_K_CLUSTERS; i < MAX_K_CLUSTERS; i++) {
 			kMeans c = kMeans(i, sigmaRatio * KMEAN_COLOR_IMPORTANCE);
-			int n_iterations = c.fit(rRoadResult.second);
+			int n_iterations = c.fit(pointcloudToCluster);
 			double score_i = c.computeScore();
 			if (score_i > bestScore) {
 				bestScore = score_i;
@@ -170,7 +171,7 @@ int main() {
 
 		// Computing the kMeans.
 		kMeans c = kMeans(bestNumberOfClusters);
-		c.fit(rRoadResult.second);
+		c.fit(pointcloudToCluster);
 
 		// Output result.
 		logger.log_message(message(log_tag, i, "Vertical object detection (Clustering)", clock2sec(clock() - t_loc), "seconds"));

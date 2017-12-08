@@ -68,7 +68,7 @@ int main(){
 	
 	// Show found plane on image.
 	point3dCloud pointcloudRoad = rRoadResult.first;
-	pointcloudRoad.showOnImage(data.getLeftImageUnblurred(), true, true, "../reports/images/Result_image_road.jpg");
+	pointcloudRoad.showOnImage(data.getLeftImageUnblurred(), false, true, "../project/output/main/Result_image_road.jpg");
 
 	// Export result as .ply file.
 	cout << "Exporting road point cloud as 3dcloud_road.ply ... ";
@@ -83,8 +83,8 @@ int main(){
 	cout << endl << "3. DETECTION OF VERTICAL OBJECTS USING LINES + RANSAC." << endl;
 	// Apply ransac.
 	cout << "Applying ransac to find vertical objects...";
-	ransac rVo = ransac(0.999, 2 * meanNeighboursDistance);
-	point3dCloud pointcloudVO_ransac = rVo.fit3dLine(rRoadResult.second, planeRoad, true, COLORS[GREEN], 5, 4 * meanNeighboursDistance);
+	ransac rVo = ransac(0.999, 3 * meanNeighboursDistance);
+	point3dCloud pointcloudVO_ransac = rVo.fit3dLine(rRoadResult.second, planeRoad, true, COLORS[GREEN], 5, 8 * meanNeighboursDistance);
 
 	// Export result as .ply file.
 	cout << "Exporting result as .ply file...";
@@ -92,7 +92,7 @@ int main(){
 	cout << "Exported." << endl;
 
 	// Show found vertical object on image.
-	pointcloudVO_ransac.showOnImage(data.getLeftImageUnblurred(), true, true, "../reports/images/Result_image_vertical.jpg");
+	pointcloudVO_ransac.showOnImage(data.getLeftImageUnblurred(), false, true, "../project/output/main/Result_image_vertical_ransac.jpg");
 
 
 	/*----------------------------------------------
@@ -104,10 +104,11 @@ int main(){
 	pointcloudRoad.showOnImage(data.getLeftImageUnblurred(), false);
 
 	// Changing the base of coordinates to set the x axis as the altitude. It allows us to contract the altitude in the computation of kMeans.
-	rRoadResult.second.changeBase(planeRoad.getABase());
+	point3dCloud pointcloudToCluster = rRoadResult.second;
+	pointcloudToCluster.changeBase(planeRoad.getABase());
 
 	// Computing the standard deviations to analyse the data and reduce the color importance in the kMean computation.
-	pair<Vec3d, Vec3d> sigmas = rRoadResult.second.getSigmas();
+	pair<Vec3d, Vec3d> sigmas = pointcloudToCluster.getSigmas();
 	double sigmaRatio = 0;
 	if (norm(sigmas.second) != 0) {
 		sigmaRatio = norm(sigmas.first) / norm(sigmas.second);
@@ -119,7 +120,7 @@ int main(){
 	double bestScore = -1;
 	for (int i = MIN_K_CLUSTERS; i < MAX_K_CLUSTERS; i++) {
 		kMeans c = kMeans(i, sigmaRatio * KMEAN_COLOR_IMPORTANCE);
-		int n_iterations = c.fit(rRoadResult.second);
+		int n_iterations = c.fit(pointcloudToCluster);
 		double score_i = c.computeScore();
 		cout << "Score for " << i << " clusters = " << score_i << "           in " << n_iterations << " iterations." << endl;
 		if (score_i > bestScore) {
@@ -130,7 +131,7 @@ int main(){
 	
 	// Computing the kMeans.
 	kMeans c = kMeans(bestNumberOfClusters);
-	c.fit(rRoadResult.second);
+	c.fit(pointcloudToCluster);
 
 	// Export result as .ply file.
 	for (int i = 0; i < bestNumberOfClusters; i++) {
@@ -143,7 +144,7 @@ int main(){
 	vector<point3dCloud> clusters = c.getClusters();
 	for (int i = 0; i < clusters.size(); i++) {
 		clusters[i].setColor(COLORS[(i+1)%COLORS.size()]);
-		clusters[i].showOnImage(data.getLeftImageUnblurred(), i == clusters.size() - 1, i == clusters.size() - 1, "../reports/images/Result_image_vertical_clustering.jpg");
+		clusters[i].showOnImage(data.getLeftImageUnblurred(), i == clusters.size() - 1, i == clusters.size() - 1, "../project/output/main/Result_image_vertical_clustering.jpg");
 	}
 	
 	// End program.

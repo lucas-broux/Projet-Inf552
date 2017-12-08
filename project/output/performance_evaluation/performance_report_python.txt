@@ -1,522 +1,238 @@
-{'INPUT' : '0', 'INFO' : '3D Point cloud', 'PERF' : '0.404000', 'UNIT' : 'seconds'}
-{'INPUT' : '0', 'INFO' : 'Vertices', 'PERF' : '1140339.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '0', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.643000', 'UNIT' : 'seconds'}
-{'INPUT' : '0', 'INFO' : 'Distance', 'PERF' : '0.279267', 'UNIT' : ''}
-{'INPUT' : '0', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '16.785000', 'UNIT' : 'seconds'}
-{'INPUT' : '0', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.655000', 'UNIT' : 'seconds'}
-{'INPUT' : '0', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '40.959999', 'UNIT' : 'seconds'}
-{'INPUT' : '0', 'INFO' : 'Number of clusters', 'PERF' : '2.000000', 'UNIT' : ''}
-{'INPUT' : '0', 'INFO' : 'All data processing', 'PERF' : '60.506001', 'UNIT' : 'seconds'}
-{'INPUT' : '1', 'INFO' : '3D Point cloud', 'PERF' : '0.394000', 'UNIT' : 'seconds'}
-{'INPUT' : '1', 'INFO' : 'Vertices', 'PERF' : '1137091.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '1', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.608000', 'UNIT' : 'seconds'}
-{'INPUT' : '1', 'INFO' : 'Distance', 'PERF' : '0.258149', 'UNIT' : ''}
-{'INPUT' : '1', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '18.028000', 'UNIT' : 'seconds'}
-{'INPUT' : '1', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.480000', 'UNIT' : 'seconds'}
-{'INPUT' : '1', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '46.362999', 'UNIT' : 'seconds'}
-{'INPUT' : '1', 'INFO' : 'Number of clusters', 'PERF' : '6.000000', 'UNIT' : ''}
-{'INPUT' : '1', 'INFO' : 'All data processing', 'PERF' : '66.959000', 'UNIT' : 'seconds'}
-{'INPUT' : '2', 'INFO' : '3D Point cloud', 'PERF' : '0.406000', 'UNIT' : 'seconds'}
-{'INPUT' : '2', 'INFO' : 'Vertices', 'PERF' : '1217465.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '2', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.649000', 'UNIT' : 'seconds'}
-{'INPUT' : '2', 'INFO' : 'Distance', 'PERF' : '0.324574', 'UNIT' : ''}
-{'INPUT' : '2', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '17.690001', 'UNIT' : 'seconds'}
-{'INPUT' : '2', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.558000', 'UNIT' : 'seconds'}
-{'INPUT' : '2', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '50.828999', 'UNIT' : 'seconds'}
-{'INPUT' : '2', 'INFO' : 'Number of clusters', 'PERF' : '3.000000', 'UNIT' : ''}
-{'INPUT' : '2', 'INFO' : 'All data processing', 'PERF' : '71.195000', 'UNIT' : 'seconds'}
-{'INPUT' : '3', 'INFO' : '3D Point cloud', 'PERF' : '0.409000', 'UNIT' : 'seconds'}
-{'INPUT' : '3', 'INFO' : 'Vertices', 'PERF' : '1225864.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '3', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.647000', 'UNIT' : 'seconds'}
-{'INPUT' : '3', 'INFO' : 'Distance', 'PERF' : '0.305325', 'UNIT' : ''}
-{'INPUT' : '3', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '18.028999', 'UNIT' : 'seconds'}
-{'INPUT' : '3', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.441000', 'UNIT' : 'seconds'}
-{'INPUT' : '3', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '38.955002', 'UNIT' : 'seconds'}
-{'INPUT' : '3', 'INFO' : 'Number of clusters', 'PERF' : '3.000000', 'UNIT' : ''}
-{'INPUT' : '3', 'INFO' : 'All data processing', 'PERF' : '59.542000', 'UNIT' : 'seconds'}
-{'INPUT' : '4', 'INFO' : '3D Point cloud', 'PERF' : '0.632000', 'UNIT' : 'seconds'}
-{'INPUT' : '4', 'INFO' : 'Vertices', 'PERF' : '1613287.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '4', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.673000', 'UNIT' : 'seconds'}
-{'INPUT' : '4', 'INFO' : 'Distance', 'PERF' : '0.292691', 'UNIT' : ''}
-{'INPUT' : '4', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '23.215000', 'UNIT' : 'seconds'}
-{'INPUT' : '4', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.974000', 'UNIT' : 'seconds'}
-{'INPUT' : '4', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '161.945007', 'UNIT' : 'seconds'}
-{'INPUT' : '4', 'INFO' : 'Number of clusters', 'PERF' : '2.000000', 'UNIT' : ''}
-{'INPUT' : '4', 'INFO' : 'All data processing', 'PERF' : '189.526001', 'UNIT' : 'seconds'}
-{'INPUT' : '5', 'INFO' : '3D Point cloud', 'PERF' : '0.496000', 'UNIT' : 'seconds'}
-{'INPUT' : '5', 'INFO' : 'Vertices', 'PERF' : '1535899.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '5', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.673000', 'UNIT' : 'seconds'}
-{'INPUT' : '5', 'INFO' : 'Distance', 'PERF' : '0.324436', 'UNIT' : ''}
-{'INPUT' : '5', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '22.950001', 'UNIT' : 'seconds'}
-{'INPUT' : '5', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '3.837000', 'UNIT' : 'seconds'}
-{'INPUT' : '5', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '100.607002', 'UNIT' : 'seconds'}
-{'INPUT' : '5', 'INFO' : 'Number of clusters', 'PERF' : '2.000000', 'UNIT' : ''}
-{'INPUT' : '5', 'INFO' : 'All data processing', 'PERF' : '129.653000', 'UNIT' : 'seconds'}
-{'INPUT' : '6', 'INFO' : '3D Point cloud', 'PERF' : '0.472000', 'UNIT' : 'seconds'}
-{'INPUT' : '6', 'INFO' : 'Vertices', 'PERF' : '1419638.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '6', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.642000', 'UNIT' : 'seconds'}
-{'INPUT' : '6', 'INFO' : 'Distance', 'PERF' : '0.335303', 'UNIT' : ''}
-{'INPUT' : '6', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '20.295000', 'UNIT' : 'seconds'}
-{'INPUT' : '6', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.825000', 'UNIT' : 'seconds'}
-{'INPUT' : '6', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '101.468002', 'UNIT' : 'seconds'}
-{'INPUT' : '6', 'INFO' : 'Number of clusters', 'PERF' : '5.000000', 'UNIT' : ''}
-{'INPUT' : '6', 'INFO' : 'All data processing', 'PERF' : '124.786003', 'UNIT' : 'seconds'}
-{'INPUT' : '7', 'INFO' : '3D Point cloud', 'PERF' : '0.442000', 'UNIT' : 'seconds'}
-{'INPUT' : '7', 'INFO' : 'Vertices', 'PERF' : '1341134.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '7', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.627000', 'UNIT' : 'seconds'}
-{'INPUT' : '7', 'INFO' : 'Distance', 'PERF' : '0.311429', 'UNIT' : ''}
-{'INPUT' : '7', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '19.454000', 'UNIT' : 'seconds'}
-{'INPUT' : '7', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.575000', 'UNIT' : 'seconds'}
-{'INPUT' : '7', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '66.120003', 'UNIT' : 'seconds'}
-{'INPUT' : '7', 'INFO' : 'Number of clusters', 'PERF' : '2.000000', 'UNIT' : ''}
-{'INPUT' : '7', 'INFO' : 'All data processing', 'PERF' : '89.289001', 'UNIT' : 'seconds'}
-{'INPUT' : '8', 'INFO' : '3D Point cloud', 'PERF' : '0.477000', 'UNIT' : 'seconds'}
-{'INPUT' : '8', 'INFO' : 'Vertices', 'PERF' : '1473619.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '8', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.662000', 'UNIT' : 'seconds'}
-{'INPUT' : '8', 'INFO' : 'Distance', 'PERF' : '0.305240', 'UNIT' : ''}
-{'INPUT' : '8', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '21.084999', 'UNIT' : 'seconds'}
-{'INPUT' : '8', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.848000', 'UNIT' : 'seconds'}
-{'INPUT' : '8', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '135.839996', 'UNIT' : 'seconds'}
-{'INPUT' : '8', 'INFO' : 'Number of clusters', 'PERF' : '6.000000', 'UNIT' : ''}
-{'INPUT' : '8', 'INFO' : 'All data processing', 'PERF' : '160.007004', 'UNIT' : 'seconds'}
-{'INPUT' : '9', 'INFO' : '3D Point cloud', 'PERF' : '0.375000', 'UNIT' : 'seconds'}
-{'INPUT' : '9', 'INFO' : 'Vertices', 'PERF' : '1056620.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '9', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.606000', 'UNIT' : 'seconds'}
-{'INPUT' : '9', 'INFO' : 'Distance', 'PERF' : '0.258068', 'UNIT' : ''}
-{'INPUT' : '9', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '15.494000', 'UNIT' : 'seconds'}
-{'INPUT' : '9', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.528000', 'UNIT' : 'seconds'}
-{'INPUT' : '9', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '48.612000', 'UNIT' : 'seconds'}
-{'INPUT' : '9', 'INFO' : 'Number of clusters', 'PERF' : '8.000000', 'UNIT' : ''}
-{'INPUT' : '9', 'INFO' : 'All data processing', 'PERF' : '67.684998', 'UNIT' : 'seconds'}
-{'INPUT' : '10', 'INFO' : '3D Point cloud', 'PERF' : '0.406000', 'UNIT' : 'seconds'}
-{'INPUT' : '10', 'INFO' : 'Vertices', 'PERF' : '1204606.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '10', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.625000', 'UNIT' : 'seconds'}
-{'INPUT' : '10', 'INFO' : 'Distance', 'PERF' : '0.254621', 'UNIT' : ''}
-{'INPUT' : '10', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '17.222000', 'UNIT' : 'seconds'}
-{'INPUT' : '10', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.815000', 'UNIT' : 'seconds'}
-{'INPUT' : '10', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '56.261002', 'UNIT' : 'seconds'}
-{'INPUT' : '10', 'INFO' : 'Number of clusters', 'PERF' : '5.000000', 'UNIT' : ''}
-{'INPUT' : '10', 'INFO' : 'All data processing', 'PERF' : '76.403000', 'UNIT' : 'seconds'}
-{'INPUT' : '11', 'INFO' : '3D Point cloud', 'PERF' : '0.445000', 'UNIT' : 'seconds'}
-{'INPUT' : '11', 'INFO' : 'Vertices', 'PERF' : '1305709.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '11', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.647000', 'UNIT' : 'seconds'}
-{'INPUT' : '11', 'INFO' : 'Distance', 'PERF' : '0.316305', 'UNIT' : ''}
-{'INPUT' : '11', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '18.577999', 'UNIT' : 'seconds'}
-{'INPUT' : '11', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.539000', 'UNIT' : 'seconds'}
-{'INPUT' : '11', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '57.764999', 'UNIT' : 'seconds'}
-{'INPUT' : '11', 'INFO' : 'Number of clusters', 'PERF' : '4.000000', 'UNIT' : ''}
-{'INPUT' : '11', 'INFO' : 'All data processing', 'PERF' : '79.051003', 'UNIT' : 'seconds'}
-{'INPUT' : '12', 'INFO' : '3D Point cloud', 'PERF' : '0.471000', 'UNIT' : 'seconds'}
-{'INPUT' : '12', 'INFO' : 'Vertices', 'PERF' : '1396071.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '12', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.639000', 'UNIT' : 'seconds'}
-{'INPUT' : '12', 'INFO' : 'Distance', 'PERF' : '0.251173', 'UNIT' : ''}
-{'INPUT' : '12', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '20.507999', 'UNIT' : 'seconds'}
-{'INPUT' : '12', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.976000', 'UNIT' : 'seconds'}
-{'INPUT' : '12', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '71.875999', 'UNIT' : 'seconds'}
-{'INPUT' : '12', 'INFO' : 'Number of clusters', 'PERF' : '7.000000', 'UNIT' : ''}
-{'INPUT' : '12', 'INFO' : 'All data processing', 'PERF' : '95.556999', 'UNIT' : 'seconds'}
-{'INPUT' : '13', 'INFO' : '3D Point cloud', 'PERF' : '0.472000', 'UNIT' : 'seconds'}
-{'INPUT' : '13', 'INFO' : 'Vertices', 'PERF' : '1393205.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '13', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.641000', 'UNIT' : 'seconds'}
-{'INPUT' : '13', 'INFO' : 'Distance', 'PERF' : '0.304320', 'UNIT' : ''}
-{'INPUT' : '13', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '20.212999', 'UNIT' : 'seconds'}
-{'INPUT' : '13', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '3.187000', 'UNIT' : 'seconds'}
-{'INPUT' : '13', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '87.717003', 'UNIT' : 'seconds'}
-{'INPUT' : '13', 'INFO' : 'Number of clusters', 'PERF' : '6.000000', 'UNIT' : ''}
-{'INPUT' : '13', 'INFO' : 'All data processing', 'PERF' : '113.317001', 'UNIT' : 'seconds'}
-{'INPUT' : '14', 'INFO' : '3D Point cloud', 'PERF' : '0.480000', 'UNIT' : 'seconds'}
-{'INPUT' : '14', 'INFO' : 'Vertices', 'PERF' : '1432147.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '14', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.653000', 'UNIT' : 'seconds'}
-{'INPUT' : '14', 'INFO' : 'Distance', 'PERF' : '0.280954', 'UNIT' : ''}
-{'INPUT' : '14', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '20.955999', 'UNIT' : 'seconds'}
-{'INPUT' : '14', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.945000', 'UNIT' : 'seconds'}
-{'INPUT' : '14', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '99.621002', 'UNIT' : 'seconds'}
-{'INPUT' : '14', 'INFO' : 'Number of clusters', 'PERF' : '8.000000', 'UNIT' : ''}
-{'INPUT' : '14', 'INFO' : 'All data processing', 'PERF' : '123.753998', 'UNIT' : 'seconds'}
-{'INPUT' : '15', 'INFO' : '3D Point cloud', 'PERF' : '0.493000', 'UNIT' : 'seconds'}
-{'INPUT' : '15', 'INFO' : 'Vertices', 'PERF' : '1469225.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '15', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.622000', 'UNIT' : 'seconds'}
-{'INPUT' : '15', 'INFO' : 'Distance', 'PERF' : '0.298569', 'UNIT' : ''}
-{'INPUT' : '15', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '21.146000', 'UNIT' : 'seconds'}
-{'INPUT' : '15', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '2.645000', 'UNIT' : 'seconds'}
-{'INPUT' : '15', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '135.522003', 'UNIT' : 'seconds'}
-{'INPUT' : '15', 'INFO' : 'Number of clusters', 'PERF' : '4.000000', 'UNIT' : ''}
-{'INPUT' : '15', 'INFO' : 'All data processing', 'PERF' : '161.516998', 'UNIT' : 'seconds'}
-{'INPUT' : '16', 'INFO' : '3D Point cloud', 'PERF' : '0.502000', 'UNIT' : 'seconds'}
-{'INPUT' : '16', 'INFO' : 'Vertices', 'PERF' : '1548869.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '16', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.672000', 'UNIT' : 'seconds'}
-{'INPUT' : '16', 'INFO' : 'Distance', 'PERF' : '0.269196', 'UNIT' : ''}
-{'INPUT' : '16', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '22.364000', 'UNIT' : 'seconds'}
-{'INPUT' : '16', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.354000', 'UNIT' : 'seconds'}
-{'INPUT' : '16', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '106.824997', 'UNIT' : 'seconds'}
-{'INPUT' : '16', 'INFO' : 'Number of clusters', 'PERF' : '2.000000', 'UNIT' : ''}
-{'INPUT' : '16', 'INFO' : 'All data processing', 'PERF' : '132.809006', 'UNIT' : 'seconds'}
-{'INPUT' : '17', 'INFO' : '3D Point cloud', 'PERF' : '0.496000', 'UNIT' : 'seconds'}
-{'INPUT' : '17', 'INFO' : 'Vertices', 'PERF' : '1501136.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '17', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.655000', 'UNIT' : 'seconds'}
-{'INPUT' : '17', 'INFO' : 'Distance', 'PERF' : '0.294209', 'UNIT' : ''}
-{'INPUT' : '17', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '21.570000', 'UNIT' : 'seconds'}
-{'INPUT' : '17', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '2.087000', 'UNIT' : 'seconds'}
-{'INPUT' : '17', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '102.133003', 'UNIT' : 'seconds'}
-{'INPUT' : '17', 'INFO' : 'Number of clusters', 'PERF' : '2.000000', 'UNIT' : ''}
-{'INPUT' : '17', 'INFO' : 'All data processing', 'PERF' : '128.028000', 'UNIT' : 'seconds'}
-{'INPUT' : '18', 'INFO' : '3D Point cloud', 'PERF' : '0.482000', 'UNIT' : 'seconds'}
-{'INPUT' : '18', 'INFO' : 'Vertices', 'PERF' : '1480615.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '18', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.632000', 'UNIT' : 'seconds'}
-{'INPUT' : '18', 'INFO' : 'Distance', 'PERF' : '0.324901', 'UNIT' : ''}
-{'INPUT' : '18', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '22.150000', 'UNIT' : 'seconds'}
-{'INPUT' : '18', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '2.529000', 'UNIT' : 'seconds'}
-{'INPUT' : '18', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '119.347000', 'UNIT' : 'seconds'}
-{'INPUT' : '18', 'INFO' : 'Number of clusters', 'PERF' : '2.000000', 'UNIT' : ''}
-{'INPUT' : '18', 'INFO' : 'All data processing', 'PERF' : '146.227997', 'UNIT' : 'seconds'}
-{'INPUT' : '19', 'INFO' : '3D Point cloud', 'PERF' : '0.583000', 'UNIT' : 'seconds'}
-{'INPUT' : '19', 'INFO' : 'Vertices', 'PERF' : '1673242.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '19', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.670000', 'UNIT' : 'seconds'}
-{'INPUT' : '19', 'INFO' : 'Distance', 'PERF' : '0.295681', 'UNIT' : ''}
-{'INPUT' : '19', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '24.292000', 'UNIT' : 'seconds'}
-{'INPUT' : '19', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.612000', 'UNIT' : 'seconds'}
-{'INPUT' : '19', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '141.317993', 'UNIT' : 'seconds'}
-{'INPUT' : '19', 'INFO' : 'Number of clusters', 'PERF' : '2.000000', 'UNIT' : ''}
-{'INPUT' : '19', 'INFO' : 'All data processing', 'PERF' : '169.567001', 'UNIT' : 'seconds'}
-{'INPUT' : '20', 'INFO' : '3D Point cloud', 'PERF' : '0.491000', 'UNIT' : 'seconds'}
-{'INPUT' : '20', 'INFO' : 'Vertices', 'PERF' : '1513153.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '20', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.656000', 'UNIT' : 'seconds'}
-{'INPUT' : '20', 'INFO' : 'Distance', 'PERF' : '0.341727', 'UNIT' : ''}
-{'INPUT' : '20', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '21.403000', 'UNIT' : 'seconds'}
-{'INPUT' : '20', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.807000', 'UNIT' : 'seconds'}
-{'INPUT' : '20', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '100.322998', 'UNIT' : 'seconds'}
-{'INPUT' : '20', 'INFO' : 'Number of clusters', 'PERF' : '6.000000', 'UNIT' : ''}
-{'INPUT' : '20', 'INFO' : 'All data processing', 'PERF' : '124.772003', 'UNIT' : 'seconds'}
-{'INPUT' : '21', 'INFO' : '3D Point cloud', 'PERF' : '0.423000', 'UNIT' : 'seconds'}
-{'INPUT' : '21', 'INFO' : 'Vertices', 'PERF' : '1268476.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '21', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.624000', 'UNIT' : 'seconds'}
-{'INPUT' : '21', 'INFO' : 'Distance', 'PERF' : '0.270534', 'UNIT' : ''}
-{'INPUT' : '21', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '18.112000', 'UNIT' : 'seconds'}
-{'INPUT' : '21', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.767000', 'UNIT' : 'seconds'}
-{'INPUT' : '21', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '78.915001', 'UNIT' : 'seconds'}
-{'INPUT' : '21', 'INFO' : 'Number of clusters', 'PERF' : '6.000000', 'UNIT' : ''}
-{'INPUT' : '21', 'INFO' : 'All data processing', 'PERF' : '100.922997', 'UNIT' : 'seconds'}
-{'INPUT' : '22', 'INFO' : '3D Point cloud', 'PERF' : '0.578000', 'UNIT' : 'seconds'}
-{'INPUT' : '22', 'INFO' : 'Vertices', 'PERF' : '1622988.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '22', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.664000', 'UNIT' : 'seconds'}
-{'INPUT' : '22', 'INFO' : 'Distance', 'PERF' : '0.268567', 'UNIT' : ''}
-{'INPUT' : '22', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '23.681999', 'UNIT' : 'seconds'}
-{'INPUT' : '22', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '4.015000', 'UNIT' : 'seconds'}
-{'INPUT' : '22', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '190.604996', 'UNIT' : 'seconds'}
-{'INPUT' : '22', 'INFO' : 'Number of clusters', 'PERF' : '4.000000', 'UNIT' : ''}
-{'INPUT' : '22', 'INFO' : 'All data processing', 'PERF' : '220.634003', 'UNIT' : 'seconds'}
-{'INPUT' : '23', 'INFO' : '3D Point cloud', 'PERF' : '0.462000', 'UNIT' : 'seconds'}
-{'INPUT' : '23', 'INFO' : 'Vertices', 'PERF' : '1358641.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '23', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.673000', 'UNIT' : 'seconds'}
-{'INPUT' : '23', 'INFO' : 'Distance', 'PERF' : '0.322693', 'UNIT' : ''}
-{'INPUT' : '23', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '19.350000', 'UNIT' : 'seconds'}
-{'INPUT' : '23', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.789000', 'UNIT' : 'seconds'}
-{'INPUT' : '23', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '71.857002', 'UNIT' : 'seconds'}
-{'INPUT' : '23', 'INFO' : 'Number of clusters', 'PERF' : '2.000000', 'UNIT' : ''}
-{'INPUT' : '23', 'INFO' : 'All data processing', 'PERF' : '94.209999', 'UNIT' : 'seconds'}
-{'INPUT' : '24', 'INFO' : '3D Point cloud', 'PERF' : '0.393000', 'UNIT' : 'seconds'}
-{'INPUT' : '24', 'INFO' : 'Vertices', 'PERF' : '1156825.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '24', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.629000', 'UNIT' : 'seconds'}
-{'INPUT' : '24', 'INFO' : 'Distance', 'PERF' : '0.284743', 'UNIT' : ''}
-{'INPUT' : '24', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '16.586000', 'UNIT' : 'seconds'}
-{'INPUT' : '24', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '7.419000', 'UNIT' : 'seconds'}
-{'INPUT' : '24', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '79.796997', 'UNIT' : 'seconds'}
-{'INPUT' : '24', 'INFO' : 'Number of clusters', 'PERF' : '2.000000', 'UNIT' : ''}
-{'INPUT' : '24', 'INFO' : 'All data processing', 'PERF' : '105.896004', 'UNIT' : 'seconds'}
-{'INPUT' : '25', 'INFO' : '3D Point cloud', 'PERF' : '0.315000', 'UNIT' : 'seconds'}
-{'INPUT' : '25', 'INFO' : 'Vertices', 'PERF' : '954181.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '25', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.630000', 'UNIT' : 'seconds'}
-{'INPUT' : '25', 'INFO' : 'Distance', 'PERF' : '0.218354', 'UNIT' : ''}
-{'INPUT' : '25', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '13.722000', 'UNIT' : 'seconds'}
-{'INPUT' : '25', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.948000', 'UNIT' : 'seconds'}
-{'INPUT' : '25', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '45.226002', 'UNIT' : 'seconds'}
+{'INPUT' : '0', 'INFO' : '3D Point cloud', 'PERF' : '0.668000', 'UNIT' : 'seconds'}
+{'INPUT' : '0', 'INFO' : 'Vertices', 'PERF' : '1130981.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '0', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.180000', 'UNIT' : 'seconds'}
+{'INPUT' : '0', 'INFO' : 'Distance', 'PERF' : '0.296045', 'UNIT' : ''}
+{'INPUT' : '0', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '29.188999', 'UNIT' : 'seconds'}
+{'INPUT' : '0', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.015000', 'UNIT' : 'seconds'}
+{'INPUT' : '0', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '89.417000', 'UNIT' : 'seconds'}
+{'INPUT' : '0', 'INFO' : 'Number of clusters', 'PERF' : '8.000000', 'UNIT' : ''}
+{'INPUT' : '0', 'INFO' : 'All data processing', 'PERF' : '122.603996', 'UNIT' : 'seconds'}
+{'INPUT' : '1', 'INFO' : '3D Point cloud', 'PERF' : '1.191000', 'UNIT' : 'seconds'}
+{'INPUT' : '1', 'INFO' : 'Vertices', 'PERF' : '1134037.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '1', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.169000', 'UNIT' : 'seconds'}
+{'INPUT' : '1', 'INFO' : 'Distance', 'PERF' : '0.313413', 'UNIT' : ''}
+{'INPUT' : '1', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '28.995001', 'UNIT' : 'seconds'}
+{'INPUT' : '1', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.589000', 'UNIT' : 'seconds'}
+{'INPUT' : '1', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '65.823997', 'UNIT' : 'seconds'}
+{'INPUT' : '1', 'INFO' : 'Number of clusters', 'PERF' : '10.000000', 'UNIT' : ''}
+{'INPUT' : '1', 'INFO' : 'All data processing', 'PERF' : '98.905998', 'UNIT' : 'seconds'}
+{'INPUT' : '2', 'INFO' : '3D Point cloud', 'PERF' : '1.216000', 'UNIT' : 'seconds'}
+{'INPUT' : '2', 'INFO' : 'Vertices', 'PERF' : '1213373.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '2', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.127000', 'UNIT' : 'seconds'}
+{'INPUT' : '2', 'INFO' : 'Distance', 'PERF' : '0.321991', 'UNIT' : ''}
+{'INPUT' : '2', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '30.363001', 'UNIT' : 'seconds'}
+{'INPUT' : '2', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.294000', 'UNIT' : 'seconds'}
+{'INPUT' : '2', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '80.697998', 'UNIT' : 'seconds'}
+{'INPUT' : '2', 'INFO' : 'Number of clusters', 'PERF' : '8.000000', 'UNIT' : ''}
+{'INPUT' : '2', 'INFO' : 'All data processing', 'PERF' : '115.846001', 'UNIT' : 'seconds'}
+{'INPUT' : '3', 'INFO' : '3D Point cloud', 'PERF' : '1.237000', 'UNIT' : 'seconds'}
+{'INPUT' : '3', 'INFO' : 'Vertices', 'PERF' : '1218814.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '3', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.137000', 'UNIT' : 'seconds'}
+{'INPUT' : '3', 'INFO' : 'Distance', 'PERF' : '0.349931', 'UNIT' : ''}
+{'INPUT' : '3', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '30.608000', 'UNIT' : 'seconds'}
+{'INPUT' : '3', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.862000', 'UNIT' : 'seconds'}
+{'INPUT' : '3', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '49.575001', 'UNIT' : 'seconds'}
+{'INPUT' : '3', 'INFO' : 'Number of clusters', 'PERF' : '9.000000', 'UNIT' : ''}
+{'INPUT' : '3', 'INFO' : 'All data processing', 'PERF' : '84.563004', 'UNIT' : 'seconds'}
+{'INPUT' : '4', 'INFO' : '3D Point cloud', 'PERF' : '1.754000', 'UNIT' : 'seconds'}
+{'INPUT' : '4', 'INFO' : 'Vertices', 'PERF' : '1612753.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '4', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.241000', 'UNIT' : 'seconds'}
+{'INPUT' : '4', 'INFO' : 'Distance', 'PERF' : '0.312443', 'UNIT' : ''}
+{'INPUT' : '4', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '42.806000', 'UNIT' : 'seconds'}
+{'INPUT' : '4', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '2.830000', 'UNIT' : 'seconds'}
+{'INPUT' : '4', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '206.145004', 'UNIT' : 'seconds'}
+{'INPUT' : '4', 'INFO' : 'Number of clusters', 'PERF' : '8.000000', 'UNIT' : ''}
+{'INPUT' : '4', 'INFO' : 'All data processing', 'PERF' : '255.966995', 'UNIT' : 'seconds'}
+{'INPUT' : '5', 'INFO' : '3D Point cloud', 'PERF' : '1.446000', 'UNIT' : 'seconds'}
+{'INPUT' : '5', 'INFO' : 'Vertices', 'PERF' : '1530091.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '5', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.178000', 'UNIT' : 'seconds'}
+{'INPUT' : '5', 'INFO' : 'Distance', 'PERF' : '0.317830', 'UNIT' : ''}
+{'INPUT' : '5', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '38.380001', 'UNIT' : 'seconds'}
+{'INPUT' : '5', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '5.263000', 'UNIT' : 'seconds'}
+{'INPUT' : '5', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '157.399994', 'UNIT' : 'seconds'}
+{'INPUT' : '5', 'INFO' : 'Number of clusters', 'PERF' : '7.000000', 'UNIT' : ''}
+{'INPUT' : '5', 'INFO' : 'All data processing', 'PERF' : '204.854004', 'UNIT' : 'seconds'}
+{'INPUT' : '6', 'INFO' : '3D Point cloud', 'PERF' : '1.339000', 'UNIT' : 'seconds'}
+{'INPUT' : '6', 'INFO' : 'Vertices', 'PERF' : '1413006.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '6', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.145000', 'UNIT' : 'seconds'}
+{'INPUT' : '6', 'INFO' : 'Distance', 'PERF' : '0.368610', 'UNIT' : ''}
+{'INPUT' : '6', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '35.020000', 'UNIT' : 'seconds'}
+{'INPUT' : '6', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.717000', 'UNIT' : 'seconds'}
+{'INPUT' : '6', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '194.205002', 'UNIT' : 'seconds'}
+{'INPUT' : '6', 'INFO' : 'Number of clusters', 'PERF' : '9.000000', 'UNIT' : ''}
+{'INPUT' : '6', 'INFO' : 'All data processing', 'PERF' : '234.587006', 'UNIT' : 'seconds'}
+{'INPUT' : '7', 'INFO' : '3D Point cloud', 'PERF' : '1.328000', 'UNIT' : 'seconds'}
+{'INPUT' : '7', 'INFO' : 'Vertices', 'PERF' : '1338166.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '7', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.118000', 'UNIT' : 'seconds'}
+{'INPUT' : '7', 'INFO' : 'Distance', 'PERF' : '0.344427', 'UNIT' : ''}
+{'INPUT' : '7', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '33.439999', 'UNIT' : 'seconds'}
+{'INPUT' : '7', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '2.720000', 'UNIT' : 'seconds'}
+{'INPUT' : '7', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '214.789001', 'UNIT' : 'seconds'}
+{'INPUT' : '7', 'INFO' : 'Number of clusters', 'PERF' : '7.000000', 'UNIT' : ''}
+{'INPUT' : '7', 'INFO' : 'All data processing', 'PERF' : '254.546997', 'UNIT' : 'seconds'}
+{'INPUT' : '8', 'INFO' : '3D Point cloud', 'PERF' : '1.427000', 'UNIT' : 'seconds'}
+{'INPUT' : '8', 'INFO' : 'Vertices', 'PERF' : '1471405.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '8', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.164000', 'UNIT' : 'seconds'}
+{'INPUT' : '8', 'INFO' : 'Distance', 'PERF' : '0.337208', 'UNIT' : ''}
+{'INPUT' : '8', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '37.750000', 'UNIT' : 'seconds'}
+{'INPUT' : '8', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.827000', 'UNIT' : 'seconds'}
+{'INPUT' : '8', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '166.718002', 'UNIT' : 'seconds'}
+{'INPUT' : '8', 'INFO' : 'Number of clusters', 'PERF' : '8.000000', 'UNIT' : ''}
+{'INPUT' : '8', 'INFO' : 'All data processing', 'PERF' : '210.070007', 'UNIT' : 'seconds'}
+{'INPUT' : '9', 'INFO' : '3D Point cloud', 'PERF' : '1.059000', 'UNIT' : 'seconds'}
+{'INPUT' : '9', 'INFO' : 'Vertices', 'PERF' : '1055588.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '9', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.096000', 'UNIT' : 'seconds'}
+{'INPUT' : '9', 'INFO' : 'Distance', 'PERF' : '0.249901', 'UNIT' : ''}
+{'INPUT' : '9', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '26.615999', 'UNIT' : 'seconds'}
+{'INPUT' : '9', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '2.673000', 'UNIT' : 'seconds'}
+{'INPUT' : '9', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '49.375999', 'UNIT' : 'seconds'}
+{'INPUT' : '9', 'INFO' : 'Number of clusters', 'PERF' : '10.000000', 'UNIT' : ''}
+{'INPUT' : '9', 'INFO' : 'All data processing', 'PERF' : '81.959999', 'UNIT' : 'seconds'}
+{'INPUT' : '10', 'INFO' : '3D Point cloud', 'PERF' : '1.198000', 'UNIT' : 'seconds'}
+{'INPUT' : '10', 'INFO' : 'Vertices', 'PERF' : '1204016.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '10', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.123000', 'UNIT' : 'seconds'}
+{'INPUT' : '10', 'INFO' : 'Distance', 'PERF' : '0.272738', 'UNIT' : ''}
+{'INPUT' : '10', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '30.021000', 'UNIT' : 'seconds'}
+{'INPUT' : '10', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.189000', 'UNIT' : 'seconds'}
+{'INPUT' : '10', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '88.713997', 'UNIT' : 'seconds'}
+{'INPUT' : '10', 'INFO' : 'Number of clusters', 'PERF' : '7.000000', 'UNIT' : ''}
+{'INPUT' : '10', 'INFO' : 'All data processing', 'PERF' : '123.387001', 'UNIT' : 'seconds'}
+{'INPUT' : '11', 'INFO' : '3D Point cloud', 'PERF' : '1.285000', 'UNIT' : 'seconds'}
+{'INPUT' : '11', 'INFO' : 'Vertices', 'PERF' : '1304893.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '11', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.143000', 'UNIT' : 'seconds'}
+{'INPUT' : '11', 'INFO' : 'Distance', 'PERF' : '0.360901', 'UNIT' : ''}
+{'INPUT' : '11', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '32.519001', 'UNIT' : 'seconds'}
+{'INPUT' : '11', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.303000', 'UNIT' : 'seconds'}
+{'INPUT' : '11', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '78.413002', 'UNIT' : 'seconds'}
+{'INPUT' : '11', 'INFO' : 'Number of clusters', 'PERF' : '7.000000', 'UNIT' : ''}
+{'INPUT' : '11', 'INFO' : 'All data processing', 'PERF' : '115.813004', 'UNIT' : 'seconds'}
+{'INPUT' : '12', 'INFO' : '3D Point cloud', 'PERF' : '1.565000', 'UNIT' : 'seconds'}
+{'INPUT' : '12', 'INFO' : 'Vertices', 'PERF' : '1393125.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '12', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.240000', 'UNIT' : 'seconds'}
+{'INPUT' : '12', 'INFO' : 'Distance', 'PERF' : '0.266124', 'UNIT' : ''}
+{'INPUT' : '12', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '37.034000', 'UNIT' : 'seconds'}
+{'INPUT' : '12', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '2.421000', 'UNIT' : 'seconds'}
+{'INPUT' : '12', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '137.475006', 'UNIT' : 'seconds'}
+{'INPUT' : '12', 'INFO' : 'Number of clusters', 'PERF' : '9.000000', 'UNIT' : ''}
+{'INPUT' : '12', 'INFO' : 'All data processing', 'PERF' : '180.886002', 'UNIT' : 'seconds'}
+{'INPUT' : '13', 'INFO' : '3D Point cloud', 'PERF' : '1.369000', 'UNIT' : 'seconds'}
+{'INPUT' : '13', 'INFO' : 'Vertices', 'PERF' : '1390331.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '13', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.152000', 'UNIT' : 'seconds'}
+{'INPUT' : '13', 'INFO' : 'Distance', 'PERF' : '0.317232', 'UNIT' : ''}
+{'INPUT' : '13', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '34.353001', 'UNIT' : 'seconds'}
+{'INPUT' : '13', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '5.666000', 'UNIT' : 'seconds'}
+{'INPUT' : '13', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '139.367004', 'UNIT' : 'seconds'}
+{'INPUT' : '13', 'INFO' : 'Number of clusters', 'PERF' : '10.000000', 'UNIT' : ''}
+{'INPUT' : '13', 'INFO' : 'All data processing', 'PERF' : '183.061996', 'UNIT' : 'seconds'}
+{'INPUT' : '14', 'INFO' : '3D Point cloud', 'PERF' : '1.417000', 'UNIT' : 'seconds'}
+{'INPUT' : '14', 'INFO' : 'Vertices', 'PERF' : '1432387.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '14', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.149000', 'UNIT' : 'seconds'}
+{'INPUT' : '14', 'INFO' : 'Distance', 'PERF' : '0.286775', 'UNIT' : ''}
+{'INPUT' : '14', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '35.778000', 'UNIT' : 'seconds'}
+{'INPUT' : '14', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.743000', 'UNIT' : 'seconds'}
+{'INPUT' : '14', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '151.382004', 'UNIT' : 'seconds'}
+{'INPUT' : '14', 'INFO' : 'Number of clusters', 'PERF' : '10.000000', 'UNIT' : ''}
+{'INPUT' : '14', 'INFO' : 'All data processing', 'PERF' : '192.639999', 'UNIT' : 'seconds'}
+{'INPUT' : '15', 'INFO' : '3D Point cloud', 'PERF' : '1.586000', 'UNIT' : 'seconds'}
+{'INPUT' : '15', 'INFO' : 'Vertices', 'PERF' : '1483673.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '15', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.135000', 'UNIT' : 'seconds'}
+{'INPUT' : '15', 'INFO' : 'Distance', 'PERF' : '0.360986', 'UNIT' : ''}
+{'INPUT' : '15', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '37.235001', 'UNIT' : 'seconds'}
+{'INPUT' : '15', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '5.261000', 'UNIT' : 'seconds'}
+{'INPUT' : '15', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '191.235992', 'UNIT' : 'seconds'}
+{'INPUT' : '15', 'INFO' : 'Number of clusters', 'PERF' : '10.000000', 'UNIT' : ''}
+{'INPUT' : '15', 'INFO' : 'All data processing', 'PERF' : '237.632996', 'UNIT' : 'seconds'}
+{'INPUT' : '16', 'INFO' : '3D Point cloud', 'PERF' : '1.482000', 'UNIT' : 'seconds'}
+{'INPUT' : '16', 'INFO' : 'Vertices', 'PERF' : '1548545.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '16', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.161000', 'UNIT' : 'seconds'}
+{'INPUT' : '16', 'INFO' : 'Distance', 'PERF' : '0.346261', 'UNIT' : ''}
+{'INPUT' : '16', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '39.044998', 'UNIT' : 'seconds'}
+{'INPUT' : '16', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '2.383000', 'UNIT' : 'seconds'}
+{'INPUT' : '16', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '182.529999', 'UNIT' : 'seconds'}
+{'INPUT' : '16', 'INFO' : 'Number of clusters', 'PERF' : '10.000000', 'UNIT' : ''}
+{'INPUT' : '16', 'INFO' : 'All data processing', 'PERF' : '227.785004', 'UNIT' : 'seconds'}
+{'INPUT' : '17', 'INFO' : '3D Point cloud', 'PERF' : '1.450000', 'UNIT' : 'seconds'}
+{'INPUT' : '17', 'INFO' : 'Vertices', 'PERF' : '1498168.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '17', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.160000', 'UNIT' : 'seconds'}
+{'INPUT' : '17', 'INFO' : 'Distance', 'PERF' : '0.349333', 'UNIT' : ''}
+{'INPUT' : '17', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '37.959999', 'UNIT' : 'seconds'}
+{'INPUT' : '17', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '2.505000', 'UNIT' : 'seconds'}
+{'INPUT' : '17', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '177.639008', 'UNIT' : 'seconds'}
+{'INPUT' : '17', 'INFO' : 'Number of clusters', 'PERF' : '7.000000', 'UNIT' : ''}
+{'INPUT' : '17', 'INFO' : 'All data processing', 'PERF' : '221.886002', 'UNIT' : 'seconds'}
+{'INPUT' : '18', 'INFO' : '3D Point cloud', 'PERF' : '1.391000', 'UNIT' : 'seconds'}
+{'INPUT' : '18', 'INFO' : 'Vertices', 'PERF' : '1483603.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '18', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.158000', 'UNIT' : 'seconds'}
+{'INPUT' : '18', 'INFO' : 'Distance', 'PERF' : '0.318419', 'UNIT' : ''}
+{'INPUT' : '18', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '37.231998', 'UNIT' : 'seconds'}
+{'INPUT' : '18', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '5.581000', 'UNIT' : 'seconds'}
+{'INPUT' : '18', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '222.602005', 'UNIT' : 'seconds'}
+{'INPUT' : '18', 'INFO' : 'Number of clusters', 'PERF' : '7.000000', 'UNIT' : ''}
+{'INPUT' : '18', 'INFO' : 'All data processing', 'PERF' : '269.144012', 'UNIT' : 'seconds'}
+{'INPUT' : '19', 'INFO' : '3D Point cloud', 'PERF' : '1.662000', 'UNIT' : 'seconds'}
+{'INPUT' : '19', 'INFO' : 'Vertices', 'PERF' : '1674678.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '19', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.153000', 'UNIT' : 'seconds'}
+{'INPUT' : '19', 'INFO' : 'Distance', 'PERF' : '0.313703', 'UNIT' : ''}
+{'INPUT' : '19', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '41.535000', 'UNIT' : 'seconds'}
+{'INPUT' : '19', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '2.344000', 'UNIT' : 'seconds'}
+{'INPUT' : '19', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '204.884003', 'UNIT' : 'seconds'}
+{'INPUT' : '19', 'INFO' : 'Number of clusters', 'PERF' : '8.000000', 'UNIT' : ''}
+{'INPUT' : '19', 'INFO' : 'All data processing', 'PERF' : '252.798996', 'UNIT' : 'seconds'}
+{'INPUT' : '20', 'INFO' : '3D Point cloud', 'PERF' : '1.464000', 'UNIT' : 'seconds'}
+{'INPUT' : '20', 'INFO' : 'Vertices', 'PERF' : '1507389.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '20', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.148000', 'UNIT' : 'seconds'}
+{'INPUT' : '20', 'INFO' : 'Distance', 'PERF' : '0.366095', 'UNIT' : ''}
+{'INPUT' : '20', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '38.258999', 'UNIT' : 'seconds'}
+{'INPUT' : '20', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.923000', 'UNIT' : 'seconds'}
+{'INPUT' : '20', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '299.656006', 'UNIT' : 'seconds'}
+{'INPUT' : '20', 'INFO' : 'Number of clusters', 'PERF' : '8.000000', 'UNIT' : ''}
+{'INPUT' : '20', 'INFO' : 'All data processing', 'PERF' : '343.661011', 'UNIT' : 'seconds'}
+{'INPUT' : '21', 'INFO' : '3D Point cloud', 'PERF' : '1.210000', 'UNIT' : 'seconds'}
+{'INPUT' : '21', 'INFO' : 'Vertices', 'PERF' : '1264088.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '21', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.123000', 'UNIT' : 'seconds'}
+{'INPUT' : '21', 'INFO' : 'Distance', 'PERF' : '0.300849', 'UNIT' : ''}
+{'INPUT' : '21', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '31.829000', 'UNIT' : 'seconds'}
+{'INPUT' : '21', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '2.593000', 'UNIT' : 'seconds'}
+{'INPUT' : '21', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '125.913002', 'UNIT' : 'seconds'}
+{'INPUT' : '21', 'INFO' : 'Number of clusters', 'PERF' : '8.000000', 'UNIT' : ''}
+{'INPUT' : '21', 'INFO' : 'All data processing', 'PERF' : '163.817001', 'UNIT' : 'seconds'}
+{'INPUT' : '22', 'INFO' : '3D Point cloud', 'PERF' : '1.576000', 'UNIT' : 'seconds'}
+{'INPUT' : '22', 'INFO' : 'Vertices', 'PERF' : '1626580.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '22', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.169000', 'UNIT' : 'seconds'}
+{'INPUT' : '22', 'INFO' : 'Distance', 'PERF' : '0.330966', 'UNIT' : ''}
+{'INPUT' : '22', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '40.445999', 'UNIT' : 'seconds'}
+{'INPUT' : '22', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '4.553000', 'UNIT' : 'seconds'}
+{'INPUT' : '22', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '219.820007', 'UNIT' : 'seconds'}
+{'INPUT' : '22', 'INFO' : 'Number of clusters', 'PERF' : '7.000000', 'UNIT' : ''}
+{'INPUT' : '22', 'INFO' : 'All data processing', 'PERF' : '268.737000', 'UNIT' : 'seconds'}
+{'INPUT' : '23', 'INFO' : '3D Point cloud', 'PERF' : '1.328000', 'UNIT' : 'seconds'}
+{'INPUT' : '23', 'INFO' : 'Vertices', 'PERF' : '1355351.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '23', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.142000', 'UNIT' : 'seconds'}
+{'INPUT' : '23', 'INFO' : 'Distance', 'PERF' : '0.360093', 'UNIT' : ''}
+{'INPUT' : '23', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '33.865002', 'UNIT' : 'seconds'}
+{'INPUT' : '23', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.749000', 'UNIT' : 'seconds'}
+{'INPUT' : '23', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '185.235001', 'UNIT' : 'seconds'}
+{'INPUT' : '23', 'INFO' : 'Number of clusters', 'PERF' : '8.000000', 'UNIT' : ''}
+{'INPUT' : '23', 'INFO' : 'All data processing', 'PERF' : '224.475006', 'UNIT' : 'seconds'}
+{'INPUT' : '24', 'INFO' : '3D Point cloud', 'PERF' : '1.120000', 'UNIT' : 'seconds'}
+{'INPUT' : '24', 'INFO' : 'Vertices', 'PERF' : '1152627.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '24', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.125000', 'UNIT' : 'seconds'}
+{'INPUT' : '24', 'INFO' : 'Distance', 'PERF' : '0.293846', 'UNIT' : ''}
+{'INPUT' : '24', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '28.579000', 'UNIT' : 'seconds'}
+{'INPUT' : '24', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '10.051000', 'UNIT' : 'seconds'}
+{'INPUT' : '24', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '107.434998', 'UNIT' : 'seconds'}
+{'INPUT' : '24', 'INFO' : 'Number of clusters', 'PERF' : '10.000000', 'UNIT' : ''}
+{'INPUT' : '24', 'INFO' : 'All data processing', 'PERF' : '149.453995', 'UNIT' : 'seconds'}
+{'INPUT' : '25', 'INFO' : '3D Point cloud', 'PERF' : '0.989000', 'UNIT' : 'seconds'}
+{'INPUT' : '25', 'INFO' : 'Vertices', 'PERF' : '953791.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '25', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.102000', 'UNIT' : 'seconds'}
+{'INPUT' : '25', 'INFO' : 'Distance', 'PERF' : '0.232498', 'UNIT' : ''}
+{'INPUT' : '25', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '23.843000', 'UNIT' : 'seconds'}
+{'INPUT' : '25', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.056000', 'UNIT' : 'seconds'}
+{'INPUT' : '25', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '62.273998', 'UNIT' : 'seconds'}
 {'INPUT' : '25', 'INFO' : 'Number of clusters', 'PERF' : '7.000000', 'UNIT' : ''}
-{'INPUT' : '25', 'INFO' : 'All data processing', 'PERF' : '61.911999', 'UNIT' : 'seconds'}
-{'INPUT' : '26', 'INFO' : '3D Point cloud', 'PERF' : '0.421000', 'UNIT' : 'seconds'}
-{'INPUT' : '26', 'INFO' : 'Vertices', 'PERF' : '1264198.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '26', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.657000', 'UNIT' : 'seconds'}
-{'INPUT' : '26', 'INFO' : 'Distance', 'PERF' : '0.299254', 'UNIT' : ''}
-{'INPUT' : '26', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '17.938000', 'UNIT' : 'seconds'}
-{'INPUT' : '26', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.829000', 'UNIT' : 'seconds'}
-{'INPUT' : '26', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '47.953999', 'UNIT' : 'seconds'}
-{'INPUT' : '26', 'INFO' : 'Number of clusters', 'PERF' : '5.000000', 'UNIT' : ''}
-{'INPUT' : '26', 'INFO' : 'All data processing', 'PERF' : '68.873001', 'UNIT' : 'seconds'}
-{'INPUT' : '27', 'INFO' : '3D Point cloud', 'PERF' : '0.429000', 'UNIT' : 'seconds'}
-{'INPUT' : '27', 'INFO' : 'Vertices', 'PERF' : '1288665.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '27', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.658000', 'UNIT' : 'seconds'}
-{'INPUT' : '27', 'INFO' : 'Distance', 'PERF' : '0.234786', 'UNIT' : ''}
-{'INPUT' : '27', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '18.784000', 'UNIT' : 'seconds'}
-{'INPUT' : '27', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.949000', 'UNIT' : 'seconds'}
-{'INPUT' : '27', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '57.629002', 'UNIT' : 'seconds'}
-{'INPUT' : '27', 'INFO' : 'Number of clusters', 'PERF' : '2.000000', 'UNIT' : ''}
-{'INPUT' : '27', 'INFO' : 'All data processing', 'PERF' : '79.523003', 'UNIT' : 'seconds'}
-{'INPUT' : '28', 'INFO' : '3D Point cloud', 'PERF' : '0.429000', 'UNIT' : 'seconds'}
-{'INPUT' : '28', 'INFO' : 'Vertices', 'PERF' : '1250746.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '28', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.612000', 'UNIT' : 'seconds'}
-{'INPUT' : '28', 'INFO' : 'Distance', 'PERF' : '0.269723', 'UNIT' : ''}
-{'INPUT' : '28', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '18.277000', 'UNIT' : 'seconds'}
-{'INPUT' : '28', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.148000', 'UNIT' : 'seconds'}
-{'INPUT' : '28', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '117.699997', 'UNIT' : 'seconds'}
-{'INPUT' : '28', 'INFO' : 'Number of clusters', 'PERF' : '7.000000', 'UNIT' : ''}
-{'INPUT' : '28', 'INFO' : 'All data processing', 'PERF' : '139.250000', 'UNIT' : 'seconds'}
-{'INPUT' : '29', 'INFO' : '3D Point cloud', 'PERF' : '0.457000', 'UNIT' : 'seconds'}
-{'INPUT' : '29', 'INFO' : 'Vertices', 'PERF' : '1385269.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '29', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.726000', 'UNIT' : 'seconds'}
-{'INPUT' : '29', 'INFO' : 'Distance', 'PERF' : '0.315844', 'UNIT' : ''}
-{'INPUT' : '29', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '20.208000', 'UNIT' : 'seconds'}
-{'INPUT' : '29', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.816000', 'UNIT' : 'seconds'}
-{'INPUT' : '29', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '106.392998', 'UNIT' : 'seconds'}
-{'INPUT' : '29', 'INFO' : 'Number of clusters', 'PERF' : '2.000000', 'UNIT' : ''}
-{'INPUT' : '29', 'INFO' : 'All data processing', 'PERF' : '129.688004', 'UNIT' : 'seconds'}
-{'INPUT' : '30', 'INFO' : '3D Point cloud', 'PERF' : '0.465000', 'UNIT' : 'seconds'}
-{'INPUT' : '30', 'INFO' : 'Vertices', 'PERF' : '1413689.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '30', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.631000', 'UNIT' : 'seconds'}
-{'INPUT' : '30', 'INFO' : 'Distance', 'PERF' : '0.301183', 'UNIT' : ''}
-{'INPUT' : '30', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '20.264000', 'UNIT' : 'seconds'}
-{'INPUT' : '30', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.772000', 'UNIT' : 'seconds'}
-{'INPUT' : '30', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '67.455002', 'UNIT' : 'seconds'}
-{'INPUT' : '30', 'INFO' : 'Number of clusters', 'PERF' : '5.000000', 'UNIT' : ''}
-{'INPUT' : '30', 'INFO' : 'All data processing', 'PERF' : '91.667999', 'UNIT' : 'seconds'}
-{'INPUT' : '31', 'INFO' : '3D Point cloud', 'PERF' : '0.472000', 'UNIT' : 'seconds'}
-{'INPUT' : '31', 'INFO' : 'Vertices', 'PERF' : '1412365.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '31', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.658000', 'UNIT' : 'seconds'}
-{'INPUT' : '31', 'INFO' : 'Distance', 'PERF' : '0.262095', 'UNIT' : ''}
-{'INPUT' : '31', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '20.664000', 'UNIT' : 'seconds'}
-{'INPUT' : '31', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.574000', 'UNIT' : 'seconds'}
-{'INPUT' : '31', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '118.473000', 'UNIT' : 'seconds'}
-{'INPUT' : '31', 'INFO' : 'Number of clusters', 'PERF' : '2.000000', 'UNIT' : ''}
-{'INPUT' : '31', 'INFO' : 'All data processing', 'PERF' : '142.919998', 'UNIT' : 'seconds'}
-{'INPUT' : '32', 'INFO' : '3D Point cloud', 'PERF' : '0.425000', 'UNIT' : 'seconds'}
-{'INPUT' : '32', 'INFO' : 'Vertices', 'PERF' : '1239357.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '32', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.625000', 'UNIT' : 'seconds'}
-{'INPUT' : '32', 'INFO' : 'Distance', 'PERF' : '0.279844', 'UNIT' : ''}
-{'INPUT' : '32', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '18.273001', 'UNIT' : 'seconds'}
-{'INPUT' : '32', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.581000', 'UNIT' : 'seconds'}
-{'INPUT' : '32', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '90.974998', 'UNIT' : 'seconds'}
-{'INPUT' : '32', 'INFO' : 'Number of clusters', 'PERF' : '2.000000', 'UNIT' : ''}
-{'INPUT' : '32', 'INFO' : 'All data processing', 'PERF' : '111.952003', 'UNIT' : 'seconds'}
-{'INPUT' : '33', 'INFO' : '3D Point cloud', 'PERF' : '0.457000', 'UNIT' : 'seconds'}
-{'INPUT' : '33', 'INFO' : 'Vertices', 'PERF' : '1375862.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '33', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.653000', 'UNIT' : 'seconds'}
-{'INPUT' : '33', 'INFO' : 'Distance', 'PERF' : '0.374629', 'UNIT' : ''}
-{'INPUT' : '33', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '20.041000', 'UNIT' : 'seconds'}
-{'INPUT' : '33', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.822000', 'UNIT' : 'seconds'}
-{'INPUT' : '33', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '69.459999', 'UNIT' : 'seconds'}
-{'INPUT' : '33', 'INFO' : 'Number of clusters', 'PERF' : '8.000000', 'UNIT' : ''}
-{'INPUT' : '33', 'INFO' : 'All data processing', 'PERF' : '92.518997', 'UNIT' : 'seconds'}
-{'INPUT' : '34', 'INFO' : '3D Point cloud', 'PERF' : '0.346000', 'UNIT' : 'seconds'}
-{'INPUT' : '34', 'INFO' : 'Vertices', 'PERF' : '1029102.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '34', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.639000', 'UNIT' : 'seconds'}
-{'INPUT' : '34', 'INFO' : 'Distance', 'PERF' : '0.298066', 'UNIT' : ''}
-{'INPUT' : '34', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '15.076000', 'UNIT' : 'seconds'}
-{'INPUT' : '34', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.666000', 'UNIT' : 'seconds'}
-{'INPUT' : '34', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '44.898998', 'UNIT' : 'seconds'}
-{'INPUT' : '34', 'INFO' : 'Number of clusters', 'PERF' : '8.000000', 'UNIT' : ''}
-{'INPUT' : '34', 'INFO' : 'All data processing', 'PERF' : '62.696999', 'UNIT' : 'seconds'}
-{'INPUT' : '35', 'INFO' : '3D Point cloud', 'PERF' : '0.451000', 'UNIT' : 'seconds'}
-{'INPUT' : '35', 'INFO' : 'Vertices', 'PERF' : '1368200.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '35', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.634000', 'UNIT' : 'seconds'}
-{'INPUT' : '35', 'INFO' : 'Distance', 'PERF' : '0.338437', 'UNIT' : ''}
-{'INPUT' : '35', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '19.698999', 'UNIT' : 'seconds'}
-{'INPUT' : '35', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.880000', 'UNIT' : 'seconds'}
-{'INPUT' : '35', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '52.547001', 'UNIT' : 'seconds'}
-{'INPUT' : '35', 'INFO' : 'Number of clusters', 'PERF' : '3.000000', 'UNIT' : ''}
-{'INPUT' : '35', 'INFO' : 'All data processing', 'PERF' : '75.291000', 'UNIT' : 'seconds'}
-{'INPUT' : '36', 'INFO' : '3D Point cloud', 'PERF' : '0.415000', 'UNIT' : 'seconds'}
-{'INPUT' : '36', 'INFO' : 'Vertices', 'PERF' : '1235567.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '36', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.660000', 'UNIT' : 'seconds'}
-{'INPUT' : '36', 'INFO' : 'Distance', 'PERF' : '0.266093', 'UNIT' : ''}
-{'INPUT' : '36', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '17.792999', 'UNIT' : 'seconds'}
-{'INPUT' : '36', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.073000', 'UNIT' : 'seconds'}
-{'INPUT' : '36', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '105.000000', 'UNIT' : 'seconds'}
-{'INPUT' : '36', 'INFO' : 'Number of clusters', 'PERF' : '9.000000', 'UNIT' : ''}
-{'INPUT' : '36', 'INFO' : 'All data processing', 'PERF' : '126.027000', 'UNIT' : 'seconds'}
-{'INPUT' : '37', 'INFO' : '3D Point cloud', 'PERF' : '0.485000', 'UNIT' : 'seconds'}
-{'INPUT' : '37', 'INFO' : 'Vertices', 'PERF' : '1494167.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '37', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.665000', 'UNIT' : 'seconds'}
-{'INPUT' : '37', 'INFO' : 'Distance', 'PERF' : '0.316105', 'UNIT' : ''}
-{'INPUT' : '37', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '21.591999', 'UNIT' : 'seconds'}
-{'INPUT' : '37', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '3.045000', 'UNIT' : 'seconds'}
-{'INPUT' : '37', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '135.964005', 'UNIT' : 'seconds'}
-{'INPUT' : '37', 'INFO' : 'Number of clusters', 'PERF' : '2.000000', 'UNIT' : ''}
-{'INPUT' : '37', 'INFO' : 'All data processing', 'PERF' : '162.839996', 'UNIT' : 'seconds'}
-{'INPUT' : '38', 'INFO' : '3D Point cloud', 'PERF' : '0.483000', 'UNIT' : 'seconds'}
-{'INPUT' : '38', 'INFO' : 'Vertices', 'PERF' : '1488903.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '38', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.627000', 'UNIT' : 'seconds'}
-{'INPUT' : '38', 'INFO' : 'Distance', 'PERF' : '0.317645', 'UNIT' : ''}
-{'INPUT' : '38', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '21.459999', 'UNIT' : 'seconds'}
-{'INPUT' : '38', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.829000', 'UNIT' : 'seconds'}
-{'INPUT' : '38', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '105.792999', 'UNIT' : 'seconds'}
-{'INPUT' : '38', 'INFO' : 'Number of clusters', 'PERF' : '3.000000', 'UNIT' : ''}
-{'INPUT' : '38', 'INFO' : 'All data processing', 'PERF' : '131.274002', 'UNIT' : 'seconds'}
-{'INPUT' : '39', 'INFO' : '3D Point cloud', 'PERF' : '0.333000', 'UNIT' : 'seconds'}
-{'INPUT' : '39', 'INFO' : 'Vertices', 'PERF' : '998956.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '39', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.636000', 'UNIT' : 'seconds'}
-{'INPUT' : '39', 'INFO' : 'Distance', 'PERF' : '0.240705', 'UNIT' : ''}
-{'INPUT' : '39', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '14.384000', 'UNIT' : 'seconds'}
-{'INPUT' : '39', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.266000', 'UNIT' : 'seconds'}
-{'INPUT' : '39', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '48.053001', 'UNIT' : 'seconds'}
-{'INPUT' : '39', 'INFO' : 'Number of clusters', 'PERF' : '2.000000', 'UNIT' : ''}
-{'INPUT' : '39', 'INFO' : 'All data processing', 'PERF' : '65.733002', 'UNIT' : 'seconds'}
-{'INPUT' : '40', 'INFO' : '3D Point cloud', 'PERF' : '0.429000', 'UNIT' : 'seconds'}
-{'INPUT' : '40', 'INFO' : 'Vertices', 'PERF' : '1287356.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '40', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.660000', 'UNIT' : 'seconds'}
-{'INPUT' : '40', 'INFO' : 'Distance', 'PERF' : '0.370034', 'UNIT' : ''}
-{'INPUT' : '40', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '19.025000', 'UNIT' : 'seconds'}
-{'INPUT' : '40', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.657000', 'UNIT' : 'seconds'}
-{'INPUT' : '40', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '120.678001', 'UNIT' : 'seconds'}
-{'INPUT' : '40', 'INFO' : 'Number of clusters', 'PERF' : '3.000000', 'UNIT' : ''}
-{'INPUT' : '40', 'INFO' : 'All data processing', 'PERF' : '142.520996', 'UNIT' : 'seconds'}
-{'INPUT' : '41', 'INFO' : '3D Point cloud', 'PERF' : '0.409000', 'UNIT' : 'seconds'}
-{'INPUT' : '41', 'INFO' : 'Vertices', 'PERF' : '1220286.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '41', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.610000', 'UNIT' : 'seconds'}
-{'INPUT' : '41', 'INFO' : 'Distance', 'PERF' : '0.314297', 'UNIT' : ''}
-{'INPUT' : '41', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '18.058001', 'UNIT' : 'seconds'}
-{'INPUT' : '41', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.691000', 'UNIT' : 'seconds'}
-{'INPUT' : '41', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '45.472000', 'UNIT' : 'seconds'}
-{'INPUT' : '41', 'INFO' : 'Number of clusters', 'PERF' : '5.000000', 'UNIT' : ''}
-{'INPUT' : '41', 'INFO' : 'All data processing', 'PERF' : '66.311996', 'UNIT' : 'seconds'}
-{'INPUT' : '42', 'INFO' : '3D Point cloud', 'PERF' : '0.436000', 'UNIT' : 'seconds'}
-{'INPUT' : '42', 'INFO' : 'Vertices', 'PERF' : '1272876.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '42', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.636000', 'UNIT' : 'seconds'}
-{'INPUT' : '42', 'INFO' : 'Distance', 'PERF' : '0.277089', 'UNIT' : ''}
-{'INPUT' : '42', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '18.667000', 'UNIT' : 'seconds'}
-{'INPUT' : '42', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.060000', 'UNIT' : 'seconds'}
-{'INPUT' : '42', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '81.199997', 'UNIT' : 'seconds'}
-{'INPUT' : '42', 'INFO' : 'Number of clusters', 'PERF' : '4.000000', 'UNIT' : ''}
-{'INPUT' : '42', 'INFO' : 'All data processing', 'PERF' : '103.074997', 'UNIT' : 'seconds'}
-{'INPUT' : '43', 'INFO' : '3D Point cloud', 'PERF' : '0.442000', 'UNIT' : 'seconds'}
-{'INPUT' : '43', 'INFO' : 'Vertices', 'PERF' : '1314421.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '43', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.656000', 'UNIT' : 'seconds'}
-{'INPUT' : '43', 'INFO' : 'Distance', 'PERF' : '0.292447', 'UNIT' : ''}
-{'INPUT' : '43', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '19.052000', 'UNIT' : 'seconds'}
-{'INPUT' : '43', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.229000', 'UNIT' : 'seconds'}
-{'INPUT' : '43', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '60.611000', 'UNIT' : 'seconds'}
-{'INPUT' : '43', 'INFO' : 'Number of clusters', 'PERF' : '5.000000', 'UNIT' : ''}
-{'INPUT' : '43', 'INFO' : 'All data processing', 'PERF' : '83.068001', 'UNIT' : 'seconds'}
-{'INPUT' : '44', 'INFO' : '3D Point cloud', 'PERF' : '0.502000', 'UNIT' : 'seconds'}
-{'INPUT' : '44', 'INFO' : 'Vertices', 'PERF' : '1500360.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '44', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.651000', 'UNIT' : 'seconds'}
-{'INPUT' : '44', 'INFO' : 'Distance', 'PERF' : '0.324335', 'UNIT' : ''}
-{'INPUT' : '44', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '21.267000', 'UNIT' : 'seconds'}
-{'INPUT' : '44', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '2.232000', 'UNIT' : 'seconds'}
-{'INPUT' : '44', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '101.426003', 'UNIT' : 'seconds'}
-{'INPUT' : '44', 'INFO' : 'Number of clusters', 'PERF' : '2.000000', 'UNIT' : ''}
-{'INPUT' : '44', 'INFO' : 'All data processing', 'PERF' : '127.168999', 'UNIT' : 'seconds'}
-{'INPUT' : '45', 'INFO' : '3D Point cloud', 'PERF' : '0.597000', 'UNIT' : 'seconds'}
-{'INPUT' : '45', 'INFO' : 'Vertices', 'PERF' : '1715836.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '45', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.643000', 'UNIT' : 'seconds'}
-{'INPUT' : '45', 'INFO' : 'Distance', 'PERF' : '0.217149', 'UNIT' : ''}
-{'INPUT' : '45', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '24.534000', 'UNIT' : 'seconds'}
-{'INPUT' : '45', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '5.467000', 'UNIT' : 'seconds'}
-{'INPUT' : '45', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '210.376999', 'UNIT' : 'seconds'}
-{'INPUT' : '45', 'INFO' : 'Number of clusters', 'PERF' : '5.000000', 'UNIT' : ''}
-{'INPUT' : '45', 'INFO' : 'All data processing', 'PERF' : '242.727997', 'UNIT' : 'seconds'}
-{'INPUT' : '46', 'INFO' : '3D Point cloud', 'PERF' : '0.503000', 'UNIT' : 'seconds'}
-{'INPUT' : '46', 'INFO' : 'Vertices', 'PERF' : '1531370.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '46', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.661000', 'UNIT' : 'seconds'}
-{'INPUT' : '46', 'INFO' : 'Distance', 'PERF' : '0.275406', 'UNIT' : ''}
-{'INPUT' : '46', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '22.025999', 'UNIT' : 'seconds'}
-{'INPUT' : '46', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '2.028000', 'UNIT' : 'seconds'}
-{'INPUT' : '46', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '125.563004', 'UNIT' : 'seconds'}
-{'INPUT' : '46', 'INFO' : 'Number of clusters', 'PERF' : '4.000000', 'UNIT' : ''}
-{'INPUT' : '46', 'INFO' : 'All data processing', 'PERF' : '151.873001', 'UNIT' : 'seconds'}
-{'INPUT' : '47', 'INFO' : '3D Point cloud', 'PERF' : '0.338000', 'UNIT' : 'seconds'}
-{'INPUT' : '47', 'INFO' : 'Vertices', 'PERF' : '1032394.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '47', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.631000', 'UNIT' : 'seconds'}
-{'INPUT' : '47', 'INFO' : 'Distance', 'PERF' : '0.242409', 'UNIT' : ''}
-{'INPUT' : '47', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '14.802000', 'UNIT' : 'seconds'}
-{'INPUT' : '47', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.388000', 'UNIT' : 'seconds'}
-{'INPUT' : '47', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '24.743999', 'UNIT' : 'seconds'}
-{'INPUT' : '47', 'INFO' : 'Number of clusters', 'PERF' : '5.000000', 'UNIT' : ''}
-{'INPUT' : '47', 'INFO' : 'All data processing', 'PERF' : '41.966000', 'UNIT' : 'seconds'}
-{'INPUT' : '48', 'INFO' : '3D Point cloud', 'PERF' : '0.475000', 'UNIT' : 'seconds'}
-{'INPUT' : '48', 'INFO' : 'Vertices', 'PERF' : '1405631.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '48', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.654000', 'UNIT' : 'seconds'}
-{'INPUT' : '48', 'INFO' : 'Distance', 'PERF' : '0.259225', 'UNIT' : ''}
-{'INPUT' : '48', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '20.247999', 'UNIT' : 'seconds'}
-{'INPUT' : '48', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.784000', 'UNIT' : 'seconds'}
-{'INPUT' : '48', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '92.726997', 'UNIT' : 'seconds'}
-{'INPUT' : '48', 'INFO' : 'Number of clusters', 'PERF' : '6.000000', 'UNIT' : ''}
-{'INPUT' : '48', 'INFO' : 'All data processing', 'PERF' : '115.980003', 'UNIT' : 'seconds'}
-{'INPUT' : '49', 'INFO' : '3D Point cloud', 'PERF' : '0.488000', 'UNIT' : 'seconds'}
-{'INPUT' : '49', 'INFO' : 'Vertices', 'PERF' : '1481810.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '49', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.658000', 'UNIT' : 'seconds'}
-{'INPUT' : '49', 'INFO' : 'Distance', 'PERF' : '0.296980', 'UNIT' : ''}
-{'INPUT' : '49', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '21.503000', 'UNIT' : 'seconds'}
-{'INPUT' : '49', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '2.798000', 'UNIT' : 'seconds'}
-{'INPUT' : '49', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '81.650002', 'UNIT' : 'seconds'}
-{'INPUT' : '49', 'INFO' : 'Number of clusters', 'PERF' : '6.000000', 'UNIT' : ''}
-{'INPUT' : '49', 'INFO' : 'All data processing', 'PERF' : '108.184998', 'UNIT' : 'seconds'}
-{'INPUT' : '50', 'INFO' : '3D Point cloud', 'PERF' : '0.475000', 'UNIT' : 'seconds'}
-{'INPUT' : '50', 'INFO' : 'Vertices', 'PERF' : '1403777.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '50', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.641000', 'UNIT' : 'seconds'}
-{'INPUT' : '50', 'INFO' : 'Distance', 'PERF' : '0.329595', 'UNIT' : ''}
-{'INPUT' : '50', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '20.343000', 'UNIT' : 'seconds'}
-{'INPUT' : '50', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.481000', 'UNIT' : 'seconds'}
-{'INPUT' : '50', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '106.486000', 'UNIT' : 'seconds'}
-{'INPUT' : '50', 'INFO' : 'Number of clusters', 'PERF' : '9.000000', 'UNIT' : ''}
-{'INPUT' : '50', 'INFO' : 'All data processing', 'PERF' : '129.520996', 'UNIT' : 'seconds'}
-{'INPUT' : '51', 'INFO' : '3D Point cloud', 'PERF' : '0.495000', 'UNIT' : 'seconds'}
-{'INPUT' : '51', 'INFO' : 'Vertices', 'PERF' : '1489161.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '51', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.645000', 'UNIT' : 'seconds'}
-{'INPUT' : '51', 'INFO' : 'Distance', 'PERF' : '0.371475', 'UNIT' : ''}
-{'INPUT' : '51', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '21.708000', 'UNIT' : 'seconds'}
-{'INPUT' : '51', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '2.300000', 'UNIT' : 'seconds'}
-{'INPUT' : '51', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '145.630005', 'UNIT' : 'seconds'}
-{'INPUT' : '51', 'INFO' : 'Number of clusters', 'PERF' : '6.000000', 'UNIT' : ''}
-{'INPUT' : '51', 'INFO' : 'All data processing', 'PERF' : '171.865997', 'UNIT' : 'seconds'}
-{'INPUT' : '52', 'INFO' : '3D Point cloud', 'PERF' : '0.384000', 'UNIT' : 'seconds'}
-{'INPUT' : '52', 'INFO' : 'Vertices', 'PERF' : '1109742.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '52', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.644000', 'UNIT' : 'seconds'}
-{'INPUT' : '52', 'INFO' : 'Distance', 'PERF' : '0.304082', 'UNIT' : ''}
-{'INPUT' : '52', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '16.525999', 'UNIT' : 'seconds'}
-{'INPUT' : '52', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.527000', 'UNIT' : 'seconds'}
-{'INPUT' : '52', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '48.779999', 'UNIT' : 'seconds'}
-{'INPUT' : '52', 'INFO' : 'Number of clusters', 'PERF' : '3.000000', 'UNIT' : ''}
-{'INPUT' : '52', 'INFO' : 'All data processing', 'PERF' : '67.931999', 'UNIT' : 'seconds'}
-{'INPUT' : '53', 'INFO' : '3D Point cloud', 'PERF' : '0.447000', 'UNIT' : 'seconds'}
-{'INPUT' : '53', 'INFO' : 'Vertices', 'PERF' : '1327036.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '53', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.626000', 'UNIT' : 'seconds'}
-{'INPUT' : '53', 'INFO' : 'Distance', 'PERF' : '0.309320', 'UNIT' : ''}
-{'INPUT' : '53', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '18.948999', 'UNIT' : 'seconds'}
-{'INPUT' : '53', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '3.226000', 'UNIT' : 'seconds'}
-{'INPUT' : '53', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '62.780998', 'UNIT' : 'seconds'}
-{'INPUT' : '53', 'INFO' : 'Number of clusters', 'PERF' : '6.000000', 'UNIT' : ''}
-{'INPUT' : '53', 'INFO' : 'All data processing', 'PERF' : '87.105003', 'UNIT' : 'seconds'}
-{'INPUT' : '54', 'INFO' : '3D Point cloud', 'PERF' : '0.450000', 'UNIT' : 'seconds'}
-{'INPUT' : '54', 'INFO' : 'Vertices', 'PERF' : '1362499.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '54', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.666000', 'UNIT' : 'seconds'}
-{'INPUT' : '54', 'INFO' : 'Distance', 'PERF' : '0.304269', 'UNIT' : ''}
-{'INPUT' : '54', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '19.816000', 'UNIT' : 'seconds'}
-{'INPUT' : '54', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '1.173000', 'UNIT' : 'seconds'}
-{'INPUT' : '54', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '76.692001', 'UNIT' : 'seconds'}
-{'INPUT' : '54', 'INFO' : 'Number of clusters', 'PERF' : '4.000000', 'UNIT' : ''}
-{'INPUT' : '54', 'INFO' : 'All data processing', 'PERF' : '99.875999', 'UNIT' : 'seconds'}
-{'INPUT' : '55', 'INFO' : '3D Point cloud', 'PERF' : '0.441000', 'UNIT' : 'seconds'}
-{'INPUT' : '55', 'INFO' : 'Vertices', 'PERF' : '1329735.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '55', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.649000', 'UNIT' : 'seconds'}
-{'INPUT' : '55', 'INFO' : 'Distance', 'PERF' : '0.263074', 'UNIT' : ''}
-{'INPUT' : '55', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '18.775999', 'UNIT' : 'seconds'}
-{'INPUT' : '55', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '4.921000', 'UNIT' : 'seconds'}
-{'INPUT' : '55', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '111.690002', 'UNIT' : 'seconds'}
-{'INPUT' : '55', 'INFO' : 'Number of clusters', 'PERF' : '2.000000', 'UNIT' : ''}
-{'INPUT' : '55', 'INFO' : 'All data processing', 'PERF' : '137.557999', 'UNIT' : 'seconds'}
-{'INPUT' : '56', 'INFO' : '3D Point cloud', 'PERF' : '0.402000', 'UNIT' : 'seconds'}
-{'INPUT' : '56', 'INFO' : 'Vertices', 'PERF' : '1153622.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '56', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.655000', 'UNIT' : 'seconds'}
-{'INPUT' : '56', 'INFO' : 'Distance', 'PERF' : '0.293295', 'UNIT' : ''}
-{'INPUT' : '56', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '16.787001', 'UNIT' : 'seconds'}
-{'INPUT' : '56', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '0.542000', 'UNIT' : 'seconds'}
-{'INPUT' : '56', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '36.672001', 'UNIT' : 'seconds'}
-{'INPUT' : '56', 'INFO' : 'Number of clusters', 'PERF' : '6.000000', 'UNIT' : ''}
-{'INPUT' : '56', 'INFO' : 'All data processing', 'PERF' : '56.127998', 'UNIT' : 'seconds'}
-{'INPUT' : '57', 'INFO' : '3D Point cloud', 'PERF' : '0.455000', 'UNIT' : 'seconds'}
-{'INPUT' : '57', 'INFO' : 'Vertices', 'PERF' : '1378247.000000', 'UNIT' : 'vertices'}
-{'INPUT' : '57', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '1.643000', 'UNIT' : 'seconds'}
-{'INPUT' : '57', 'INFO' : 'Distance', 'PERF' : '0.314503', 'UNIT' : ''}
-{'INPUT' : '57', 'INFO' : 'Road detection (RANSAC)', 'PERF' : '19.511999', 'UNIT' : 'seconds'}
-{'INPUT' : '57', 'INFO' : 'Vertical object detection (RANSAC)', 'PERF' : '2.431000', 'UNIT' : 'seconds'}
-{'INPUT' : '57', 'INFO' : 'Vertical object detection (Clustering)', 'PERF' : '61.237000', 'UNIT' : 'seconds'}
-{'INPUT' : '57', 'INFO' : 'Number of clusters', 'PERF' : '2.000000', 'UNIT' : ''}
-{'INPUT' : '57', 'INFO' : 'All data processing', 'PERF' : '85.350998', 'UNIT' : 'seconds'}
+{'INPUT' : '25', 'INFO' : 'All data processing', 'PERF' : '90.390999', 'UNIT' : 'seconds'}
+{'INPUT' : '26', 'INFO' : '3D Point cloud', 'PERF' : '1.203000', 'UNIT' : 'seconds'}
+{'INPUT' : '26', 'INFO' : 'Vertices', 'PERF' : '1263952.000000', 'UNIT' : 'vertices'}
+{'INPUT' : '26', 'INFO' : 'Mean Neighbours Distance', 'PERF' : '2.129000', 'UNIT' : 'seconds'}
+{'INPUT' : '26', 'INFO' : 'Distance', 'PERF' : '0.288393', 'UNIT' : ''}

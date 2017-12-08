@@ -71,7 +71,7 @@ int main() {
 			num = to_string(i);
 			for (int num0 = 0; num0 < log10(100000 / i); num0++) num = "0" + num;
 		}
-		projectData data = projectData("../project/input/input_" + to_string(i) + "/leverkusen_" + num + "_000019", DISPARITY_GAUSSIAN_BLUR);
+		projectData data = projectData("../project/input/input_" + to_string(i) + "/leverkusen_" + num + "_000019", DISPARITY_GAUSSIAN_BLUR, LEFT_IMAGE_GAUSSIAN_BLUR);
 
 		// Get current time.
 		t = clock();
@@ -126,8 +126,8 @@ int main() {
 		|  4. DETECTION OF VERTICAL OBJECTS (RANSAC)  |
 		---------------------------------------------*/
 		// Apply RANSAC.
-		ransac rVo = ransac(0.999, 2 * meanNeighboursDistance);
-		point3dCloud pointcloudVO_ransac = rVo.fit3dLine(rRoadResult.second, planeRoad, true, COLORS[GREEN], 5, 4 * meanNeighboursDistance);
+		ransac rVo = ransac(0.999, 4 * meanNeighboursDistance);
+		point3dCloud pointcloudVO_ransac = rVo.fit3dLine(rRoadResult.second, planeRoad, true, COLORS[GREEN], 5, 9 * meanNeighboursDistance);
 
 		// Output result.
 		logger.log_message(message(log_tag, i, "Vertical object detection (RANSAC)", clock2sec(clock() - t_loc), "seconds"));
@@ -143,7 +143,7 @@ int main() {
 		-------------------------------------------------*/
 		
 		// Access data to get a clean version of the left image.
-		data = projectData("../project/input/input_" + to_string(i) + "/leverkusen_" + num + "_000019", DISPARITY_GAUSSIAN_BLUR);
+		data = projectData("../project/input/input_" + to_string(i) + "/leverkusen_" + num + "_000019", DISPARITY_GAUSSIAN_BLUR, LEFT_IMAGE_GAUSSIAN_BLUR);
 
 		// Changing the base of coordinates to set the x axis as the altitude. It allows us to contract the altitude in the computation of kMeans.
 		(rRoadResult.second).changeBase(planeRoad.getABase());
@@ -180,7 +180,7 @@ int main() {
 		vector<point3dCloud> clusters = c.getClusters();
 		for (int i = 0; i < clusters.size(); i++) {
 			clusters[i].setColor(COLORS[(i + 1) % COLORS.size()]);
-			clusters[i].showOnImage(data.getLeftImage(), false, true, "../project/output/performance_evaluation/images/clustering/leverkusen_" + num + "_000019.jpg");
+			clusters[i].showOnImage(data.getLeftImage(), false, i == clusters.size() - 1, "../project/output/performance_evaluation/images/clustering/leverkusen_" + num + "_000019.jpg");
 		}
 		
 
